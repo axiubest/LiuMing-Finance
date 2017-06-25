@@ -1,0 +1,145 @@
+//
+//  PrefixHeader.pch
+//  MDObj
+//
+//  Created by Apple on 17/6/15.
+//  Copyright © 2017年 A_XIU. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "FileGlobalReference.h"
+
+
+
+static NSInteger HUDProgress_Time = 1;
+
+#define NB_FONT(r) [UIFont fontWithName:@"PingFang-SC-Regular" size:r]
+
+//-------------color----------------
+#define Color(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+//-------------color----------------
+
+
+
+//-------------网络参数设置----------------
+
+
+//搜索记录plist参数
+static NSString * const history_search = @"history_search";
+
+static NSString *const patchUpdateURL = @"http://112.74.28.179:8080/Chislim/apk/demo.js";
+
+static NSString *const KBASEURL = @"http://112.74.28.179:8080/Chislim/";
+//-------------网络参数设置----------------
+
+
+
+//------------屏幕尺寸---------------
+
+#define kiPhone4_W 320
+#define kiPhone4_H 480
+#define kiPhone5_W 320
+#define kiPhone5_H 568
+#define kiPhone6_W 375
+#define kiPhone6_H 667
+#define kiPhone6P_W 414
+#define kiPhone6P_H 736
+
+
+#define kKeyWindow [UIApplication sharedApplication].keyWindow
+//屏幕高
+#define KHEIGHT [UIScreen mainScreen].bounds.size.height
+
+//屏幕宽
+#define KWIDTH [UIScreen mainScreen].bounds.size.width
+
+#define FULLRECT CGRectMake(0, 0, KWIDTH, KHEIGHT)
+
+#define SCREEN_BOUNDS   [UIScreen mainScreen].bounds
+#define SCREEN_SIZE     [UIScreen mainScreen].bounds.size
+
+/***  屏宽比例 */
+#define kScreenWidthRatio (KWIDTH / (kiPhone6_W * 1.0))
+/***  粗体 */
+#define kBoldFont(size) [UIFont boldSystemFontOfSize:size * kScreenWidthRatio]
+/***  普通字体 */
+#define kFont(size) [UIFont systemFontOfSize:size * kScreenWidthRatio]
+
+static NSInteger const  NaigationBarHeight = 64;
+static NSInteger const  TabBarHeight = 49;
+
+//------------屏幕尺寸---------------
+
+
+
+
+
+//------------TableView设置---------------
+
+//TableView—Frame
+#define UITableView_CGRect CGRectMake(0, 0, KWIDTH, KHEIGHT)
+
+static CGFloat const kPaddingLeftWidth = 15.0f;
+static CGFloat const kLoginPaddingLeftWidth = 18.0f;
+
+
+//------------TableView设置---------------
+
+//登录模块按钮宽度
+static CGFloat const LAND_CONTORL_HEIGHT = 50.f;
+
+
+
+//------------系统---------------
+
+//弱引用
+#define XIU_WeakSelf(type)  __weak typeof(type) weak##type = type;
+
+
+//重写NSLog,Debug模式下打印日志和当前行数
+
+#ifdef DEBUG
+#define NSLog(s, ... ) NSLog( @"[%@ in line %d]=>>%@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
+#else
+#define NSLog(s, ... )
+#endif
+
+//获取系统版本
+#define IOS_VERSION ［[UIDevice currentDevice] systemVersion] floatValue]
+#define CurrentSystemVersion ［UIDevice currentDevice] systemVersion]
+
+//获取当前语言
+#define CURRENT_LANGUAGE (［NSLocale preferredLanguages] objectAtIndex:0])
+
+//检查系统版本
+#define SYSTEM_VERSION_EQUAL_TO(v) (［[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+#define SYSTEM_VERSION_GREATER_THAN(v) (［[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v) (［[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN(v) (［[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v) (［[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+
+
+//获取沙盒 Document
+#define kPathDocument [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject]
+
+//获取沙盒 Cache
+#define kPathCache [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]
+
+
+
+
+//------------系统---------------
+
+
+//------massory--------
+//define this constant if you want to use Masonry without the 'mas_' prefix
+#define MAS_SHORTHAND
+//define this constant if you want to enable auto-boxing for default syntax
+#define MAS_SHORTHAND_GLOBALS
+
+#define SV self.view
+//----------------------
+
+#endif /* PrefixHeader_pch */
