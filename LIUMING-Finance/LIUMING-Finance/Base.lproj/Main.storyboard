@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -285,7 +286,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5Rl-ID-4g4" id="Lym-Sk-4jE">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -317,7 +318,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="a5a-nM-h9E" id="wob-eM-pkA">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -346,7 +347,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="V9v-xa-ees" id="Rgo-Pk-8OK">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -400,7 +401,7 @@
             </objects>
             <point key="canvasLocation" x="1257" y="1566"/>
         </scene>
-        <!--Hidden Nav View Controller-->
+        <!--登录-->
         <scene sceneID="AKe-V2-Z97">
             <objects>
                 <viewController id="MgN-lr-Lxq" customClass="XIU_HiddenNavViewController" sceneMemberID="viewController">
@@ -413,7 +414,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fgt-88-hxS">
-                                <rect key="frame" x="116" y="588" width="142" height="30"/>
+                                <rect key="frame" x="116" y="637" width="142" height="30"/>
                                 <state key="normal" title="没有账号？ 立即注册"/>
                                 <connections>
                                     <segue destination="ah0-ve-aUl" kind="push" id="JKM-UW-ZW8"/>
@@ -426,13 +427,13 @@
                             <constraint firstItem="Fgt-88-hxS" firstAttribute="centerX" secondItem="cqP-Sf-lLH" secondAttribute="centerX" id="nMw-Rq-Y0V"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ZCt-E6-8OH"/>
+                    <navigationItem key="navigationItem" title="登录" id="ZCt-E6-8OH"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1BL-e5-ezg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1175" y="1519"/>
         </scene>
-        <!--View Controller-->
+        <!--注册-->
         <scene sceneID="niy-pb-Dsd">
             <objects>
                 <viewController id="ah0-ve-aUl" sceneMemberID="viewController">
@@ -445,24 +446,97 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y8M-xL-St8">
-                                <rect key="frame" x="116" y="588" width="142" height="30"/>
+                                <rect key="frame" x="116" y="637" width="142" height="30"/>
                                 <state key="normal" title="已有账号？ 立即登录"/>
                                 <connections>
                                     <segue destination="MgN-lr-Lxq" kind="push" id="A4a-Sa-edN"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rUH-uT-3H3">
+                                <rect key="frame" x="36" y="587" width="303" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Va8-02-mJi"/>
+                                </constraints>
+                                <state key="normal" title="注册">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="oVo-MB-426" kind="push" id="UDq-qx-Vje"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="rUH-uT-3H3" secondAttribute="trailing" constant="20" id="BqO-lk-M7I"/>
+                            <constraint firstItem="rUH-uT-3H3" firstAttribute="leading" secondItem="gl6-tu-WTg" secondAttribute="leadingMargin" constant="20" id="PQ8-3w-Xpa"/>
                             <constraint firstItem="y8M-xL-St8" firstAttribute="centerX" secondItem="gl6-tu-WTg" secondAttribute="centerX" id="Wng-bI-RmD"/>
                             <constraint firstItem="93V-ac-oPc" firstAttribute="top" secondItem="y8M-xL-St8" secondAttribute="bottom" id="YXU-gd-ojF"/>
+                            <constraint firstItem="y8M-xL-St8" firstAttribute="top" secondItem="rUH-uT-3H3" secondAttribute="bottom" constant="20" id="gul-P5-BZC"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="3al-on-duK"/>
+                    <navigationItem key="navigationItem" title="注册" id="3al-on-duK"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p78-Zk-zqo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-449" y="1519"/>
+        </scene>
+        <!--详细资料-->
+        <scene sceneID="Eo0-85-gcM">
+            <objects>
+                <tableViewController id="oVo-MB-426" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="rPL-SR-u8q">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="2q5-sG-nfp">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2q5-sG-nfp" id="zl9-Jp-l2V">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="oVo-MB-426" id="gcx-Th-f3p"/>
+                            <outlet property="delegate" destination="oVo-MB-426" id="8f9-aF-8dj"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="详细资料" id="rPe-4v-Cgw"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qey-rL-Z0o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-450" y="2378"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="sDi-UP-wK9">
+            <objects>
+                <tableViewController id="dYX-Yr-qTE" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Kqz-5J-3HE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="g3W-Zj-78m">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g3W-Zj-78m" id="Dg6-oo-VsV">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="dYX-Yr-qTE" id="WR1-Fx-uZ8"/>
+                            <outlet property="delegate" destination="dYX-Yr-qTE" id="edm-9y-cn2"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jmJ-tA-2cx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="319" y="2385"/>
         </scene>
         <!--我的-->
         <scene sceneID="8Cj-Ss-nMk">
@@ -496,7 +570,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="25F-bv-uCZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1588" y="3005"/>
+            <point key="canvasLocation" x="-1588" y="3567"/>
         </scene>
         <!--333-->
         <scene sceneID="PGM-gS-2D1">
@@ -511,7 +585,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wje-qW-kSm" id="mxh-0W-g7e">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -525,14 +599,14 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rlp-q1-gJJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-791" y="3005"/>
+            <point key="canvasLocation" x="-743" y="3545"/>
         </scene>
     </scenes>
     <resources>
         <image name="212121.png" width="28" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FDj-PA-YQr"/>
-        <segue reference="UNi-7r-4dM"/>
+        <segue reference="A4a-Sa-edN"/>
+        <segue reference="frT-Z5-MsN"/>
     </inferredMetricsTieBreakers>
 </document>
