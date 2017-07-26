@@ -45,6 +45,50 @@ static XIU_User *curLoginUser;
  
 }
 
++(NSString *)userId {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_id"];
+}
+
++(NSString *)userName {
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_account"] length] < 2) {
+        return @"请前往完善姓名";
+    }
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_account"];
+}
+
++(NSString *)type {
+    return @"5";
+//    return [NSString stringWithFormat:@"%@", [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_type"]] ;
+}
+
++(NSString *)ui_phone {
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_qqwx"] length] != 11) {
+        return @"请前往完善手机号";
+    }
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_phone"];
+}
+
+
++(NSString *)ui_qqwx {
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_qqwx"] length] < 4) {
+        return @"请前往完善微信号";
+    }
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_qqwx"];
+
+}
++(NSString *)ui_sex {
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_sex"]  isEqual: @1]) {
+        return @"男";
+    }else if ([[[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_sex"]  isEqual: @0]) {
+        return @"女";
+    }
+    return @"您未完善性别";
+}
+
++ (BOOL)isVerification {
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict] objectForKey:@"xiaoxi"];
+}
+
 + (void)doLogin:(NSDictionary *)loginData {
     if (loginData) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

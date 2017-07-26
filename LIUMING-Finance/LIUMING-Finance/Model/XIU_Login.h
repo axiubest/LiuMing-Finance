@@ -23,6 +23,12 @@
 + (void)doLogin:(NSDictionary *)loginData;
 +(BOOL)isLogin;
 +(void)doLogOut;
-
++(NSString *)userName;
++(NSString *)userId;
++(NSString *)ui_phone;
++(NSString *)ui_qqwx;
++(NSString *)ui_sex;
++(NSString *)type;
++ (BOOL)isVerification;
 + (XIU_User *)curLoginUser;
 @end

@@ -7,7 +7,9 @@
 //
 
 #import "AppDelegate.h"
-
+#import "Login_ViewController.h"
+#import "FinancialContribution_ViewController.h"
+#import "HKBaseTableViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -16,7 +18,35 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    
+    //判断用户是否登陆
+    
+//    if (![XIU_Login isLogin]) {
+//
+//        self.window.rootViewController = [Login_ViewController loadViewControllerFromMainStoryBoard];
+//    }else{
+        //3终端 2财务 5催收
+        if ([[XIU_Login type] isEqualToString:@"3"]) {
+            self.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
+  
+        }if ([[XIU_Login type] isEqualToString:@"2"]) {
+            FinancialContribution_ViewController *v = [[FinancialContribution_ViewController alloc] init];
+            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:v];
+            self.window.rootViewController = nav;
+            
+        }if ([[XIU_Login type] isEqualToString:@"5"]) {
+            HKBaseTableViewController *v = [[HKBaseTableViewController alloc] init];
+            v.title = @"催收订单";
+            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:v];
+            self.window.rootViewController = nav;
+            
+        }
+        
+//         }
+    
+    
+     [self.window makeKeyAndVisible];
     return YES;
 }
 

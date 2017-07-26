@@ -10,12 +10,14 @@
 #define FileGlobalReference_h
 
 #import "XIU_ViewController.h"
-
+#import "UIViewController+Common.h"
 #import "XIU_HiddenNavViewController.h"
+#import "XIU_NetAPIClient.h"
 #import "Masonry.h"
 #import "XIU_User.h"
 #import "XIU_Login.h"
-
+#import "Masonry.h"
+#import "MBProgressHUD.h"
 
 
 
@@ -24,4 +26,25 @@
 #import "UIView+BlocksKit.h"
 #import "UIView+Common.h"
 
+
+
+
+#define API_doLogin @"Login/doLogin"
+#define API_doPage1 @"Login/doxiaoxi"
+#define API_doRegister @"Login/doRegister"
+#define API_code @"Login/code"
+#define API_List @"Index/my_order"
+#define API_profit @"Index/profit"
+#define API_applying @"Index/do_applying"
+#define API_my_index @"Index/my_index"
+#define API_home @"Index/index"
+
+
 #endif /* FileGlobalReference_h */
+
+#define XIUHUD(MSG) MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];\
+hud.mode = MBProgressHUDModeText;\
+hud.labelText = MSG;\
+hud.removeFromSuperViewOnHide = YES;\
+[hud hide:YES afterDelay:1.5];
+
