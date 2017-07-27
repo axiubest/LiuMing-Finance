@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="205" id="KGk-i7-Jjw" customClass="HKPhotoUploadCell">
+            <rect key="frame" x="0.0" y="0.0" width="528" height="205"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="528" height="205"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="照片上传" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEf-xl-mho">
+                        <rect key="frame" x="18" y="15" width="45" height="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GBn-xu-UGv">
+                        <rect key="frame" x="18" y="36" width="492" height="1"/>
+                        <color key="backgroundColor" red="0.76862745098039209" green="0.76862745098039209" blue="0.76862745098039209" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="VR2-jX-XET"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FkU-3y-nPs">
+                        <rect key="frame" x="27" y="52" width="58" height="58"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="58" id="9qd-bp-5yg"/>
+                            <constraint firstAttribute="width" constant="58" id="S8p-oa-C5M"/>
+                        </constraints>
+                        <state key="normal" image="添加照片"/>
+                        <connections>
+                            <action selector="btnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="DZV-aO-61W"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9M-Lz-5U8">
+                        <rect key="frame" x="165.5" y="52" width="58" height="58"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="58" id="4Si-fY-byG"/>
+                            <constraint firstAttribute="height" constant="58" id="m59-os-t26"/>
+                        </constraints>
+                        <state key="normal" image="添加照片"/>
+                        <connections>
+                            <action selector="btnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="bOf-Ju-KIW"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="62a-z5-5YP">
+                        <rect key="frame" x="304.5" y="52" width="58" height="58"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="58" id="Jgq-RY-kSF"/>
+                            <constraint firstAttribute="width" constant="58" id="k7n-fF-5ja"/>
+                        </constraints>
+                        <state key="normal" image="595009EE-A906-437B-8FDB-6D28EB8DEE9F"/>
+                        <connections>
+                            <action selector="btnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Y0e-9e-Efk"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G2b-h8-3cL">
+                        <rect key="frame" x="443" y="52" width="58" height="58"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="58" id="VGw-8w-tc4"/>
+                            <constraint firstAttribute="width" constant="58" id="kDP-TX-alB"/>
+                        </constraints>
+                        <state key="normal" image="添加照片"/>
+                        <connections>
+                            <action selector="btnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="lBK-H7-csw"/>
+                        </connections>
+                    </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eJm-Ff-wID">
+                        <rect key="frame" x="223.5" y="52" width="81" height="58"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rZH-1j-nfe">
+                        <rect key="frame" x="85" y="52" width="80.5" height="58"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tIO-6O-MhO">
+                        <rect key="frame" x="362.5" y="52" width="80.5" height="58"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="身份证正面" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8el-dB-dnx">
+                        <rect key="frame" x="27" y="120" width="58" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="身份证反面" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EHZ-0b-ZG7">
+                        <rect key="frame" x="165" y="120" width="58" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手持身份证" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CoX-14-vx4">
+                        <rect key="frame" x="304" y="120" width="58" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="工牌/工作证明" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APx-tQ-YJc">
+                        <rect key="frame" x="439.5" y="120" width="65" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2U6-AO-op1">
+                        <rect key="frame" x="18" y="152" width="492" height="1"/>
+                        <color key="backgroundColor" red="0.76862745099999996" green="0.76862745099999996" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*请确保信息的真实性，以免造成借款审核失败" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xYd-wM-uZo">
+                        <rect key="frame" x="18" y="173" width="492" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.99607843137254903" green="0.19607843137254902" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="tIO-6O-MhO" firstAttribute="leading" secondItem="62a-z5-5YP" secondAttribute="trailing" id="0G2-Zb-dtJ"/>
+                    <constraint firstItem="EHZ-0b-ZG7" firstAttribute="leading" secondItem="d9M-Lz-5U8" secondAttribute="leading" id="0ei-VY-GJ9"/>
+                    <constraint firstItem="xYd-wM-uZo" firstAttribute="top" secondItem="2U6-AO-op1" secondAttribute="bottom" constant="20" id="1Ve-6W-Lgd"/>
+                    <constraint firstItem="d9M-Lz-5U8" firstAttribute="top" secondItem="FkU-3y-nPs" secondAttribute="top" id="3Q0-1f-Akf"/>
+                    <constraint firstItem="G2b-h8-3cL" firstAttribute="top" secondItem="FkU-3y-nPs" secondAttribute="top" id="3VE-0K-PQF"/>
+                    <constraint firstItem="2U6-AO-op1" firstAttribute="trailing" secondItem="GBn-xu-UGv" secondAttribute="trailing" id="57I-nM-VJF"/>
+                    <constraint firstItem="rZH-1j-nfe" firstAttribute="top" secondItem="eJm-Ff-wID" secondAttribute="top" id="5CT-nE-XOy"/>
+                    <constraint firstItem="rZH-1j-nfe" firstAttribute="height" secondItem="eJm-Ff-wID" secondAttribute="height" id="8rt-DM-G1h"/>
+                    <constraint firstItem="CoX-14-vx4" firstAttribute="top" secondItem="8el-dB-dnx" secondAttribute="top" id="9x3-fz-GgB"/>
+                    <constraint firstItem="CoX-14-vx4" firstAttribute="trailing" secondItem="62a-z5-5YP" secondAttribute="trailing" id="9y8-CM-Yjw"/>
+                    <constraint firstItem="G2b-h8-3cL" firstAttribute="leading" secondItem="tIO-6O-MhO" secondAttribute="trailing" id="Al0-So-B5H"/>
+                    <constraint firstItem="APx-tQ-YJc" firstAttribute="top" secondItem="8el-dB-dnx" secondAttribute="top" id="B6Z-yT-sQG"/>
+                    <constraint firstItem="xYd-wM-uZo" firstAttribute="leading" secondItem="GBn-xu-UGv" secondAttribute="leading" id="Bme-iK-Lup"/>
+                    <constraint firstItem="eJm-Ff-wID" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="CSH-aw-E8S"/>
+                    <constraint firstItem="rZH-1j-nfe" firstAttribute="width" secondItem="eJm-Ff-wID" secondAttribute="width" id="DTc-Tf-O8A"/>
+                    <constraint firstItem="APx-tQ-YJc" firstAttribute="centerX" secondItem="G2b-h8-3cL" secondAttribute="centerX" id="Ezt-m8-Uxr"/>
+                    <constraint firstItem="FkU-3y-nPs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="27" id="H2c-ts-L7w"/>
+                    <constraint firstItem="tIO-6O-MhO" firstAttribute="width" secondItem="eJm-Ff-wID" secondAttribute="width" id="JQY-pb-g0e"/>
+                    <constraint firstItem="EHZ-0b-ZG7" firstAttribute="top" secondItem="8el-dB-dnx" secondAttribute="top" id="K0p-pf-cU3"/>
+                    <constraint firstItem="xYd-wM-uZo" firstAttribute="trailing" secondItem="GBn-xu-UGv" secondAttribute="trailing" id="LPK-kT-9Gu"/>
+                    <constraint firstItem="FkU-3y-nPs" firstAttribute="top" secondItem="GBn-xu-UGv" secondAttribute="bottom" constant="15.5" id="LoU-yD-F87"/>
+                    <constraint firstAttribute="trailing" secondItem="GBn-xu-UGv" secondAttribute="trailing" constant="18" id="MIG-cY-wnk"/>
+                    <constraint firstItem="tIO-6O-MhO" firstAttribute="bottom" secondItem="62a-z5-5YP" secondAttribute="bottom" id="MPJ-Hs-T6w"/>
+                    <constraint firstItem="62a-z5-5YP" firstAttribute="top" secondItem="FkU-3y-nPs" secondAttribute="top" id="S7w-QX-o3M"/>
+                    <constraint firstItem="2U6-AO-op1" firstAttribute="leading" secondItem="GBn-xu-UGv" secondAttribute="leading" id="UN2-tv-Ll4"/>
+                    <constraint firstItem="2U6-AO-op1" firstAttribute="top" secondItem="CoX-14-vx4" secondAttribute="bottom" constant="20" id="UuB-Nm-gXi"/>
+                    <constraint firstAttribute="trailing" secondItem="G2b-h8-3cL" secondAttribute="trailing" constant="27" id="VQn-gj-J7v"/>
+                    <constraint firstItem="rZH-1j-nfe" firstAttribute="leading" secondItem="FkU-3y-nPs" secondAttribute="trailing" id="WV4-DZ-mla"/>
+                    <constraint firstItem="62a-z5-5YP" firstAttribute="leading" secondItem="eJm-Ff-wID" secondAttribute="trailing" id="WoR-r9-ehV"/>
+                    <constraint firstItem="GBn-xu-UGv" firstAttribute="leading" secondItem="wEf-xl-mho" secondAttribute="leading" id="Zx7-sS-Lys"/>
+                    <constraint firstItem="GBn-xu-UGv" firstAttribute="top" secondItem="wEf-xl-mho" secondAttribute="bottom" constant="7" id="gBr-1L-935"/>
+                    <constraint firstItem="8el-dB-dnx" firstAttribute="trailing" secondItem="FkU-3y-nPs" secondAttribute="trailing" id="hYT-Ht-ymD"/>
+                    <constraint firstItem="EHZ-0b-ZG7" firstAttribute="trailing" secondItem="d9M-Lz-5U8" secondAttribute="trailing" id="ja1-uo-gLY"/>
+                    <constraint firstItem="CoX-14-vx4" firstAttribute="leading" secondItem="62a-z5-5YP" secondAttribute="leading" id="jgS-KZ-gph"/>
+                    <constraint firstItem="2U6-AO-op1" firstAttribute="height" secondItem="GBn-xu-UGv" secondAttribute="height" id="k4K-z0-2zm"/>
+                    <constraint firstItem="FkU-3y-nPs" firstAttribute="top" secondItem="GBn-xu-UGv" secondAttribute="bottom" constant="15" id="mdZ-37-hxK"/>
+                    <constraint firstItem="wEf-xl-mho" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="qay-3c-FIP"/>
+                    <constraint firstItem="8el-dB-dnx" firstAttribute="top" secondItem="FkU-3y-nPs" secondAttribute="bottom" constant="10" id="qi7-L0-NER"/>
+                    <constraint firstItem="eJm-Ff-wID" firstAttribute="leading" secondItem="d9M-Lz-5U8" secondAttribute="trailing" id="rZe-3z-cv9"/>
+                    <constraint firstItem="eJm-Ff-wID" firstAttribute="top" secondItem="FkU-3y-nPs" secondAttribute="top" id="rvA-yR-Asb"/>
+                    <constraint firstItem="d9M-Lz-5U8" firstAttribute="leading" secondItem="rZH-1j-nfe" secondAttribute="trailing" id="sGo-xx-XuY"/>
+                    <constraint firstItem="wEf-xl-mho" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="sxI-4L-FJS"/>
+                    <constraint firstItem="8el-dB-dnx" firstAttribute="leading" secondItem="FkU-3y-nPs" secondAttribute="leading" id="v7a-NV-ugc"/>
+                    <constraint firstItem="tIO-6O-MhO" firstAttribute="top" secondItem="eJm-Ff-wID" secondAttribute="top" id="vr3-rx-SUd"/>
+                    <constraint firstItem="tIO-6O-MhO" firstAttribute="height" secondItem="eJm-Ff-wID" secondAttribute="height" id="z0u-BR-6TQ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="fourBtn" destination="G2b-h8-3cL" id="AKN-T9-Gm9"/>
+                <outlet property="oneBtn" destination="FkU-3y-nPs" id="os4-Op-y1o"/>
+                <outlet property="threeBtn" destination="62a-z5-5YP" id="5ai-La-sh9"/>
+                <outlet property="twoBtn" destination="d9M-Lz-5U8" id="P8m-2J-JIW"/>
+            </connections>
+            <point key="canvasLocation" x="356" y="55.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="595009EE-A906-437B-8FDB-6D28EB8DEE9F" width="28" height="28">
+            <mutableData key="keyedArchiveRepresentation">
+YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
+GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
+c1dOU0NvbG9ygAKADRIgwAAAgAOAC1h7MjgsIDI4fdIVChYYWk5TLm9iamVjdHOhF4AEgArSFQoaHaIb
+HIAFgAaACRAA0iAKISJfEBROU1RJRkZSZXByZXNlbnRhdGlvboAHgAhPERTeTU0AKgAADEgAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAQEDf39/qX9/f6kBAQEDAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgoKDrS0tO+0tLTvCgoKDgAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoKCg60tLTvtLS07woKCg4AAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAKCgoOtLS077S0tO8KCgoOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAACgoKDrS0tO+0tLTvCgoKDgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAoKCg60tLTvtLS07woKCg4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKCgoOtLS0
+77S0tO8KCgoOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgoKDrS0tO+0tLTvCgoK
+DgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoKCg60tLTvtLS07woKCg4AAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKCgoOtLS077S0tO8KCgoOAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAACgoKDrS0tO+0tLTvCgoKDgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAkJCQy0tLTvtLS07wkJCQwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAACgoKDgoKCg4KCgoOCgoKDgoKCg4KCgoOCgoKDgoKCg4KCgoOCgoK
+DgoKCg4TExMbtbW18LW1tfATExMbCgoKDgoKCg4KCgoOCgoKDgoKCg4KCgoOCgoKDgoKCg4KCgoOCgoK
+DgoKCg4AAAAAf39/qbW1te61tbXvtLS077S0tO+0tLTvtLS077S0tO+0tLTvtLS077S0tO+0tLTvtbW1
+8MDAwP7AwMD+tbW18LS0tO+0tLTvtLS077S0tO+0tLTvtLS077S0tO+0tLTvtLS077W1te+0tLTvf39/
+qYCAgKq1tbXutbW177S0tO+0tLTvtLS077S0tO+0tLTvtLS077S0tO+0tLTvtLS077W1tfDAwMD+wMDA
+/rW1tfC0tLTvtLS077S0tO+0tLTvtLS077S0tO+0tLTvtLS077S0tO+1tbXvtbW17n9/f6oAAAAACgoK
+DgoKCg4KCgoOCgoKDgoKCg4KCgoOCgoKDgoKCg4KCgoOCgoKDgoKCg4TExMbtbW18LW1tfATExMbCgoK
+DgoKCg4KCgoOCgoKDgoKCg4KCgoOCgoKDgoKCg4KCgoOCgoKDgoKCg4AAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACQkJDLS0tO+0tLTvCQkJDAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoKCg60tLTvtLS07woKCg4AAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAKCgoOtLS077S0tO8KCgoOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAACgoKDrS0tO+0tLTvCgoKDgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAoKCg60tLTvtLS07woKCg4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKCgoOtLS0
+77S0tO8KCgoOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgoKDrS0tO+0tLTvCgoK
+DgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoKCg60tLTvtLS07woKCg4AAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKCgoOtLS077S0tO8KCgoOAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAACgoKDrS0tO+0tLTvCgoKDgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAoKCg60tLTvtLS07woKCg4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAABAQEDf39/qn9/f6kBAQEDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAA4BAAADAAAAAQAcAAABAQADAAAAAQAcAAABAgADAAAABAAADPYBAwADAAAAAQABAAAB
+BgADAAAAAQACAAABEQAEAAAAAQAAAAgBEgADAAAAAQABAAABFQADAAAAAQAEAAABFgADAAAAAQAcAAAB
+FwAEAAAAAQAADEABHAADAAAAAQABAAABUgADAAAAAQABAAABUwADAAAABAAADP6HcwAHAAAH2AAADQYA
+AAAAAAgACAAIAAgAAQABAAEAAQAAB9hhcHBsAiAAAG1udHJSR0IgWFlaIAfZAAIAGQALABoAC2Fjc3BB
+UFBMAAAAAGFwcGwAAAAAAAAAAAAAAAAAAAAAAAD21gABAAAAANMtYXBwbAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC2Rlc2MAAAEIAAAAb2RzY20AAAF4AAAFnGNwcnQA
+AAcUAAAAOHd0cHQAAAdMAAAAFHJYWVoAAAdgAAAAFGdYWVoAAAd0AAAAFGJYWVoAAAeIAAAAFHJUUkMA
+AAecAAAADmNoYWQAAAesAAAALGJUUkMAAAecAAAADmdUUkMAAAecAAAADmRlc2MAAAAAAAAAFEdlbmVy
+aWMgUkdCIFByb2ZpbGUAAAAAAAAAAAAAABRHZW5lcmljIFJHQiBQcm9maWxlAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABtbHVjAAAAAAAAAB8AAAAMc2tTSwAAACgA
+AAGEZGFESwAAAC4AAAGsY2FFUwAAACQAAAHadmlWTgAAACQAAAH+cHRCUgAAACYAAAIidWtVQQAAACoA
+AAJIZnJGVQAAACgAAAJyaHVIVQAAACgAAAKaemhUVwAAABYAAALCbmJOTwAAACYAAALYY3NDWgAAACIA
+AAL+aGVJTAAAAB4AAAMgaXRJVAAAACgAAAM+cm9STwAAACQAAANmZGVERQAAACwAAAOKa29LUgAAABYA
+AAO2c3ZTRQAAACYAAALYemhDTgAAABYAAAPMamFKUAAAABoAAAPiZWxHUgAAACIAAAP8cHRQTwAAACYA
+AAQebmxOTAAAACgAAAREZXNFUwAAACYAAAQedGhUSAAAACQAAARsdHJUUgAAACIAAASQZmlGSQAAACgA
+AASyaHJIUgAAACgAAATacGxQTAAAACwAAAUCcnVSVQAAACIAAAUuYXJFRwAAACYAAAVQZW5VUwAAACYA
+AAV2AFYBYQBlAG8AYgBlAGMAbgD9ACAAUgBHAEIAIABwAHIAbwBmAGkAbABHAGUAbgBlAHIAZQBsACAA
+UgBHAEIALQBiAGUAcwBrAHIAaQB2AGUAbABzAGUAUABlAHIAZgBpAGwAIABSAEcAQgAgAGcAZQBuAOgA
+cgBpAGMAQx6lAHUAIABoAOwAbgBoACAAUgBHAEIAIABDAGgAdQBuAGcAUABlAHIAZgBpAGwAIABSAEcA
+QgAgAEcAZQBuAOkAcgBpAGMAbwQXBDAEMwQwBDsETAQ9BDgEOQAgBD8EQAQ+BEQEMAQ5BDsAIABSAEcA
+QgBQAHIAbwBmAGkAbAAgAGcA6QBuAOkAcgBpAHEAdQBlACAAUgBWAEIAwQBsAHQAYQBsAOEAbgBvAHMA
+IABSAEcAQgAgAHAAcgBvAGYAaQBskBp1KAAgAFIARwBCACCCcl9pY8+P8ABHAGUAbgBlAHIAaQBzAGsA
+IABSAEcAQgAtAHAAcgBvAGYAaQBsAE8AYgBlAGMAbgD9ACAAUgBHAEIAIABwAHIAbwBmAGkAbAXkBegF
+1QXkBdkF3AAgAFIARwBCACAF2wXcBdwF2QBQAHIAbwBmAGkAbABvACAAUgBHAEIAIABnAGUAbgBlAHIA
+aQBjAG8AUAByAG8AZgBpAGwAIABSAEcAQgAgAGcAZQBuAGUAcgBpAGMAQQBsAGwAZwBlAG0AZQBpAG4A
+ZQBzACAAUgBHAEIALQBQAHIAbwBmAGkAbMd8vBgAIABSAEcAQgAg1QS4XNMMx3xmbpAaACAAUgBHAEIA
+IGPPj/Blh072TgCCLAAgAFIARwBCACAw1zDtMNUwoTCkMOsDkwO1A70DuQO6A8wAIAPAA8EDvwPGA68D
+uwAgAFIARwBCAFAAZQByAGYAaQBsACAAUgBHAEIAIABnAGUAbgDpAHIAaQBjAG8AQQBsAGcAZQBtAGUA
+ZQBuACAAUgBHAEIALQBwAHIAbwBmAGkAZQBsDkIOGw4jDkQOHw4lDkwAIABSAEcAQgAgDhcOMQ5IDicO
+RA4bAEcAZQBuAGUAbAAgAFIARwBCACAAUAByAG8AZgBpAGwAaQBZAGwAZQBpAG4AZQBuACAAUgBHAEIA
+LQBwAHIAbwBmAGkAaQBsAGkARwBlAG4AZQByAGkBDQBrAGkAIABSAEcAQgAgAHAAcgBvAGYAaQBsAFUA
+bgBpAHcAZQByAHMAYQBsAG4AeQAgAHAAcgBvAGYAaQBsACAAUgBHAEIEHgQxBEkEOAQ5ACAEPwRABD4E
+RAQ4BDsETAAgAFIARwBCBkUGRAZBACAGKgY5BjEGSgZBACAAUgBHAEIAIAYnBkQGOQYnBkUARwBlAG4A
+ZQByAGkAYwAgAFIARwBCACAAUAByAG8AZgBpAGwAZXRleHQAAAAAQ29weXJpZ2h0IDIwMDcgQXBwbGUg
+SW5jLiwgYWxsIHJpZ2h0cyByZXNlcnZlZC4AWFlaIAAAAAAAAPNSAAEAAAABFs9YWVogAAAAAAAAdE0A
+AD3uAAAD0FhZWiAAAAAAAABadQAArHMAABc0WFlaIAAAAAAAACgaAAAVnwAAuDZjdXJ2AAAAAAAAAAEB
+zQAAc2YzMgAAAAAAAQxCAAAF3v//8yYAAAeSAAD9kf//+6L///2jAAAD3AAAwGzSJSYnKFokY2xhc3Nu
+YW1lWCRjbGFzc2VzXxAQTlNCaXRtYXBJbWFnZVJlcKMnKSpaTlNJbWFnZVJlcFhOU09iamVjdNIlJiwt
+V05TQXJyYXmiLCrSJSYvMF5OU011dGFibGVBcnJheaMvLCrTMjMKNDU2V05TV2hpdGVcTlNDb2xvclNw
+YWNlRDAgMAAQA4AM0iUmODlXTlNDb2xvcqI4KtIlJjs8V05TSW1hZ2WiOypfEA9OU0tleWVkQXJjaGl2
+ZXLRP0BUcm9vdIABAAgAEQAaACMALQAyADcARgBMAFcAXgBlAHIAeQCBAIMAhQCKAIwAjgCXAJwApwCp
+AKsArQCyALUAtwC5ALsAvQDCANkA2wDdFb8VxBXPFdgV6xXvFfoWAxYIFhAWExYYFicWKxYyFjoWRxZM
+Fk4WUBZVFl0WYBZlFm0WcBaCFoUWigAAAAAAAAIBAAAAAAAAAEEAAAAAAAAAAAAAAAAAABaMA
+</mutableData>
+        </image>
+        <image name="添加照片" width="28" height="28"/>
+    </resources>
+</document>

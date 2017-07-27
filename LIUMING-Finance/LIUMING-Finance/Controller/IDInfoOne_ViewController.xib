@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IDInfoOne_ViewController">
+            <connections>
+                <outlet property="tableVlew" destination="3GV-6W-erp" id="uQ0-nt-Pnv"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hDg-WJ-H2w">
+                    <rect key="frame" x="0.0" y="64" width="375" height="43"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请确保以下信息的真实性，以免造成借款审核失败" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jYi-RP-aB8">
+                            <rect key="frame" x="52.5" y="14.5" width="270" height="14.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.65098039220000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="jYi-RP-aB8" firstAttribute="centerY" secondItem="hDg-WJ-H2w" secondAttribute="centerY" id="GtQ-PV-u6w"/>
+                        <constraint firstItem="jYi-RP-aB8" firstAttribute="centerX" secondItem="hDg-WJ-H2w" secondAttribute="centerX" id="M8l-yD-Hpw"/>
+                        <constraint firstAttribute="height" constant="43" id="mWt-VT-kJA"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3GV-6W-erp">
+                    <rect key="frame" x="0.0" y="107" width="375" height="560"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="3GV-6W-erp" secondAttribute="bottom" id="4gV-J2-VhA"/>
+                <constraint firstItem="hDg-WJ-H2w" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="HyB-Mr-uKY"/>
+                <constraint firstAttribute="trailing" secondItem="3GV-6W-erp" secondAttribute="trailing" id="Jo0-4a-Ats"/>
+                <constraint firstItem="3GV-6W-erp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Kyt-T6-EVj"/>
+                <constraint firstAttribute="trailing" secondItem="hDg-WJ-H2w" secondAttribute="trailing" id="Tcd-b4-vSK"/>
+                <constraint firstItem="3GV-6W-erp" firstAttribute="top" secondItem="hDg-WJ-H2w" secondAttribute="bottom" id="gik-SS-mPa"/>
+                <constraint firstItem="hDg-WJ-H2w" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="o49-7h-6e6"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

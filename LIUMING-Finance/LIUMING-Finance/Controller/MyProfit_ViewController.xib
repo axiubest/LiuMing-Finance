@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyProfit_ViewController">
+            <connections>
+                <outlet property="allMoneyLab" destination="Vwl-XR-2c6" id="bub-Ib-kjv"/>
+                <outlet property="tableView" destination="Ckj-aI-2sh" id="JGG-tV-46i"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7dh-eY-vVM">
+                    <rect key="frame" x="0.0" y="64" width="375" height="136"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vwl-XR-2c6">
+                            <rect key="frame" x="112.5" y="27" width="151" height="48"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="累计收益（元）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOm-RZ-iSO">
+                            <rect key="frame" x="142" y="87" width="93" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.1960784314" green="0.54901960780000003" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="Vwl-XR-2c6" firstAttribute="centerX" secondItem="7dh-eY-vVM" secondAttribute="centerX" id="Rdh-Lj-163"/>
+                        <constraint firstItem="oOm-RZ-iSO" firstAttribute="top" secondItem="Vwl-XR-2c6" secondAttribute="bottom" constant="12" id="cvo-1g-9iq"/>
+                        <constraint firstItem="Vwl-XR-2c6" firstAttribute="top" secondItem="7dh-eY-vVM" secondAttribute="top" constant="27" id="dvL-5t-3w9"/>
+                        <constraint firstItem="oOm-RZ-iSO" firstAttribute="centerX" secondItem="Vwl-XR-2c6" secondAttribute="centerX" id="u0y-hy-rbR"/>
+                        <constraint firstAttribute="height" constant="136" id="xcg-aj-xQZ"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ckj-aI-2sh">
+                    <rect key="frame" x="0.0" y="200" width="375" height="467"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Ckj-aI-2sh" firstAttribute="top" secondItem="7dh-eY-vVM" secondAttribute="bottom" id="7fa-OV-cSp"/>
+                <constraint firstItem="Ckj-aI-2sh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="RlN-Z0-hf1"/>
+                <constraint firstAttribute="trailing" secondItem="7dh-eY-vVM" secondAttribute="trailing" id="Xh5-qd-Mm2"/>
+                <constraint firstAttribute="bottom" secondItem="Ckj-aI-2sh" secondAttribute="bottom" id="ZC2-cs-TpY"/>
+                <constraint firstItem="7dh-eY-vVM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="bQ8-q5-Fs1"/>
+                <constraint firstAttribute="trailing" secondItem="Ckj-aI-2sh" secondAttribute="trailing" id="cv6-Az-YI3"/>
+                <constraint firstItem="7dh-eY-vVM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="pGX-Hw-IWn"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+        </view>
+    </objects>
+</document>
