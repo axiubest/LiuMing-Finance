@@ -202,45 +202,48 @@
 }
 
 -(void)submitCellBtnClick:(HKSubmitCell *)cell{
-    if (ui_name.length < 2) {
-        XIUHUD(@"用户名输入错误");
-        return;
-    }if (ui_cardid.length != 18) {
-        XIUHUD(@"身份证输入错误");
-        return;
-    }if (ui_phone.length != 11) {
-        XIUHUD(@"手机号输入错误");
-        return;
-    }if (ui_address.length == 0) {
-        XIUHUD(@"请输入地址");
-        return;
-    }if (ui_income.length == 0) {
-        XIUHUD(@"请输入月收入");
-        return;
-    }if (ui_qqwx.length == 0) {
-        XIUHUD(@"请输qq或者微信号码");
-        return;
-    }if (ui_limit.length == 0) {
-        XIUHUD(@"请输入借款额度");
-        return;
-    }if (phoneName1.length < 2) {
-        XIUHUD(@"请输入第一位紧急联系人");
-        return;
-    }if (phone1.length != 11) {
-        XIUHUD(@"请输入第一位紧急联系人电话");
-        return;
-    }if (phoneName2.length < 2) {
-        XIUHUD(@"请输入第二位紧急联系人");
-        return;
-    }if (phone2.length != 11) {
-        XIUHUD(@"请输入第二位紧急联系人电话");
-        return;
-    }
+    
+#warning
+//    if (ui_name.length < 2) {
+//        XIUHUD(@"用户名输入错误");
+//        return;
+//    }if (ui_cardid.length != 18) {
+//        XIUHUD(@"身份证输入错误");
+//        return;
+//    }if (ui_phone.length != 11) {
+//        XIUHUD(@"手机号输入错误");
+//        return;
+//    }if (ui_address.length == 0) {
+//        XIUHUD(@"请输入地址");
+//        return;
+//    }if (ui_income.length == 0) {
+//        XIUHUD(@"请输入月收入");
+//        return;
+//    }if (ui_qqwx.length == 0) {
+//        XIUHUD(@"请输qq或者微信号码");
+//        return;
+//    }if (ui_limit.length == 0) {
+//        XIUHUD(@"请输入借款额度");
+//        return;
+//    }if (phoneName1.length < 2) {
+//        XIUHUD(@"请输入第一位紧急联系人");
+//        return;
+//    }if (phone1.length != 11) {
+//        XIUHUD(@"请输入第一位紧急联系人电话");
+//        return;
+//    }if (phoneName2.length < 2) {
+//        XIUHUD(@"请输入第二位紧急联系人");
+//        return;
+//    }if (phone2.length != 11) {
+//        XIUHUD(@"请输入第二位紧急联系人电话");
+//        return;
+//    }
     [self request];
   }
 
 
 - (void)request {
+    NSLog(@"----%@", [XIU_Login userId]);
     [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_doPage1 withParams:@{@"ui_id":[XIU_Login userId], @"ui_code":ui_code.length > 0 ? ui_code : @"",@"ui_phone":ui_phone,@"ui_cardid":ui_cardid, @"ui_address":ui_address,@"ui_icome":ui_income,@"ui_qqwx":ui_qqwx, @"ui_name1":phoneName1,@"ui_phone1":phone1, @"ui_name2":phoneName2, @"ui_phone2":phone2} withMethodType:Post andBlock:^(id data, NSError *error) {
         
         if ([data[@"status"] isEqualToString:@"success"]) {

@@ -134,17 +134,14 @@
             cell.footerBtn.hidden = YES;
         }
 
+        cell.footerBtn.tag = indexPath.row;
+        [cell.footerBtn addTarget:self action:@selector(clickBtn:) forControlEvents:UIControlEventTouchUpInside];
+
         return cell;
 
     }
     
-//    @"headerImg":@"已出账单",
-//    @"headerTitle":@"已出账单",
-//    @"headerSubTitle":@"等待还款",
-//    @"bodyTitle":@"借款8000元，分3期  3-3",
-//    @"bodySubTitle":@"¥2896.67",
-//    @"footerTitle":@"还款日期：07/19",
-//    @"footerSubTitle":@"立即还款"
+
     MyListModel *model = self.arr[indexPath.row];
 
     
@@ -175,7 +172,7 @@
     }else {
         cell.footerBtn.hidden = YES;
     }
-//    [cell.footerBtn setTitle:dic[@"footerSubTitle"] forState:UIControlStateNormal];
+ //    [cell.footerBtn setTitle:dic[@"footerSubTitle"] forState:UIControlStateNormal];
 //    if ([dic[@"footerSubTitle"] isEqualToString:@"立即还款"]) {
 //        [cell.footerBtn.layer setBorderColor:CGColorCreate(CGColorSpaceCreateDeviceRGB(), (CGFloat[]){26/255.0, 113/255.0, 1, 1 })];
 //        [cell.footerBtn setTitleColor:[UIColor colorWithHexString:@"#1a7aff"] forState:UIControlStateNormal];
@@ -187,14 +184,24 @@
     return cell;
 }
 
+- (void)clickBtn:(UIButton *)sender {
+    if ([self.title isEqualToString:@"催收订单"]) {
+//        NSMutableString *str=[[NSMutableString alloc] initWithFormat:@"tel:%@",[self.arr[sender.tag] ]];
+//        UIWebView *callWebview = [[UIWebView alloc] init];
+//        [callWebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
+//        [self.view addSubview:callWebview];
+        
+    }
+}
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 168;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([self.title isEqualToString:@"催收订单"]){
-        FinancialContribution_ViewController *vc = [[FinancialContribution_ViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
+//        FinancialContribution_ViewController *vc = [[FinancialContribution_ViewController alloc] init];
+//        [self.navigationController pushViewController:vc animated:YES];
     }else{
         RepaymentInfo_ViewController *vc = [[RepaymentInfo_ViewController alloc] init];
         vc.mod = self.arr[indexPath.row];

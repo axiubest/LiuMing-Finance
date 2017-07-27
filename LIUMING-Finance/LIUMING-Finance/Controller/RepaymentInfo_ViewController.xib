@@ -76,10 +76,40 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ml3-Co-7TY">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ml3-Co-7TY">
                     <rect key="frame" x="0.0" y="397" width="375" height="270"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="bs5-ry-dln"/>
+                        <outlet property="delegate" destination="-1" id="KsM-6b-18i"/>
+                    </connections>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZIw-YU-pV7">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="还款详情" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMb-a4-eF1">
+                            <rect key="frame" x="157" y="33" width="61.5" height="18"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oAx-Xe-iTR">
+                            <rect key="frame" x="15" y="31" width="16" height="22"/>
+                            <state key="normal" image="返回按钮"/>
+                            <connections>
+                                <action selector="clickBack:" destination="-1" eventType="touchUpInside" id="7ns-SV-6Ht"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="7tZ-oK-ajj"/>
+                        <constraint firstItem="CMb-a4-eF1" firstAttribute="centerY" secondItem="ZIw-YU-pV7" secondAttribute="centerY" constant="10" id="CeZ-QQ-lHI"/>
+                        <constraint firstItem="oAx-Xe-iTR" firstAttribute="centerY" secondItem="CMb-a4-eF1" secondAttribute="centerY" id="Eue-TD-nYN"/>
+                        <constraint firstItem="CMb-a4-eF1" firstAttribute="centerX" secondItem="ZIw-YU-pV7" secondAttribute="centerX" id="QzS-Rd-ClK"/>
+                        <constraint firstItem="oAx-Xe-iTR" firstAttribute="leading" secondItem="ZIw-YU-pV7" secondAttribute="leading" constant="15" id="T9D-Uj-cVK"/>
+                    </constraints>
+                </view>
             </subviews>
             <constraints>
                 <constraint firstItem="kja-Fb-dxc" firstAttribute="centerY" secondItem="Qp9-Pe-XHV" secondAttribute="centerY" id="4iv-Yt-NVz"/>
@@ -100,17 +130,22 @@
                 <constraint firstAttribute="bottom" secondItem="Ml3-Co-7TY" secondAttribute="bottom" id="PjT-jm-QbM"/>
                 <constraint firstItem="Zcr-P5-q43" firstAttribute="bottom" secondItem="79w-Xb-cbp" secondAttribute="bottom" constant="-8" id="QR8-BM-fMZ"/>
                 <constraint firstItem="Qp9-Pe-XHV" firstAttribute="top" secondItem="79w-Xb-cbp" secondAttribute="bottom" constant="27" id="Tfk-gm-Qcb"/>
+                <constraint firstItem="ZIw-YU-pV7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="TmC-b3-hSD"/>
                 <constraint firstItem="9HW-TA-4WP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="14" id="UaY-fb-PBQ"/>
+                <constraint firstAttribute="trailing" secondItem="ZIw-YU-pV7" secondAttribute="trailing" id="av9-is-aqH"/>
                 <constraint firstItem="Qp9-Pe-XHV" firstAttribute="leading" secondItem="9HW-TA-4WP" secondAttribute="leading" id="hO9-Hf-Orx"/>
                 <constraint firstItem="Jrh-Hc-CyF" firstAttribute="leading" secondItem="kja-Fb-dxc" secondAttribute="leading" id="iR2-XE-lAx"/>
+                <constraint firstItem="ZIw-YU-pV7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="jjD-Ua-JA2"/>
                 <constraint firstItem="9HW-TA-4WP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="84" id="vC9-S1-Kzp"/>
                 <constraint firstItem="wC6-tq-tww" firstAttribute="leading" secondItem="9HW-TA-4WP" secondAttribute="leading" id="xQY-Ls-IXS"/>
                 <constraint firstAttribute="trailing" secondItem="Ml3-Co-7TY" secondAttribute="trailing" id="zyj-oT-rKd"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
+            <point key="canvasLocation" x="34.5" y="53.5"/>
         </view>
     </objects>
     <resources>
         <image name="波浪2" width="738" height="1324"/>
+        <image name="返回按钮" width="16" height="16"/>
     </resources>
 </document>

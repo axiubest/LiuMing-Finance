@@ -14,6 +14,16 @@
 @interface IDInfoTwoViewController ()<UITableViewDelegate,UITableViewDataSource,HKSubmitCellDelegate,UIActionSheetDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate,HKPhotoUploadCellDelegate>{
     UIActionSheet *sheet;
     UIImage *tmpImg;
+    
+    NSString *ui_yhtype;//类型 1student 2company 默认1
+    NSString *ui_xzworkname;
+    NSString *ui_xzaddress;//公司地址寝室地址
+    NSString *ui_xzfaculty;//院系
+    NSString *ui_professionalclass;//专业班级
+    NSString *ui_school_rol;//学籍类型
+    NSString *ui_comphone;//company phone
+    NSString *ui_job;
+    NSString *ui_ed;//入职时间
 }
 @property (weak, nonatomic) IBOutlet UIButton *studentBtn;
 @property (weak, nonatomic) IBOutlet UIButton *workBtn;
@@ -61,6 +71,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"身份信息";
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.separatorStyle =  UITableViewCellSeparatorStyleNone;
@@ -108,6 +119,11 @@
     btn.selected = YES;
     self.workBtn.selected = NO;
     [self drawLine:btn];
+    if (self.workBtn.selected) {
+        ui_yhtype = @"2";
+    }else {
+        ui_yhtype = @"1";
+    }
     
     UIImage *image = [UIImage imageNamed:@"添加照片"];
     self.arr = [NSMutableArray array];
@@ -134,10 +150,10 @@
     self.arr = [NSMutableArray array];
     NSArray *a = @[
                  @{@"name":@"公司名称",@"place":@"请输入您的公司名称",@"isHide":@1},
-                 @{@"name":@"公司地址",@"place":@"请输入您的公司地址",@"isHide":@0},
+                 @{@"name":@"公司地址",@"place":@"请输入您的公司地址",@"isHide":@1},
                  @{@"name":@"公司电话",@"place":@"请输入您的公司电话",@"isHide":@1},
                  @{@"name":@"公司职务",@"place":@"请输入您在公司的职务",@"isHide":@1},
-                 @{@"name":@"入职事件",@"place":@"请输入您的入职时间",@"isHide":@0},
+                 @{@"name":@"入职时间",@"place":@"请输入您的入职时间",@"isHide":@1},
                  @{@"name":@"照片上传",@"place":@[image,image,image,image],@"isHide":@1}
                  ];
     [self.arr addObjectsFromArray:a];
@@ -197,6 +213,8 @@
         cell = [HKDelegateCell delegateCell];
         cell.nameLabel.text = self.arr[indexPath.row][@"name"];
         cell.inputField.placeholder = self.arr[indexPath.row][@"place"];
+        [cell.inputField addTarget:self action:@selector(click:) forControlEvents:UIControlEventEditingChanged];
+        cell.inputField.tag = indexPath.row;
         cell.downImg.hidden = [self.arr[indexPath.row][@"isHide"] integerValue];
         return cell;
     }else{
@@ -207,8 +225,66 @@
     }
 }
 
+- (void)click:(UITextField *)textField {
+    
+    switch (textField.tag) {
+        case 0:
+            ui_xzaddress = textField.text;
+            break;
+        case 1:
+            
+            if ([ui_yhtype isEqualToString:@"1"]) {
+                
+            }
+            break;
+        case 2:
+            ui_xzaddress = textField.text;
+            break;
+        case 3:
+            ui_xzaddress = textField.text;
+            break;
+        case 4:
+            ui_xzaddress = textField.text;
+            break;
+        default:
+            break;
+    }
+    
+    
+}
+
+
+
 -(void)submitCellBtnClick:(HKSubmitCell *)cell{
-    NSLog(@"我提交了");
+    [self reuqest];
+}
+
+- (void)reuqest {
+    
+    /*
+     NSString *ui_yhtype;//类型 1student 2company 默认1
+     NSString *ui_xzworkname;
+     NSString *ui_xzaddress;//公司地址寝室地址
+     NSString *ui_xzfaculty;//院系
+     NSString *ui_professionalclass;//专业班级
+     NSString *ui_school_rol;//学籍类型
+     NSString *ui_comphone;//company phone
+     NSString *ui_job;
+     NSString *ui_ed;//入职时间
+     */
+    
+    NSDictionary *dic = [NSDictionary dictionary];
+    if ([ui_yhtype isEqualToString:@"1"]) {
+        dic = @{@"ui_xzworkname":ui_xzworkname, @"ui_xzfaculty":ui_xzfaculty, @"ui_professionalclass":ui_professionalclass, @"ui_school_rol":ui_school_rol, @"ui_xzaddress":ui_xzaddress};
+    }if ([ui_yhtype isEqualToString:@"2"]) {
+      dic = @{@"ui_xzworkname":ui_xzworkname,  @"ui_comphone":ui_comphone, @"ui_xzaddress":ui_xzaddress, @"ui_job":ui_job, @"ui_ed":ui_ed};
+    }
+
+    
+    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_doPage1 withParams:dic withMethodType:Post andBlock:^(id data, NSError *error) {
+        
+    }];
+
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

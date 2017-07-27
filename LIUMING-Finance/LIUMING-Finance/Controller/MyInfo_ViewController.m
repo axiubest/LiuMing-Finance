@@ -35,7 +35,7 @@
                  @[
                     @{@"title":@"头像",@"subImage":@"pay"},
                     @{@"title":@"昵称"},
-                    @{@"title":@"性别",@"subTitle":@"男"},
+                    @{@"title":@"性别",@"subTitle":[XIU_Login ui_sex]},
                     @{@"title":@"生日"}
                     ],
                  @[@{@"title":@"现居地"}],

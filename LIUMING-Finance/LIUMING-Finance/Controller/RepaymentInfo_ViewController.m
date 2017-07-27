@@ -29,8 +29,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"还款详情";
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     
@@ -77,6 +75,7 @@
     if (indexPath.row==4) {
         HKSubmitCell *cell = [HKSubmitCell submitCell];
         cell.btnStr = @"提交";
+        cell.doBtn.hidden = [[_mod oi_state] isEqualToString:@"已结清"] ? YES : [[_mod oi_state] isEqualToString:@"已还款"] ? YES : [[_mod oi_state] isEqualToString:@"不通过"] ? YES : NO;
         cell.myDelegate = self;
         return cell;
     }
@@ -97,6 +96,9 @@
 }
 
 
+- (IBAction)clickBack:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 -(void)submitCellBtnClick:(HKSubmitCell *)cell{
     NSLog(@"我点击啦");

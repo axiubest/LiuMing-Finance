@@ -23,6 +23,7 @@
 + (void)doLogin:(NSDictionary *)loginData;
 +(BOOL)isLogin;
 +(void)doLogOut;
+
 +(NSString *)userName;
 +(NSString *)userId;
 +(NSString *)ui_phone;

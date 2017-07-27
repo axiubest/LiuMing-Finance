@@ -48,7 +48,6 @@
     if (_count !=1) {
         _count -=1;
         [self.getCodeBtn setTitle:[NSString stringWithFormat:@"%ld  秒",_count] forState:UIControlStateNormal];
-        NSLog(@"%ld", _count);
     }
     else
     {
@@ -63,21 +62,18 @@
 
 
 - (IBAction)registerBtnClick:(id)sender {
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.mode = MBProgressHUDModeText;
-    hud.removeFromSuperViewOnHide = YES;
 
     if (_phoneTextField.text.length != 11) {
-        hud.labelText = @"手机号输入错误";
-        [hud hide:YES afterDelay:3];
+        XIUHUD(@"手机号输入错误");
+
         return;
     }if (![_pswTextField.text isEqualToString:_surePswTextField.text]) {
-        hud.labelText = @"两次密码输入不一致";
-        [hud hide:YES afterDelay:3];
+        XIUHUD(@"两次密码输入不一致");
+
         return;
     }if (_codeTextField.text.length != 6) {
-        hud.labelText = @"验证码输入错误";
-        [hud hide:YES afterDelay:3];
+        XIUHUD(@"验证码输入错误");
+
         return;
 
     }
@@ -95,12 +91,22 @@
         }
         if ([data[@"status"] isEqualToString:@"success"]) {
             XIUHUD(@"注册成功");
-            Login_ViewController *vc = [[Login_ViewController alloc] init];
-            [self presentViewController:vc animated:YES completion:nil];
+            
+                [self pushToLogin];
+            
         }
     }];
 }
 
+
+- (void)pushToLogin {
+    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_doLogin withParams:@{@"ui_phone":_phoneTextField.text, @"ui_pwd":_pswTextField.text} withMethodType:Post andBlock:^(id data, NSError *error) {
+        
+        id requestData = data[@"data"];
+        [XIU_Login doLogin:requestData];
+        [UIApplication sharedApplication].keyWindow.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
+    }];
+}
 - (void)getCodeRequest {
     
     [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_code withParams:@{@"ui_phone":_phoneTextField.text, @"ui_id":@""} withMethodType:Post andBlock:^(id data, NSError *error) {

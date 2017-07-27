@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MyListModel.h"
-@interface RepaymentInfo_ViewController : UIViewController
+@interface RepaymentInfo_ViewController : XIU_HiddenNavViewController
 @property (nonatomic,strong) MyListModel *mod;
+
 @end

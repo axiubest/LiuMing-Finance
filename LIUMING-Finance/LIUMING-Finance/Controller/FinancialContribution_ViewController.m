@@ -40,23 +40,13 @@
     self.tableView.delegate = self;
     self.tableView.dataSource  = self;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self setBarButton2];
+
     [self request];
 }
 
--(void)setBarButton2{
-    UIBarButtonItem *item1 = [UIBarButtonItem itemWithImage:@"设置" highImage:@"设置" target:self action:@selector(rightBtnClick1)];
-    UIBarButtonItem *item2 = [UIBarButtonItem itemWithImage:@"搜索" highImage:@"搜索" target:self action:@selector(rightBtnClick2)];
-    self.navigationItem.rightBarButtonItems = @[item1,item2];
-    
-}
 
--(void)rightBtnClick2{
-    NSLog(@"rightBtnClick2");
-}
--(void)rightBtnClick1{
-    NSLog(@"rightBtnClick1");
-}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -9,7 +9,6 @@
 #import "HKSubmitCell.h"
 @interface HKSubmitCell()
 
-@property (weak, nonatomic) IBOutlet UIButton *doBtn;
 @end
 @implementation HKSubmitCell
 +(HKSubmitCell *)submitCell{

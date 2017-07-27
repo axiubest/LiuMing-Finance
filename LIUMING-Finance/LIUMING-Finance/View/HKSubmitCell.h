@@ -14,5 +14,7 @@
 @interface HKSubmitCell : UITableViewCell
 +(HKSubmitCell *)submitCell;
 @property (nonatomic,copy) NSString *btnStr;
+@property (weak, nonatomic) IBOutlet UIButton *doBtn;
+
 @property (nonatomic,weak) id<HKSubmitCellDelegate> myDelegate;
 @end
