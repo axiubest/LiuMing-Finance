@@ -57,7 +57,7 @@ static XIU_User *curLoginUser;
 }
 
 +(NSString *)type {
-    return @"5";
+    return @"3";
 //    return [NSString stringWithFormat:@"%@", [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_type"]] ;
 }
 

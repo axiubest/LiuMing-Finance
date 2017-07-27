@@ -132,6 +132,7 @@
 		FA25BD6F1EF791BB00D7210C /* XIU_Login.m in Sources */ = {isa = PBXBuildFile; fileRef = FA25BD6C1EF791BB00D7210C /* XIU_Login.m */; };
 		FA25BD701EF791BB00D7210C /* XIU_User.m in Sources */ = {isa = PBXBuildFile; fileRef = FA25BD6E1EF791BB00D7210C /* XIU_User.m */; };
 		FA2B1C391F264C1A000D889D /* FinanceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2B1C381F264C1A000D889D /* FinanceModel.m */; };
+		FA2B1C451F28D4A0000D889D /* GetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2B1C441F28D4A0000D889D /* GetPwdViewController.m */; };
 		FA4D867E1EFD844700CC55F7 /* 212121.png in Resources */ = {isa = PBXBuildFile; fileRef = FA4D867D1EFD844700CC55F7 /* 212121.png */; };
 		FA86F23A1F19AAC300CBAC4B /* XIU_NetAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FA86F2391F19AAC300CBAC4B /* XIU_NetAPIClient.m */; };
 		FAF6A3301F1B00300068C0D5 /* UIViewController+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF6A32F1F1B00300068C0D5 /* UIViewController+Common.m */; };
@@ -407,6 +408,8 @@
 		FA25BD6E1EF791BB00D7210C /* XIU_User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XIU_User.m; sourceTree = "<group>"; };
 		FA2B1C371F264C1A000D889D /* FinanceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinanceModel.h; sourceTree = "<group>"; };
 		FA2B1C381F264C1A000D889D /* FinanceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinanceModel.m; sourceTree = "<group>"; };
+		FA2B1C431F28D4A0000D889D /* GetPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetPwdViewController.h; sourceTree = "<group>"; };
+		FA2B1C441F28D4A0000D889D /* GetPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetPwdViewController.m; sourceTree = "<group>"; };
 		FA4D867D1EFD844700CC55F7 /* 212121.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 212121.png; sourceTree = "<group>"; };
 		FA86F2381F19AAC300CBAC4B /* XIU_NetAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XIU_NetAPIClient.h; sourceTree = "<group>"; };
 		FA86F2391F19AAC300CBAC4B /* XIU_NetAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XIU_NetAPIClient.m; sourceTree = "<group>"; };
@@ -609,6 +612,8 @@
 				043E690C1F17C1640065016B /* Login_ViewController.m */,
 				043E69101F17CA210065016B /* Register_ViewController.h */,
 				043E69111F17CA210065016B /* Register_ViewController.m */,
+				FA2B1C431F28D4A0000D889D /* GetPwdViewController.h */,
+				FA2B1C441F28D4A0000D889D /* GetPwdViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1064,6 +1069,7 @@
 				FA25BD491EF791A600D7210C /* MASLayoutConstraint.m in Sources */,
 				04ECFC671F15B67100ADF59F /* HKPhotoUploadCell.m in Sources */,
 				4CB8C76F1F239F20009D090B /* MyListModel.m in Sources */,
+				FA2B1C451F28D4A0000D889D /* GetPwdViewController.m in Sources */,
 				FA25BD401EF791A600D7210C /* AFSecurityPolicy.m in Sources */,
 				FA25BD5B1EF791A600D7210C /* MKAnnotationView+WebCache.m in Sources */,
 				04A45B691F13C51600FC8FD9 /* HKSlider.m in Sources */,

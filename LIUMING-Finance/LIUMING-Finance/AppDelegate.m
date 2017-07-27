@@ -22,10 +22,10 @@
     
     //判断用户是否登陆
     
-//    if (![XIU_Login isLogin]) {
-//
-//        self.window.rootViewController = [Login_ViewController loadViewControllerFromMainStoryBoard];
-//    }else{
+    if (![XIU_Login isLogin]) {
+
+        self.window.rootViewController = [Login_ViewController loadViewControllerFromMainStoryBoard];
+    }else{
         //3终端 2财务 5催收
         if ([[XIU_Login type] isEqualToString:@"3"]) {
             self.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
@@ -43,7 +43,7 @@
             
         }
         
-//         }
+         }
     
     
      [self.window makeKeyAndVisible];

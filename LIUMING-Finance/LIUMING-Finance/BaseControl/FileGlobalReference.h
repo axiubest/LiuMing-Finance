@@ -38,6 +38,7 @@
 #define API_applying @"Index/do_applying"
 #define API_my_index @"Index/my_index"
 #define API_home @"Index/index"
+#define API_forgotpwd @"Login/resetpsd"
 
 
 #endif /* FileGlobalReference_h */
