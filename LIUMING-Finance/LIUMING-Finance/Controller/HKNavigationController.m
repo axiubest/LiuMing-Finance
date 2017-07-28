@@ -16,7 +16,7 @@
 +(void)load{
     UINavigationBar *bar = [UINavigationBar appearanceWhenContainedInInstancesOfClasses:@[self]];
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    dic[NSFontAttributeName] = NB_FONT(19);
+    dic[NSFontAttributeName] = NB_FONT(17);
     dic[NSForegroundColorAttributeName] = [UIColor whiteColor];
     [bar setTitleTextAttributes:dic];
 //    [bar setBackgroundColor:[UIColor colorWithHexString:@"#3789FE"]];

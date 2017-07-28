@@ -159,6 +159,7 @@
         
     }if (indexPath.section == 5) {
         EditCell *cell = [tableView dequeueReusableCellWithIdentifier:[EditCell XIU_ClassIdentifier]];
+        [cell.editBtn addTarget:self action:@selector(clickEditBtn) forControlEvents:UIControlEventTouchUpInside];
         return cell;
     }
     else{
@@ -170,6 +171,16 @@
     return cell;
 }
 
+
+#pragma mark  退出登录
+- (void)clickEditBtn {
+    XIUHUD(@"您已退出登录");
+    [XIU_Login doLogOut];
+    UIWindow *window = [UIApplication sharedApplication].delegate.window;
+    
+    window.rootViewController = [Login_ViewController loadViewControllerFromMainStoryBoard];
+}
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section==3&&indexPath.row==0) {
         Delegate_ViewController *vc = [[Delegate_ViewController alloc] init];
@@ -179,12 +190,6 @@
         Feedback_ViewController *vc = [[Feedback_ViewController alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
-    }else if(indexPath.section==5) {//edit
-        XIUHUD(@"您已退出登录");
-        [XIU_Login doLogOut];
-        UIWindow *window = [UIApplication sharedApplication].delegate.window;
-        
-        window.rootViewController = [Login_ViewController loadViewControllerFromMainStoryBoard];
     }
     else if(indexPath.section==4){
         AboutUs_ViewController *vc = [[AboutUs_ViewController alloc] init];

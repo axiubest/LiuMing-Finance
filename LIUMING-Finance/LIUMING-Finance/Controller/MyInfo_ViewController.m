@@ -15,6 +15,7 @@
 #import "ActionSheetDatePicker.h"
 #import "NSDate+convenience.h"
 #import "NSDate+Helper.h"
+#import "EditCell.h"
 @interface MyInfo_ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -39,7 +40,8 @@
                     @{@"title":@"生日"}
                     ],
                  @[@{@"title":@"现居地"}],
-                 @[@{@"title":@"推荐人",@"subTitle":@"见涛"}]
+                 @[@{@"title":@"推荐人",@"subTitle":@"见涛"}],
+                 @[@{@"title":@"保存"}]
                     
                 ];
     }
@@ -53,6 +55,7 @@
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = [UIColor colorWithHexString:@"#f4f4f4"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [_tableView registerNib:[EditCell XIU_ClassNib] forCellReuseIdentifier:[EditCell XIU_ClassIdentifier]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -100,8 +103,17 @@
         cell.SubTitle.hidden = NO;
         cell.SubTitle.text = dic[@"subTitle"];
         
+    }if (indexPath.section == 4) {
+        EditCell *cell = [tableView dequeueReusableCellWithIdentifier:[EditCell XIU_ClassIdentifier]];
+        [cell.editBtn setTitle:@"保存" forState:UIControlStateNormal];
+        [cell.editBtn addTarget:self action:@selector(clickEditBtn) forControlEvents:UIControlEventTouchUpInside];
+        return cell;
     }
     return  cell;
+    
+}
+
+- (void)clickEditBtn {
     
 }
 

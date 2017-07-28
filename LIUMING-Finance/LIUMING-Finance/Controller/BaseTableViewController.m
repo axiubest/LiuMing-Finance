@@ -6,17 +6,20 @@
 //  Copyright © 2017年 XIU. All rights reserved.
 //
 
-#import "HKBaseTableViewController.h"
+#import "BaseTableViewController.h"
 #import "RepaymentInfo_ViewController.h"
 #import "FinancialContribution_ViewController.h"
 #import "HKMyListCell.h"
 #import "MyListModel.h"
 #import "MJExtension.h"
-@interface HKBaseTableViewController ()
+#import "HWPopTool.h"
+
+@interface BaseTableViewController ()
+@property (strong, nonatomic) UIView *contentView;
 
 @end
 
-@implementation HKBaseTableViewController
+@implementation BaseTableViewController
 
 -(NSMutableArray *)arr{
     if (!_arr) {
@@ -53,6 +56,7 @@
     
     [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_List withParams:@{@"oi_state":[NSString stringWithFormat:@"%ld", _type], @"ui_id":@"1"} withMethodType:Post andBlock:^(id data, NSError *error) {
         for (NSDictionary *obj in data[@"data"]) {
+            
             MyListModel *model = [[MyListModel alloc] init];
            model = [MyListModel mj_objectWithKeyValues:obj];
             if ([model.oi_state isEqualToString:@"9"]) {
@@ -67,10 +71,10 @@
             if ([model.oi_state isEqualToString:@"3"]) {
                 model.oi_state = @"已还款";
             }
-            if ([model.oi_state isEqualToString:@"4"]) {
+            if ([model.oi_state isEqualToString:@"5"]) {
                 model.oi_state = @"已逾期";
             }
-            if ([model.oi_state isEqualToString:@"5"]) {
+            if ([model.oi_state isEqualToString:@"4"]) {
                 model.oi_state = @"已结清";
             }
             if ([model.oi_state isEqualToString:@"6"]) {
@@ -172,6 +176,7 @@
     }else {
         cell.footerBtn.hidden = YES;
     }
+    [cell.footerBtn addTarget:self action:@selector(clickBtn:) forControlEvents:UIControlEventTouchUpInside];
  //    [cell.footerBtn setTitle:dic[@"footerSubTitle"] forState:UIControlStateNormal];
 //    if ([dic[@"footerSubTitle"] isEqualToString:@"立即还款"]) {
 //        [cell.footerBtn.layer setBorderColor:CGColorCreate(CGColorSpaceCreateDeviceRGB(), (CGFloat[]){26/255.0, 113/255.0, 1, 1 })];
@@ -184,13 +189,29 @@
     return cell;
 }
 
+
+#pragma mark 按钮点击
 - (void)clickBtn:(UIButton *)sender {
-    if ([self.title isEqualToString:@"催收订单"]) {
-//        NSMutableString *str=[[NSMutableString alloc] initWithFormat:@"tel:%@",[self.arr[sender.tag] ]];
-//        UIWebView *callWebview = [[UIWebView alloc] init];
-//        [callWebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
-//        [self.view addSubview:callWebview];
+    
+    if ([self.title isEqualToString:@"我的清单"])  {
         
+        _contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 300)];
+        _contentView.backgroundColor = [UIColor clearColor];
+        UIImageView *imageV = [[UIImageView alloc]initWithFrame:_contentView.bounds];
+        imageV.image = [UIImage imageNamed:@"WechatIMG1.jpeg"];
+        [_contentView addSubview:imageV];
+        
+        [HWPopTool sharedInstance].shadeBackgroundType = ShadeBackgroundTypeSolid;
+        [HWPopTool sharedInstance].closeButtonType = ButtonPositionTypeRight;
+        [[HWPopTool sharedInstance] showWithPresentView:_contentView animated:YES];
+
+    }
+    if ([self.title isEqualToString:@"催收订单"]) {
+       NSMutableString *str=[[NSMutableString alloc] initWithFormat:@"tel:%@",@"186xxxx6979"];
+        
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+        
+
     }
 }
 

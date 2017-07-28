@@ -7,7 +7,7 @@
 //
 
 #import "MyList_ViewController.h"
-#import "HKBaseTableViewController.h"
+#import "BaseTableViewController.h"
 #import "HKTitleBtn.h"
 @interface MyList_ViewController ()<UIScrollViewDelegate>
 @property (weak, nonatomic) UIScrollView *contentView;
@@ -31,30 +31,11 @@
     [self setupContentView];
     [self setupTitlesView];
     
-    if ([self.title isEqualToString:@"我的清单"]) {
-        [self setBarButton1];
-    }else{
-        [self setBarButton2];
-    }
+
     
     
-}
--(void)setBarButton2{
-    UIBarButtonItem *item1 = [UIBarButtonItem itemWithImage:@"设置" highImage:@"设置" target:self action:@selector(rightBtnClick1)];
-    UIBarButtonItem *item2 = [UIBarButtonItem itemWithImage:@"搜索" highImage:@"搜索" target:self action:@selector(rightBtnClick2)];
-    self.navigationItem.rightBarButtonItems = @[item1,item2];
-  
 }
 
--(void)setBarButton1{
-     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:@"设置" highImage:@"设置" target:self action:@selector(rightBtnClick1)];
-}
--(void)rightBtnClick2{
-    NSLog(@"rightBtnClick2");
-}
--(void)rightBtnClick1{
-    NSLog(@"rightBtnClick1");
-}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -71,7 +52,7 @@
 }
 - (void)setupOneChildViewController:(HKListType)type
 {
-    HKBaseTableViewController *vc = [[HKBaseTableViewController alloc] init];
+    BaseTableViewController *vc = [[BaseTableViewController alloc] init];
     vc.title = self.title;
     vc.type = type;
     [self addChildViewController:vc];
@@ -145,7 +126,7 @@
     [button setTitle:title forState:UIControlStateNormal];
     [button addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.titlesView addSubview:button];
-    NSLog(@"-------%@",self.titlesView.subviews);
+
     [button mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.titlesView).multipliedBy(0.2);
         make.top.bottom.equalTo(self.titlesView);
@@ -187,7 +168,7 @@
 {
     
     
-    HKBaseTableViewController *vc = self.childViewControllers[index];
+    BaseTableViewController *vc = self.childViewControllers[index];
 
     vc.view.y = 0;
     vc.view.width = self.contentView.width;

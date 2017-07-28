@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,24 +16,29 @@
             <rect key="frame" x="0.0" y="0.0" width="343" height="68"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="343" height="68"/>
+                <rect key="frame" x="0.0" y="0.0" width="343" height="67.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OL5-pI-wdv">
-                        <rect key="frame" x="150" y="24" width="43" height="30"/>
-                        <state key="normal" title="退   出">
-                            <color key="titleColor" red="0.97894340749999997" green="0.1616126001" blue="0.1068309024" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OL5-pI-wdv">
+                        <rect key="frame" x="38" y="0.0" width="267" height="67.5"/>
+                        <color key="backgroundColor" red="0.20812295636526162" green="0.42904257446536814" blue="0.96411192417144775" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <state key="normal" title="退 出">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailingMargin" secondItem="OL5-pI-wdv" secondAttribute="trailing" constant="30" id="0BN-RS-zMg"/>
-                    <constraint firstItem="OL5-pI-wdv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="EHk-bx-8WB"/>
+                    <constraint firstItem="OL5-pI-wdv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="RPA-rY-LY8"/>
                     <constraint firstItem="OL5-pI-wdv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="30" id="Ugg-9r-hMi"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="OL5-pI-wdv" secondAttribute="bottom" constant="5" id="fFr-Ad-88N"/>
+                    <constraint firstAttribute="bottom" secondItem="OL5-pI-wdv" secondAttribute="bottom" id="tnn-v9-qeG"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="84.5" y="89"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="editBtn" destination="OL5-pI-wdv" id="P5u-8u-mbD"/>
+            </connections>
+            <point key="canvasLocation" x="-158" y="48"/>
         </tableViewCell>
     </objects>
 </document>

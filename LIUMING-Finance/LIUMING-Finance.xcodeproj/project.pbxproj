@@ -31,7 +31,7 @@
 		04D82E471F160B2900FDCF34 /* HKPerfectInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D82E451F160B2900FDCF34 /* HKPerfectInfoCell.m */; };
 		04D82E481F160B2900FDCF34 /* HKPerfectInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D82E461F160B2900FDCF34 /* HKPerfectInfoCell.xib */; };
 		04D82E501F161B5600FDCF34 /* HKTitleBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D82E4F1F161B5600FDCF34 /* HKTitleBtn.m */; };
-		04D82E531F16276B00FDCF34 /* HKBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D82E521F16276B00FDCF34 /* HKBaseTableViewController.m */; };
+		04D82E531F16276B00FDCF34 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D82E521F16276B00FDCF34 /* BaseTableViewController.m */; };
 		04DDC3681F149574003D7567 /* HKNameTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DDC3661F149574003D7567 /* HKNameTableViewCell.m */; };
 		04DDC3691F149574003D7567 /* HKNameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04DDC3671F149574003D7567 /* HKNameTableViewCell.xib */; };
 		04DDC36D1F149E7E003D7567 /* My_ToolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DDC36B1F149E7E003D7567 /* My_ToolCell.m */; };
@@ -54,6 +54,8 @@
 		04ECFC591F151A3800ADF59F /* HKPerfectInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04ECFC581F151A3800ADF59F /* HKPerfectInfoView.xib */; };
 		04ECFC671F15B67100ADF59F /* HKPhotoUploadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04ECFC651F15B67100ADF59F /* HKPhotoUploadCell.m */; };
 		04ECFC681F15B67100ADF59F /* HKPhotoUploadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04ECFC661F15B67100ADF59F /* HKPhotoUploadCell.xib */; };
+		184BBF411F2ADDB800282CDE /* HWPopTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 184BBF401F2ADDB800282CDE /* HWPopTool.m */; };
+		184BBF431F2AE1D900282CDE /* WechatIMG1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 184BBF421F2AE1D900282CDE /* WechatIMG1.jpeg */; };
 		4CB8C76F1F239F20009D090B /* MyListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8C76E1F239F20009D090B /* MyListModel.m */; };
 		FA06700B1F23540000B0BC63 /* EditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0670091F23540000B0BC63 /* EditCell.m */; };
 		FA06700C1F23540000B0BC63 /* EditCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA06700A1F23540000B0BC63 /* EditCell.xib */; };
@@ -207,8 +209,8 @@
 		04D82E461F160B2900FDCF34 /* HKPerfectInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HKPerfectInfoCell.xib; sourceTree = "<group>"; };
 		04D82E4E1F161B5600FDCF34 /* HKTitleBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKTitleBtn.h; sourceTree = "<group>"; };
 		04D82E4F1F161B5600FDCF34 /* HKTitleBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKTitleBtn.m; sourceTree = "<group>"; };
-		04D82E511F16276B00FDCF34 /* HKBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKBaseTableViewController.h; sourceTree = "<group>"; };
-		04D82E521F16276B00FDCF34 /* HKBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKBaseTableViewController.m; sourceTree = "<group>"; };
+		04D82E511F16276B00FDCF34 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
+		04D82E521F16276B00FDCF34 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
 		04DDC3651F149574003D7567 /* HKNameTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKNameTableViewCell.h; sourceTree = "<group>"; };
 		04DDC3661F149574003D7567 /* HKNameTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKNameTableViewCell.m; sourceTree = "<group>"; };
 		04DDC3671F149574003D7567 /* HKNameTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HKNameTableViewCell.xib; sourceTree = "<group>"; };
@@ -243,6 +245,9 @@
 		04ECFC641F15B67100ADF59F /* HKPhotoUploadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKPhotoUploadCell.h; sourceTree = "<group>"; };
 		04ECFC651F15B67100ADF59F /* HKPhotoUploadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKPhotoUploadCell.m; sourceTree = "<group>"; };
 		04ECFC661F15B67100ADF59F /* HKPhotoUploadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HKPhotoUploadCell.xib; sourceTree = "<group>"; };
+		184BBF3F1F2ADDB800282CDE /* HWPopTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWPopTool.h; sourceTree = "<group>"; };
+		184BBF401F2ADDB800282CDE /* HWPopTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWPopTool.m; sourceTree = "<group>"; };
+		184BBF421F2AE1D900282CDE /* WechatIMG1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WechatIMG1.jpeg; sourceTree = "<group>"; };
 		4CB8C76D1F239F20009D090B /* MyListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyListModel.h; sourceTree = "<group>"; };
 		4CB8C76E1F239F20009D090B /* MyListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyListModel.m; sourceTree = "<group>"; };
 		FA0670081F23540000B0BC63 /* EditCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditCell.h; sourceTree = "<group>"; };
@@ -460,6 +465,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		184BBF3E1F2ADDB800282CDE /* HWPoTools */ = {
+			isa = PBXGroup;
+			children = (
+				184BBF3F1F2ADDB800282CDE /* HWPopTool.h */,
+				184BBF401F2ADDB800282CDE /* HWPopTool.m */,
+			);
+			path = HWPoTools;
+			sourceTree = "<group>";
+		};
 		FA06700D1F23963200B0BC63 /* ActionSheetPicker */ = {
 			isa = PBXGroup;
 			children = (
@@ -508,6 +522,7 @@
 			isa = PBXGroup;
 			children = (
 				FA4D867D1EFD844700CC55F7 /* 212121.png */,
+				184BBF421F2AE1D900282CDE /* WechatIMG1.jpeg */,
 				FA25BCC31EF7917600D7210C /* Category */,
 				FA25BCC21EF7914000D7210C /* third */,
 				FA25BC8F1EF78F9900D7210C /* BaseControl */,
@@ -597,8 +612,8 @@
 				FAF6A3401F1BA23B0068C0D5 /* IDInfoTwoViewController.h */,
 				FAF6A3411F1BA23B0068C0D5 /* IDInfoTwoViewController.m */,
 				FAF6A3421F1BA23B0068C0D5 /* IDInfoTwoViewController.xib */,
-				04D82E511F16276B00FDCF34 /* HKBaseTableViewController.h */,
-				04D82E521F16276B00FDCF34 /* HKBaseTableViewController.m */,
+				04D82E511F16276B00FDCF34 /* BaseTableViewController.h */,
+				04D82E521F16276B00FDCF34 /* BaseTableViewController.m */,
 				043E68ED1F1737370065016B /* RepaymentInfo_ViewController.h */,
 				043E68EE1F1737370065016B /* RepaymentInfo_ViewController.m */,
 				043E68EF1F1737370065016B /* RepaymentInfo_ViewController.xib */,
@@ -706,6 +721,7 @@
 		FA25BCC21EF7914000D7210C /* third */ = {
 			isa = PBXGroup;
 			children = (
+				184BBF3E1F2ADDB800282CDE /* HWPoTools */,
 				FA06700D1F23963200B0BC63 /* ActionSheetPicker */,
 				FA25BCD61EF791A600D7210C /* AFNetworking */,
 				FA25BCE41EF791A600D7210C /* BlocksKit */,
@@ -1012,6 +1028,7 @@
 				04DDC38D1F14D618003D7567 /* HKSubmitCell.xib in Resources */,
 				04DDC37E1F14C05A003D7567 /* HKNameRowCell.xib in Resources */,
 				043E68EC1F16A5E70065016B /* HKMyListCell.xib in Resources */,
+				184BBF431F2AE1D900282CDE /* WechatIMG1.jpeg in Resources */,
 				FA25BC671EF7790900D7210C /* Main.storyboard in Resources */,
 				043E68F61F1762D30065016B /* MyProfit_ViewController.xib in Resources */,
 				043E69001F1788F90065016B /* FinancialContribution_ViewController.xib in Resources */,
@@ -1055,7 +1072,7 @@
 				FA25BCD51EF7918100D7210C /* UIView+Frame.m in Sources */,
 				04DDC3681F149574003D7567 /* HKNameTableViewCell.m in Sources */,
 				FA25BD461EF791A600D7210C /* MASCompositeConstraint.m in Sources */,
-				04D82E531F16276B00FDCF34 /* HKBaseTableViewController.m in Sources */,
+				04D82E531F16276B00FDCF34 /* BaseTableViewController.m in Sources */,
 				FA25BD481EF791A600D7210C /* MASConstraintMaker.m in Sources */,
 				FA25BD501EF791A600D7210C /* MBProgressHUD.m in Sources */,
 				04DDC36D1F149E7E003D7567 /* My_ToolCell.m in Sources */,
@@ -1124,6 +1141,7 @@
 				FA25BCD01EF7918100D7210C /* NSDictionary+Common.m in Sources */,
 				04DDC37D1F14C05A003D7567 /* HKNameRowCell.m in Sources */,
 				FA25BD411EF791A600D7210C /* AFURLRequestSerialization.m in Sources */,
+				184BBF411F2ADDB800282CDE /* HWPopTool.m in Sources */,
 				FA25BD4B1EF791A600D7210C /* MASViewConstraint.m in Sources */,
 				043E68F01F1737370065016B /* RepaymentInfo_ViewController.m in Sources */,
 				FA25BD431EF791A600D7210C /* AFURLSessionManager.m in Sources */,
@@ -1302,7 +1320,7 @@
 				DEVELOPMENT_TEAM = 7VVA2HVT66;
 				GCC_PREFIX_HEADER = "LIUMING-Finance/BaseControl/PrefixHeader.pch";
 				INFOPLIST_FILE = "LIUMING-Finance/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "---.LIUMING-Finance";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1316,7 +1334,7 @@
 				DEVELOPMENT_TEAM = 7VVA2HVT66;
 				GCC_PREFIX_HEADER = "LIUMING-Finance/BaseControl/PrefixHeader.pch";
 				INFOPLIST_FILE = "LIUMING-Finance/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "---.LIUMING-Finance";
 				PRODUCT_NAME = "$(TARGET_NAME)";

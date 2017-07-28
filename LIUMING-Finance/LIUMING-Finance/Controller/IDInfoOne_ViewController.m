@@ -45,7 +45,7 @@
                  @{@"name":@"姓名",@"place":@"请输入您的真实姓名",@"isHide":@1},
                  @{@"name":@"邀请码",@"place":@"请输入邀请码，若无邀请码可不填",@"isHide":@1},
                  @{@"name":@"身份证号",@"place":@"请输入您本人的身份证号码",@"isHide":@1},
-                 @{@"name":@"手机认证",@"place":@"请输入注册手机号服务密码",@"isHide":@1},
+                 @{@"name":@"手机号码",@"place":@"请输入注册手机号服务密码",@"isHide":@1},
                  @{@"name":@"居住地",@"place":@"请输入您的居住地信息",@"isHide":@0},
                  @{@"name":@"月收入",@"place":@"请输入您的每月收入",@"isHide":@1},
                  @{@"name":@"微信号／QQ",@"place":@"请输入您的微信号或QQ号",@"isHide":@1},
@@ -133,6 +133,12 @@
 
         cell.nameLabel.text = self.arr[indexPath.row][@"name"];
         cell.inputField.placeholder = self.arr[indexPath.row][@"place"];
+        if (indexPath.row == 3) {
+            cell.inputField.text = [XIU_Login ui_phone];
+            cell.inputField.enabled = NO;
+            [cell.inputField setUserInteractionEnabled:NO];
+
+        }
         cell.inputField.tag = indexPath.row;
         [cell.inputField addTarget:self action:@selector(click:) forControlEvents:UIControlEventEditingChanged];
         cell.downImg.hidden = [self.arr[indexPath.row][@"isHide"] integerValue];
@@ -210,9 +216,6 @@
 //    }if (ui_cardid.length != 18) {
 //        XIUHUD(@"身份证输入错误");
 //        return;
-//    }if (ui_phone.length != 11) {
-//        XIUHUD(@"手机号输入错误");
-//        return;
 //    }if (ui_address.length == 0) {
 //        XIUHUD(@"请输入地址");
 //        return;
@@ -244,7 +247,7 @@
 
 - (void)request {
     NSLog(@"----%@", [XIU_Login userId]);
-    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_doPage1 withParams:@{@"ui_id":[XIU_Login userId], @"ui_code":ui_code.length > 0 ? ui_code : @"",@"ui_phone":ui_phone,@"ui_cardid":ui_cardid, @"ui_address":ui_address,@"ui_icome":ui_income,@"ui_qqwx":ui_qqwx, @"ui_name1":phoneName1,@"ui_phone1":phone1, @"ui_name2":phoneName2, @"ui_phone2":phone2} withMethodType:Post andBlock:^(id data, NSError *error) {
+    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_doPage1 withParams:@{@"ui_id":[XIU_Login userId], @"ui_code":ui_code.length > 0 ? ui_code : @"",@"ui_cardid":ui_cardid, @"ui_address":ui_address,@"ui_icome":ui_income,@"ui_qqwx":ui_qqwx, @"ui_name1":phoneName1,@"ui_phone1":phone1, @"ui_name2":phoneName2, @"ui_phone2":phone2} withMethodType:Post andBlock:^(id data, NSError *error) {
         
         if ([data[@"status"] isEqualToString:@"success"]) {
             [XIU_Login doLogin:data[@"data"]];

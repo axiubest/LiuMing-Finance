@@ -62,9 +62,7 @@ static XIU_User *curLoginUser;
 }
 
 +(NSString *)ui_phone {
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_qqwx"] length] != 11) {
-        return @"请前往完善手机号";
-    }
+    //手机号码一定有
     return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_phone"];
 }
 

@@ -10,4 +10,5 @@
 
 @interface EditCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIButton *editBtn;
 @end

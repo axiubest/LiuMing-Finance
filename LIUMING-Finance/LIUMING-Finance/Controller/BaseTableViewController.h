@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HKBaseTableViewController : UITableViewController
+@interface BaseTableViewController : UITableViewController
 /** 帖子的类型 */
 @property (assign, nonatomic) HKListType type;
 @property (nonatomic,strong) NSMutableArray *arr;

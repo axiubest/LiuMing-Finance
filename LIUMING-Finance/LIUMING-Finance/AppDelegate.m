@@ -9,7 +9,8 @@
 #import "AppDelegate.h"
 #import "Login_ViewController.h"
 #import "FinancialContribution_ViewController.h"
-#import "HKBaseTableViewController.h"
+#import "BaseTableViewController.h"
+#import "HKNavigationController.h"
 @interface AppDelegate ()
 
 @end
@@ -32,13 +33,13 @@
   
         }if ([[XIU_Login type] isEqualToString:@"2"]) {
             FinancialContribution_ViewController *v = [[FinancialContribution_ViewController alloc] init];
-            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:v];
+            HKNavigationController *nav = [[HKNavigationController alloc] initWithRootViewController:v];
             self.window.rootViewController = nav;
             
         }if ([[XIU_Login type] isEqualToString:@"5"]) {
-            HKBaseTableViewController *v = [[HKBaseTableViewController alloc] init];
+            BaseTableViewController *v = [[BaseTableViewController alloc] init];
             v.title = @"催收订单";
-            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:v];
+            HKNavigationController *nav = [[HKNavigationController alloc] initWithRootViewController:v];
             self.window.rootViewController = nav;
             
         }

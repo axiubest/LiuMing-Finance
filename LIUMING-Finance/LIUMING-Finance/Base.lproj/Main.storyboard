@@ -1111,7 +1111,7 @@
             </objects>
             <point key="canvasLocation" x="-1588" y="3567"/>
         </scene>
-        <!--333-->
+        <!--更多-->
         <scene sceneID="PGM-gS-2D1">
             <objects>
                 <tableViewController id="fHv-hq-GJH" sceneMemberID="viewController">
@@ -1154,7 +1154,7 @@
                             <outlet property="delegate" destination="fHv-hq-GJH" id="O5X-We-orO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="333" id="r8Q-sw-mxq"/>
+                    <navigationItem key="navigationItem" title="更多" id="r8Q-sw-mxq"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rlp-q1-gJJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

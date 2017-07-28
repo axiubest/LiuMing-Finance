@@ -209,8 +209,8 @@
         }
         
         
-        HKDelegateCell *cell ;
-        cell = [HKDelegateCell delegateCell];
+        [_tableView registerNib:[HKDelegateCell XIU_ClassNib] forCellReuseIdentifier:[NSString stringWithFormat:@"%ldx", indexPath.row]];
+        HKDelegateCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"%ldx", indexPath.row]];
         cell.nameLabel.text = self.arr[indexPath.row][@"name"];
         cell.inputField.placeholder = self.arr[indexPath.row][@"place"];
         [cell.inputField addTarget:self action:@selector(click:) forControlEvents:UIControlEventEditingChanged];
@@ -229,22 +229,36 @@
     
     switch (textField.tag) {
         case 0:
-            ui_xzaddress = textField.text;
+            ui_xzworkname = textField.text;
             break;
         case 1:
             
             if ([ui_yhtype isEqualToString:@"1"]) {
-                
+                ui_xzfaculty = textField.text;
+            }else {
+                ui_xzaddress = textField.text;
             }
             break;
         case 2:
-            ui_xzaddress = textField.text;
+            if ([ui_yhtype isEqualToString:@"1"]) {
+                ui_professionalclass = textField.text;
+            }else {
+                ui_comphone = textField.text;
+            }
             break;
         case 3:
-            ui_xzaddress = textField.text;
+            if ([ui_yhtype isEqualToString:@"1"]) {
+                ui_school_rol = textField.text;
+            }else {
+                ui_job = textField.text;
+            }
             break;
         case 4:
-            ui_xzaddress = textField.text;
+            if ([ui_yhtype isEqualToString:@"1"]) {
+                ui_xzaddress = textField.text;
+            }else {
+                ui_ed = textField.text;
+            }
             break;
         default:
             break;

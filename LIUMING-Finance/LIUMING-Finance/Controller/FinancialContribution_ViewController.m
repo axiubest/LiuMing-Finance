@@ -19,6 +19,7 @@
 @implementation FinancialContribution_ViewController
 
 - (void)request {
+    [self.dataSource removeAllObjects];
     [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_home withParams:@{@"ui_type":@"2", @"ui_id":@"1"} withMethodType:Post andBlock:^(id data, NSError *error) {
         
         if ([data[@"status"] isEqualToString:@"sucess"]) {
@@ -37,9 +38,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"财务打款";
-    self.tableView.delegate = self;
-    self.tableView.dataSource  = self;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
     [self request];
 }
@@ -60,20 +58,13 @@
     return 168;
 }
 
+- (void)clickFooterBtn:(UIButton *)sender {
+    [self request];
+}
 
-/*
- @"headerImg":@"已出账单",
- @"headerTitle":@"订单编号：600020170619988228",
- @"headerSubTitle":@"未打款",
- @"bodyTitle":@"客户［张三］借款8000元，分3期",
- @"bodySubTitle":@"¥8000.00",
- @"bodyFine":@"(支付宝帐号：154570380@qq.com)",
- @"footerTitle":@"06/19 13:32:48",
- @"footerSubTitle":@"立即打款"
- */
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     HKFinancialContributionCell *cell = [HKFinancialContributionCell financialContributionCell];
-//    NSDictionary *dic = self.arr[indexPath.row];
+    [cell.footerBtn addTarget:self action:@selector(clickFooterBtn:) forControlEvents:UIControlEventTouchUpInside];
     cell.headerImg.image = [UIImage imageNamed:@"已出账单"];
     cell.headerTitleLabel.text = [NSString stringWithFormat:@"订单编号：%@", [self.dataSource[indexPath.row] oi_id]];
     
