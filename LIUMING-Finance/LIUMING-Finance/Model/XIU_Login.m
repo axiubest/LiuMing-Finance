@@ -10,8 +10,7 @@
 #import "MJExtension.h"
 #import "NSDictionary+Common.h"
 
-#define kLoginStatus @"login_status"
-#define kLoginUserDict @"user_dict"
+
 
 
 static XIU_User *curLoginUser;
@@ -48,7 +47,19 @@ static XIU_User *curLoginUser;
 +(NSString *)userId {
     return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_id"];
 }
++(NSString *)ui_name {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_name"];
+}
++(NSString *)ui_img {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_img"];
+}
 
++(NSString *)ui_birthday {
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_birthday"] length] < 2) {
+        return @"请完善生日";
+    }
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_birthday"];
+}
 +(NSString *)userName {
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_account"] length] < 2) {
         return @"请前往完善姓名";
@@ -66,6 +77,10 @@ static XIU_User *curLoginUser;
     return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_phone"];
 }
 
++(NSString *)ui_address {
+   return  [[[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict] objectForKey:@"ui_address"];
+
+}
 
 +(NSString *)ui_qqwx {
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_qqwx"] length] < 4) {
@@ -75,12 +90,15 @@ static XIU_User *curLoginUser;
 
 }
 +(NSString *)ui_sex {
+
+    
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_sex"]  isEqual: @1]) {
         return @"男";
     }else if ([[[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_sex"]  isEqual: @0]) {
         return @"女";
     }
     return @"您未完善性别";
+    
 }
 
 + (BOOL)isVerification {

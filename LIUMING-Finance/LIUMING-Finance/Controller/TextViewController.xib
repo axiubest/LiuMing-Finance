@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TextViewController">
+            <connections>
+                <outlet property="textField" destination="AyP-eA-yGA" id="s3B-rm-FRY"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oHx-oU-SRY">
+                    <rect key="frame" x="0.0" y="84" width="375" height="44"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AyP-eA-yGA">
+                            <rect key="frame" x="20" y="0.0" width="355" height="44"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="AyP-eA-yGA" firstAttribute="top" secondItem="oHx-oU-SRY" secondAttribute="top" id="7gi-Rb-Zow"/>
+                        <constraint firstAttribute="height" constant="44" id="djG-d2-oeh"/>
+                        <constraint firstItem="AyP-eA-yGA" firstAttribute="leading" secondItem="oHx-oU-SRY" secondAttribute="leading" constant="20" id="eD8-Pr-J7q"/>
+                        <constraint firstAttribute="bottom" secondItem="AyP-eA-yGA" secondAttribute="bottom" id="m3M-iP-cED"/>
+                        <constraint firstAttribute="trailing" secondItem="AyP-eA-yGA" secondAttribute="trailing" id="xBz-49-nGz"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.95206738945578229" green="0.95658482142857137" blue="0.9564253826530611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="oHx-oU-SRY" secondAttribute="trailing" id="N5C-oq-kRh"/>
+                <constraint firstItem="oHx-oU-SRY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="g9G-Gs-tbx"/>
+                <constraint firstItem="oHx-oU-SRY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="84" id="txJ-6W-CI2"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

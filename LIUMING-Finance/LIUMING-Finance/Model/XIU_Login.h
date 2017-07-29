@@ -24,10 +24,14 @@
 +(BOOL)isLogin;
 +(void)doLogOut;
 
++(NSString *)ui_address;
 +(NSString *)userName;
 +(NSString *)userId;
 +(NSString *)ui_phone;
 +(NSString *)ui_qqwx;
++(NSString *)ui_img;
++(NSString *)ui_birthday;
++(NSString *)ui_name;
 +(NSString *)ui_sex;
 +(NSString *)type;
 + (BOOL)isVerification;

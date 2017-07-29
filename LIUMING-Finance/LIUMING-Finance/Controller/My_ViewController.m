@@ -140,10 +140,9 @@
     if (indexPath.section==0) {
        HKNameTableViewCell *cell = [HKNameTableViewCell nameTableVeiwCell];
         cell.myDelegate = self;
-        NSLog(@"%@", self.dataDic);
         
         cell.nameLab.text = [XIU_Login userName];
-        cell.tjr_nameLab.text =[NSString stringWithFormat:@"推荐人:%@", self.dataDic[@"tjr_name"]] ;
+        cell.tjr_nameLab.text =[NSString stringWithFormat:@"推荐人:%@", [self.dataDic[@"tjr_name"] isKindOfClass:[NSNull class]] ? @" 无推荐人": self.dataDic[@"tjr_name"]] ;
         cell.getMoneyLab.text =self.dataDic[@"profit"];
         cell.canUseMoneyLab.text = self.dataDic[@"ui_limit"];
         return cell;

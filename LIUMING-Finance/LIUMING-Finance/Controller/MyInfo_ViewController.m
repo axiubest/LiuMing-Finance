@@ -10,6 +10,7 @@
 #import "HKMyInfoCell.h"
 #import "HKPerfectInfoCell.h"
 #import "IDInfoOne_ViewController.h"
+#import "TextViewController.h"
 
 #import "ActionSheetStringPicker.h"
 #import "ActionSheetDatePicker.h"
@@ -34,10 +35,10 @@
         _arr = @[
                  @[@{@"icon":@"完善身份信息",@"title":@"完善身份信息",@"subTitle":@"实名认证，手机认证，获取信贷额度"}],
                  @[
-                    @{@"title":@"头像",@"subImage":@"pay"},
-                    @{@"title":@"昵称"},
+                    @{@"title":@"头像",@"subImage":[XIU_Login ui_img]},
+                    @{@"title":@"真实姓名",@"subTitle":[XIU_Login ui_name]},
                     @{@"title":@"性别",@"subTitle":[XIU_Login ui_sex]},
-                    @{@"title":@"生日"}
+                    @{@"title":@"生日",@"subTitle":[XIU_Login ui_birthday]}
                     ],
                  @[@{@"title":@"现居地"}],
                  @[@{@"title":@"推荐人",@"subTitle":@"见涛"}],
@@ -46,6 +47,11 @@
                 ];
     }
     return _arr;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
 }
 
 - (void)viewDidLoad {
@@ -89,13 +95,26 @@
         cell.infoTitle.text = dic[@"title"];
     }
     if (dic[@"subTitle"]) {
-        cell.infoSubTitle.text = dic[@"subTitle"];
+        if (indexPath.row == 1) {
+        cell.infoSubTitle.text = [XIU_Login ui_name];
+        }
+        if (indexPath.row == 2) {
+            cell.infoSubTitle.text = [XIU_Login ui_sex];
+        }
+        if (indexPath.row == 3) {
+            cell.infoSubTitle.text = [XIU_Login ui_birthday];
+        }
         cell.infoSubTitle.hidden = NO;
     }
     if (dic[@"subImage"]) {
         cell.subImg.image = [UIImage imageNamed:dic[@"subImage"]];
         cell.subImg.hidden = NO;
+    }if (indexPath.section == 2) {
+         cell.infoSubTitle.text = [XIU_Login ui_address];
+        cell.infoSubTitle.hidden = NO;
+
     }
+    
     if (indexPath.section==3) {
         cell.subImg.hidden = YES;
         cell.infoSubTitle.hidden = YES;
@@ -105,7 +124,7 @@
         
     }if (indexPath.section == 4) {
         EditCell *cell = [tableView dequeueReusableCellWithIdentifier:[EditCell XIU_ClassIdentifier]];
-        [cell.editBtn setTitle:@"保存" forState:UIControlStateNormal];
+        [cell.editBtn setTitle:@"保存基本信息" forState:UIControlStateNormal];
         [cell.editBtn addTarget:self action:@selector(clickEditBtn) forControlEvents:UIControlEventTouchUpInside];
         return cell;
     }
@@ -155,11 +174,27 @@
     if (indexPath.section==0) {
         IDInfoOne_ViewController *vc = [[IDInfoOne_ViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
+    }if (indexPath.section == 1 && indexPath.row == 1) {
+        TextViewController *vc  =[[TextViewController alloc] init];
+        vc.type = @"姓名";
+        vc.hidesBottomBarWhenPushed = YES;
+        vc.textField.text = [XIU_Login ui_name];
+        [self.navigationController pushViewController:vc animated:YES];
     }
+    
     if (indexPath.section == 1 && indexPath.row == 2) {
-        [ActionSheetStringPicker showPickerWithTitle:nil rows:@[@[@"男", @"女", @"未知"]] initialSelection:@[@"男"] doneBlock:^(ActionSheetStringPicker *picker, NSArray * selectedIndex, NSArray *selectedValue) {
-            
-//            weakself.curUser.userSex = @"";
+        [ActionSheetStringPicker showPickerWithTitle:nil rows:@[@[@"男", @"女"]] initialSelection:@[@"男"] doneBlock:^(ActionSheetStringPicker *picker, NSArray * selectedIndex, NSArray *selectedValue) {
+            NSNumber *num = @1;
+            if ([selectedValue[0] isEqualToString:@"男"]) {
+                num = @1;
+            }if ([selectedValue[0] isEqualToString:@"女"]) {
+                num = @0;
+            }
+          NSDictionary *dic = [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict];
+            NSMutableDictionary *dics = [NSMutableDictionary dictionaryWithDictionary:dic];
+            [dics setValue:num forKey:@"ui_sex"];
+
+            [[NSUserDefaults standardUserDefaults]setObject:dics forKey:kLoginUserDict] ;
             [weakself.tableView reloadData];
             
         } cancelBlock:nil origin:self.view];
@@ -171,9 +206,16 @@
         }
         ActionSheetDatePicker *picker = [[ActionSheetDatePicker alloc] initWithTitle:nil datePickerMode:UIDatePickerModeDate selectedDate:curDate doneBlock:^(ActionSheetDatePicker *picker, NSDate *selectedDate, id origin) {
             
-//            weakself.curUser.userBirth = [selectedDate string_yyyy_MM_dd];
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+            NSString *strDate = [dateFormatter stringFromDate:selectedDate];
+
+            NSDictionary *dic = [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict];
+            NSMutableDictionary *dics = [NSMutableDictionary dictionaryWithDictionary:dic];
+            [dics setValue:strDate forKey:@"ui_birthday"];
+            [[NSUserDefaults standardUserDefaults]setObject:dics forKey:kLoginUserDict] ;
             [weakself.tableView reloadData];
-            //                    request
+            
         } cancelBlock:^(ActionSheetDatePicker *picker) {
             
         } origin:self.view];
@@ -182,6 +224,12 @@
         [picker showActionSheetPicker];
         
 
+    }if (indexPath.section == 2) {
+        TextViewController *vc  =[[TextViewController alloc] init];
+        vc.type = @"地址";
+        vc.hidesBottomBarWhenPushed = YES;
+        vc.textField.text = [XIU_Login ui_address];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 @end

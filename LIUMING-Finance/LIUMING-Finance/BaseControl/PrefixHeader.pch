@@ -24,7 +24,8 @@ typedef NS_ENUM(NSUInteger, HKListType) {
     HKListTypeSettle = 4, // 已结清
 };
 
-
+#define kLoginStatus @"login_status"
+#define kLoginUserDict @"user_dict"
 static NSInteger HUDProgress_Time = 1;
 
 #define NB_FONT(r) [UIFont fontWithName:@"PingFang-SC-Regular" size:r]

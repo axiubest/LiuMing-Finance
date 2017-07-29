@@ -169,7 +169,7 @@
 //        cell.bodyFineLabel.hidden = YES;
 //    }
     cell.footerTitleLabel.text =[NSString stringWithFormat:@"还款日期：%@", model.hktime] ;
-    if ([model.oi_state isEqualToString:@"借款中"]) {
+    if ([model.oi_state isEqualToString:@"借款中"] || [model.oi_state isEqualToString:@"已逾期"]) {
             [cell.footerBtn setTitle:@"立即还款" forState:UIControlStateNormal];
         [cell.footerBtn.layer setBorderColor:CGColorCreate(CGColorSpaceCreateDeviceRGB(), (CGFloat[]){26/255.0, 113/255.0, 1, 1 })];
         [cell.footerBtn setTitleColor:[UIColor colorWithHexString:@"#1a7aff"] forState:UIControlStateNormal];
