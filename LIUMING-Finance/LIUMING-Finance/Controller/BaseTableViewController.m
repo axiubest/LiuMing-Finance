@@ -53,7 +53,7 @@
 
 
 - (void)request {
-    
+
     [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_List withParams:@{@"oi_state":[NSString stringWithFormat:@"%ld", _type], @"ui_id":@"1"} withMethodType:Post andBlock:^(id data, NSError *error) {
         for (NSDictionary *obj in data[@"data"]) {
             
@@ -169,7 +169,7 @@
 //        cell.bodyFineLabel.hidden = YES;
 //    }
     cell.footerTitleLabel.text =[NSString stringWithFormat:@"还款日期：%@", model.hktime] ;
-    if ([model.oi_state isEqualToString:@"借款中"] || [model.oi_state isEqualToString:@"已逾期"]) {
+    if ([model.oi_state isEqualToString:@"借款中"] || [model.oi_state isEqualToString:@"已逾期"] || [model.oi_state isEqualToString:@"还款中"]) {
             [cell.footerBtn setTitle:@"立即还款" forState:UIControlStateNormal];
         [cell.footerBtn.layer setBorderColor:CGColorCreate(CGColorSpaceCreateDeviceRGB(), (CGFloat[]){26/255.0, 113/255.0, 1, 1 })];
         [cell.footerBtn setTitleColor:[UIColor colorWithHexString:@"#1a7aff"] forState:UIControlStateNormal];

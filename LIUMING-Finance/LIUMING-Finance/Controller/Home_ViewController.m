@@ -45,6 +45,7 @@
 - (IBAction)clickSlider:(HKSlider *)sender {
     if (sender.tag == 111) {//money
         NSString *num =[NSString stringWithFormat:@"%.0f",sender.value];
+        
        NSString *tmp = [num substringToIndex:num.length - 2];
         self.moneyLab.text = [NSString stringWithFormat:@"%@00", tmp];;
         
@@ -78,6 +79,11 @@
     [self.giveBtn setTitle:@"我要还款" forState:UIControlStateNormal];
     [self.progressBtn setTitle:@"进度查询" forState:UIControlStateNormal];
     [self.userMoneyBtn setTitle:@"费用说明" forState:UIControlStateNormal];
+}
+
+#pragma mark 借款申请按钮
+- (IBAction)clickGetMoneyBtn:(id)sender {
+//    网络请求判断
 }
 
 -(void)gotoInfo{

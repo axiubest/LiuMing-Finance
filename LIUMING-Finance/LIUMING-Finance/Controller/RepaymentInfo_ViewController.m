@@ -9,8 +9,11 @@
 #import "RepaymentInfo_ViewController.h"
 #import "HKBaseTableViewCell.h"
 #import "HKSubmitCell.h"
+#import "ActionSheetStringPicker.h"
+#import "HWPopTool.h"
 
 @interface RepaymentInfo_ViewController ()<UITableViewDelegate,UITableViewDataSource,HKSubmitCellDelegate>
+
 //title
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *everyMontPayIntLabel;
@@ -20,20 +23,25 @@
 //剩余的时间
 @property (weak, nonatomic) IBOutlet UILabel *surplusTimeLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property (nonatomic, strong) NSString *moneyType;
 @property (nonatomic,strong) NSArray *arr;
+@property (strong, nonatomic) UIView *contentView;
+
 @end
 
 @implementation RepaymentInfo_ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _moneyType = @"线上";//还款初始值为线上
     self.title = @"还款详情";
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+    NSLog(@"%@", _mod);
     
     self.titleLabel.text = [NSString stringWithFormat:@"总借款金额：%@元，分%@期", _mod.oi_jkprice, _mod.oi_jkloans];
-    NSString *moneyStr = _mod.myyhprice;
+
+    NSString *moneyStr = _mod.myyhprice.length > 1 ? _mod.myyhprice : @"0.00";
     self.everyMontPayIntLabel.text = [NSString stringWithFormat:@"%@.", [moneyStr componentsSeparatedByString:@"."][0]];
     self.everyMonthPayFloatLabel.text =  [moneyStr componentsSeparatedByString:@"."][1];
     self.surplusTimeLabel.text = _mod.hktime;
@@ -45,7 +53,7 @@
     NSString *subtitle = [NSString stringWithFormat:@"%@", _mod.fxprice];
     self.arr = @[
                  @{@"iconImage":@"还款方式",@"title":@"罚息",@"subtitle":subtitle},
-                  @{@"iconImage":@"还款方式",@"title":@"还款方式"},
+                  @{@"iconImage":@"还款方式",@"title":@"还款方式",@"subtitle":_moneyType},
                   @{@"iconImage":@"还款状态",@"title":@"还款状态",@"subtitle":_mod.oi_state},
                   @{@"iconImage":@"还款总额",@"title":@"还款总额",@"subtitle":moneyStr}
                  ];
@@ -85,9 +93,12 @@
     cell.iconImage.image = [UIImage imageNamed:dic[@"iconImage"]];
     cell.iconLabel.text = dic[@"title"];
     if (dic[@"subtitle"]) {
-         cell.subLabel.text = dic[@"subtitle"];
-        cell.subLabel.hidden = NO;
-        cell.rowImage.hidden = YES;
+        cell.subLabel.text = indexPath.row == 1 ? _moneyType : dic[@"subtitle"];
+
+            cell.subLabel.hidden = NO;
+            cell.rowImage.hidden = YES;
+        
+
     }else{
         cell.subLabel.hidden = YES;
         cell.rowImage.hidden = NO;
@@ -95,12 +106,40 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    XIU_WeakSelf(self)
+    if (indexPath.row == 1) {
+        [ActionSheetStringPicker showPickerWithTitle:nil rows:@[@[@"线上", @"线下"]] initialSelection:@[@"线上"] doneBlock:^(ActionSheetStringPicker *picker, NSArray * selectedIndex, NSArray *selectedValue) {
 
+            _moneyType = selectedValue[0];
+            
+            
+            [weakself.tableView reloadData];
+            
+        } cancelBlock:nil origin:self.view];
+        
+
+    }
+}
 - (IBAction)clickBack:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)submitCellBtnClick:(HKSubmitCell *)cell{
+    if ([_moneyType isEqualToString:@"线上"]) {
+        _contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 300)];
+        _contentView.backgroundColor = [UIColor clearColor];
+        UIImageView *imageV = [[UIImageView alloc]initWithFrame:_contentView.bounds];
+        imageV.image = [UIImage imageNamed:@"WechatIMG1.jpeg"];
+        [_contentView addSubview:imageV];
+        
+        [HWPopTool sharedInstance].shadeBackgroundType = ShadeBackgroundTypeSolid;
+        [HWPopTool sharedInstance].closeButtonType = ButtonPositionTypeRight;
+        [[HWPopTool sharedInstance] showWithPresentView:_contentView animated:YES];
+
+    }else {
+//        reuquest
+    }
     NSLog(@"我点击啦");
 }
 

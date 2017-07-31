@@ -82,6 +82,8 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [self.view endEditing:YES];
+    [self.phoneTextField resignFirstResponder];
+    [self.passwordTextField resignFirstResponder];
 
 }
 @end
