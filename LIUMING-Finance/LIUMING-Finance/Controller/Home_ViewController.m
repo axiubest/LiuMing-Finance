@@ -12,7 +12,7 @@
 #import "HKButton.h"
 #import "HKSlider.h"
 #import "MyList_ViewController.h"
-@interface Home_ViewController ()<HKPerfectInfoViewDelegate>
+@interface Home_ViewController ()<HKPerfectInfoViewDelegate, UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *moneyLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
@@ -84,6 +84,33 @@
 #pragma mark 借款申请按钮
 - (IBAction)clickGetMoneyBtn:(id)sender {
 //    网络请求判断
+    NSString *str = [NSString stringWithFormat:@"确定申请借款：%@元？", _moneyLab.text];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"确认申请" message:str delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    [alert show];
+
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        
+    }else {//确认
+        [self applyRequest];
+    }
+}
+
+#pragma mark 借款申请
+- (void)applyRequest {
+    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_Apply withParams:@{@"ui_id":@"1", @"oi_jkprice":_moneyLab.text, @"oi_jkloans":_timeLab.text} withMethodType:Post andBlock:^(id data, NSError *error) {
+        if ([data[@"status"] isEqualToString:@"error"]) {
+            XIUHUD(@"借款失败");
+        }if ([data[@"status"] isEqualToString:@"noquota"]) {
+            XIUHUD(@"额度不够");
+        }if ([data[@"status"] isEqualToString:@"sucess"]) {
+            XIUHUD(@"借款成功");
+        }
+       
+    }];
 }
 
 -(void)gotoInfo{
@@ -96,7 +123,10 @@
     
 }
 - (IBAction)clickToolButton:(HKButton *)sender {
-    if (sender.tag == HKListTypeAll || sender.tag == HKListTypeBorrowMoney) {
+    if (sender.tag == HKListTypeAll) {//跳转到进度查询
+        
+    }
+    if (sender.tag == HKListTypeBorrowMoney) {
         MyList_ViewController *vc = [[MyList_ViewController alloc] init];
         vc.myType = sender.tag;
         vc.title = @"我的清单";

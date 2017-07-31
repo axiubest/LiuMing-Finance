@@ -60,6 +60,37 @@ static XIU_User *curLoginUser;
     }
     return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_birthday"];
 }
+
+
++(NSString *)ui_code {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_code"];
+}
++(NSString *)ui_cardid {
+     return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_cardid"];
+}
++(NSString *)ui_alipay {
+     return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_alipay"];
+}
++(NSString *)ui_income {
+   return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_income"];
+}
++(NSString *)ui_limit {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_limit"];
+}
++(NSString *)ui_name1 {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_name1"];
+}
++(NSString *)ui_phone1 {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_phone1"];
+}
++(NSString *)ui_name2 {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_name2"];
+}
++(NSString *)ui_phone2 {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_phone2"];
+}
+
+
 +(NSString *)userName {
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_account"] length] < 2) {
         return @"请前往完善姓名";

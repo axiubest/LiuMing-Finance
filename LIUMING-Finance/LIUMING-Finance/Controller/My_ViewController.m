@@ -151,9 +151,13 @@
         cell.delegate = self;
         return cell;
     }else if(indexPath.section > 1 && indexPath.section != 5){
+      
         HKBaseTableViewCell *cell = [HKBaseTableViewCell baseTableVeiwCell];
         NSArray *arr = self.arr[indexPath.section];
         cell.model = arr[indexPath.row];
+        if (indexPath.section == 2) {
+            cell.subLabel.text = [self.dataDic[@"tjr_name"] isKindOfClass:[NSNull class]] ? @"--": self.dataDic[@"tjr_name"];
+        }
         return cell;
         
     }if (indexPath.section == 5) {

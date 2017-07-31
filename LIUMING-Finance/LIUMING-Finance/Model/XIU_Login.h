@@ -24,6 +24,7 @@
 +(BOOL)isLogin;
 +(void)doLogOut;
 
++(NSString *)ui_name;
 +(NSString *)ui_address;
 +(NSString *)userName;
 +(NSString *)userId;
@@ -31,9 +32,27 @@
 +(NSString *)ui_qqwx;
 +(NSString *)ui_img;
 +(NSString *)ui_birthday;
-+(NSString *)ui_name;
 +(NSString *)ui_sex;
 +(NSString *)type;
+
++(NSString *)ui_code;
++(NSString *)ui_cardid;
++(NSString *)ui_alipay;
++(NSString *)ui_income;
++(NSString *)ui_limit;
++(NSString *)ui_name1;
++(NSString *)ui_phone1;
++(NSString *)ui_name2;
++(NSString *)ui_phone2;
+
+
+
+
+
+
+
+
+
 + (BOOL)isVerification;
 + (XIU_User *)curLoginUser;
 @end

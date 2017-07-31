@@ -25,7 +25,7 @@
     NSString *phoneName1;
     NSString *phone2;
     NSString *phoneName2;
-
+    NSString *ui_alipay;
     
 
 
@@ -50,6 +50,7 @@
                  @{@"name":@"月收入",@"place":@"请输入您的每月收入",@"isHide":@1},
                  @{@"name":@"微信号／QQ",@"place":@"请输入您的微信号或QQ号",@"isHide":@1},
                  @{@"name":@"借贷额度",@"place":@"请输入您的借贷额度",@"isHide":@1},
+                  @{@"name":@"支付宝",@"place":@"请输入您的支付宝账号",@"isHide":@1},
                  @{@"name":@"第一位亲属紧急联系人",@"place":@"请输入您的紧急联系人姓名，如：父亲姓名",@"isHide":@1},
                  @{@"name":@"第一位亲属紧急联系人电话",@"place":@"请输入您的紧急联系人电话号码",@"isHide":@1},
                  @{@"name":@"第二位亲属紧急联系人",@"place":@"请输入您的紧急联系人姓名，如：母亲姓名",@"isHide":@1},
@@ -133,12 +134,54 @@
 
         cell.nameLabel.text = self.arr[indexPath.row][@"name"];
         cell.inputField.placeholder = self.arr[indexPath.row][@"place"];
-        if (indexPath.row == 3) {
-            cell.inputField.text = [XIU_Login ui_phone];
-            cell.inputField.enabled = NO;
-            [cell.inputField setUserInteractionEnabled:NO];
+        switch (indexPath.row) {
+            case 0:
+                cell.inputField.text = [XIU_Login ui_name];
+                break;
+            case 1:
+                 cell.inputField.text = [XIU_Login ui_code];
+                break;
+            case 2:
+                cell.inputField.text = [XIU_Login ui_cardid];
+                break;
+            case 3:
+                cell.inputField.text = [XIU_Login ui_phone];
+                cell.inputField.enabled = NO;
+                [cell.inputField setUserInteractionEnabled:NO];
+                break;
+            case 4:
+                 cell.inputField.text = [XIU_Login ui_address];
+                break;
+            case 5:
+                 cell.inputField.text = [XIU_Login ui_income];
+                break;
+            case 6:
+                 cell.inputField.text = [XIU_Login ui_qqwx];
+                break;
+            case 7:
+                 cell.inputField.text = [XIU_Login ui_limit];
+                break;
+            case 8:
+                cell.inputField.text = [XIU_Login ui_alipay];
+                break;
 
+            case 9:
+                cell.inputField.text = [XIU_Login ui_name1];
+                break;
+            case 10:
+                cell.inputField.text = [XIU_Login ui_phone1];
+                break;
+            case 11:
+                cell.inputField.text = [XIU_Login ui_name2];
+                break;
+            case 12:
+                cell.inputField.text = [XIU_Login ui_phone2];
+                break;
+
+            default:
+                break;
         }
+
         cell.inputField.tag = indexPath.row;
         [cell.inputField addTarget:self action:@selector(click:) forControlEvents:UIControlEventEditingChanged];
         cell.downImg.hidden = [self.arr[indexPath.row][@"isHide"] integerValue];
@@ -185,18 +228,22 @@
             
             break;
         case 8:
-            phoneName1 = textField.text;
+            ui_alipay = textField.text;
             
             break;
         case 9:
-            phone1 = textField.text;
+            phoneName1 = textField.text;
             
             break;
         case 10:
-            phoneName2 = textField.text;
+            phone1 = textField.text;
             
             break;
         case 11:
+            phoneName2 = textField.text;
+            
+            break;
+        case 12:
             phone2 = textField.text;
             
             break;
@@ -228,6 +275,9 @@
 //    }if (ui_limit.length == 0) {
 //        XIUHUD(@"请输入借款额度");
 //        return;
+//    }if (ui_alipay.length < 5) {
+//        XIUHUD(@"请输入支付宝号码");
+//        return;
 //    }if (phoneName1.length < 2) {
 //        XIUHUD(@"请输入第一位紧急联系人");
 //        return;
@@ -246,8 +296,8 @@
 
 
 - (void)request {
-    NSLog(@"----%@", [XIU_Login userId]);
-    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_doPage1 withParams:@{@"ui_id":[XIU_Login userId], @"ui_code":ui_code.length > 0 ? ui_code : @"",@"ui_cardid":ui_cardid, @"ui_address":ui_address,@"ui_icome":ui_income,@"ui_qqwx":ui_qqwx, @"ui_name1":phoneName1,@"ui_phone1":phone1, @"ui_name2":phoneName2, @"ui_phone2":phone2} withMethodType:Post andBlock:^(id data, NSError *error) {
+    
+    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_doPage1 withParams:@{@"ui_id":[XIU_Login userId], @"ui_code":ui_code.length > 0 ? ui_code : @"",@"ui_cardid":ui_cardid, @"ui_address":ui_address,@"ui_icome":ui_income,@"ui_qqwx":ui_qqwx, @"ui_name1":phoneName1,@"ui_phone1":phone1, @"ui_name2":phoneName2, @"ui_phone2":phone2, @"ui_alipay":ui_alipay} withMethodType:Post andBlock:^(id data, NSError *error) {
         
         if ([data[@"status"] isEqualToString:@"success"]) {
             [XIU_Login doLogin:data[@"data"]];

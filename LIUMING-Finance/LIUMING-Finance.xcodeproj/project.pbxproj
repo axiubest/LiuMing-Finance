@@ -138,6 +138,8 @@
 		FA2B1C491F2CC9BC000D889D /* TextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2B1C471F2CC9BC000D889D /* TextViewController.m */; };
 		FA2B1C4A1F2CC9BC000D889D /* TextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA2B1C481F2CC9BC000D889D /* TextViewController.xib */; };
 		FA2B1C4D1F2CD50E000D889D /* UIViewController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2B1C4C1F2CD50E000D889D /* UIViewController+BackButtonHandler.m */; };
+		FA2B1C541F2F66E1000D889D /* Progress_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2B1C521F2F66E1000D889D /* Progress_ViewController.m */; };
+		FA2B1C551F2F66E1000D889D /* Progress_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA2B1C531F2F66E1000D889D /* Progress_ViewController.xib */; };
 		FA4D867E1EFD844700CC55F7 /* 212121.png in Resources */ = {isa = PBXBuildFile; fileRef = FA4D867D1EFD844700CC55F7 /* 212121.png */; };
 		FA86F23A1F19AAC300CBAC4B /* XIU_NetAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FA86F2391F19AAC300CBAC4B /* XIU_NetAPIClient.m */; };
 		FAF6A3301F1B00300068C0D5 /* UIViewController+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF6A32F1F1B00300068C0D5 /* UIViewController+Common.m */; };
@@ -423,6 +425,9 @@
 		FA2B1C481F2CC9BC000D889D /* TextViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextViewController.xib; sourceTree = "<group>"; };
 		FA2B1C4B1F2CD50E000D889D /* UIViewController+BackButtonHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BackButtonHandler.h"; sourceTree = "<group>"; };
 		FA2B1C4C1F2CD50E000D889D /* UIViewController+BackButtonHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BackButtonHandler.m"; sourceTree = "<group>"; };
+		FA2B1C511F2F66E1000D889D /* Progress_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Progress_ViewController.h; sourceTree = "<group>"; };
+		FA2B1C521F2F66E1000D889D /* Progress_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Progress_ViewController.m; sourceTree = "<group>"; };
+		FA2B1C531F2F66E1000D889D /* Progress_ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Progress_ViewController.xib; sourceTree = "<group>"; };
 		FA4D867D1EFD844700CC55F7 /* 212121.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 212121.png; sourceTree = "<group>"; };
 		FA86F2381F19AAC300CBAC4B /* XIU_NetAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XIU_NetAPIClient.h; sourceTree = "<group>"; };
 		FA86F2391F19AAC300CBAC4B /* XIU_NetAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XIU_NetAPIClient.m; sourceTree = "<group>"; };
@@ -640,6 +645,9 @@
 				FA2B1C461F2CC9BC000D889D /* TextViewController.h */,
 				FA2B1C471F2CC9BC000D889D /* TextViewController.m */,
 				FA2B1C481F2CC9BC000D889D /* TextViewController.xib */,
+				FA2B1C511F2F66E1000D889D /* Progress_ViewController.h */,
+				FA2B1C521F2F66E1000D889D /* Progress_ViewController.m */,
+				FA2B1C531F2F66E1000D889D /* Progress_ViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1045,6 +1053,7 @@
 				184BBF431F2AE1D900282CDE /* WechatIMG1.jpeg in Resources */,
 				FA25BC671EF7790900D7210C /* Main.storyboard in Resources */,
 				043E68F61F1762D30065016B /* MyProfit_ViewController.xib in Resources */,
+				FA2B1C551F2F66E1000D889D /* Progress_ViewController.xib in Resources */,
 				043E69001F1788F90065016B /* FinancialContribution_ViewController.xib in Resources */,
 				043E68F11F1737370065016B /* RepaymentInfo_ViewController.xib in Resources */,
 				FAF6A3441F1BA23B0068C0D5 /* IDInfoTwoViewController.xib in Resources */,
@@ -1186,6 +1195,7 @@
 				04DDC39B1F14E784003D7567 /* AboutUs_ViewController.m in Sources */,
 				043E69091F17B7460065016B /* HKFinancialContributionCell.m in Sources */,
 				FA0670221F23963200B0BC63 /* ActionSheetDistancePicker.m in Sources */,
+				FA2B1C541F2F66E1000D889D /* Progress_ViewController.m in Sources */,
 				04DDC3711F14A236003D7567 /* HKTableButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
