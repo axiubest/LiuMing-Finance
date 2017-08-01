@@ -178,7 +178,7 @@ static XIU_User *curLoginUser;
         [defaults setObject:tmpDic forKey:kLoginUserDict];
 
         
-        curLoginUser = [XIU_User mj_objectWithKeyValues:loginData];
+        
         
         [defaults synchronize];
 

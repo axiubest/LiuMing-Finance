@@ -415,9 +415,7 @@
     }
     
     self.arr = tempArr;
-//    self.arr[5][@"place"] = arr;
-    
-//    [self.arr[5] setObject:arr forKey:@"place"];
+
     
    
     

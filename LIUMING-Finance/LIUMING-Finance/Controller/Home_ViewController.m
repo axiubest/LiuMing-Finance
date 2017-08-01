@@ -102,13 +102,16 @@
 
 #pragma mark 借款申请
 - (void)applyRequest {
-    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_Apply withParams:@{@"ui_id":@"1", @"oi_jkprice":_moneyLab.text, @"oi_jkloans":_timeLab.text} withMethodType:Post andBlock:^(id data, NSError *error) {
+    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_Apply withParams:@{@"ui_id":[XIU_Login userId], @"oi_jkprice":_moneyLab.text, @"oi_jkloans":_timeLab.text} withMethodType:Post andBlock:^(id data, NSError *error) {
+        
         if ([data[@"status"] isEqualToString:@"error"]) {
             XIUHUD(@"借款失败");
         }if ([data[@"status"] isEqualToString:@"noquota"]) {
             XIUHUD(@"额度不够");
         }if ([data[@"status"] isEqualToString:@"sucess"]) {
             XIUHUD(@"借款成功");
+            id requestData = data[@"data"];
+            [XIU_Login doLogin:requestData];
         }
        
     }];
