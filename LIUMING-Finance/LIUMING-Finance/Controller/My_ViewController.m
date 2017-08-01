@@ -23,7 +23,7 @@
 
 #import "HKBaseTableModel.h"
 
-@interface My_ViewController ()<HKNameTableViewCellDelegate,UITableViewDataSource, UITableViewDelegate,My_ToolCellDelegate>
+@interface My_ViewController ()<HKNameTableViewCellDelegate,UITableViewDataSource, UITableViewDelegate,My_ToolCellDelegate,UIAlertViewDelegate>
 @property (nonatomic,strong)NSArray *arr;
 @property (nonatomic,strong)NSMutableDictionary *dataDic;
 
@@ -177,11 +177,23 @@
 
 #pragma mark  退出登录
 - (void)clickEditBtn {
-    XIUHUD(@"您已退出登录");
-    [XIU_Login doLogOut];
-    UIWindow *window = [UIApplication sharedApplication].delegate.window;
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"退出登录" message:@"" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
     
-    window.rootViewController = [Login_ViewController loadViewControllerFromMainStoryBoard];
+    [alert show];
+
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if (buttonIndex == 1) {
+            XIUHUD(@"您已退出登录");
+            [XIU_Login doLogOut];
+            UIWindow *window = [UIApplication sharedApplication].delegate.window;
+        
+            window.rootViewController = [Login_ViewController loadViewControllerFromMainStoryBoard];
+    }else {
+        return;
+    }
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
