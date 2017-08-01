@@ -90,6 +90,39 @@ static XIU_User *curLoginUser;
     return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_phone2"];
 }
 
++(NSString *)ui_workname {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_workname"];
+
+}
++(NSString *)ui_faculty {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_faculty"];
+
+}
+//专业班级
++(NSString *)ui_professional{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_professional"];
+
+}
++(NSString *)ui_school_roll {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_school_roll"];
+
+}//学籍类型
++(NSString *)ui_xzaddress {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_xzaddress"];
+
+}//寝室地址//公司地址
++(NSString *)ui_comphone {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_comphone"];
+
+}
++(NSString *)ui_job {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_job"];
+
+}
++(NSString *)ui_ed {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_ed"];
+
+}
 
 +(NSString *)userName {
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_account"] length] < 2) {

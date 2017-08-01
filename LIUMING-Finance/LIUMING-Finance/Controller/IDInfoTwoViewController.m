@@ -216,6 +216,29 @@
         [cell.inputField addTarget:self action:@selector(click:) forControlEvents:UIControlEventEditingChanged];
         cell.inputField.tag = indexPath.row;
         cell.downImg.hidden = [self.arr[indexPath.row][@"isHide"] integerValue];
+        
+        //tableView 及时刷新
+        switch (indexPath.row) {
+            case 0:
+                cell.inputField.text = [XIU_Login ui_workname];
+                break;
+            case 1:
+                cell.inputField.text = [ui_yhtype isEqualToString:@"1"] ? [XIU_Login ui_faculty] : [XIU_Login ui_xzaddress];
+                break;
+            case 2:
+                cell.inputField.text = [ui_yhtype isEqualToString:@"1"] ? [XIU_Login ui_professional] : [XIU_Login ui_comphone];
+                break;
+            case 3:
+                cell.inputField.text = [ui_yhtype isEqualToString:@"1"] ? [XIU_Login ui_school_roll] : [XIU_Login ui_job];
+                break;
+            case 4:
+                cell.inputField.text = [ui_yhtype isEqualToString:@"1"] ? [XIU_Login ui_xzaddress] : [XIU_Login ui_ed];
+                break;
+                
+            default:
+                break;
+        }
+        
         return cell;
     }else{
         HKSubmitCell *cell = [HKSubmitCell submitCell];

@@ -12,6 +12,7 @@
 #import "HKButton.h"
 #import "HKSlider.h"
 #import "MyList_ViewController.h"
+#import "BaseTableViewController.h"
 @interface Home_ViewController ()<HKPerfectInfoViewDelegate, UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *moneyLabel;
 
@@ -124,7 +125,12 @@
 }
 - (IBAction)clickToolButton:(HKButton *)sender {
     if (sender.tag == HKListTypeAll) {//跳转到进度查询
-        
+        BaseTableViewController *vc = [[BaseTableViewController alloc] init];
+        vc.type = HKListTypeProgress;
+        vc.title = @"进度查询";
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+
     }
     if (sender.tag == HKListTypeBorrowMoney) {
         MyList_ViewController *vc = [[MyList_ViewController alloc] init];

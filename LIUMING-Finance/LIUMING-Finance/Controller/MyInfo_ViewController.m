@@ -35,7 +35,7 @@
         _arr = @[
                  @[@{@"icon":@"完善身份信息",@"title":@"完善身份信息",@"subTitle":@"实名认证，手机认证，获取信贷额度"}],
                  @[
-                    @{@"title":@"头像",@"subImage":[XIU_Login ui_img]},
+                    @{@"title":@"头像",@"subImage":@""},//头像
                     @{@"title":@"真实姓名",@"subTitle":[XIU_Login ui_name]},
                     @{@"title":@"性别",@"subTitle":[XIU_Login ui_sex]},
                     @{@"title":@"生日",@"subTitle":[XIU_Login ui_birthday]}

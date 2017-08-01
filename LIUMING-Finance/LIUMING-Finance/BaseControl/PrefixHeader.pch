@@ -22,6 +22,7 @@ typedef NS_ENUM(NSUInteger, HKListType) {
     HKListTypeOverMoney = 2, // 已还款
     HKListTypeOverdue = 3, // 已逾期
     HKListTypeSettle = 4, // 已结清
+    HKListTypeProgress = 9 // 进度查询
 };
 
 #define kLoginStatus @"login_status"

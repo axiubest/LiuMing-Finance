@@ -47,6 +47,14 @@
 
 
 
++(NSString *)ui_workname;
++(NSString *)ui_faculty;
++(NSString *)ui_professional;//专业班级
++(NSString *)ui_school_roll;//学籍类型
++(NSString *)ui_xzaddress;//寝室地址//公司地址
++(NSString *)ui_comphone;
++(NSString *)ui_job;
++(NSString *)ui_ed;
 
 
 
