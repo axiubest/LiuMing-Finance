@@ -40,6 +40,7 @@
 #define API_home @"Index/index"
 #define API_forgotpwd @"Login/resetpsd"
 #define API_Apply @"Index/applyMoney"
+#define API_updateUser @"Index/updateUser"
 
 
 #endif /* FileGlobalReference_h */

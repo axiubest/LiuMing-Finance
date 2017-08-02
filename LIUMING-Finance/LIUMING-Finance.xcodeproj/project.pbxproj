@@ -1346,7 +1346,7 @@
 				DEVELOPMENT_TEAM = 7VVA2HVT66;
 				GCC_PREFIX_HEADER = "LIUMING-Finance/BaseControl/PrefixHeader.pch";
 				INFOPLIST_FILE = "LIUMING-Finance/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "---.LIUMING-Finance";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1360,7 +1360,7 @@
 				DEVELOPMENT_TEAM = 7VVA2HVT66;
 				GCC_PREFIX_HEADER = "LIUMING-Finance/BaseControl/PrefixHeader.pch";
 				INFOPLIST_FILE = "LIUMING-Finance/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "---.LIUMING-Finance";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -227,7 +227,7 @@
 
 }
 
-//HKNameTableViewCellDelegate
+
 -(void)nameTableViewCellClick:(HKNameTableViewCell *)view{
     MyInfo_ViewController *vc = [[MyInfo_ViewController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];

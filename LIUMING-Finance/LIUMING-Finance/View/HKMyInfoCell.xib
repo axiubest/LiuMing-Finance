@@ -1,11 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,7 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="325" height="66"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="325" height="66"/>
+                <rect key="frame" x="0.0" y="0.0" width="325" height="65.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="头像" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fyv-Jt-pLJ">
@@ -26,9 +28,6 @@
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="展开更多" translatesAutoresizingMaskIntoConstraints="NO" id="EaD-UM-Yfb">
                         <rect key="frame" x="304" y="27" width="6" height="12"/>
-                    </imageView>
-                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pay" translatesAutoresizingMaskIntoConstraints="NO" id="kqk-Gf-VEs">
-                        <rect key="frame" x="255" y="21" width="24" height="24"/>
                     </imageView>
                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xb6-Uf-Yes">
                         <rect key="frame" x="272" y="24" width="38" height="18"/>
@@ -49,9 +48,16 @@
                             <constraint firstAttribute="height" constant="1" id="QKr-eS-oa9"/>
                         </constraints>
                     </view>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pay" translatesAutoresizingMaskIntoConstraints="NO" id="kqk-Gf-VEs">
+                        <rect key="frame" x="239.5" y="13" width="39.5" height="39.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="kqk-Gf-VEs" secondAttribute="height" multiplier="1:1" id="ljg-pb-7ty"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="YYp-RG-4L7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="5De-GX-fB7"/>
+                    <constraint firstItem="kqk-Gf-VEs" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.6:1" id="8ca-yB-CZU"/>
                     <constraint firstItem="jos-rK-0su" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="9AO-Fx-38f"/>
                     <constraint firstAttribute="bottom" secondItem="YYp-RG-4L7" secondAttribute="bottom" id="Aaz-NG-OUT"/>
                     <constraint firstItem="Fyv-Jt-pLJ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Gh8-jb-7Lx"/>

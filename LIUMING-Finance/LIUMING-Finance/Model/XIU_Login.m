@@ -55,9 +55,9 @@ static XIU_User *curLoginUser;
 }
 
 +(NSString *)ui_birthday {
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_birthday"] length] < 2) {
-        return @"请完善生日";
-    }
+//    if ([[[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_birthday"] length] < 2) {
+//        return @"----.--.--";
+//    }
     return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_birthday"];
 }
 
@@ -156,13 +156,10 @@ static XIU_User *curLoginUser;
 +(NSString *)ui_sex {
 
     
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_sex"]  isEqual: @1]) {
-        return @"男";
-    }else if ([[[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_sex"]  isEqual: @0]) {
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_sex"]  isEqual: @0]) {
         return @"女";
     }
-    return @"您未完善性别";
-    
+        return @"男";
 }
 
 + (BOOL)isVerification {

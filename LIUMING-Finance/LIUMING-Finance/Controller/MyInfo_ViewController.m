@@ -17,9 +17,15 @@
 #import "NSDate+convenience.h"
 #import "NSDate+Helper.h"
 #import "EditCell.h"
-@interface MyInfo_ViewController ()<UITableViewDelegate,UITableViewDataSource>
-
+#import "UIImageView+WebCache.h"
+@interface MyInfo_ViewController ()<UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+{
+    UIActionSheet *sheet;
+    UIImage *tmpImg;
+    NSData *imgData;
+}
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, assign) NSInteger sourecType;
 
 @property (nonatomic,strong)NSArray *arr;
 
@@ -91,6 +97,7 @@
     
     
     HKMyInfoCell *cell = [HKMyInfoCell myInfoCell];
+
     if (dic[@"title"]) {
         cell.infoTitle.text = dic[@"title"];
     }
@@ -106,8 +113,14 @@
         }
         cell.infoSubTitle.hidden = NO;
     }
-    if (dic[@"subImage"]) {
-        cell.subImg.image = [UIImage imageNamed:dic[@"subImage"]];
+    if (dic[@"subImage"]) {//头像
+   
+        if (imgData.length > 0) {
+            cell.subImg.image = tmpImg;
+        }else {
+            [cell.subImg sd_setImageWithURL:[NSURL URLWithString:[XIU_Login ui_img]]];
+        }
+        cell.SubTitle.hidden = YES;
         cell.subImg.hidden = NO;
     }if (indexPath.section == 2) {
          cell.infoSubTitle.text = [XIU_Login ui_address];
@@ -132,8 +145,46 @@
     
 }
 
+
+#pragma mark 提交
 - (void)clickEditBtn {
+    if (imgData.length < 2) {
+        XIUHUD(@"请更换头像后方可上传")return;
+    }
+    if ([XIU_Login ui_name].length < 2) {
+        XIUHUD(@"姓名不能为空")return;
+    }
+    if ([XIU_Login ui_birthday].length < 2) {
+        XIUHUD(@"生日不能为空")return;
+    }
+    if ([XIU_Login ui_address].length < 2) {
+        XIUHUD(@"地址不能为空")return;
+    }
+//    NSString *str = [imgData base64Encoding];
+    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_updateUser withParams:@{@"ui_id":[XIU_Login userId], @"ui_name":[XIU_Login ui_name], @"ui_sex":[[XIU_Login ui_sex] isEqualToString:@"nan"] ? @"1":@"0", @"ui_birthday":[XIU_Login ui_birthday], @"ui_img":[self imageBase64WithDataURL:tmpImg], @"ui_address":[XIU_Login ui_address]} withMethodType:Post andBlock:^(id data, NSError *error) {
+        id requestData = data[@"data"];
+        [XIU_Login doLogin:requestData];
+        XIUHUD(@"提交成功");
+        
+    }];
+}
+
+
+- (NSString *)imageBase64WithDataURL:(UIImage *)image
+{
+    NSData *imageData =nil;
+    NSString *mimeType =nil;
     
+    //图片要压缩的比例，此处100根据需求，自行设置
+    CGFloat x =50 / image.size.height;
+    if (x >1)
+    {
+        x = 1.0;
+    }
+    imageData = UIImageJPEGRepresentation(image, x);
+    mimeType = @"image/jpeg";
+    return [NSString stringWithFormat:@"data:%@;base64,%@", mimeType,
+            [imageData base64EncodedStringWithOptions:0]];
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
@@ -174,7 +225,12 @@
     if (indexPath.section==0) {
         IDInfoOne_ViewController *vc = [[IDInfoOne_ViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
-    }if (indexPath.section == 1 && indexPath.row == 1) {
+    
+    }if (indexPath.section == 1 && indexPath.row == 0) {
+        [self onClickImage];
+
+    }
+    if (indexPath.section == 1 && indexPath.row == 1) {
         TextViewController *vc  =[[TextViewController alloc] init];
         vc.type = @"姓名";
         vc.hidesBottomBarWhenPushed = YES;
@@ -232,4 +288,70 @@
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
+
+- (void)onClickImage {
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        sheet = [[UIActionSheet alloc] initWithTitle:@"选择" delegate:self cancelButtonTitle:nil destructiveButtonTitle:@"取消" otherButtonTitles:@"拍照",@"从相册选择", nil];
+        
+    }else {
+        sheet = [[UIActionSheet alloc] initWithTitle:@"选择" delegate:self cancelButtonTitle:nil destructiveButtonTitle:@"取消" otherButtonTitles:@"从相册选择", nil];
+    }
+    sheet.tag = 255;
+    [sheet showInView:self.view];
+}
+
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (actionSheet.tag == 255) {
+        _sourecType = 0;
+    }if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        switch (buttonIndex) {
+            case 0:
+                return;
+            case 1:
+                
+                _sourecType = UIImagePickerControllerSourceTypeCamera;
+                break;
+            case 2:
+                _sourecType = UIImagePickerControllerSourceTypePhotoLibrary;
+                break;
+        }
+    }else {
+        if (buttonIndex == 0) {
+            return;
+        }else {
+            _sourecType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+        }
+    }
+    //    跳转相机或相册
+    [self changePersonHeadImageWith:_sourecType];
+}
+
+#pragma mark Jump Camera or Library
+- (void)changePersonHeadImageWith:(NSInteger)sourecType {
+    UIImagePickerController *imagePick = [[UIImagePickerController alloc] init];
+    imagePick.delegate = self;
+    imagePick.allowsEditing = YES;
+    imagePick.sourceType = sourecType;
+    [self presentViewController:imagePick animated:YES completion:^{
+        [self.tableView reloadData];
+        
+    }];
+}
+
+
+#pragma mark ---------UIImagePickControllerDelegate------------
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    [picker dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+    
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    tmpImg = image;
+    NSData *data =UIImageJPEGRepresentation(image, 0.5);
+    imgData = data;
+
+    [self.tableView reloadData];
+}
+
 @end
