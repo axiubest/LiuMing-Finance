@@ -23,6 +23,10 @@
     UIActionSheet *sheet;
     UIImage *tmpImg;
     NSData *imgData;
+    NSString *ui_name;
+    NSString *ui_sex;
+    NSString *ui_birthday;
+    NSString *ui_address;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, assign) NSInteger sourecType;
@@ -42,11 +46,11 @@
                  @[@{@"icon":@"完善身份信息",@"title":@"完善身份信息",@"subTitle":@"实名认证，手机认证，获取信贷额度"}],
                  @[
                     @{@"title":@"头像",@"subImage":@""},//头像
-                    @{@"title":@"真实姓名",@"subTitle":[XIU_Login ui_name]},
-                    @{@"title":@"性别",@"subTitle":[XIU_Login ui_sex]},
-                    @{@"title":@"生日",@"subTitle":[XIU_Login ui_birthday]}
+                    @{@"title":@"真实姓名",@"subTitle":ui_name},
+                    @{@"title":@"性别",@"subTitle":ui_sex},
+                    @{@"title":@"生日",@"subTitle":ui_birthday}
                     ],
-                 @[@{@"title":@"现居地"}],
+                 @[@{@"title":@"现居地",@"subTitle":ui_address}],
                  @[@{@"title":@"推荐人",@"subTitle":@"见涛"}],
                  @[@{@"title":@"保存"}]
                     
@@ -57,12 +61,17 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+
     [self.tableView reloadData];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"我的信息";
+    ui_name = [XIU_Login ui_name];
+    ui_sex = [XIU_Login ui_sex];
+    ui_birthday = [XIU_Login ui_birthday];
+    ui_address = [XIU_Login ui_address];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = [UIColor colorWithHexString:@"#f4f4f4"];
@@ -103,13 +112,13 @@
     }
     if (dic[@"subTitle"]) {
         if (indexPath.row == 1) {
-        cell.infoSubTitle.text = [XIU_Login ui_name];
+        cell.infoSubTitle.text = ui_name;
         }
         if (indexPath.row == 2) {
             cell.infoSubTitle.text = [XIU_Login ui_sex];
         }
         if (indexPath.row == 3) {
-            cell.infoSubTitle.text = [XIU_Login ui_birthday];
+            cell.infoSubTitle.text = ui_birthday;
         }
         cell.infoSubTitle.hidden = NO;
     }
@@ -118,12 +127,13 @@
         if (imgData.length > 0) {
             cell.subImg.image = tmpImg;
         }else {
-            [cell.subImg sd_setImageWithURL:[NSURL URLWithString:[XIU_Login ui_img]]];
+            NSLog(@"%@", [XIU_Login ui_img]);
+            [cell.subImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@", [XIU_Login ui_img]]] placeholderImage:[UIImage imageNamed:@"logo"]];
         }
         cell.SubTitle.hidden = YES;
         cell.subImg.hidden = NO;
     }if (indexPath.section == 2) {
-         cell.infoSubTitle.text = [XIU_Login ui_address];
+         cell.infoSubTitle.text = ui_address;
         cell.infoSubTitle.hidden = NO;
 
     }
@@ -151,13 +161,13 @@
     if (imgData.length < 2) {
         XIUHUD(@"请更换头像后方可上传")return;
     }
-    if ([XIU_Login ui_name].length < 2) {
+    if (ui_name.length < 2) {
         XIUHUD(@"姓名不能为空")return;
     }
-    if ([XIU_Login ui_birthday].length < 2) {
+    if (ui_birthday.length < 2) {
         XIUHUD(@"生日不能为空")return;
     }
-    if ([XIU_Login ui_address].length < 2) {
+    if (ui_address.length < 2) {
         XIUHUD(@"地址不能为空")return;
     }
 //    NSString *str = [imgData base64Encoding];
@@ -176,15 +186,33 @@
     NSString *mimeType =nil;
     
     //图片要压缩的比例，此处100根据需求，自行设置
-    CGFloat x =50 / image.size.height;
-    if (x >1)
-    {
-        x = 1.0;
+//    CGFloat x =50 / image.size.height;
+//    if (x >1)
+//    {
+//        x = 1.0;
+//    }
+    imageData = UIImageJPEGRepresentation(image, 0.1f);
+    if ([self imageHasAlpha: image]) {
+        imageData = UIImagePNGRepresentation(image);
+        mimeType = @"image/png";
+    } else {
+        imageData = UIImageJPEGRepresentation(image, 0.1f);
+        mimeType = @"image/jpeg";
     }
-    imageData = UIImageJPEGRepresentation(image, x);
-    mimeType = @"image/jpeg";
+    NSLog(@"--------------------------------%@", [NSString stringWithFormat:@"data:%@;base64,%@", mimeType,
+                  [imageData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength]]);
+    
     return [NSString stringWithFormat:@"data:%@;base64,%@", mimeType,
             [imageData base64EncodedStringWithOptions:0]];
+}
+
+- (BOOL) imageHasAlpha: (UIImage *) image
+{
+    CGImageAlphaInfo alpha = CGImageGetAlphaInfo(image.CGImage);
+    return (alpha == kCGImageAlphaFirst ||
+            alpha == kCGImageAlphaLast ||
+            alpha == kCGImageAlphaPremultipliedFirst ||
+            alpha == kCGImageAlphaPremultipliedLast);
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{

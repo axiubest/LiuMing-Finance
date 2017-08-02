@@ -49,6 +49,8 @@
         return;
     }
     [self request];
+    [self.phoneTextField resignFirstResponder];
+    [self.passwordTextField resignFirstResponder];
     
 }
 
