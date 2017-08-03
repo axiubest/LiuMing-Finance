@@ -63,8 +63,6 @@ static dispatch_once_t onceToken;
                  withMethodType:(NetworkMethod)method
                        andBlock:(void (^)(id data, NSError *error))block{
     
-    
-    
     NSString *path = [NSString stringWithFormat:@"%@%@",KBASEURL,aPath];
     [self requestJsonDataWithPath:path withParams:params withMethodType:method autoShowError:YES andBlock:block];
     
@@ -179,24 +177,23 @@ static dispatch_once_t onceToken;
                          withParams:(NSDictionary*)params
                      withMethodType:(NetworkMethod)method
                            andBlock:(void (^)(id data, NSError *error))block {
-    //默认配置
+    
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     
-    //AFN3.0+基于封住URLSession的句柄
+    
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
-    //请求
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:aPath]];
     
-    //下载Task操作
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:aPath]];
+
     [manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
         
         // @property int64_t totalUnitCount;     需要下载文件的总大小
         // @property int64_t completedUnitCount; 当前已经下载的大小
         
-        // 给Progress添加监听 KVO
+  
         NSLog(@"%f",1.0 * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount);
-        // 回到主队列刷新UI
+
         dispatch_async(dispatch_get_main_queue(), ^{
             // 设置进度条的百分比
             
@@ -204,16 +201,14 @@ static dispatch_once_t onceToken;
         });
         
     } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
-        
-        //- block的返回值, 要求返回一个URL, 返回的这个URL就是文件的位置的路径
+
         
         NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
         NSString *path = [cachesPath stringByAppendingPathComponent:response.suggestedFilename];
         return [NSURL fileURLWithPath:path];
         
     } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
-        //设置下载完成操作
-        // filePath就是你下载文件的位置，你可以解压，也可以直接拿来使用
+
         
 //        NSString *imgFilePath = [filePath path];// 将NSURL转成NSString
 //        UIImage *img = [UIImage imageWithContentsOfFile:imgFilePath];
