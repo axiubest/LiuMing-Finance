@@ -29,9 +29,9 @@
     [self request];
     _allMoneyLab.text = _allGetStr;
     self.title = @"我的收益";
-    self.tableView.dataSource = self;
-    self.tableView.delegate = self;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//    self.tableView.dataSource = self;
+//    self.tableView.delegate = self;
+//    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = [UIColor colorWithHexString:@"#f4f4f4"];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -46,7 +46,7 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSDictionary *dic = self.arr[indexPath.row];
-    HKProfitCell *cell = [HKProfitCell profitCell];
+    HKProfitCell *cell = [tableView dequeueReusableCellWithIdentifier:[HKProfitCell XIU_ClassIdentifier]];
     cell.titleLabel.text = [NSString stringWithFormat:@"客户【%@】借款%@,分%@期", [dic objectForKey:@"name"], [dic objectForKey:@"oi_jkprice"], [dic objectForKey:@"oi_jkloans"]];
     cell.subTitle1Label.text = dic[@"add_time"];
     cell.subTitle2Label.text = dic[@"pl_price"];

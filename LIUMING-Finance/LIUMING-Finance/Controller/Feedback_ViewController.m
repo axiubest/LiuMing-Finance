@@ -17,7 +17,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"意见反馈";
     
     self.textView.textContainerInset = UIEdgeInsetsMake(12, 12, 0, 0);
 //    self.textView.contentMode = UIViewContentModeTopLeft;

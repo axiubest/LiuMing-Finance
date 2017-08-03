@@ -21,6 +21,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLab;
 
+@property (weak, nonatomic) IBOutlet UIImageView *userIamgeView;
 @property (weak, nonatomic) IBOutlet UILabel *tjr_nameLab;
 @property (weak, nonatomic) IBOutlet UILabel *getMoneyLab;
 

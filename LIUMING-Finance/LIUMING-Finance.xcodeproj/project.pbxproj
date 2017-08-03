@@ -12,9 +12,7 @@
 		043E68F01F1737370065016B /* RepaymentInfo_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043E68EE1F1737370065016B /* RepaymentInfo_ViewController.m */; };
 		043E68F11F1737370065016B /* RepaymentInfo_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043E68EF1F1737370065016B /* RepaymentInfo_ViewController.xib */; };
 		043E68F51F1762D30065016B /* MyProfit_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043E68F31F1762D30065016B /* MyProfit_ViewController.m */; };
-		043E68F61F1762D30065016B /* MyProfit_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043E68F41F1762D30065016B /* MyProfit_ViewController.xib */; };
 		043E68FA1F1766D70065016B /* HKProfitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 043E68F81F1766D70065016B /* HKProfitCell.m */; };
-		043E68FB1F1766D70065016B /* HKProfitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043E68F91F1766D70065016B /* HKProfitCell.xib */; };
 		043E68FF1F1788F80065016B /* FinancialContribution_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043E68FD1F1788F80065016B /* FinancialContribution_ViewController.m */; };
 		043E69001F1788F90065016B /* FinancialContribution_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043E68FE1F1788F80065016B /* FinancialContribution_ViewController.xib */; };
 		043E69091F17B7460065016B /* HKFinancialContributionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 043E69071F17B7460065016B /* HKFinancialContributionCell.m */; };
@@ -47,9 +45,7 @@
 		04DDC38C1F14D618003D7567 /* HKSubmitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DDC38A1F14D618003D7567 /* HKSubmitCell.m */; };
 		04DDC38D1F14D618003D7567 /* HKSubmitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04DDC38B1F14D618003D7567 /* HKSubmitCell.xib */; };
 		04DDC3961F14DE56003D7567 /* Feedback_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DDC3941F14DE56003D7567 /* Feedback_ViewController.m */; };
-		04DDC3971F14DE56003D7567 /* Feedback_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04DDC3951F14DE56003D7567 /* Feedback_ViewController.xib */; };
 		04DDC39B1F14E784003D7567 /* AboutUs_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DDC3991F14E784003D7567 /* AboutUs_ViewController.m */; };
-		04DDC39C1F14E784003D7567 /* AboutUs_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04DDC39A1F14E784003D7567 /* AboutUs_ViewController.xib */; };
 		04ECFC571F151A2400ADF59F /* HKPerfectInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04ECFC561F151A2400ADF59F /* HKPerfectInfoView.m */; };
 		04ECFC591F151A3800ADF59F /* HKPerfectInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04ECFC581F151A3800ADF59F /* HKPerfectInfoView.xib */; };
 		04ECFC671F15B67100ADF59F /* HKPhotoUploadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04ECFC651F15B67100ADF59F /* HKPhotoUploadCell.m */; };
@@ -182,10 +178,8 @@
 		043E68EF1F1737370065016B /* RepaymentInfo_ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RepaymentInfo_ViewController.xib; sourceTree = "<group>"; };
 		043E68F21F1762D30065016B /* MyProfit_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProfit_ViewController.h; sourceTree = "<group>"; };
 		043E68F31F1762D30065016B /* MyProfit_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProfit_ViewController.m; sourceTree = "<group>"; };
-		043E68F41F1762D30065016B /* MyProfit_ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyProfit_ViewController.xib; sourceTree = "<group>"; };
 		043E68F71F1766D70065016B /* HKProfitCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKProfitCell.h; sourceTree = "<group>"; };
 		043E68F81F1766D70065016B /* HKProfitCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKProfitCell.m; sourceTree = "<group>"; };
-		043E68F91F1766D70065016B /* HKProfitCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HKProfitCell.xib; sourceTree = "<group>"; };
 		043E68FC1F1788F70065016B /* FinancialContribution_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinancialContribution_ViewController.h; sourceTree = "<group>"; };
 		043E68FD1F1788F80065016B /* FinancialContribution_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinancialContribution_ViewController.m; sourceTree = "<group>"; };
 		043E68FE1F1788F80065016B /* FinancialContribution_ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinancialContribution_ViewController.xib; sourceTree = "<group>"; };
@@ -240,10 +234,8 @@
 		04DDC38B1F14D618003D7567 /* HKSubmitCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HKSubmitCell.xib; sourceTree = "<group>"; };
 		04DDC3931F14DE56003D7567 /* Feedback_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Feedback_ViewController.h; sourceTree = "<group>"; };
 		04DDC3941F14DE56003D7567 /* Feedback_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Feedback_ViewController.m; sourceTree = "<group>"; };
-		04DDC3951F14DE56003D7567 /* Feedback_ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Feedback_ViewController.xib; sourceTree = "<group>"; };
 		04DDC3981F14E784003D7567 /* AboutUs_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUs_ViewController.h; sourceTree = "<group>"; };
 		04DDC3991F14E784003D7567 /* AboutUs_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUs_ViewController.m; sourceTree = "<group>"; };
-		04DDC39A1F14E784003D7567 /* AboutUs_ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutUs_ViewController.xib; sourceTree = "<group>"; };
 		04ECFC551F151A2400ADF59F /* HKPerfectInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKPerfectInfoView.h; sourceTree = "<group>"; };
 		04ECFC561F151A2400ADF59F /* HKPerfectInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKPerfectInfoView.m; sourceTree = "<group>"; };
 		04ECFC581F151A3800ADF59F /* HKPerfectInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HKPerfectInfoView.xib; sourceTree = "<group>"; };
@@ -613,12 +605,10 @@
 				04DDC3811F14CB31003D7567 /* Delegate_ViewController.xib */,
 				04DDC3931F14DE56003D7567 /* Feedback_ViewController.h */,
 				04DDC3941F14DE56003D7567 /* Feedback_ViewController.m */,
-				04DDC3951F14DE56003D7567 /* Feedback_ViewController.xib */,
 				FAF6A3311F1B31560068C0D5 /* MyList_ViewController.h */,
 				FAF6A3321F1B31560068C0D5 /* MyList_ViewController.m */,
 				04DDC3981F14E784003D7567 /* AboutUs_ViewController.h */,
 				04DDC3991F14E784003D7567 /* AboutUs_ViewController.m */,
-				04DDC39A1F14E784003D7567 /* AboutUs_ViewController.xib */,
 				FAF6A33B1F1BA21D0068C0D5 /* IDInfoOne_ViewController.h */,
 				FAF6A33C1F1BA21D0068C0D5 /* IDInfoOne_ViewController.m */,
 				FAF6A33D1F1BA21D0068C0D5 /* IDInfoOne_ViewController.xib */,
@@ -632,7 +622,6 @@
 				043E68EF1F1737370065016B /* RepaymentInfo_ViewController.xib */,
 				043E68F21F1762D30065016B /* MyProfit_ViewController.h */,
 				043E68F31F1762D30065016B /* MyProfit_ViewController.m */,
-				043E68F41F1762D30065016B /* MyProfit_ViewController.xib */,
 				043E68FC1F1788F70065016B /* FinancialContribution_ViewController.h */,
 				043E68FD1F1788F80065016B /* FinancialContribution_ViewController.m */,
 				043E68FE1F1788F80065016B /* FinancialContribution_ViewController.xib */,
@@ -715,7 +704,6 @@
 				043E68EA1F16A5E60065016B /* HKMyListCell.xib */,
 				043E68F71F1766D70065016B /* HKProfitCell.h */,
 				043E68F81F1766D70065016B /* HKProfitCell.m */,
-				043E68F91F1766D70065016B /* HKProfitCell.xib */,
 				043E69061F17B7460065016B /* HKFinancialContributionCell.h */,
 				043E69071F17B7460065016B /* HKFinancialContributionCell.m */,
 				043E69081F17B7460065016B /* HKFinancialContributionCell.xib */,
@@ -1035,10 +1023,8 @@
 				FA4D867E1EFD844700CC55F7 /* 212121.png in Resources */,
 				FAF6A33A1F1B32C40068C0D5 /* MyInfo_ViewController.xib in Resources */,
 				04DDC3691F149574003D7567 /* HKNameTableViewCell.xib in Resources */,
-				04DDC39C1F14E784003D7567 /* AboutUs_ViewController.xib in Resources */,
 				FA2B1C4A1F2CC9BC000D889D /* TextViewController.xib in Resources */,
 				FA06700C1F23540000B0BC63 /* EditCell.xib in Resources */,
-				043E68FB1F1766D70065016B /* HKProfitCell.xib in Resources */,
 				04DDC36E1F149E7E003D7567 /* My_ToolCell.xib in Resources */,
 				FA25BC6C1EF7790900D7210C /* LaunchScreen.storyboard in Resources */,
 				04ECFC591F151A3800ADF59F /* HKPerfectInfoView.xib in Resources */,
@@ -1052,12 +1038,10 @@
 				043E68EC1F16A5E70065016B /* HKMyListCell.xib in Resources */,
 				184BBF431F2AE1D900282CDE /* WechatIMG1.jpeg in Resources */,
 				FA25BC671EF7790900D7210C /* Main.storyboard in Resources */,
-				043E68F61F1762D30065016B /* MyProfit_ViewController.xib in Resources */,
 				FA2B1C551F2F66E1000D889D /* Progress_ViewController.xib in Resources */,
 				043E69001F1788F90065016B /* FinancialContribution_ViewController.xib in Resources */,
 				043E68F11F1737370065016B /* RepaymentInfo_ViewController.xib in Resources */,
 				FAF6A3441F1BA23B0068C0D5 /* IDInfoTwoViewController.xib in Resources */,
-				04DDC3971F14DE56003D7567 /* Feedback_ViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

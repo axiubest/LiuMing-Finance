@@ -10,7 +10,7 @@
 #import "HKDelegateCell.h"
 #import "HKSubmitCell.h"
 #import "HKPhotoUploadCell.h"
-
+#import "MyInfo_ViewController.h"
 @interface IDInfoTwoViewController ()<UITableViewDelegate,UITableViewDataSource,HKSubmitCellDelegate,UIActionSheetDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate,HKPhotoUploadCellDelegate>{
     UIActionSheet *sheet;
     UIImage *tmpImg;
@@ -20,7 +20,7 @@
     NSString *ui_xzaddress;//公司地址寝室地址
     NSString *ui_faculty;//院系
     NSString *ui_professional_class;//专业班级
-    NSString *ui_school_rol;//学籍类型
+    NSString *ui_school_roll;//学籍类型
     NSString *ui_comphone;//company phone
     NSString *ui_job;
     NSString *ui_ed;//入职时间
@@ -85,7 +85,7 @@
     ui_xzaddress = [XIU_Login ui_xzaddress];
     ui_professional_class = [XIU_Login ui_professional];
     ui_comphone =  [XIU_Login ui_comphone];
-    ui_school_rol =  [XIU_Login ui_school_roll];
+    ui_school_roll =  [XIU_Login ui_school_roll];
     ui_job = [XIU_Login ui_job];
     ui_xzaddress = [XIU_Login ui_xzaddress];
     ui_ed = [XIU_Login ui_ed];
@@ -264,7 +264,7 @@
                 cell.inputField.text = [ui_yhtype isEqualToString:@"1"] ? ui_professional_class : ui_comphone;
                 break;
             case 3:
-                cell.inputField.text = [ui_yhtype isEqualToString:@"1"] ? ui_school_rol : ui_job;
+                cell.inputField.text = [ui_yhtype isEqualToString:@"1"] ? ui_school_roll : ui_job;
                 break;
             case 4:
                 cell.inputField.text = [ui_yhtype isEqualToString:@"1"] ? ui_xzaddress : ui_ed;
@@ -306,7 +306,7 @@
             break;
         case 3:
             if ([ui_yhtype isEqualToString:@"1"]) {
-                ui_school_rol = textField.text;
+                ui_school_roll = textField.text;
             }else {
                 ui_job = textField.text;
             }
@@ -332,6 +332,7 @@
 }
 
 - (void)reuqest {
+    
     if (img1 == nil) {
         XIUHUD(@"请上传身份证正面");
         return;
@@ -347,14 +348,28 @@
     }
     NSDictionary *dic = [NSDictionary dictionary];
     if ([ui_yhtype isEqualToString:@"1"]) {
-        dic = @{@"ui_workname":ui_workname, @"ui_faculty":ui_faculty, @"ui_professional_class":ui_professional_class, @"ui_school_rol":ui_school_rol, @"ui_xzaddress":ui_xzaddress, @"ui_url1":[self imageBase64WithDataURL:img1], @"ui_url2":[self imageBase64WithDataURL:img2],@"ui_url3":[self imageBase64WithDataURL:img3], @"ui_url4":[self imageBase64WithDataURL:img4]};
+        dic = @{@"ui_id":[XIU_Login userId],@"ui_yhtype":ui_yhtype,@"ui_workname":ui_workname, @"ui_faculty":ui_faculty, @"ui_professional_class":ui_professional_class, @"ui_school_roll":ui_school_roll, @"ui_xzaddress":ui_xzaddress, @"ui_url1":[self imageBase64WithDataURL:img1], @"ui_url2":[self imageBase64WithDataURL:img2],@"ui_url3":[self imageBase64WithDataURL:img3], @"ui_url4":[self imageBase64WithDataURL:img4]};
     }if ([ui_yhtype isEqualToString:@"2"]) {
-      dic = @{@"ui_xzworkname":ui_workname,  @"ui_comphone":ui_comphone, @"ui_xzaddress":ui_xzaddress, @"ui_job":ui_job, @"ui_ed":ui_ed,@"ui_url1":[self imageBase64WithDataURL:img1], @"ui_url2":[self imageBase64WithDataURL:img2], @"ui_url3":[self imageBase64WithDataURL:img3], @"ui_url4":[self imageBase64WithDataURL:img4]};
+      dic = @{@"ui_id":[XIU_Login userId],@"ui_yhtype":ui_yhtype,@"ui_xzworkname":ui_workname,  @"ui_comphone":ui_comphone, @"ui_xzaddress":ui_xzaddress, @"ui_job":ui_job, @"ui_ed":ui_ed,@"ui_url1":[self imageBase64WithDataURL:img1], @"ui_url2":[self imageBase64WithDataURL:img2], @"ui_url3":[self imageBase64WithDataURL:img3], @"ui_url4":[self imageBase64WithDataURL:img4]};
     }
 
     
-    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_doPage1 withParams:dic withMethodType:Post andBlock:^(id data, NSError *error) {
-        
+    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_doPage2 withParams:dic withMethodType:Post andBlock:^(id data, NSError *error) {
+        if ([data[@"status"] isEqualToString:@"error"]) {
+            XIUHUD(@"信息提交重复");
+            return ;
+        }if ([data[@"status"] isEqualToString:@"success"]) {
+            [XIU_Login doLogin:data[@"data"]];
+            MyInfo_ViewController *homeVC = [[MyInfo_ViewController alloc] init];
+            UIViewController *target = nil;
+            for (UIViewController * controller in self.navigationController.viewControllers) { //遍历
+                if ([controller isKindOfClass:[homeVC class]]) { //这里判断是否为你想要跳转的页面
+                    target = controller;
+                }
+            }
+            if (target) {
+                [self.navigationController popToViewController:target animated:YES]; //跳转
+            }        }
     }];
 
 }

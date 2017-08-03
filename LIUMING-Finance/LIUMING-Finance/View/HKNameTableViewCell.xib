@@ -24,7 +24,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KFu-Yd-ht9">
                         <rect key="frame" x="0.0" y="69" width="387" height="50"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="test" translatesAutoresizingMaskIntoConstraints="NO" id="iMk-Bw-tyd">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="启动页插画" translatesAutoresizingMaskIntoConstraints="NO" id="iMk-Bw-tyd">
                                 <rect key="frame" x="15" y="0.0" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="Y9y-nQ-ewh"/>
@@ -49,23 +49,14 @@
                                     <constraint firstAttribute="height" constant="15" id="jtC-kE-Ca4"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="男" translatesAutoresizingMaskIntoConstraints="NO" id="asD-Qp-LCt">
-                                <rect key="frame" x="51" y="36" width="14" height="14"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="14" id="SUP-8s-Ud8"/>
-                                    <constraint firstAttribute="height" constant="14" id="rzJ-L7-ma7"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="LTV-YF-eel" firstAttribute="top" secondItem="XIn-kF-sCg" secondAttribute="bottom" constant="7" id="1ag-JI-3za"/>
-                            <constraint firstItem="asD-Qp-LCt" firstAttribute="trailing" secondItem="iMk-Bw-tyd" secondAttribute="trailing" id="5S8-O5-0KV"/>
                             <constraint firstItem="XIn-kF-sCg" firstAttribute="top" secondItem="KFu-Yd-ht9" secondAttribute="top" constant="5" id="5gG-na-XFS"/>
                             <constraint firstItem="LTV-YF-eel" firstAttribute="leading" secondItem="XIn-kF-sCg" secondAttribute="leading" id="6mp-Wc-Zfx"/>
                             <constraint firstItem="8vw-a0-3LA" firstAttribute="centerY" secondItem="KFu-Yd-ht9" secondAttribute="centerY" id="J0U-Uo-M6l"/>
                             <constraint firstItem="XIn-kF-sCg" firstAttribute="leading" secondItem="iMk-Bw-tyd" secondAttribute="trailing" constant="14" id="PEa-kj-iQc"/>
                             <constraint firstAttribute="height" constant="50" id="PGc-xe-oYz"/>
-                            <constraint firstItem="asD-Qp-LCt" firstAttribute="bottom" secondItem="iMk-Bw-tyd" secondAttribute="bottom" id="QCh-l0-XEb"/>
                             <constraint firstItem="iMk-Bw-tyd" firstAttribute="top" secondItem="KFu-Yd-ht9" secondAttribute="top" id="Xzs-il-2mI"/>
                             <constraint firstAttribute="bottom" secondItem="iMk-Bw-tyd" secondAttribute="bottom" id="nqF-vx-laA"/>
                             <constraint firstAttribute="trailing" secondItem="8vw-a0-3LA" secondAttribute="trailing" constant="19" id="tNb-5g-qxt"/>
@@ -187,14 +178,14 @@
                 <outlet property="nameLab" destination="XIn-kF-sCg" id="gMF-jP-Tsl"/>
                 <outlet property="nameView" destination="KFu-Yd-ht9" id="QRP-GQ-jcl"/>
                 <outlet property="tjr_nameLab" destination="LTV-YF-eel" id="Pla-oJ-gLu"/>
+                <outlet property="userIamgeView" destination="iMk-Bw-tyd" id="1nb-sa-aAH"/>
             </connections>
             <point key="canvasLocation" x="266.5" y="143.5"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="test" width="144" height="144"/>
+        <image name="启动页插画" width="249" height="234"/>
         <image name="展开（白色）" width="8" height="15"/>
         <image name="波浪1" width="738" height="600"/>
-        <image name="男" width="17" height="17"/>
     </resources>
 </document>

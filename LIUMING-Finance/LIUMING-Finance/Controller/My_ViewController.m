@@ -8,8 +8,6 @@
 
 #import "My_ViewController.h"
 #import "Delegate_ViewController.h"
-#import "Feedback_ViewController.h"
-#import "AboutUs_ViewController.h"
 #import "MyInfo_ViewController.h"
 #import "MyList_ViewController.h"
 #import "MyProfit_ViewController.h"
@@ -20,7 +18,7 @@
 #import "HKBaseTableViewCell.h"
 #import "HKNameRowCell.h"
 #import "EditCell.h"
-
+#import "UIImageView+WebCache.h"
 #import "HKBaseTableModel.h"
 
 @interface My_ViewController ()<HKNameTableViewCellDelegate,UITableViewDataSource, UITableViewDelegate,My_ToolCellDelegate,UIAlertViewDelegate>
@@ -76,7 +74,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = YES;
-
+    [self.XIUTableView reloadData];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -140,7 +138,7 @@
     if (indexPath.section==0) {
        HKNameTableViewCell *cell = [HKNameTableViewCell nameTableVeiwCell];
         cell.myDelegate = self;
-        
+        [cell.userIamgeView sd_setImageWithURL:[NSURL URLWithString:[XIU_Login ui_img]] placeholderImage:[UIImage imageNamed:@"启动页插画"]];
         cell.nameLab.text = [XIU_Login userName];
         cell.tjr_nameLab.text =[NSString stringWithFormat:@"推荐人:%@", [self.dataDic[@"tjr_name"] isKindOfClass:[NSNull class]] ? @" 无推荐人": self.dataDic[@"tjr_name"]] ;
         cell.getMoneyLab.text =self.dataDic[@"profit"];
@@ -202,14 +200,11 @@
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }else if (indexPath.section==3&&indexPath.row==1){
-        Feedback_ViewController *vc = [[Feedback_ViewController alloc] init];
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
+       [self performSegueWithIdentifier:@"Feedback" sender:self];
     }
     else if(indexPath.section==4){
-        AboutUs_ViewController *vc = [[AboutUs_ViewController alloc] init];
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
+        [self performSegueWithIdentifier:@"aboutUs" sender:self];
+
     }else if(indexPath.section==1&&indexPath.row==0){
         MyList_ViewController *vc = [[MyList_ViewController alloc] init];
         vc.title = @"我的清单";
@@ -233,9 +228,20 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 -(void)nameTableProfitViewClick:(HKNameTableViewCell *)view{
-    MyProfit_ViewController *vc = [[MyProfit_ViewController alloc] init];
-    vc.allGetStr = self.dataDic[@"profit"];
-    [self.navigationController  pushViewController:vc animated:YES];
+    [self performSegueWithIdentifier:@"MyProfit" sender:self];
+//    MyProfit_ViewController *vc = [[MyProfit_ViewController alloc] init];
+//    vc.allGetStr = self.dataDic[@"profit"];
+//    [self.navigationController  pushViewController:vc animated:YES];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"MyProfit"]) {
+
+        MyProfit_ViewController *receive = segue.destinationViewController;
+        receive.allGetStr =self.dataDic[@"profit"];
+
+    }
 }
 
 - (void)request {

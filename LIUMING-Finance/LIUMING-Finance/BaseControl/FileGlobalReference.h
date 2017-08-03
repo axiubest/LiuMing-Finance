@@ -31,6 +31,8 @@
 
 #define API_doLogin @"Login/doLogin"
 #define API_doPage1 @"Login/doxiaoxi"
+#define API_doPage2 @"Login/doxiaoxi2"
+
 #define API_doRegister @"Login/doRegister"
 #define API_code @"Login/code"
 #define API_List @"Index/my_order"
