@@ -20,7 +20,7 @@
 
 - (void)request {
     [self.dataSource removeAllObjects];
-    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_home withParams:@{@"ui_type":@"2", @"ui_id":@"1"} withMethodType:Post andBlock:^(id data, NSError *error) {
+    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_home withParams:@{@"ui_type":@"2", @"ui_id":[XIU_Login userId]} withMethodType:Post andBlock:^(id data, NSError *error) {
         
         if ([data[@"status"] isEqualToString:@"sucess"]) {
             for (NSDictionary *obj in data[@"data"]) {

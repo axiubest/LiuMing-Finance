@@ -54,7 +54,7 @@
 
 - (void)request {
 
-    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_List withParams:@{@"oi_state":[NSString stringWithFormat:@"%ld", _type], @"ui_id":@"1"} withMethodType:Post andBlock:^(id data, NSError *error) {
+    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_List withParams:@{@"oi_state":[NSString stringWithFormat:@"%ld", _type], @"ui_id":[XIU_Login userId]} withMethodType:Post andBlock:^(id data, NSError *error) {
         for (NSDictionary *obj in data[@"data"]) {
             
             MyListModel *model = [[MyListModel alloc] init];

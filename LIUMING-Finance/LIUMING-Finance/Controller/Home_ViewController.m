@@ -156,7 +156,7 @@
 
 
 - (void)request {
-    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_home withParams:@{@"ui_type":@3, @"ui_id":@"2"} withMethodType:Post andBlock:^(id data, NSError *error) {
+    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_home withParams:@{@"ui_type":@3, @"ui_id":[XIU_Login userId]} withMethodType:Post andBlock:^(id data, NSError *error) {
         if ([data[@"xiaoxi"] isEqual:@2]) {//不完善
             [self gotoInfo];
         }

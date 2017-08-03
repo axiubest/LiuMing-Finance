@@ -245,7 +245,7 @@
 }
 
 - (void)request {
-    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_my_index withParams:@{@"ui_id":@"2"} withMethodType:Post andBlock:^(id data, NSError *error) {
+    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_my_index withParams:@{@"ui_id":[XIU_Login userId]} withMethodType:Post andBlock:^(id data, NSError *error) {
         [self.dataDic setObject:data[@"data"][@"profit"] forKey:@"profit"];
         [self.dataDic setObject:data[@"data"][@"tjr_name"] forKey:@"tjr_name"];
         [self.dataDic setObject:data[@"data"][@"ui_limit"] forKey:@"ui_limit"];//额度

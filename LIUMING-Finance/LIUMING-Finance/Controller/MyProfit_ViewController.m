@@ -55,7 +55,7 @@
 
 
 - (void)request {
-    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_profit withParams:@{@"ui_id":@"2"} withMethodType:Post andBlock:^(id data, NSError *error) {
+    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_profit withParams:@{@"ui_id":[XIU_Login userId]} withMethodType:Post andBlock:^(id data, NSError *error) {
         
 
             for (NSDictionary *dic in data[@"data"]) {
