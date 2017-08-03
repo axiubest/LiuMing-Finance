@@ -16,10 +16,10 @@
     UIImage *tmpImg;
     
     NSString *ui_yhtype;//类型 1student 2company 默认1
-    NSString *ui_xzworkname;
+    NSString *ui_workname;
     NSString *ui_xzaddress;//公司地址寝室地址
-    NSString *ui_xzfaculty;//院系
-    NSString *ui_professionalclass;//专业班级
+    NSString *ui_faculty;//院系
+    NSString *ui_professional_class;//专业班级
     NSString *ui_school_rol;//学籍类型
     NSString *ui_comphone;//company phone
     NSString *ui_job;
@@ -80,10 +80,10 @@
     [super viewDidLoad];
     self.title = @"身份信息";
     
-    ui_xzworkname = [XIU_Login ui_workname];
-    ui_xzfaculty = [XIU_Login ui_faculty];
+    ui_workname = [XIU_Login ui_workname];
+    ui_faculty = [XIU_Login ui_faculty];
     ui_xzaddress = [XIU_Login ui_xzaddress];
-    ui_professionalclass = [XIU_Login ui_professional];
+    ui_professional_class = [XIU_Login ui_professional];
     ui_comphone =  [XIU_Login ui_comphone];
     ui_school_rol =  [XIU_Login ui_school_roll];
     ui_job = [XIU_Login ui_job];
@@ -255,13 +255,13 @@
         //tableView 及时刷新
         switch (indexPath.row) {
             case 0:
-                cell.inputField.text = ui_xzworkname;
+                cell.inputField.text = ui_workname;
                 break;
             case 1:
-                cell.inputField.text = [ui_yhtype isEqualToString:@"1"] ? ui_xzfaculty : ui_xzaddress;
+                cell.inputField.text = [ui_yhtype isEqualToString:@"1"] ? ui_faculty : ui_xzaddress;
                 break;
             case 2:
-                cell.inputField.text = [ui_yhtype isEqualToString:@"1"] ? ui_professionalclass : ui_comphone;
+                cell.inputField.text = [ui_yhtype isEqualToString:@"1"] ? ui_professional_class : ui_comphone;
                 break;
             case 3:
                 cell.inputField.text = [ui_yhtype isEqualToString:@"1"] ? ui_school_rol : ui_job;
@@ -287,19 +287,19 @@
     
     switch (textField.tag) {
         case 0:
-            ui_xzworkname = textField.text;
+            ui_workname = textField.text;
             break;
         case 1:
             
             if ([ui_yhtype isEqualToString:@"1"]) {
-                ui_xzfaculty = textField.text;
+                ui_faculty = textField.text;
             }else {
                 ui_xzaddress = textField.text;
             }
             break;
         case 2:
             if ([ui_yhtype isEqualToString:@"1"]) {
-                ui_professionalclass = textField.text;
+                ui_professional_class = textField.text;
             }else {
                 ui_comphone = textField.text;
             }
@@ -347,9 +347,9 @@
     }
     NSDictionary *dic = [NSDictionary dictionary];
     if ([ui_yhtype isEqualToString:@"1"]) {
-        dic = @{@"ui_xzworkname":ui_xzworkname, @"ui_xzfaculty":ui_xzfaculty, @"ui_professionalclass":ui_professionalclass, @"ui_school_rol":ui_school_rol, @"ui_xzaddress":ui_xzaddress, @"ui_url1":[self imageBase64WithDataURL:img1], @"ui_url2":[self imageBase64WithDataURL:img2], @"ui_url3":[self imageBase64WithDataURL:img3], @"ui_url4":[self imageBase64WithDataURL:img4]};
+        dic = @{@"ui_workname":ui_workname, @"ui_faculty":ui_faculty, @"ui_professional_class":ui_professional_class, @"ui_school_rol":ui_school_rol, @"ui_xzaddress":ui_xzaddress, @"ui_url1":[self imageBase64WithDataURL:img1], @"ui_url2":[self imageBase64WithDataURL:img2],@"ui_url3":[self imageBase64WithDataURL:img3], @"ui_url4":[self imageBase64WithDataURL:img4]};
     }if ([ui_yhtype isEqualToString:@"2"]) {
-      dic = @{@"ui_xzworkname":ui_xzworkname,  @"ui_comphone":ui_comphone, @"ui_xzaddress":ui_xzaddress, @"ui_job":ui_job, @"ui_ed":ui_ed,@"ui_url1":[self imageBase64WithDataURL:img1], @"ui_url2":[self imageBase64WithDataURL:img2], @"ui_url3":[self imageBase64WithDataURL:img3], @"ui_url4":[self imageBase64WithDataURL:img4]};
+      dic = @{@"ui_xzworkname":ui_workname,  @"ui_comphone":ui_comphone, @"ui_xzaddress":ui_xzaddress, @"ui_job":ui_job, @"ui_ed":ui_ed,@"ui_url1":[self imageBase64WithDataURL:img1], @"ui_url2":[self imageBase64WithDataURL:img2], @"ui_url3":[self imageBase64WithDataURL:img3], @"ui_url4":[self imageBase64WithDataURL:img4]};
     }
 
     
