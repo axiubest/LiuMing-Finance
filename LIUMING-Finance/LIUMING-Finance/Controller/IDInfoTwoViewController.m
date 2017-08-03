@@ -162,7 +162,6 @@
         ui_yhtype = @"1";
     }
     
-    UIImage *image = [UIImage imageNamed:@"添加照片"];
     self.arr = [NSMutableArray array];
     NSArray *a = @[
       @{@"name":@"学校名称",@"place":@"请输入您的学校名称",@"isHide":@1},
@@ -170,7 +169,7 @@
       @{@"name":@"专业班级",@"place":@"请输入您的班级",@"isHide":@1},
       @{@"name":@"学籍类型",@"place":@"请输入您的学籍类型",@"isHide":@0},
       @{@"name":@"寝室地址",@"place":@"请输入您的寝室地址信息",@"isHide":@0},
-      @{@"name":@"照片上传",@"place":@[image,image,image,image],@"isHide":@1}
+      @{@"name":@"照片上传",@"place":@[img1 == nil ? [UIImage imageNamed:@"添加照片"] : img1,img2 == nil ? [UIImage imageNamed:@"添加照片"] : img2,img3 == nil ? [UIImage imageNamed:@"添加照片"] : img3,img4 == nil ? [UIImage imageNamed:@"添加照片"] : img4],@"isHide":@1}
       ];
     [self.arr addObjectsFromArray:a];
     [self.tableView reloadData];
@@ -183,7 +182,6 @@
     self.studentBtn.selected = NO;
     [self drawLine:btn];
     
-    UIImage *image = [UIImage imageNamed:@"添加照片"];
     self.arr = [NSMutableArray array];
     NSArray *a = @[
                  @{@"name":@"公司名称",@"place":@"请输入您的公司名称",@"isHide":@1},
@@ -191,7 +189,7 @@
                  @{@"name":@"公司电话",@"place":@"请输入您的公司电话",@"isHide":@1},
                  @{@"name":@"公司职务",@"place":@"请输入您在公司的职务",@"isHide":@1},
                  @{@"name":@"入职时间",@"place":@"请输入您的入职时间",@"isHide":@1},
-                 @{@"name":@"照片上传",@"place":@[image,image,image,image],@"isHide":@1}
+                 @{@"name":@"照片上传",@"place":@[img1 == nil ? [UIImage imageNamed:@"添加照片"] : img1,img2 == nil ? [UIImage imageNamed:@"添加照片"] : img2,img3 == nil ? [UIImage imageNamed:@"添加照片"] : img3,img4 == nil ? [UIImage imageNamed:@"添加照片"] : img4],@"isHide":@1}
                  ];
     [self.arr addObjectsFromArray:a];
     [self.tableView reloadData];

@@ -321,16 +321,17 @@
         XIUHUD(@"请输入第二位紧急联系人电话");
         return;
     }
-//    [self request];
+    [self request];
     //text
-    IDInfoTwoViewController *vc = [[IDInfoTwoViewController alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
+//    IDInfoTwoViewController *vc = [[IDInfoTwoViewController alloc] init];
+//    [self.navigationController pushViewController:vc animated:YES];
   }
 
 
 - (void)request {
-    
+    NSLog(@"%@, %@,%@,%@,%@,%@,%@,%@,%@,%@,%@", [XIU_Login userId], ui_code, ui_cardid, ui_address,ui_income, ui_qqwx,phoneName1, phone1, phone2, phoneName2,ui_alipay);
     [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_doPage1 withParams:@{@"ui_id":[XIU_Login userId], @"ui_code":ui_code.length > 0 ? ui_code : @"",@"ui_cardid":ui_cardid, @"ui_address":ui_address,@"ui_income":ui_income,@"ui_qqwx":ui_qqwx, @"ui_name1":phoneName1,@"ui_phone1":phone1, @"ui_name2":phoneName2, @"ui_phone2":phone2, @"ui_alipay":ui_alipay, @"ui_limit":ui_limit,@"ui_name":ui_name} withMethodType:Post andBlock:^(id data, NSError *error) {
+        
         if ([data[@"status"] isEqualToString:@"error"]) {
             XIUHUD(@"错误");
         }
