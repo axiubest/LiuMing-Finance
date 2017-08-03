@@ -24,6 +24,14 @@
     NSString *ui_comphone;//company phone
     NSString *ui_job;
     NSString *ui_ed;//入职时间
+    
+    UIImage *img1;
+    UIImage *img2;
+    UIImage *img3;
+    UIImage *img4;
+    
+    
+
 }
 @property (weak, nonatomic) IBOutlet UIButton *studentBtn;
 @property (weak, nonatomic) IBOutlet UIButton *workBtn;
@@ -72,6 +80,18 @@
     [super viewDidLoad];
     self.title = @"身份信息";
     
+    ui_xzworkname = [XIU_Login ui_workname];
+    ui_xzfaculty = [XIU_Login ui_faculty];
+    ui_xzaddress = [XIU_Login ui_xzaddress];
+    ui_professionalclass = [XIU_Login ui_professional];
+    ui_comphone =  [XIU_Login ui_comphone];
+    ui_school_rol =  [XIU_Login ui_school_roll];
+    ui_job = [XIU_Login ui_job];
+    ui_xzaddress = [XIU_Login ui_xzaddress];
+    ui_ed = [XIU_Login ui_ed];
+
+
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.separatorStyle =  UITableViewCellSeparatorStyleNone;
@@ -102,6 +122,23 @@
     }
 }
 
+
+- (NSString *)imageBase64WithDataURL:(UIImage *)image
+{
+    NSData *imageData =nil;
+    NSString *mimeType =nil;
+    
+    //图片要压缩的比例，此处100根据需求，自行设置
+    CGFloat x =50 / image.size.height;
+    if (x >1)
+    {
+        x = 1.0;
+    }
+    imageData = UIImageJPEGRepresentation(image, x);
+    mimeType = @"image/jpeg";
+    return [NSString stringWithFormat:@"data:%@;base64,%@", mimeType,
+            [imageData base64EncodedStringWithOptions:0]];
+}
 
 - (void)dealloc
 {
@@ -220,19 +257,19 @@
         //tableView 及时刷新
         switch (indexPath.row) {
             case 0:
-                cell.inputField.text = [XIU_Login ui_workname];
+                cell.inputField.text = ui_xzworkname;
                 break;
             case 1:
-                cell.inputField.text = [ui_yhtype isEqualToString:@"1"] ? [XIU_Login ui_faculty] : [XIU_Login ui_xzaddress];
+                cell.inputField.text = [ui_yhtype isEqualToString:@"1"] ? ui_xzfaculty : ui_xzaddress;
                 break;
             case 2:
-                cell.inputField.text = [ui_yhtype isEqualToString:@"1"] ? [XIU_Login ui_professional] : [XIU_Login ui_comphone];
+                cell.inputField.text = [ui_yhtype isEqualToString:@"1"] ? ui_professionalclass : ui_comphone;
                 break;
             case 3:
-                cell.inputField.text = [ui_yhtype isEqualToString:@"1"] ? [XIU_Login ui_school_roll] : [XIU_Login ui_job];
+                cell.inputField.text = [ui_yhtype isEqualToString:@"1"] ? ui_school_rol : ui_job;
                 break;
             case 4:
-                cell.inputField.text = [ui_yhtype isEqualToString:@"1"] ? [XIU_Login ui_xzaddress] : [XIU_Login ui_ed];
+                cell.inputField.text = [ui_yhtype isEqualToString:@"1"] ? ui_xzaddress : ui_ed;
                 break;
                 
             default:
@@ -297,24 +334,24 @@
 }
 
 - (void)reuqest {
-    
-    /*
-     NSString *ui_yhtype;//类型 1student 2company 默认1
-     NSString *ui_xzworkname;
-     NSString *ui_xzaddress;//公司地址寝室地址
-     NSString *ui_xzfaculty;//院系
-     NSString *ui_professionalclass;//专业班级
-     NSString *ui_school_rol;//学籍类型
-     NSString *ui_comphone;//company phone
-     NSString *ui_job;
-     NSString *ui_ed;//入职时间
-     */
-    
+    if (img1 == nil) {
+        XIUHUD(@"请上传身份证正面");
+        return;
+    }if (img2 == nil) {
+        XIUHUD(@"请上传身份证反面");
+        return;
+    }if (img3 == nil) {
+        XIUHUD(@"请上传手持身份证");
+        return;
+    }if (img4 == nil) {
+        XIUHUD(@"请上传工作／工牌证明");
+        return;
+    }
     NSDictionary *dic = [NSDictionary dictionary];
     if ([ui_yhtype isEqualToString:@"1"]) {
-        dic = @{@"ui_xzworkname":ui_xzworkname, @"ui_xzfaculty":ui_xzfaculty, @"ui_professionalclass":ui_professionalclass, @"ui_school_rol":ui_school_rol, @"ui_xzaddress":ui_xzaddress};
+        dic = @{@"ui_xzworkname":ui_xzworkname, @"ui_xzfaculty":ui_xzfaculty, @"ui_professionalclass":ui_professionalclass, @"ui_school_rol":ui_school_rol, @"ui_xzaddress":ui_xzaddress, @"ui_url1":[self imageBase64WithDataURL:img1], @"ui_url2":[self imageBase64WithDataURL:img2], @"ui_url3":[self imageBase64WithDataURL:img3], @"ui_url4":[self imageBase64WithDataURL:img4]};
     }if ([ui_yhtype isEqualToString:@"2"]) {
-      dic = @{@"ui_xzworkname":ui_xzworkname,  @"ui_comphone":ui_comphone, @"ui_xzaddress":ui_xzaddress, @"ui_job":ui_job, @"ui_ed":ui_ed};
+      dic = @{@"ui_xzworkname":ui_xzworkname,  @"ui_comphone":ui_comphone, @"ui_xzaddress":ui_xzaddress, @"ui_job":ui_job, @"ui_ed":ui_ed,@"ui_url1":[self imageBase64WithDataURL:img1], @"ui_url2":[self imageBase64WithDataURL:img2], @"ui_url3":[self imageBase64WithDataURL:img3], @"ui_url4":[self imageBase64WithDataURL:img4]};
     }
 
     
@@ -390,6 +427,15 @@
     NSMutableArray *arr = [NSMutableArray array];
     for (NSInteger i=0; i<[self.arr[5][@"place"] count]; i++) {
         if (self.currentBtnTag == i) {
+            if (i == 0) {
+                img1 = image;
+            }if (i == 1) {
+                img2 = image;
+            }if (i == 2) {
+                img3 = image;
+            }if (i == 3) {
+                img4 = image;
+            }
             [arr addObject:image];
         }else{
             [arr addObject:self.arr[5][@"place"][i]];

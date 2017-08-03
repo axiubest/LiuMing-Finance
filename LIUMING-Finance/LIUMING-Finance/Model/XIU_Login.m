@@ -100,7 +100,7 @@ static XIU_User *curLoginUser;
 }
 //专业班级
 +(NSString *)ui_professional{
-    return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_professional"];
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_professional_class"];
 
 }
 +(NSString *)ui_school_roll {

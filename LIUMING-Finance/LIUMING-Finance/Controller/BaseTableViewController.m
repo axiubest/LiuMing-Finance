@@ -215,6 +215,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([self.title isEqualToString:@"进度查询"]) {
+        return;
+    }
     if ([self.title isEqualToString:@"催收订单"]){
 //        FinancialContribution_ViewController *vc = [[FinancialContribution_ViewController alloc] init];
 //        [self.navigationController pushViewController:vc animated:YES];
