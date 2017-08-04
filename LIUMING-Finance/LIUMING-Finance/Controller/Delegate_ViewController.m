@@ -92,6 +92,10 @@
     }
 }
 
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    [self.view endEditing:YES];
+}
+
 - (void)click:(UITextField *)textField {
     
     switch (textField.tag) {
@@ -150,6 +154,14 @@
     [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_applying withParams:@{@"ui_id":[XIU_Login userId], @"ui_workname":ui_workname, @"ui_xzaddress":ui_xzaddress, @"ay_tjr":ay_tjr, @"ay_mark":ay_mark} withMethodType:Post andBlock:^(id data, NSError *error) {
         if ([data[@"status"] isEqualToString:@"success"]) {
             XIUHUD(@"申请成功,请等待审核结果");
+            
+            dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0/*延迟执行时间*/ * NSEC_PER_SEC));
+            
+            dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+             [self.navigationController popViewControllerAnimated:YES];
+            });
+
+          
         }
     }];
 }

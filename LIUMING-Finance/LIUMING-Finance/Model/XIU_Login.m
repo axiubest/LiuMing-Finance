@@ -134,8 +134,8 @@ static XIU_User *curLoginUser;
 +(NSString *)type {
     //3终端 2财务 5催收
 
-    return @"2";
-//    return [NSString stringWithFormat:@"%@", [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_type"]] ;
+//    return @"2";
+    return [NSString stringWithFormat:@"%@", [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_type"]] ;
 }
 
 +(NSString *)tjr{
