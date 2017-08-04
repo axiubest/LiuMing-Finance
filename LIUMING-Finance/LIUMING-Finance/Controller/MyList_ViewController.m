@@ -9,7 +9,8 @@
 #import "MyList_ViewController.h"
 #import "BaseTableViewController.h"
 #import "HKTitleBtn.h"
-@interface MyList_ViewController ()<UIScrollViewDelegate>
+#import "Login_ViewController.h"
+@interface MyList_ViewController ()<UIScrollViewDelegate,UIAlertViewDelegate>
 @property (weak, nonatomic) UIScrollView *contentView;
 @property (weak, nonatomic) UIView *titlesView;
 @property (weak, nonatomic) UIView *sliderView;
@@ -31,14 +32,37 @@
     [self setupContentView];
     [self setupTitlesView];
     
-    [self setRightNavSearchButton];
+    [self setNavSearchButton];
     
     
 }
 
 #pragma mark search
-- (void)setRightNavSearchButton {
-    [self createNavgationButtonWithImageNmae:@"搜索" title:nil target:self action:@selector(clickSearchBtn) type:UINavigationItem_Type_RightItem];
+- (void)setNavSearchButton {
+    //3终端 2财务 5催收
+
+    if ([[XIU_Login type] isEqualToString:@"5"]) {
+          [self createNavgationButtonWithImageNmae:@"搜索" title:nil target:self action:@selector(clickSearchBtn) type:UINavigationItem_Type_RightItem];
+    }
+    if (![[XIU_Login type] isEqualToString:@"3"]) {//不为终端用户左边展示退出按钮
+        [self createNavgationButtonWithImageNmae:@"退出" title:nil target:self action:@selector(clickEditBtn) type:UINavigationItem_Type_LeftItem];
+    }
+  
+}
+
+
+- (void)clickEditBtn {
+    UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"确定退出？" message:nil delegate:self cancelButtonTitle:@"取消"otherButtonTitles:@"确定", nil];
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        [XIU_Login doLogOut];
+        UIWindow *window = [UIApplication sharedApplication].delegate.window;
+        
+        window.rootViewController = [Login_ViewController loadViewControllerFromMainStoryBoard];
+    }
 }
 - (void)clickSearchBtn {
     

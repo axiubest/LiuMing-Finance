@@ -10,7 +10,8 @@
 #import "HKFinancialContributionCell.h"
 #import "FinanceModel.h"
 #import "MJExtension.h"
-@interface FinancialContribution_ViewController ()<UITableViewDelegate,UITableViewDataSource>
+#import "Login_ViewController.h"
+@interface FinancialContribution_ViewController ()<UITableViewDelegate,UITableViewDataSource, UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic, strong) NSMutableArray *dataSource;
@@ -38,17 +39,28 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"财务打款";
-
+    [self createNavgationButtonWithImageNmae:@"退出" title:nil target:self action:@selector(clickEdit) type:UINavigationItem_Type_LeftItem];
     [self request];
 }
 
 
 
+- (void)clickEdit {
+    UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"确定退出？" message:nil delegate:self cancelButtonTitle:@"取消"otherButtonTitles:@"确定", nil];
+    [alert show];
+}
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        [XIU_Login doLogOut];
+        UIWindow *window = [UIApplication sharedApplication].delegate.window;
+        
+        window.rootViewController = [Login_ViewController loadViewControllerFromMainStoryBoard];
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

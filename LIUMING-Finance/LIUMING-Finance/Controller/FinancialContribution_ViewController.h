@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FinancialContribution_ViewController : UIViewController
+@interface FinancialContribution_ViewController : XIU_ViewController
 
 @end

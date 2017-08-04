@@ -9,6 +9,9 @@
 
 #import "Login_ViewController.h"
 #import "Register_ViewController.h"
+#import "HKNavigationController.h"
+#import "FinancialContribution_ViewController.h"
+#import "MyList_ViewController.h"
 @interface Login_ViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
 
@@ -71,7 +74,21 @@
         id requestData = data[@"data"];
             [XIU_Login doLogin:requestData];
         NSLog(@"%@--", kPathDocument);
-          [UIApplication sharedApplication].keyWindow.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
+        if ([[XIU_Login type] isEqualToString:@"3"]) {
+            [UIApplication sharedApplication].keyWindow.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
+            
+        }if ([[XIU_Login type] isEqualToString:@"2"]) {
+            FinancialContribution_ViewController *v = [[FinancialContribution_ViewController alloc] init];
+            HKNavigationController *nav = [[HKNavigationController alloc] initWithRootViewController:v];
+           [UIApplication sharedApplication].keyWindow.rootViewController = nav;
+            
+        }if ([[XIU_Login type] isEqualToString:@"5"]) {
+            MyList_ViewController *v = [[MyList_ViewController alloc] init];
+            v.title = @"催收订单";
+            HKNavigationController *nav = [[HKNavigationController alloc] initWithRootViewController:v];
+             [UIApplication sharedApplication].keyWindow.rootViewController = nav;
+            
+        }
     }];
     
  
