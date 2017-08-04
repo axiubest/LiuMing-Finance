@@ -10,14 +10,14 @@
 #import "HKDelegateCell.h"
 #import "HKSubmitCell.h"
 
-@interface Delegate_ViewController ()<UITableViewDelegate, UITableViewDataSource, HKSubmitCellDelegate>
+@interface Delegate_ViewController ()<UITableViewDelegate, UITableViewDataSource, HKSubmitCellDelegate,UITextFieldDelegate>
 {
     NSString *ui_name;
     NSString *ui_workname;
     NSString *ui_xzaddress;
     NSString *ay_tjr;
     NSString *ay_mark;
-
+    UITextField *textF;
 
 
 }
@@ -51,6 +51,39 @@
     self.myTableView.separatorStyle = UITableViewCellSelectionStyleNone;
     
 }
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardHideShow:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)keyboardWillShow:(NSNotification *)notification {
+    CGRect keyboardFrame  =[notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGFloat height = keyboardFrame.origin.y;
+    CGFloat textField_maxY = (textF.tag + 1) * 95;
+    CGFloat space = -self.myTableView.contentOffset.y + textField_maxY;
+    CGFloat transformY = height - space;
+    if (transformY < 0) {
+        CGRect frame = self.view.frame;
+        frame.origin.y = transformY;
+        self.view.frame = frame;
+    }
+}
+
+- (void)keyboardHideShow:(NSNotification *)notification {
+    CGRect frame = self.view.frame;
+    frame.origin.y = 0;
+    self.view.frame = frame;
+}
+
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [self viewDidDisappear:YES];
+    [self.view endEditing:YES];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (section==0) {
         return self.arr.count;
@@ -78,6 +111,7 @@
         cell.inputField.placeholder = self.arr[indexPath.row][@"place"];
         cell.downImg.hidden = [self.arr[indexPath.row][@"isHide"] integerValue];
         cell.inputField.tag = indexPath.row;
+        cell.inputField.delegate = self;
          [cell.inputField addTarget:self action:@selector(click:) forControlEvents:UIControlEventEditingChanged];
         if (indexPath.row == 0 || indexPath.row == 1 || indexPath.row == 2 || indexPath.row == 3) {
             cell.inputField.enabled = NO;
@@ -91,6 +125,18 @@
         return cell;
     }
 }
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    textF = textField;
+    return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self.view endEditing:YES];
+    return YES;
+}
+
+
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     [self.view endEditing:YES];

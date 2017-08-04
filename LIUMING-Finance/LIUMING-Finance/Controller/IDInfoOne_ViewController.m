@@ -11,7 +11,7 @@
 #import "HKDelegateCell.h"
 #import "HKSubmitCell.h"
 
-@interface IDInfoOne_ViewController ()<UITableViewDelegate,UITableViewDataSource,HKSubmitCellDelegate>
+@interface IDInfoOne_ViewController ()<UITableViewDelegate,UITableViewDataSource,HKSubmitCellDelegate,UITextFieldDelegate>
 {
     NSString *ui_name;
     NSString *ui_code;
@@ -28,7 +28,7 @@
     NSString *ui_alipay;
     
 
-
+    UITextField *textF;
 
 
 
@@ -66,10 +66,54 @@
     self.tableVlew.delegate = self;
     self.tableVlew.dataSource = self;
     self.tableVlew.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+  
     
 }
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    textF = textField;
+    return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self.view endEditing:YES];
+    return YES;
+}
+
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardHideShow:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)keyboardWillShow:(NSNotification *)notification {
+    CGRect keyboardFrame  =[notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGFloat height = keyboardFrame.origin.y;
+    CGFloat textField_maxY = (textF.tag + 1) * 95;
+    CGFloat space = -self.tableVlew.contentOffset.y + textField_maxY;
+    CGFloat transformY = height - space;
+    if (transformY < 0) {
+        CGRect frame = self.view.frame;
+        frame.origin.y = transformY;
+        self.view.frame = frame;
+    }
+}
+
+- (void)keyboardHideShow:(NSNotification *)notification {
+    CGRect frame = self.view.frame;
+    frame.origin.y = 0;
+    self.view.frame = frame;
+}
+
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [self viewDidDisappear:YES];
+    [self.view endEditing:YES];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)setValues {
     ui_name = [XIU_Login ui_name];
 
@@ -99,32 +143,6 @@
 
 }
 
--(void)keyBoardWillHide:(NSNotification *)note{
-    CGFloat duration = [note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-    [UIView animateWithDuration:duration animations:^{
-        self.view.y = 0;
-    }];
-    
-}
-
--(void)keyBoardWillShow:(NSNotification *)note{
-    CGRect frame = [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    CGFloat y = frame.origin.y;
-    CGFloat cellY = CGRectGetMaxY(self.currentCell.frame)+107-self.tableVlew.contentOffset.y;
-    if (cellY>y){
-        CGFloat duration = [note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-        
-        [UIView animateWithDuration:duration animations:^{
-            self.view.y = -cellY + y;
-        }];
-    }
-}
-
-
-- (void)dealloc
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     [self.view endEditing:YES];
@@ -161,7 +179,8 @@
         
         [_tableVlew registerNib:[HKDelegateCell XIU_ClassNib] forCellReuseIdentifier:[NSString stringWithFormat:@"%ldx", indexPath.row]];
         HKDelegateCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"%ldx", indexPath.row]];
-
+        cell.inputField.tag = indexPath.row;
+        cell.inputField.delegate = self;
         cell.nameLabel.text = self.arr[indexPath.row][@"name"];
         cell.inputField.placeholder = self.arr[indexPath.row][@"place"];
         switch (indexPath.row) {
