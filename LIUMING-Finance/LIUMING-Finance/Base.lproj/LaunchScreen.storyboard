@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,56 +21,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小明钱包" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y41-Z6-CYc">
-                                <rect key="frame" x="127.5" y="84" width="121.5" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" red="1" green="0.38039215686274508" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="启动页插画" translatesAutoresizingMaskIntoConstraints="NO" id="aCz-kR-EKF">
-                                <rect key="frame" x="63" y="155" width="249" height="234"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小明钱包 伴您随行" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O2S-9H-Xq9">
-                                <rect key="frame" x="87" y="429" width="201" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="41b-1f-AZ8">
-                                <rect key="frame" x="126" y="488" width="124" height="36"/>
-                                <color key="backgroundColor" red="0.1019607843" green="0.4431372549" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="MjG-et-HvC"/>
-                                    <constraint firstAttribute="width" constant="124" id="sg3-40-jE5"/>
-                                </constraints>
-                                <state key="normal" title="立即体验">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@2017 LiuMing Financial.All Rights Reserved" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vU4-lO-bqV">
-                                <rect key="frame" x="89" y="626" width="197" height="11"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="启动页logo" translatesAutoresizingMaskIntoConstraints="NO" id="AvB-8I-2ls">
-                                <rect key="frame" x="87.5" y="554" width="200" height="52"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="启动页" translatesAutoresizingMaskIntoConstraints="NO" id="i9K-hI-W8e">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="y41-Z6-CYc" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="0hE-kZ-epG"/>
-                            <constraint firstItem="O2S-9H-Xq9" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="1ug-s9-Jl8"/>
-                            <constraint firstItem="O2S-9H-Xq9" firstAttribute="top" secondItem="aCz-kR-EKF" secondAttribute="bottom" constant="40" id="3g9-l8-Th6"/>
-                            <constraint firstItem="y41-Z6-CYc" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="64" id="4vd-aD-SFY"/>
-                            <constraint firstItem="vU4-lO-bqV" firstAttribute="top" secondItem="AvB-8I-2ls" secondAttribute="bottom" constant="20" id="GQg-hZ-uO4"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="vU4-lO-bqV" secondAttribute="bottom" constant="30" id="IQA-bA-8nU"/>
-                            <constraint firstItem="41b-1f-AZ8" firstAttribute="top" secondItem="O2S-9H-Xq9" secondAttribute="bottom" constant="30" id="NAh-xf-7Px"/>
-                            <constraint firstItem="aCz-kR-EKF" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="NWB-Be-5On"/>
-                            <constraint firstItem="41b-1f-AZ8" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="TXD-3p-caT"/>
-                            <constraint firstItem="vU4-lO-bqV" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="aaz-kT-DCq"/>
-                            <constraint firstItem="AvB-8I-2ls" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="m5h-dP-AbR"/>
-                            <constraint firstItem="aCz-kR-EKF" firstAttribute="top" secondItem="y41-Z6-CYc" secondAttribute="bottom" constant="35" id="pBr-1a-Gyr"/>
+                            <constraint firstItem="i9K-hI-W8e" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="Fqr-Ki-mS7"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="i9K-hI-W8e" secondAttribute="bottom" id="M1R-lg-SLx"/>
+                            <constraint firstAttribute="trailing" secondItem="i9K-hI-W8e" secondAttribute="trailing" id="QUn-R6-kFd"/>
+                            <constraint firstItem="i9K-hI-W8e" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="bal-M5-Ry0"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -80,7 +40,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="启动页logo" width="200" height="52"/>
-        <image name="启动页插画" width="249" height="234"/>
+        <image name="启动页" width="750" height="1334"/>
     </resources>
 </document>

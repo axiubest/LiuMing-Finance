@@ -43,6 +43,7 @@
 #define API_forgotpwd @"Login/resetpsd"
 #define API_Apply @"Index/applyMoney"
 #define API_updateUser @"Index/updateUser"
+#define API_payment @"Index/payment"
 
 
 #endif /* FileGlobalReference_h */

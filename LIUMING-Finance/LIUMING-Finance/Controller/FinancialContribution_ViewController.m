@@ -71,7 +71,27 @@
 }
 
 - (void)clickFooterBtn:(UIButton *)sender {
-    [self request];
+    [self requestSure:sender];
+}
+#pragma mark 确认打款
+- (void)requestSure:(UIButton *)sender {
+    
+    HKFinancialContributionCell *cell = (HKFinancialContributionCell *)[[[sender superview] superview] superview];
+    
+    NSIndexPath *indexPath = [_tableView indexPathForCell:cell];
+    
+    NSLog(@"indexPath is = %ld",indexPath.row);
+    
+    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_payment withParams:@{@"oi_id":[self.dataSource[indexPath.row] oi_id]} withMethodType:Post andBlock:^(id data, NSError *error) {
+        if ([data[@"status"] isEqualToString:@"sucess"]) {
+            XIUHUD(@"成功");
+            
+            [self request];
+        }if ([data[@"status"] isEqualToString:@"error"]) {
+            XIUHUD(@"失败");
+            return;
+        }
+    }];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
