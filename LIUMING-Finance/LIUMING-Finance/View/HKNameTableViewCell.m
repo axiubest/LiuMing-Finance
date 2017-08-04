@@ -25,7 +25,8 @@
 }
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
+    _userIamgeView.layer.masksToBounds = YES;
+    _userIamgeView.layer.cornerRadius = _userIamgeView.width/2;
     [self.myProfitView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(profitViewClick)]];
     
 //    添加点击事件

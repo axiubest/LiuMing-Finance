@@ -138,7 +138,7 @@
     if (indexPath.section==0) {
        HKNameTableViewCell *cell = [HKNameTableViewCell nameTableVeiwCell];
         cell.myDelegate = self;
-        [cell.userIamgeView sd_setImageWithURL:[NSURL URLWithString:[XIU_Login ui_img]] placeholderImage:[UIImage imageNamed:@"启动页插画"]];
+        [cell.userIamgeView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@", [XIU_Login ui_img]]] placeholderImage:[UIImage imageNamed:@"启动页插画"]];
         cell.nameLab.text = [XIU_Login userName];
         cell.tjr_nameLab.text =[NSString stringWithFormat:@"推荐人:%@", [self.dataDic[@"tjr_name"] isKindOfClass:[NSNull class]] ? @" 无推荐人": self.dataDic[@"tjr_name"]] ;
         cell.getMoneyLab.text =self.dataDic[@"profit"];

@@ -61,17 +61,19 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-
+    
+    //要刷新
+    ui_name = [XIU_Login ui_name];
+    ui_sex = [XIU_Login ui_sex];
+    ui_birthday = [XIU_Login ui_birthday];
+    ui_address = [XIU_Login ui_address];
     [self.tableView reloadData];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"我的信息";
-    ui_name = [XIU_Login ui_name];
-    ui_sex = [XIU_Login ui_sex];
-    ui_birthday = [XIU_Login ui_birthday];
-    ui_address = [XIU_Login ui_address];
+
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = [UIColor colorWithHexString:@"#f4f4f4"];
@@ -171,7 +173,7 @@
         XIUHUD(@"地址不能为空")return;
     }
 //    NSString *str = [imgData base64Encoding];
-    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_updateUser withParams:@{@"ui_id":[XIU_Login userId], @"ui_name":[XIU_Login ui_name], @"ui_sex":[[XIU_Login ui_sex] isEqualToString:@"nan"] ? @"1":@"0", @"ui_birthday":[XIU_Login ui_birthday], @"ui_img":[self imageBase64WithDataURL:tmpImg], @"ui_address":[XIU_Login ui_address]} withMethodType:Post andBlock:^(id data, NSError *error) {
+    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_updateUser withParams:@{@"ui_id":[XIU_Login userId], @"ui_name":[XIU_Login ui_name], @"ui_sex":[[XIU_Login ui_sex] isEqualToString:@"男"] ? @"1":@"0", @"ui_birthday":[XIU_Login ui_birthday], @"ui_img":[self imageBase64WithDataURL:tmpImg], @"ui_address":[XIU_Login ui_address]} withMethodType:Post andBlock:^(id data, NSError *error) {
         id requestData = data[@"data"];
         [XIU_Login doLogin:requestData];
         XIUHUD(@"提交成功");

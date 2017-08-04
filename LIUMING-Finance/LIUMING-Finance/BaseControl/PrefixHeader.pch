@@ -27,6 +27,7 @@ typedef NS_ENUM(NSUInteger, HKListType) {
 
 #define kLoginStatus @"login_status"
 #define kLoginUserDict @"user_dict"
+#define kXiaoxiState @"kXiaoxiState"
 static NSInteger HUDProgress_Time = 1;
 
 #define NB_FONT(r) [UIFont fontWithName:@"PingFang-SC-Regular" size:r]

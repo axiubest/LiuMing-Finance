@@ -34,6 +34,8 @@
 +(NSString *)ui_birthday;
 +(NSString *)ui_sex;
 +(NSString *)type;
++(NSString *)tjr;//暂时
+
 
 +(NSString *)ui_code;
 +(NSString *)ui_cardid;

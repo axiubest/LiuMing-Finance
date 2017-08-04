@@ -287,47 +287,47 @@
 -(void)submitCellBtnClick:(HKSubmitCell *)cell{
     
 
-//    if (ui_name.length < 2) {
-//        XIUHUD(@"用户名输入错误");
-//        return;
-//    }if (ui_cardid.length != 18) {
-//        XIUHUD(@"身份证输入错误");
-//        return;
-//    }if (ui_address.length == 0) {
-//        XIUHUD(@"请输入地址");
-//        return;
-//    }if (ui_income.length == 0) {
-//        XIUHUD(@"请输入月收入");
-//        return;
-//    }if (ui_qqwx.length == 0) {
-//        XIUHUD(@"请输qq或者微信号码");
-//        return;
-//    }if (ui_limit.length == 0) {
-//        XIUHUD(@"请输入借款额度");
-//        return;
-//    }if (ui_alipay.length < 5) {
-//        XIUHUD(@"请输入支付宝号码");
-//        return;
-//    }if (phoneName1.length < 2) {
-//        XIUHUD(@"请输入第一位紧急联系人");
-//        return;
-//    }if (phone1.length != 11) {
-//        XIUHUD(@"请输入第一位紧急联系人电话");
-//        return;
-//    }if (phoneName2.length < 2) {
-//        XIUHUD(@"请输入第二位紧急联系人");
-//        return;
-//    }if (phone2.length != 11) {
-//        XIUHUD(@"请输入第二位紧急联系人电话");
-//        return;
-//    }
-//    [self request];
+    if (ui_name.length < 2) {
+        XIUHUD(@"用户名输入错误");
+        return;
+    }if (ui_cardid.length != 18) {
+        XIUHUD(@"身份证输入错误");
+        return;
+    }if (ui_address.length == 0) {
+        XIUHUD(@"请输入地址");
+        return;
+    }if (ui_income.length == 0) {
+        XIUHUD(@"请输入月收入");
+        return;
+    }if (ui_qqwx.length == 0) {
+        XIUHUD(@"请输qq或者微信号码");
+        return;
+    }if (ui_limit.length == 0) {
+        XIUHUD(@"请输入借款额度");
+        return;
+    }if (ui_alipay.length < 5) {
+        XIUHUD(@"请输入支付宝号码");
+        return;
+    }if (phoneName1.length < 2) {
+        XIUHUD(@"请输入第一位紧急联系人");
+        return;
+    }if (phone1.length != 11) {
+        XIUHUD(@"请输入第一位紧急联系人电话");
+        return;
+    }if (phoneName2.length < 2) {
+        XIUHUD(@"请输入第二位紧急联系人");
+        return;
+    }if (phone2.length != 11) {
+        XIUHUD(@"请输入第二位紧急联系人电话");
+        return;
+    }
+    [self request];
     
     
     
     //text
-    IDInfoTwoViewController *vc = [[IDInfoTwoViewController alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
+//    IDInfoTwoViewController *vc = [[IDInfoTwoViewController alloc] init];
+//    [self.navigationController pushViewController:vc animated:YES];
   }
 
 

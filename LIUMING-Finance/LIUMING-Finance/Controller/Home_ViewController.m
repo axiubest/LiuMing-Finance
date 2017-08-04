@@ -85,6 +85,10 @@
 #pragma mark 借款申请按钮
 - (IBAction)clickGetMoneyBtn:(id)sender {
 //    网络请求判断
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:kXiaoxiState] isEqual:@2]) {//不完善
+        XIUHUD(@"请前往完善基本信息");
+        return;
+    }
     NSString *str = [NSString stringWithFormat:@"确定申请借款：%@元？", _moneyLab.text];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"确认申请" message:str delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
     [alert show];
@@ -157,8 +161,11 @@
 
 - (void)request {
     [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_home withParams:@{@"ui_type":@3, @"ui_id":[XIU_Login userId]} withMethodType:Post andBlock:^(id data, NSError *error) {
-        if ([data[@"xiaoxi"] isEqual:@2]) {//不完善
+        NSNumber *num = data[@"xiaoxi"];
+        [[NSUserDefaults standardUserDefaults] setObject:num forKey:kXiaoxiState];
+        if ([num isEqual:@2]) {//不完善
             [self gotoInfo];
+            return ;
         }
         if ([data[@"ui_limit"] length] > 0) {//有额度
             _moneySlider.enabled = NO;

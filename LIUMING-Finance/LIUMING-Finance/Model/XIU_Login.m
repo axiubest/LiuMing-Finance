@@ -125,16 +125,23 @@ static XIU_User *curLoginUser;
 }
 
 +(NSString *)userName {
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_account"] length] < 1) {
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_name"] length] < 1) {
         return @"请前往完善姓名";
     }
-    return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_account"];
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_name"];
 }
 
 +(NSString *)type {
-    return @"2";
+    //3终端 2财务 5催收
+
+    return @"3";
 //    return [NSString stringWithFormat:@"%@", [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_type"]] ;
 }
+
++(NSString *)tjr{
+  return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_tjrid"];
+
+}//暂
 
 +(NSString *)ui_phone {
     //手机号码一定有
@@ -202,7 +209,7 @@ static XIU_User *curLoginUser;
         
         [[NSUserDefaults standardUserDefaults]setObject:@"0" forKey:kLoginStatus];
         [[NSUserDefaults standardUserDefaults]removeObjectForKey:kLoginUserDict];
-
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:kXiaoxiState];//消息完善状态
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
 //    推送注销
