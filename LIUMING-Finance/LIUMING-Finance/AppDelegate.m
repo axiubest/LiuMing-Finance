@@ -11,6 +11,7 @@
 #import "FinancialContribution_ViewController.h"
 #import "BaseTableViewController.h"
 #import "HKNavigationController.h"
+#import "MyList_ViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -37,7 +38,7 @@
             self.window.rootViewController = nav;
             
         }if ([[XIU_Login type] isEqualToString:@"5"]) {
-            BaseTableViewController *v = [[BaseTableViewController alloc] init];
+            MyList_ViewController *v = [[MyList_ViewController alloc] init];
             v.title = @"催收订单";
             HKNavigationController *nav = [[HKNavigationController alloc] initWithRootViewController:v];
             self.window.rootViewController = nav;

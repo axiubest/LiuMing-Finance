@@ -31,11 +31,18 @@
     [self setupContentView];
     [self setupTitlesView];
     
-
+    [self setRightNavSearchButton];
     
     
 }
 
+#pragma mark search
+- (void)setRightNavSearchButton {
+    [self createNavgationButtonWithImageNmae:@"搜索" title:nil target:self action:@selector(clickSearchBtn) type:UINavigationItem_Type_RightItem];
+}
+- (void)clickSearchBtn {
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -106,7 +113,7 @@
     self.sliderView = sliderView;
     
     [sliderView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.size.mas_equalTo(CGSizeMake([[button titleForState:UIControlStateNormal] sizeWithAttributes:@{NSFontAttributeName : button.titleLabel.font}].width, 3));
+
          make.size.mas_equalTo(CGSizeMake(43, 2));
         make.bottom.equalTo(self.titlesView);
         self.sliderViewCenterX = make.centerX.equalTo(a[self.myType]);
