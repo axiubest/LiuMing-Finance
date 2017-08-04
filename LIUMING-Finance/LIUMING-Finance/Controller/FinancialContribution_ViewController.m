@@ -84,11 +84,11 @@
     
     [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_payment withParams:@{@"oi_id":[self.dataSource[indexPath.row] oi_id]} withMethodType:Post andBlock:^(id data, NSError *error) {
         if ([data[@"status"] isEqualToString:@"sucess"]) {
-            XIUHUD(@"成功");
+            XIUHUD(@"提交成功");
             
             [self request];
         }if ([data[@"status"] isEqualToString:@"error"]) {
-            XIUHUD(@"失败");
+            XIUHUD(@"提交失败");
             return;
         }
     }];
@@ -96,6 +96,7 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     HKFinancialContributionCell *cell = [HKFinancialContributionCell financialContributionCell];
+    [cell.footerZFBBtn addTarget:self action:@selector(clickAliPayIdCopy:) forControlEvents:UIControlEventTouchUpInside];
     [cell.footerBtn addTarget:self action:@selector(clickFooterBtn:) forControlEvents:UIControlEventTouchUpInside];
     cell.headerImg.image = [UIImage imageNamed:@"已出账单"];
     cell.headerTitleLabel.text = [NSString stringWithFormat:@"订单编号：%@", [self.dataSource[indexPath.row] oi_id]];
@@ -133,6 +134,17 @@
 
     
     return cell;
+}
+
+- (void)clickAliPayIdCopy:(UIButton *)sender {
+    HKFinancialContributionCell *cell = (HKFinancialContributionCell *)[[[sender superview] superview] superview];
+    NSIndexPath *indexP = [self.tableView indexPathForCell:cell];
+    if ([self.dataSource[indexP.row] ui_alipay].length < 2) {
+        XIUHUD(@"暂无支付宝账号") return;
+    }
+    UIPasteboard*pasteboard = [UIPasteboard generalPasteboard];
+    pasteboard.string=[self.dataSource[indexP.row] ui_alipay];
+        XIUHUD(@"复制支付宝成功，现在您可以去粘贴");
 }
 
 -(NSMutableArray *)dataSource {

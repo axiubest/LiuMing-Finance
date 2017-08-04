@@ -75,11 +75,25 @@
     }
     
     cell.footerBtn.tag = indexPath.row;
-    //        [cell.footerBtn addTarget:self action:@selector(clickBtn:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.footerBtn addTarget:self action:@selector(clickBtn:) forControlEvents:UIControlEventTouchUpInside];
     
     return cell;
 }
 
+
+- (void)clickBtn:(UIButton *)sender{
+    HKMyListCell *cell = (HKMyListCell *)[[[sender superview] superview] superview];
+    NSIndexPath *indexPath = [_XIUTableView indexPathForCell:cell];
+    
+
+    NSMutableString *str=[[NSMutableString alloc] initWithFormat:@"tel:%@",[self.dataSource[indexPath.row] ui_phone]];
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self.searchBar resignFirstResponder];
+}
 -(void)createNavgationSearchBar {
     
     UIView *searchBarView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KWIDTH, 30)];

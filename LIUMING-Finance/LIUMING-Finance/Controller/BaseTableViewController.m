@@ -53,8 +53,13 @@
 
 
 - (void)request {
-
-    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_List withParams:@{@"oi_state":[NSString stringWithFormat:@"%ld", _type], @"ui_id":[XIU_Login userId]} withMethodType:Post andBlock:^(id data, NSError *error) {
+    NSDictionary *dict;
+    if ([self.title isEqualToString:@"催收订单"]) {
+      dict = @{@"oi_state":[NSString stringWithFormat:@"%ld", _type], @"ui_id":[XIU_Login userId], @"ui_type":@"5"};
+    }else {
+        dict = @{@"oi_state":[NSString stringWithFormat:@"%ld", _type], @"ui_id":[XIU_Login userId]};
+    }
+    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_List withParams:dict withMethodType:Post andBlock:^(id data, NSError *error) {
         for (NSDictionary *obj in data[@"data"]) {
             
             MyListModel *model = [[MyListModel alloc] init];
@@ -132,6 +137,7 @@
         cell.footerTitleLabel.text =[NSString stringWithFormat:@"还款日期：%@",model.hktime] ;
         if ([model.oi_state isEqualToString:@"已逾期"]) {
             [cell.footerBtn setTitle:@"立即催收" forState:UIControlStateNormal];
+            
             [cell.footerBtn.layer setBorderColor:CGColorCreate(CGColorSpaceCreateDeviceRGB(), (CGFloat[]){26/255.0, 113/255.0, 1, 1 })];
             [cell.footerBtn setTitleColor:[UIColor colorWithHexString:@"#1a7aff"] forState:UIControlStateNormal];
         }else {
