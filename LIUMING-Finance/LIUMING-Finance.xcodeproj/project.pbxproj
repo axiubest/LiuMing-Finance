@@ -52,6 +52,8 @@
 		04ECFC681F15B67100ADF59F /* HKPhotoUploadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04ECFC661F15B67100ADF59F /* HKPhotoUploadCell.xib */; };
 		184BBF411F2ADDB800282CDE /* HWPopTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 184BBF401F2ADDB800282CDE /* HWPopTool.m */; };
 		184BBF431F2AE1D900282CDE /* WechatIMG1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 184BBF421F2AE1D900282CDE /* WechatIMG1.jpeg */; };
+		18B2A11A1F343DBF007C6473 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B2A1181F343DBF007C6473 /* SearchViewController.m */; };
+		18B2A11B1F343DBF007C6473 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18B2A1191F343DBF007C6473 /* SearchViewController.xib */; };
 		4CB8C76F1F239F20009D090B /* MyListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8C76E1F239F20009D090B /* MyListModel.m */; };
 		FA06700B1F23540000B0BC63 /* EditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0670091F23540000B0BC63 /* EditCell.m */; };
 		FA06700C1F23540000B0BC63 /* EditCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA06700A1F23540000B0BC63 /* EditCell.xib */; };
@@ -245,6 +247,9 @@
 		184BBF3F1F2ADDB800282CDE /* HWPopTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWPopTool.h; sourceTree = "<group>"; };
 		184BBF401F2ADDB800282CDE /* HWPopTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWPopTool.m; sourceTree = "<group>"; };
 		184BBF421F2AE1D900282CDE /* WechatIMG1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WechatIMG1.jpeg; sourceTree = "<group>"; };
+		18B2A1171F343DBF007C6473 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		18B2A1181F343DBF007C6473 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		18B2A1191F343DBF007C6473 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		4CB8C76D1F239F20009D090B /* MyListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyListModel.h; sourceTree = "<group>"; };
 		4CB8C76E1F239F20009D090B /* MyListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyListModel.m; sourceTree = "<group>"; };
 		FA0670081F23540000B0BC63 /* EditCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditCell.h; sourceTree = "<group>"; };
@@ -637,6 +642,9 @@
 				FA2B1C511F2F66E1000D889D /* Progress_ViewController.h */,
 				FA2B1C521F2F66E1000D889D /* Progress_ViewController.m */,
 				FA2B1C531F2F66E1000D889D /* Progress_ViewController.xib */,
+				18B2A1171F343DBF007C6473 /* SearchViewController.h */,
+				18B2A1181F343DBF007C6473 /* SearchViewController.m */,
+				18B2A1191F343DBF007C6473 /* SearchViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1021,6 +1029,7 @@
 				043E690A1F17B7460065016B /* HKFinancialContributionCell.xib in Resources */,
 				04D82E481F160B2900FDCF34 /* HKPerfectInfoCell.xib in Resources */,
 				FA4D867E1EFD844700CC55F7 /* 212121.png in Resources */,
+				18B2A11B1F343DBF007C6473 /* SearchViewController.xib in Resources */,
 				FAF6A33A1F1B32C40068C0D5 /* MyInfo_ViewController.xib in Resources */,
 				04DDC3691F149574003D7567 /* HKNameTableViewCell.xib in Resources */,
 				FA2B1C4A1F2CC9BC000D889D /* TextViewController.xib in Resources */,
@@ -1128,6 +1137,7 @@
 				FA25BD511EF791A600D7210C /* MJExtensionConst.m in Sources */,
 				FA25BD5F1EF791A600D7210C /* SDWebImageDecoder.m in Sources */,
 				FA25BD541EF791A600D7210C /* MJPropertyKey.m in Sources */,
+				18B2A11A1F343DBF007C6473 /* SearchViewController.m in Sources */,
 				FA25BCAB1EF78FB200D7210C /* XIU_ViewController.m in Sources */,
 				04D82E421F15F99600FDCF34 /* HKMyInfoCell.m in Sources */,
 				FA0670251F23963200B0BC63 /* DistancePickerView.m in Sources */,

@@ -10,6 +10,7 @@
 #import "BaseTableViewController.h"
 #import "HKTitleBtn.h"
 #import "Login_ViewController.h"
+#import "SearchViewController.h"
 @interface MyList_ViewController ()<UIScrollViewDelegate,UIAlertViewDelegate>
 @property (weak, nonatomic) UIScrollView *contentView;
 @property (weak, nonatomic) UIView *titlesView;
@@ -65,7 +66,8 @@
     }
 }
 - (void)clickSearchBtn {
-    
+    SearchViewController *vc = [[SearchViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

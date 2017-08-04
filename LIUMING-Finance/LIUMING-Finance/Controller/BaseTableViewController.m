@@ -123,12 +123,12 @@
         }
         cell.bodyTitleLabel.text = [NSString stringWithFormat:@"借款%@元, 分%@期 %@-%@", model.oi_jkprice, model.oi_jkloans, model.nowloans, model.oi_jkloans];
         cell.bodySubTitleLabel.text = model.myyhprice;
-        //    if (dic[@"bodyFine"]) {
-        //        cell.bodyFineLabel.text = dic[@"bodyFine"];
-        //        cell.bodyFineLabel.hidden = NO;
-        //    }else{
-        //        cell.bodyFineLabel.hidden = YES;
-        //    }
+            if ([model.fxprice integerValue] > 0) {
+                cell.bodyFineLabel.text = [NSString stringWithFormat:@"(含罚息：%ld元)", [model.fxprice integerValue]];
+                cell.bodyFineLabel.hidden = NO;
+            }else{
+                cell.bodyFineLabel.hidden = YES;
+            }
         cell.footerTitleLabel.text =[NSString stringWithFormat:@"还款日期：%@",model.hktime] ;
         if ([model.oi_state isEqualToString:@"已逾期"]) {
             [cell.footerBtn setTitle:@"立即催收" forState:UIControlStateNormal];
