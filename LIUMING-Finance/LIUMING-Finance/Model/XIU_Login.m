@@ -30,7 +30,18 @@ static XIU_User *curLoginUser;
     return @"UserServlet?dowhat=getOneByPhone&";
 }
 
-
++(NSString *)url1 {
+  return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_url1"];
+}
++(NSString *)url2 {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_url2"];
+}
++(NSString *)url3 {
+      return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_url3"];
+}
++(NSString *)url4 {
+      return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_url4"];
+}
 #pragma mark 相应key-Value在此修改---密码加密调用[self.password sha1Str]
 - (NSDictionary *)params {
     NSMutableDictionary *param = @{@"userPhone": self.phone,
@@ -55,9 +66,7 @@ static XIU_User *curLoginUser;
 }
 
 +(NSString *)ui_birthday {
-//    if ([[[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_birthday"] length] < 2) {
-//        return @"----.--.--";
-//    }
+
     return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_birthday"];
 }
 
@@ -103,6 +112,11 @@ static XIU_User *curLoginUser;
     return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_professional_class"];
 
 }
++(NSString *)ui_yhtype {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_yhtype"];
+  
+}
+
 +(NSString *)ui_school_roll {
     return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_school_roll"];
 

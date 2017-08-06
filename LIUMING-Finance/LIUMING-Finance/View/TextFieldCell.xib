@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="69" id="KGk-i7-Jjw" customClass="TextFieldCell">
+            <rect key="frame" x="0.0" y="0.0" width="411" height="69"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="411" height="69"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Lc-lE-FD6">
+                        <rect key="frame" x="15" y="26" width="37.5" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="展开更多" translatesAutoresizingMaskIntoConstraints="NO" id="X1R-Mn-yEM">
+                        <rect key="frame" x="390" y="28.5" width="6" height="12"/>
+                    </imageView>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FoC-PW-eMI">
+                        <rect key="frame" x="62.5" y="25.5" width="297.5" height="17"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="6Lc-lE-FD6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="At0-Z5-HuN"/>
+                    <constraint firstItem="X1R-Mn-yEM" firstAttribute="leading" secondItem="FoC-PW-eMI" secondAttribute="trailing" constant="30" id="BFi-od-egz"/>
+                    <constraint firstItem="X1R-Mn-yEM" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="E25-MV-ha8"/>
+                    <constraint firstItem="FoC-PW-eMI" firstAttribute="leading" secondItem="6Lc-lE-FD6" secondAttribute="trailing" constant="10" id="cLi-Ou-Mpy"/>
+                    <constraint firstItem="6Lc-lE-FD6" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="m4B-kU-XTF"/>
+                    <constraint firstAttribute="trailing" secondItem="X1R-Mn-yEM" secondAttribute="trailing" constant="15" id="rGB-iI-jM6"/>
+                    <constraint firstItem="FoC-PW-eMI" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="tES-du-uhY"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="distribtionTextField" destination="FoC-PW-eMI" id="nuP-wx-JNb"/>
+                <outlet property="title" destination="6Lc-lE-FD6" id="vfv-gj-EU4"/>
+            </connections>
+            <point key="canvasLocation" x="23.5" y="80.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="展开更多" width="6" height="12"/>
+    </resources>
+</document>

@@ -35,7 +35,7 @@
 +(NSString *)ui_sex;
 +(NSString *)type;
 +(NSString *)tjr;//暂时
-
++(NSString *)ui_yhtype;
 
 +(NSString *)ui_code;
 +(NSString *)ui_cardid;
@@ -47,6 +47,10 @@
 +(NSString *)ui_name2;
 +(NSString *)ui_phone2;
 
++(NSString *)url1;
++(NSString *)url2;
++(NSString *)url3;
++(NSString *)url4;
 
 
 +(NSString *)ui_workname;

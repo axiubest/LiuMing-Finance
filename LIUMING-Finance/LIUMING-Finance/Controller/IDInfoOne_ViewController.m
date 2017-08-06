@@ -108,9 +108,8 @@
 }
 
 
-- (void)viewDidDisappear:(BOOL)animated {
-    [self viewDidDisappear:YES];
-    [self.view endEditing:YES];
+
+- (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 

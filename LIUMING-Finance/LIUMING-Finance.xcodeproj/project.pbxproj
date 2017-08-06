@@ -139,6 +139,8 @@
 		FA2B1C541F2F66E1000D889D /* Progress_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2B1C521F2F66E1000D889D /* Progress_ViewController.m */; };
 		FA2B1C551F2F66E1000D889D /* Progress_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA2B1C531F2F66E1000D889D /* Progress_ViewController.xib */; };
 		FA4D867E1EFD844700CC55F7 /* 212121.png in Resources */ = {isa = PBXBuildFile; fileRef = FA4D867D1EFD844700CC55F7 /* 212121.png */; };
+		FA63F6FD1F3704CB007A278B /* TextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA63F6FB1F3704CB007A278B /* TextFieldCell.m */; };
+		FA63F6FE1F3704CB007A278B /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA63F6FC1F3704CB007A278B /* TextFieldCell.xib */; };
 		FA86F23A1F19AAC300CBAC4B /* XIU_NetAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FA86F2391F19AAC300CBAC4B /* XIU_NetAPIClient.m */; };
 		FAF6A3301F1B00300068C0D5 /* UIViewController+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF6A32F1F1B00300068C0D5 /* UIViewController+Common.m */; };
 		FAF6A3341F1B31560068C0D5 /* MyList_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF6A3321F1B31560068C0D5 /* MyList_ViewController.m */; };
@@ -426,6 +428,9 @@
 		FA2B1C521F2F66E1000D889D /* Progress_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Progress_ViewController.m; sourceTree = "<group>"; };
 		FA2B1C531F2F66E1000D889D /* Progress_ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Progress_ViewController.xib; sourceTree = "<group>"; };
 		FA4D867D1EFD844700CC55F7 /* 212121.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 212121.png; sourceTree = "<group>"; };
+		FA63F6FA1F3704CA007A278B /* TextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldCell.h; sourceTree = "<group>"; };
+		FA63F6FB1F3704CB007A278B /* TextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldCell.m; sourceTree = "<group>"; };
+		FA63F6FC1F3704CB007A278B /* TextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldCell.xib; sourceTree = "<group>"; };
 		FA86F2381F19AAC300CBAC4B /* XIU_NetAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XIU_NetAPIClient.h; sourceTree = "<group>"; };
 		FA86F2391F19AAC300CBAC4B /* XIU_NetAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XIU_NetAPIClient.m; sourceTree = "<group>"; };
 		FAF6A32E1F1B00300068C0D5 /* UIViewController+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Common.h"; sourceTree = "<group>"; };
@@ -718,6 +723,9 @@
 				FA0670081F23540000B0BC63 /* EditCell.h */,
 				FA0670091F23540000B0BC63 /* EditCell.m */,
 				FA06700A1F23540000B0BC63 /* EditCell.xib */,
+				FA63F6FA1F3704CA007A278B /* TextFieldCell.h */,
+				FA63F6FB1F3704CB007A278B /* TextFieldCell.m */,
+				FA63F6FC1F3704CB007A278B /* TextFieldCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1051,6 +1059,7 @@
 				043E69001F1788F90065016B /* FinancialContribution_ViewController.xib in Resources */,
 				043E68F11F1737370065016B /* RepaymentInfo_ViewController.xib in Resources */,
 				FAF6A3441F1BA23B0068C0D5 /* IDInfoTwoViewController.xib in Resources */,
+				FA63F6FE1F3704CB007A278B /* TextFieldCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1117,6 +1126,7 @@
 				FA25BD621EF791A600D7210C /* SDWebImageManager.m in Sources */,
 				FAF6A3301F1B00300068C0D5 /* UIViewController+Common.m in Sources */,
 				FA25BC611EF7790800D7210C /* AppDelegate.m in Sources */,
+				FA63F6FD1F3704CB007A278B /* TextFieldCell.m in Sources */,
 				FAF6A3691F1BB93C0068C0D5 /* NSDate+Helper.m in Sources */,
 				FA25BC5E1EF7790800D7210C /* main.m in Sources */,
 				FA25BD661EF791A600D7210C /* UIImage+MultiFormat.m in Sources */,

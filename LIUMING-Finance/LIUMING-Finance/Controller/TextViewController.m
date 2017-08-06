@@ -14,6 +14,8 @@
 
 @implementation TextViewController
 
+
+
 - (void)viewWillDisappear:(BOOL)animated
 {
     if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound)
@@ -41,7 +43,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    if ([_type isEqualToString:@"地址"]) {
+        _textField.text = [XIU_Login ui_address];
+    }if ([_type isEqualToString:@"姓名"]) {
+        _textField.text = [XIU_Login ui_name];
+
+    }
 }
 
 - (void)didReceiveMemoryWarning {

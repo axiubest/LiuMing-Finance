@@ -418,7 +418,7 @@ CG_INLINE BOOL isIPhone4()
                                                               action:buttonAction];
     [barButton setTitleTextAttributes:@{
                                         NSFontAttributeName: [UIFont boldSystemFontOfSize:17],
-                                        NSForegroundColorAttributeName: [UIColor whiteColor],
+                                        NSForegroundColorAttributeName: [UIColor blackColor],
                                         } forState:UIControlStateNormal];
     return barButton;
 }

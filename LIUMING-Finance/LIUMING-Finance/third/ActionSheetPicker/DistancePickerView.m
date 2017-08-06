@@ -147,7 +147,7 @@
             label.text = text;
             label.font = labelfont;
             label.backgroundColor = [UIColor clearColor];
-            label.shadowColor = [UIColor whiteColor];
+            label.shadowColor = [UIColor blackColor];
             label.shadowOffset = CGSizeMake(0, 1);
 
             // Tag cannot be 0 so just increment component number to esnure we get a positive

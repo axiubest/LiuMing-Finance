@@ -15,6 +15,11 @@
 
 @interface HKPerfectInfoView : UIView
 
+@property (weak, nonatomic) IBOutlet UIImageView *imgView;
+@property (weak, nonatomic) IBOutlet UILabel *destribtionList;
+@property (weak, nonatomic) IBOutlet UIButton *btn;
+
+
 +(HKPerfectInfoView *)perfectInfoView;
 -(void)show;
 -(void)hide;

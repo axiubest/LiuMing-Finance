@@ -127,7 +127,8 @@
             cell.headerSubTitleLabel.textColor = [UIColor colorWithHexString:@"#fe324a"];
         }
         cell.bodyTitleLabel.text = [NSString stringWithFormat:@"借款%@元, 分%@期 %@-%@", model.oi_jkprice, model.oi_jkloans, model.nowloans, model.oi_jkloans];
-        cell.bodySubTitleLabel.text = model.myyhprice;
+#warning
+        cell.bodySubTitleLabel.text = model.hkzje;
             if ([model.fxprice integerValue] > 0) {
                 cell.bodyFineLabel.text = [NSString stringWithFormat:@"(含罚息：%ld元)", [model.fxprice integerValue]];
                 cell.bodyFineLabel.hidden = NO;
@@ -167,7 +168,8 @@
          cell.headerSubTitleLabel.textColor = [UIColor colorWithHexString:@"#fe324a"];
     }
     cell.bodyTitleLabel.text = [NSString stringWithFormat:@"借款%@元, 分%@期 %@-%@", model.oi_jkprice, model.oi_jkloans, model.nowloans, model.oi_jkloans];
-    cell.bodySubTitleLabel.text = model.myyhprice;
+    
+    cell.bodySubTitleLabel.text = model.hkzje;
 
     cell.footerTitleLabel.text =[NSString stringWithFormat:@"还款日期：%@", model.hktime] ;
     if ([model.oi_state isEqualToString:@"借款中"] || [model.oi_state isEqualToString:@"已逾期"] || [model.oi_state isEqualToString:@"还款中"]) {
@@ -225,9 +227,11 @@
         return;
     }
     if ([self.title isEqualToString:@"催收订单"]){
-//        FinancialContribution_ViewController *vc = [[FinancialContribution_ViewController alloc] init];
-//        [self.navigationController pushViewController:vc animated:YES];
+        return;
     }else{
+
+
+        
         RepaymentInfo_ViewController *vc = [[RepaymentInfo_ViewController alloc] init];
         vc.mod = self.arr[indexPath.row];
         [self.navigationController pushViewController:vc animated:YES];

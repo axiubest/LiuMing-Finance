@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MyInfo_ViewController : XIU_ViewController
+@property (nonatomic, copy) NSString *tjrName;
 
 @end

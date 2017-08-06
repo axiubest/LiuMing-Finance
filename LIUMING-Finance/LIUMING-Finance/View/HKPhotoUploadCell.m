@@ -7,7 +7,7 @@
 //
 
 #import "HKPhotoUploadCell.h"
-
+#import "UIButton+WebCache.h"
 @interface HKPhotoUploadCell()
 @property (weak, nonatomic) IBOutlet UIButton *oneBtn;
 @property (weak, nonatomic) IBOutlet UIButton *twoBtn;
@@ -58,8 +58,15 @@
 
 -(void)setBtnArr:(NSArray *)btnArr{
     _btnArr = btnArr;
-     [self.oneBtn setImage:btnArr[0] forState:UIControlStateNormal];
-     [self.twoBtn setImage:btnArr[1] forState:UIControlStateNormal];
+    NSLog(@"%@", _btnArr);
+    if ([btnArr[0] isKindOfClass:[NSString class]]) {
+        [self.oneBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:btnArr[0]] forState:UIControlStateNormal];
+    }else {
+        [self.oneBtn setImage:btnArr[0] forState:UIControlStateNormal];
+ 
+    }
+    
+       [self.twoBtn setImage:btnArr[1] forState:UIControlStateNormal];
      [self.threeBtn setImage:btnArr[2] forState:UIControlStateNormal];
      [self.fourBtn setImage:btnArr[3] forState:UIControlStateNormal];
 }

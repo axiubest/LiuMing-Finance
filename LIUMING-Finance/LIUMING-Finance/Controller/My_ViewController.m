@@ -225,6 +225,7 @@
 
 -(void)nameTableViewCellClick:(HKNameTableViewCell *)view{
     MyInfo_ViewController *vc = [[MyInfo_ViewController alloc] init];
+    vc.tjrName =  [self.dataDic[@"tjr_name"] isKindOfClass:[NSNull class]] ? @"无推荐人": self.dataDic[@"tjr_name"];
     [self.navigationController pushViewController:vc animated:YES];
 }
 -(void)nameTableProfitViewClick:(HKNameTableViewCell *)view{

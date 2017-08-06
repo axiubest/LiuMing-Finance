@@ -11,6 +11,10 @@
 #import "HKSubmitCell.h"
 #import "HKPhotoUploadCell.h"
 #import "MyInfo_ViewController.h"
+#import "ActionSheetDatePicker.h"
+#import "NSDate+convenience.h"
+#import "NSDate+Helper.h"
+#import "UIImageView+WebCache.h"
 @interface IDInfoTwoViewController ()<UITableViewDelegate,UITableViewDataSource,HKSubmitCellDelegate,UIActionSheetDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate,HKPhotoUploadCellDelegate>{
     UIActionSheet *sheet;
     UIImage *tmpImg;
@@ -52,13 +56,15 @@
         //学生
         NSMutableArray *aa = [NSMutableArray array];
         UIImage *image = [UIImage imageNamed:@"添加照片"];
+
+
         NSArray *a = @[
                  @{@"name":@"学习名称",@"place":@"请输入您的学校名称",@"isHide":@1},
                  @{@"name":@"就读院系",@"place":@"请输入您的院系",@"isHide":@1},
                  @{@"name":@"专业班级",@"place":@"请输入您的班级",@"isHide":@1},
                  @{@"name":@"学籍类型",@"place":@"请输入您的学籍类型",@"isHide":@0},
                  @{@"name":@"寝室地址",@"place":@"请输入您的寝室地址信息",@"isHide":@0},
-                 @{@"name":@"照片上传",@"place":@[image,image,image,image],@"isHide":@0}
+                 @{@"name":@"照片上传",@"place":@[[XIU_Login url1].length > 1 ? [XIU_Login url1] : image,[XIU_Login url2].length > 1 ? [XIU_Login url2] : [XIU_Login url3].length > 1 ? [XIU_Login url3] : image,[XIU_Login url3].length > 1 ? [XIU_Login url3] : image,[XIU_Login url4].length > 1 ? [XIU_Login url4] : image],@"isHide":@0}
                  ];
         [aa addObjectsFromArray:a];
         _arr = aa;
@@ -89,7 +95,7 @@
     ui_job = [XIU_Login ui_job];
     ui_xzaddress = [XIU_Login ui_xzaddress];
     ui_ed = [XIU_Login ui_ed];
-
+    
 
     
     self.tableView.delegate = self;
@@ -98,7 +104,14 @@
     [self studentBtnClick:self.studentBtn];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-    
+    ui_yhtype = [XIU_Login ui_yhtype];
+    if ([ui_yhtype isEqualToString:@"1"]) {
+        [self studentBtnClick:_studentBtn];
+
+    }if ([ui_yhtype isEqualToString:@"2"]) {
+
+        [self workBtnClcik:_workBtn];
+    }
 }
 
 -(void)keyBoardWillHide:(NSNotification *)note{
@@ -156,12 +169,8 @@
     btn.selected = YES;
     self.workBtn.selected = NO;
     [self drawLine:btn];
-    if (self.workBtn.selected) {
-        ui_yhtype = @"2";
-    }else {
-        ui_yhtype = @"1";
-    }
-    
+
+    ui_yhtype = @"1";
     self.arr = [NSMutableArray array];
     NSArray *a = @[
       @{@"name":@"学校名称",@"place":@"请输入您的学校名称",@"isHide":@1},
@@ -176,12 +185,14 @@
     
 }
 - (IBAction)workBtnClcik:(UIButton *)btn {
+
     if (btn.selected) return;
     
     btn.selected = YES;
     self.studentBtn.selected = NO;
     [self drawLine:btn];
-    
+    ui_yhtype = @"2";
+
     self.arr = [NSMutableArray array];
     NSArray *a = @[
                  @{@"name":@"公司名称",@"place":@"请输入您的公司名称",@"isHide":@1},
@@ -268,6 +279,13 @@
                 break;
             case 4:
                 cell.inputField.text = [ui_yhtype isEqualToString:@"1"] ? ui_xzaddress : ui_ed;
+                if ([ui_yhtype isEqualToString:@"2"]) {
+                    cell.inputField.enabled = NO;
+                    [cell.inputField setUserInteractionEnabled:NO];
+                }else {
+                    cell.inputField.enabled = YES;
+                    [cell.inputField setUserInteractionEnabled:YES];
+                }
                 break;
                 
             default:
@@ -346,11 +364,12 @@
         XIUHUD(@"请上传工作／工牌证明");
         return;
     }
+
     NSDictionary *dic = [NSDictionary dictionary];
     if ([ui_yhtype isEqualToString:@"1"]) {
         dic = @{@"ui_id":[XIU_Login userId],@"ui_yhtype":ui_yhtype,@"ui_workname":ui_workname, @"ui_faculty":ui_faculty, @"ui_professional_class":ui_professional_class, @"ui_school_roll":ui_school_roll, @"ui_xzaddress":ui_xzaddress, @"ui_url1":[self imageBase64WithDataURL:img1], @"ui_url2":[self imageBase64WithDataURL:img2],@"ui_url3":[self imageBase64WithDataURL:img3], @"ui_url4":[self imageBase64WithDataURL:img4]};
     }if ([ui_yhtype isEqualToString:@"2"]) {
-      dic = @{@"ui_id":[XIU_Login userId],@"ui_yhtype":ui_yhtype,@"ui_xzworkname":ui_workname,  @"ui_comphone":ui_comphone, @"ui_xzaddress":ui_xzaddress, @"ui_job":ui_job, @"ui_ed":ui_ed,@"ui_url1":[self imageBase64WithDataURL:img1], @"ui_url2":[self imageBase64WithDataURL:img2], @"ui_url3":[self imageBase64WithDataURL:img3], @"ui_url4":[self imageBase64WithDataURL:img4]};
+      dic = @{@"ui_id":[XIU_Login userId],@"ui_yhtype":ui_yhtype,@"ui_workname":ui_workname,  @"ui_comphone":ui_comphone, @"ui_xzaddress":ui_xzaddress, @"ui_job":ui_job, @"ui_ed":ui_ed,@"ui_url1":[self imageBase64WithDataURL:img1], @"ui_url2":[self imageBase64WithDataURL:img2], @"ui_url3":[self imageBase64WithDataURL:img3], @"ui_url4":[self imageBase64WithDataURL:img4]};
     }
 
     
@@ -360,22 +379,57 @@
             return ;
         }if ([data[@"status"] isEqualToString:@"success"]) {
             [XIU_Login doLogin:data[@"data"]];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
+    hud.mode = MBProgressHUDModeText;
+    hud.labelText = @"提交成功";
+    hud.removeFromSuperViewOnHide = YES;
+            [hud hide:YES afterDelay:2];
+            
             MyInfo_ViewController *homeVC = [[MyInfo_ViewController alloc] init];
             UIViewController *target = nil;
             for (UIViewController * controller in self.navigationController.viewControllers) { //遍历
-                if ([controller isKindOfClass:[homeVC class]]) { //这里判断是否为你想要跳转的页面
+                if ([controller isKindOfClass:[homeVC class]]) {
                     target = controller;
                 }
             }
             if (target) {
+                
                 [self.navigationController popToViewController:target animated:YES]; //跳转
             }        }
     }];
-
+    
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section==0&&indexPath.row == 5) {
+    
+    if (indexPath.section==0&&indexPath.row == 4 && [ui_yhtype isEqualToString:@"2"]) {
+        
+        NSDate *curDate = [NSDate dateFromString:@"1999-09-09" withFormat:@"yyyy-MM-dd"];
+        if (!curDate) {
+            curDate = [NSDate dateFromString:@"1990-01-01" withFormat:@"yyyy-MM-dd"];
+        }
+        ActionSheetDatePicker *picker = [[ActionSheetDatePicker alloc] initWithTitle:nil datePickerMode:UIDatePickerModeDate selectedDate:curDate doneBlock:^(ActionSheetDatePicker *picker, NSDate *selectedDate, id origin) {
+            
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+            NSString *strDate = [dateFormatter stringFromDate:selectedDate];
+            
+            NSDictionary *dic = [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict];
+            NSMutableDictionary *dics = [NSMutableDictionary dictionaryWithDictionary:dic];
+            [dics setValue:strDate forKey:@"ui_ed"];
+            [[NSUserDefaults standardUserDefaults]setObject:dics forKey:kLoginUserDict] ;
+            ui_ed = strDate;
+            [self.tableView reloadData];
+            
+        } cancelBlock:^(ActionSheetDatePicker *picker) {
+            
+        } origin:self.view];
+        picker.minimumDate = [[NSDate date] offsetYear:-120];
+        picker.maximumDate = [NSDate date];
+        [picker showActionSheetPicker];
+        
+
+        
         
     }
 }

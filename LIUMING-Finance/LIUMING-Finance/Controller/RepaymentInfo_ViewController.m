@@ -83,7 +83,7 @@
     if (indexPath.row==4) {
         HKSubmitCell *cell = [HKSubmitCell submitCell];
         cell.btnStr = @"提交";
-        cell.doBtn.hidden = [[_mod oi_state] isEqualToString:@"已结清"] ? YES : [[_mod oi_state] isEqualToString:@"已还款"] ? YES : [[_mod oi_state] isEqualToString:@"不通过"] ? YES : NO;
+        cell.doBtn.hidden = [[_mod oi_state] isEqualToString:@"已结清"] ? YES : [[_mod oi_state] isEqualToString:@"已还款"] ? YES : [[_mod oi_state] isEqualToString:@"不通过"] ? YES : [[_mod oi_state] isEqualToString:@"审核中"] ? YES : NO;
         cell.myDelegate = self;
         return cell;
     }

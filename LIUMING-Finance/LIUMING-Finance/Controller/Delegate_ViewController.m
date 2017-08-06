@@ -79,11 +79,15 @@
 }
 
 
-- (void)viewDidDisappear:(BOOL)animated {
-    [self viewDidDisappear:YES];
-    [self.view endEditing:YES];
+//- (void)viewDidDisappear:(BOOL)animated {
+//    [self viewDidDisappear:animated];
+//    [self.view endEditing:YES];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self];
+//}
+- (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (section==0) {
         return self.arr.count;

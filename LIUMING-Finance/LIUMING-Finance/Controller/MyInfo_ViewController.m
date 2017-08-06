@@ -18,7 +18,8 @@
 #import "NSDate+Helper.h"
 #import "EditCell.h"
 #import "UIImageView+WebCache.h"
-@interface MyInfo_ViewController ()<UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+#import "TextFieldCell.h"
+@interface MyInfo_ViewController ()<UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate>
 {
     UIActionSheet *sheet;
     UIImage *tmpImg;
@@ -41,6 +42,7 @@
 @implementation MyInfo_ViewController
 
 -(NSArray *)arr{
+   _tjrName =  _tjrName.length > 0 ? _tjrName : @"";
     if (!_arr) {
         _arr = @[
                  @[@{@"icon":@"完善身份信息",@"title":@"完善身份信息",@"subTitle":@"实名认证，手机认证，获取信贷额度"}],
@@ -51,7 +53,7 @@
                     @{@"title":@"生日",@"subTitle":ui_birthday}
                     ],
                  @[@{@"title":@"现居地",@"subTitle":ui_address}],
-                 @[@{@"title":@"推荐人",@"subTitle":@"见涛"}],
+                 @[@{@"title":@"推荐人",@"subTitle":_tjrName}],
                  @[@{@"title":@"保存"}]
                     
                 ];
@@ -79,6 +81,7 @@
     self.tableView.backgroundColor = [UIColor colorWithHexString:@"#f4f4f4"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [_tableView registerNib:[EditCell XIU_ClassNib] forCellReuseIdentifier:[EditCell XIU_ClassIdentifier]];
+        [_tableView registerNib:[TextFieldCell XIU_ClassNib] forCellReuseIdentifier:[TextFieldCell XIU_ClassIdentifier]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -91,6 +94,10 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     NSArray *tempArr = self.arr[section];
     return tempArr.count;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self.view endEditing:YES];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -106,6 +113,16 @@
         return cell;
     }
     
+    if (indexPath.section == 1 && indexPath.row == 1) {
+            TextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:[TextFieldCell XIU_ClassIdentifier]];
+        cell.title.text = dic[@"title"];
+        cell.distribtionTextField.delegate = self;
+        cell.distribtionTextField.tag = indexPath.section;
+            cell.distribtionTextField.text = ui_name;
+            return cell;
+        
+    }
+    
     
     HKMyInfoCell *cell = [HKMyInfoCell myInfoCell];
 
@@ -113,14 +130,14 @@
         cell.infoTitle.text = dic[@"title"];
     }
     if (dic[@"subTitle"]) {
-        if (indexPath.row == 1) {
-        cell.infoSubTitle.text = ui_name;
-        }
+//        if (indexPath.row == 1) {
+//        cell.infoSubTitle.text = ui_name;
+//        }
         if (indexPath.row == 2) {
             cell.infoSubTitle.text = [XIU_Login ui_sex];
         }
         if (indexPath.row == 3) {
-            cell.infoSubTitle.text = ui_birthday;
+            cell.infoSubTitle.text = [XIU_Login ui_birthday];
         }
         cell.infoSubTitle.hidden = NO;
     }
@@ -135,9 +152,12 @@
         cell.SubTitle.hidden = YES;
         cell.subImg.hidden = NO;
     }if (indexPath.section == 2) {
-         cell.infoSubTitle.text = ui_address;
-        cell.infoSubTitle.hidden = NO;
-
+        TextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:[TextFieldCell XIU_ClassIdentifier]];
+        cell.title.text = dic[@"title"];
+        cell.distribtionTextField.delegate = self;
+        cell.distribtionTextField.tag = indexPath.section;
+        cell.distribtionTextField.text = ui_address;
+        return cell;
     }
     
     if (indexPath.section==3) {
@@ -157,12 +177,27 @@
     
 }
 
-
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    if (textField.tag == 1) {
+       ui_name = textField.text  ;
+        NSDictionary *dic = [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict];
+        NSMutableDictionary *dics = [NSMutableDictionary dictionaryWithDictionary:dic];
+        [dics setValue:textField.text forKey:@"ui_name"];
+        
+        [[NSUserDefaults standardUserDefaults]setObject:dics forKey:kLoginUserDict];
+    }if (textField.tag == 2) {
+        ui_address = textField.text;
+        
+        NSDictionary *dic = [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict];
+        NSMutableDictionary *dics = [NSMutableDictionary dictionaryWithDictionary:dic];
+        [dics setValue:textField.text forKey:@"ui_address"];
+        
+        [[NSUserDefaults standardUserDefaults]setObject:dics forKey:kLoginUserDict];
+    }
+}
 #pragma mark 提交
 - (void)clickEditBtn {
-    if (imgData.length < 2) {
-        XIUHUD(@"请更换头像后方可上传")return;
-    }
+  
     if (ui_name.length < 2) {
         XIUHUD(@"姓名不能为空")return;
     }
@@ -171,6 +206,9 @@
     }
     if (ui_address.length < 2) {
         XIUHUD(@"地址不能为空")return;
+    }
+    if (imgData.length < 2) {
+        XIUHUD(@"请更换头像后方可上传")return;
     }
 //    NSString *str = [imgData base64Encoding];
     [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_updateUser withParams:@{@"ui_id":[XIU_Login userId], @"ui_name":[XIU_Login ui_name], @"ui_sex":[[XIU_Login ui_sex] isEqualToString:@"男"] ? @"1":@"0", @"ui_birthday":[XIU_Login ui_birthday], @"ui_img":[self imageBase64WithDataURL:tmpImg], @"ui_address":[XIU_Login ui_address]} withMethodType:Post andBlock:^(id data, NSError *error) {
@@ -201,8 +239,7 @@
         imageData = UIImageJPEGRepresentation(image, 0.1f);
         mimeType = @"image/jpeg";
     }
-    NSLog(@"--------------------------------%@", [NSString stringWithFormat:@"data:%@;base64,%@", mimeType,
-                  [imageData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength]]);
+
     
     return [NSString stringWithFormat:@"data:%@;base64,%@", mimeType,
             [imageData base64EncodedStringWithOptions:0]];
@@ -261,11 +298,11 @@
 
     }
     if (indexPath.section == 1 && indexPath.row == 1) {
-        TextViewController *vc  =[[TextViewController alloc] init];
-        vc.type = @"姓名";
-        vc.hidesBottomBarWhenPushed = YES;
-        vc.textField.text = [XIU_Login ui_name];
-        [self.navigationController pushViewController:vc animated:YES];
+//        TextViewController *vc  =[[TextViewController alloc] init];
+//        vc.type = @"姓名";
+//        vc.hidesBottomBarWhenPushed = YES;
+//        vc.textField.text = [XIU_Login ui_name];
+//        [self.navigationController pushViewController:vc animated:YES];
     }
     
     if (indexPath.section == 1 && indexPath.row == 2) {
@@ -311,18 +348,18 @@
         
 
     }if (indexPath.section == 2) {
-        TextViewController *vc  =[[TextViewController alloc] init];
-        vc.type = @"地址";
-        vc.hidesBottomBarWhenPushed = YES;
-        vc.textField.text = [XIU_Login ui_address];
-        [self.navigationController pushViewController:vc animated:YES];
+//        TextViewController *vc  =[[TextViewController alloc] init];
+//        vc.type = @"地址";
+//        vc.hidesBottomBarWhenPushed = YES;
+//        vc.textField.text = [XIU_Login ui_address];
+//        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 
 - (void)onClickImage {
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         sheet = [[UIActionSheet alloc] initWithTitle:@"选择" delegate:self cancelButtonTitle:nil destructiveButtonTitle:@"取消" otherButtonTitles:@"拍照",@"从相册选择", nil];
-        
+
     }else {
         sheet = [[UIActionSheet alloc] initWithTitle:@"选择" delegate:self cancelButtonTitle:nil destructiveButtonTitle:@"取消" otherButtonTitles:@"从相册选择", nil];
     }

@@ -35,13 +35,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self everyMonthLab];
+    [self request];
     _moneySlider.value = _moneySlider.maximumValue/2;
     _moneyLab.text = [NSString stringWithFormat:@"%.0f",  _moneySlider.value];
     [self setUpBase];
     NSLog(@"%@", kPathDocument);
     
-    [self request];
-    
+    NSString *every =[NSString stringWithFormat:@"每月还款%.2f元", [self.moneyLab.text integerValue] / [self.timeLab.text integerValue] +  [self.moneyLab.text integerValue] * 0.02];
+    [_everyMonth setTitle:every forState:UIControlStateNormal];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
 }
 - (IBAction)clickSlider:(HKSlider *)sender {
     if (sender.tag == 111) {//money
@@ -64,10 +70,6 @@
     [_everyMonth setTitle:every forState:UIControlStateNormal];
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [self.view layoutIfNeeded];
-}
 
 -(void)setUpBase{
     [self.everyMonth.layer setBorderWidth:1.0];
@@ -84,6 +86,17 @@
 
 #pragma mark 借款申请按钮
 - (IBAction)clickGetMoneyBtn:(id)sender {
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:kXiaoxiState] isEqual:@3]) {
+        HKPerfectInfoView *infoView = [HKPerfectInfoView perfectInfoView];
+        infoView.destribtionList.text = @"正在审核中";
+        [infoView.btn setTitle:@"查看进度" forState:UIControlStateNormal];
+        infoView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
+        infoView.myDelegate = self;
+        [infoView show];
+
+        return;
+    };
+    
 //    网络请求判断
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:kXiaoxiState] isEqual:@2]) {//不完善
         XIUHUD(@"请前往完善基本信息");
@@ -106,6 +119,7 @@
 
 #pragma mark 借款申请
 - (void)applyRequest {
+    
     [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_Apply withParams:@{@"ui_id":[XIU_Login userId], @"oi_jkprice":_moneyLab.text, @"oi_jkloans":_timeLab.text} withMethodType:Post andBlock:^(id data, NSError *error) {
         
         if ([data[@"status"] isEqualToString:@"error"]) {
@@ -122,7 +136,6 @@
 }
 
 -(void)gotoInfo{
-    if ([XIU_Login isVerification]) return;
 
     HKPerfectInfoView *infoView = [HKPerfectInfoView perfectInfoView];
     infoView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
@@ -130,14 +143,20 @@
     [infoView show];
     
 }
+
+- (void)pushJinDuViewController {
+    BaseTableViewController *vc = [[BaseTableViewController alloc] init];
+    vc.type = HKListTypeProgress;
+    vc.title = @"进度查询";
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+
+}
+
 - (IBAction)clickToolButton:(HKButton *)sender {
     if (sender.tag == HKListTypeAll) {//跳转到进度查询
-        BaseTableViewController *vc = [[BaseTableViewController alloc] init];
-        vc.type = HKListTypeProgress;
-        vc.title = @"进度查询";
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
-
+        [self pushJinDuViewController];
+        
     }
     if (sender.tag == HKListTypeBorrowMoney) {
         MyList_ViewController *vc = [[MyList_ViewController alloc] init];
@@ -153,6 +172,10 @@
 
 -(void)perfectInfoViewBtnClick:(HKPerfectInfoView *)view{
     [view hide];
+    if ([view.destribtionList.text isEqualToString:@"正在审核中"]) {
+        [self pushJinDuViewController];
+        return;
+    }
     IDInfoOne_ViewController *vc = [[IDInfoOne_ViewController alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
@@ -163,6 +186,9 @@
     [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_home withParams:@{@"ui_type":@3, @"ui_id":[XIU_Login userId]} withMethodType:Post andBlock:^(id data, NSError *error) {
         NSNumber *num = data[@"xiaoxi"];
         [[NSUserDefaults standardUserDefaults] setObject:num forKey:kXiaoxiState];
+        if ([num isEqual:@3]) {
+            return ;
+        }
         if ([num isEqual:@2]) {//不完善
             [self gotoInfo];
             return ;

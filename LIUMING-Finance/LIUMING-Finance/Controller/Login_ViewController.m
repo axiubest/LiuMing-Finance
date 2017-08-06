@@ -74,15 +74,25 @@
         id requestData = data[@"data"];
             [XIU_Login doLogin:requestData];
         NSLog(@"%@--", kPathDocument);
+        
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeText;
+    hud.labelText = @"正在登录";
+    hud.removeFromSuperViewOnHide = YES;
+
         if ([[XIU_Login type] isEqualToString:@"3"]) {
+            [hud hide:YES];
             [UIApplication sharedApplication].keyWindow.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
             
         }if ([[XIU_Login type] isEqualToString:@"2"]) {
+            [hud hide:YES];
+
             FinancialContribution_ViewController *v = [[FinancialContribution_ViewController alloc] init];
             HKNavigationController *nav = [[HKNavigationController alloc] initWithRootViewController:v];
            [UIApplication sharedApplication].keyWindow.rootViewController = nav;
             
         }if ([[XIU_Login type] isEqualToString:@"5"]) {
+            [hud hide:YES];
             MyList_ViewController *v = [[MyList_ViewController alloc] init];
             v.title = @"催收订单";
             HKNavigationController *nav = [[HKNavigationController alloc] initWithRootViewController:v];
