@@ -80,7 +80,7 @@
     hud.labelText = @"正在登录";
     hud.removeFromSuperViewOnHide = YES;
 
-        if ([[XIU_Login type] isEqualToString:@"3"]) {
+        if ([[XIU_Login type] isEqualToString:@"3"]||[[XIU_Login type] isEqualToString:@"6"] || [[XIU_Login type] isEqualToString:@"7"]) {
             [hud hide:YES];
             [UIApplication sharedApplication].keyWindow.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
             

@@ -8,6 +8,9 @@
 
 #import "GetPwdViewController.h"
 #import "Login_ViewController.h"
+#import "HKNavigationController.h"
+#import "FinancialContribution_ViewController.h"
+#import "MyList_ViewController.h"
 @interface GetPwdViewController ()
 {
     NSInteger _count;
@@ -112,7 +115,25 @@
         
         id requestData = data[@"data"];
         [XIU_Login doLogin:requestData];
-        [UIApplication sharedApplication].keyWindow.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
+        if ([[XIU_Login type] isEqualToString:@"3"]||[[XIU_Login type] isEqualToString:@"6"] || [[XIU_Login type] isEqualToString:@"7"]) {
+            
+            [UIApplication sharedApplication].keyWindow.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
+            
+        }if ([[XIU_Login type] isEqualToString:@"2"]) {
+            
+            
+            FinancialContribution_ViewController *v = [[FinancialContribution_ViewController alloc] init];
+            HKNavigationController *nav = [[HKNavigationController alloc] initWithRootViewController:v];
+            [UIApplication sharedApplication].keyWindow.rootViewController = nav;
+            
+        }if ([[XIU_Login type] isEqualToString:@"5"]) {
+            MyList_ViewController *v = [[MyList_ViewController alloc] init];
+            v.title = @"催收订单";
+            HKNavigationController *nav = [[HKNavigationController alloc] initWithRootViewController:v];
+            [UIApplication sharedApplication].keyWindow.rootViewController = nav;
+            
+        }
+
     }];
 }
 
