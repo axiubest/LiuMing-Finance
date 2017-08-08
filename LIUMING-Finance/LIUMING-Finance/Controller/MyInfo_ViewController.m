@@ -337,6 +337,7 @@
             NSMutableDictionary *dics = [NSMutableDictionary dictionaryWithDictionary:dic];
             [dics setValue:strDate forKey:@"ui_birthday"];
             [[NSUserDefaults standardUserDefaults]setObject:dics forKey:kLoginUserDict] ;
+            ui_birthday = strDate;
             [weakself.tableView reloadData];
             
         } cancelBlock:^(ActionSheetDatePicker *picker) {

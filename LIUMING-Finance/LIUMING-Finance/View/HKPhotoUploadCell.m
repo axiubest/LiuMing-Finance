@@ -60,15 +60,30 @@
     _btnArr = btnArr;
     NSLog(@"%@", _btnArr);
     if ([btnArr[0] isKindOfClass:[NSString class]]) {
-        [self.oneBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:btnArr[0]] forState:UIControlStateNormal];
+        [self.oneBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@", btnArr[0]]]forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"添加照片"]];
     }else {
         [self.oneBtn setImage:btnArr[0] forState:UIControlStateNormal];
  
     }
-    
-       [self.twoBtn setImage:btnArr[1] forState:UIControlStateNormal];
-     [self.threeBtn setImage:btnArr[2] forState:UIControlStateNormal];
-     [self.fourBtn setImage:btnArr[3] forState:UIControlStateNormal];
+    if ([btnArr[1] isKindOfClass:[NSString class]]) {
+        [self.twoBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@", btnArr[1]]] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"添加照片"]];
+
+    }else {
+        [self.twoBtn setImage:btnArr[1] forState:UIControlStateNormal];
+        
+    }
+    if ([btnArr[2] isKindOfClass:[NSString class]]) {
+        [self.threeBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@", btnArr[2]]] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"添加照片"]];
+    }else {
+        [self.threeBtn setImage:btnArr[2] forState:UIControlStateNormal];
+        
+    }
+    if ([btnArr[3] isKindOfClass:[NSString class]]) {
+        [self.fourBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@", btnArr[3]]] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"添加照片"]];
+    }else {
+        [self.fourBtn setImage:btnArr[3] forState:UIControlStateNormal];
+    }
+
 }
 
 - (IBAction)btnClick:(UIButton *)btn {

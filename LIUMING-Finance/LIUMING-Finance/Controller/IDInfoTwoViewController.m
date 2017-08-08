@@ -59,14 +59,20 @@
 
 
         NSArray *a = @[
-                 @{@"name":@"学习名称",@"place":@"请输入您的学校名称",@"isHide":@1},
+                 @{@"name":@"学校名称",@"place":@"请输入您的学校名称",@"isHide":@1},
                  @{@"name":@"就读院系",@"place":@"请输入您的院系",@"isHide":@1},
                  @{@"name":@"专业班级",@"place":@"请输入您的班级",@"isHide":@1},
                  @{@"name":@"学籍类型",@"place":@"请输入您的学籍类型",@"isHide":@0},
                  @{@"name":@"寝室地址",@"place":@"请输入您的寝室地址信息",@"isHide":@0},
-                 @{@"name":@"照片上传",@"place":@[[XIU_Login url1].length > 1 ? [XIU_Login url1] : image,[XIU_Login url2].length > 1 ? [XIU_Login url2] : [XIU_Login url3].length > 1 ? [XIU_Login url3] : image,[XIU_Login url3].length > 1 ? [XIU_Login url3] : image,[XIU_Login url4].length > 1 ? [XIU_Login url4] : image],@"isHide":@0}
+                 @{@"name":@"照片上传",@"place":@[
+                           [XIU_Login url1].length > 1 ? (img1 == nil ? [XIU_Login url1] : img1) : (img1 == nil ? image : img1),
+                           [XIU_Login url2].length > 1 ? (img2 == nil ? [XIU_Login url2] : img2) : (img2 == nil ? image : img2),
+                           [XIU_Login url3].length > 1 ? (img3 == nil ? [XIU_Login url3] : img3) : (img3 == nil ? image : img3),
+                           [XIU_Login url4].length > 1 ? (img4 == nil ? [XIU_Login url4] : img4) : (img4 == nil ? image : img4)],@"isHide":@0}
                  ];
         [aa addObjectsFromArray:a];
+        NSLog(@"------%@", aa);
+        
         _arr = aa;
     }
     return _arr;
@@ -172,15 +178,27 @@
 
     ui_yhtype = @"1";
     self.arr = [NSMutableArray array];
+    UIImage *image = [UIImage imageNamed:@"添加照片"];
+    
+    
+//    look there
+//    [XIU_Login url1].length > 1 ? (img1 == nil ? [XIU_Login url1] : img1) : (img1 == nil ? image : img1);
     NSArray *a = @[
       @{@"name":@"学校名称",@"place":@"请输入您的学校名称",@"isHide":@1},
       @{@"name":@"就读院系",@"place":@"请输入您的院系",@"isHide":@1},
       @{@"name":@"专业班级",@"place":@"请输入您的班级",@"isHide":@1},
       @{@"name":@"学籍类型",@"place":@"请输入您的学籍类型",@"isHide":@0},
       @{@"name":@"寝室地址",@"place":@"请输入您的寝室地址信息",@"isHide":@0},
-      @{@"name":@"照片上传",@"place":@[img1 == nil ? [UIImage imageNamed:@"添加照片"] : img1,img2 == nil ? [UIImage imageNamed:@"添加照片"] : img2,img3 == nil ? [UIImage imageNamed:@"添加照片"] : img3,img4 == nil ? [UIImage imageNamed:@"添加照片"] : img4],@"isHide":@1}
+      @{@"name":@"照片上传",@"place":@[
+                [XIU_Login url1].length > 1 ? (img1 == nil ? [XIU_Login url1] : img1) : (img1 == nil ? image : img1),
+                [XIU_Login url2].length > 1 ? (img2 == nil ? [XIU_Login url2] : img2) : (img2 == nil ? image : img2),
+                [XIU_Login url3].length > 1 ? (img3 == nil ? [XIU_Login url3] : img3) : (img3 == nil ? image : img3),
+                 [XIU_Login url4].length > 1 ? (img4 == nil ? [XIU_Login url4] : img4) : (img4 == nil ? image : img4)],
+        @"isHide":@1}
       ];
+    
     [self.arr addObjectsFromArray:a];
+    
     [self.tableView reloadData];
     
 }
@@ -192,6 +210,7 @@
     self.studentBtn.selected = NO;
     [self drawLine:btn];
     ui_yhtype = @"2";
+    UIImage *image = [UIImage imageNamed:@"添加照片"];
 
     self.arr = [NSMutableArray array];
     NSArray *a = @[
@@ -200,7 +219,11 @@
                  @{@"name":@"公司电话",@"place":@"请输入您的公司电话",@"isHide":@1},
                  @{@"name":@"公司职务",@"place":@"请输入您在公司的职务",@"isHide":@1},
                  @{@"name":@"入职时间",@"place":@"请输入您的入职时间",@"isHide":@1},
-                 @{@"name":@"照片上传",@"place":@[img1 == nil ? [UIImage imageNamed:@"添加照片"] : img1,img2 == nil ? [UIImage imageNamed:@"添加照片"] : img2,img3 == nil ? [UIImage imageNamed:@"添加照片"] : img3,img4 == nil ? [UIImage imageNamed:@"添加照片"] : img4],@"isHide":@1}
+                 @{@"name":@"照片上传",@"place":@[
+                           [XIU_Login url1].length > 1 ? (img1 == nil ? [XIU_Login url1] : img1) : (img1 == nil ? image : img1),
+                           [XIU_Login url2].length > 1 ? (img2 == nil ? [XIU_Login url2] : img2) : (img2 == nil ? image : img2),
+                           [XIU_Login url3].length > 1 ? (img3 == nil ? [XIU_Login url3] : img3) : (img3 == nil ? image : img3),
+                           [XIU_Login url4].length > 1 ? (img4 == nil ? [XIU_Login url4] : img4) : (img4 == nil ? image : img4)],@"isHide":@1}
                  ];
     [self.arr addObjectsFromArray:a];
     [self.tableView reloadData];

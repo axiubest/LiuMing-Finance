@@ -99,7 +99,13 @@
     
 //    网络请求判断
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:kXiaoxiState] isEqual:@2]) {//不完善
-        XIUHUD(@"请前往完善基本信息");
+        HKPerfectInfoView *infoView = [HKPerfectInfoView perfectInfoView];
+        infoView.destribtionList.text = @"完善信息后，即可获得借贷额度";
+        [infoView.btn setTitle:@"去完善" forState:UIControlStateNormal];
+        infoView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
+        infoView.myDelegate = self;
+        [infoView show];
+
         return;
     }
     NSString *str = [NSString stringWithFormat:@"确定申请借款：%@元？", _moneyLab.text];
