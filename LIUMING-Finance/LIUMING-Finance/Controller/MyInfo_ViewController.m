@@ -205,6 +205,10 @@
     }
     
     [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_updateUser withParams:@{@"ui_id":[XIU_Login userId], @"ui_name":ui_name, @"ui_sex":[[XIU_Login ui_sex] isEqualToString:@"男"] ? @"1":@"0", @"ui_birthday":[XIU_Login ui_birthday], @"ui_img":[XIU_Login ui_img].length > 1 ? (tmpImg == nil ? @"" : [self imageBase64WithDataURL:tmpImg]) : [self imageBase64WithDataURL:tmpImg], @"ui_address":ui_address} withMethodType:Post andBlock:^(id data, NSError *error) {
+        if ([data[@"status"] isEqualToString:@"error"]) {
+            XIUHUD(@"信息提交重复");
+            return ;
+        }
         id requestData = data[@"data"];
         [XIU_Login doLogin:requestData];
         XIUHUD(@"提交成功");
