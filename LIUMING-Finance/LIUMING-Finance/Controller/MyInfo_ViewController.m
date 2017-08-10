@@ -19,7 +19,7 @@
 #import "EditCell.h"
 #import "UIImageView+WebCache.h"
 #import "TextFieldCell.h"
-@interface MyInfo_ViewController ()<UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate>
+@interface MyInfo_ViewController ()<UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
     UIActionSheet *sheet;
     UIImage *tmpImg;
@@ -65,17 +65,17 @@
     [super viewWillAppear:animated];
     
     //要刷新
-    ui_name = [XIU_Login ui_name];
-    ui_sex = [XIU_Login ui_sex];
-    ui_birthday = [XIU_Login ui_birthday];
-    ui_address = [XIU_Login ui_address];
-    [self.tableView reloadData];
+
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"我的信息";
-
+    ui_name = [XIU_Login ui_name];
+    ui_sex = [XIU_Login ui_sex];
+    ui_birthday = [XIU_Login ui_birthday];
+    ui_address = [XIU_Login ui_address];
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = [UIColor colorWithHexString:@"#f4f4f4"];
@@ -116,7 +116,7 @@
     if (indexPath.section == 1 && indexPath.row == 1) {
             TextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:[TextFieldCell XIU_ClassIdentifier]];
         cell.title.text = dic[@"title"];
-        cell.distribtionTextField.delegate = self;
+        [cell.distribtionTextField addTarget:self action:@selector(textFieldChanged:) forControlEvents:UIControlEventEditingChanged];
         cell.distribtionTextField.tag = indexPath.section;
             cell.distribtionTextField.text = ui_name;
             return cell;
@@ -130,14 +130,14 @@
         cell.infoTitle.text = dic[@"title"];
     }
     if (dic[@"subTitle"]) {
-//        if (indexPath.row == 1) {
-//        cell.infoSubTitle.text = ui_name;
-//        }
+        if (indexPath.row == 1) {
+        cell.infoSubTitle.text = ui_name;
+        }
         if (indexPath.row == 2) {
-            cell.infoSubTitle.text = [XIU_Login ui_sex];
+            cell.infoSubTitle.text = ui_sex;
         }
         if (indexPath.row == 3) {
-            cell.infoSubTitle.text = [XIU_Login ui_birthday];
+            cell.infoSubTitle.text = ui_birthday;
         }
         cell.infoSubTitle.hidden = NO;
     }
@@ -154,7 +154,7 @@
     }if (indexPath.section == 2) {
         TextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:[TextFieldCell XIU_ClassIdentifier]];
         cell.title.text = dic[@"title"];
-        cell.distribtionTextField.delegate = self;
+        [cell.distribtionTextField addTarget:self action:@selector(textFieldChanged:) forControlEvents:UIControlEventEditingChanged];
         cell.distribtionTextField.tag = indexPath.section;
         cell.distribtionTextField.text = ui_address;
         return cell;
@@ -177,24 +177,17 @@
     
 }
 
-- (void)textFieldDidEndEditing:(UITextField *)textField {
+
+- (void)textFieldChanged:(UITextField *)textField {
     if (textField.tag == 1) {
-       ui_name = textField.text  ;
-        NSDictionary *dic = [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict];
-        NSMutableDictionary *dics = [NSMutableDictionary dictionaryWithDictionary:dic];
-        [dics setValue:textField.text forKey:@"ui_name"];
+        ui_name = textField.text  ;
         
-        [[NSUserDefaults standardUserDefaults]setObject:dics forKey:kLoginUserDict];
     }if (textField.tag == 2) {
         ui_address = textField.text;
         
-        NSDictionary *dic = [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict];
-        NSMutableDictionary *dics = [NSMutableDictionary dictionaryWithDictionary:dic];
-        [dics setValue:textField.text forKey:@"ui_address"];
-        
-        [[NSUserDefaults standardUserDefaults]setObject:dics forKey:kLoginUserDict];
     }
 }
+
 #pragma mark 提交
 - (void)clickEditBtn {
   
@@ -210,11 +203,11 @@
     if (imgData.length < 2) {
         XIUHUD(@"请更换头像后方可上传")return;
     }
-//    NSString *str = [imgData base64Encoding];
-    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_updateUser withParams:@{@"ui_id":[XIU_Login userId], @"ui_name":[XIU_Login ui_name], @"ui_sex":[[XIU_Login ui_sex] isEqualToString:@"男"] ? @"1":@"0", @"ui_birthday":[XIU_Login ui_birthday], @"ui_img":[self imageBase64WithDataURL:tmpImg], @"ui_address":[XIU_Login ui_address]} withMethodType:Post andBlock:^(id data, NSError *error) {
+    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_updateUser withParams:@{@"ui_id":[XIU_Login userId], @"ui_name":ui_name, @"ui_sex":[[XIU_Login ui_sex] isEqualToString:@"男"] ? @"1":@"0", @"ui_birthday":[XIU_Login ui_birthday], @"ui_img":[self imageBase64WithDataURL:tmpImg], @"ui_address":ui_address} withMethodType:Post andBlock:^(id data, NSError *error) {
         id requestData = data[@"data"];
         [XIU_Login doLogin:requestData];
         XIUHUD(@"提交成功");
+        [_tableView reloadData];
         
     }];
 }
