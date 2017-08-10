@@ -58,9 +58,14 @@
 }
 
 - (void)request {
-    
-    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_doLogin withParams:@{@"ui_phone":_phoneTextField.text, @"ui_pwd":_passwordTextField.text} withMethodType:Post andBlock:^(id data, NSError *error) {
+         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDModeIndeterminate;
         
+        hud.removeFromSuperViewOnHide = YES;
+        [hud show:YES];
+
+    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_doLogin withParams:@{@"ui_phone":_phoneTextField.text, @"ui_pwd":_passwordTextField.text} withMethodType:Post andBlock:^(id data, NSError *error) {
+        [hud hide:YES];
         if ([data[@"status"] isEqualToString:@"nouser"]) {
             
             XIUHUD(@"账号密码错误");

@@ -374,29 +374,31 @@
 
 - (void)reuqest {
     
-    if (img1 == nil) {
+    
+    if ([XIU_Login url1].length < 1 && img1 == nil) {
         XIUHUD(@"请上传身份证正面");
         return;
-    }if (img2 == nil) {
+    }if ([XIU_Login url2].length < 1 && img2 == nil) {
         XIUHUD(@"请上传身份证反面");
         return;
-    }if (img3 == nil) {
+    }if ([XIU_Login url3].length < 1 && img3 == nil) {
         XIUHUD(@"请上传手持身份证");
         return;
-    }if (img4 == nil) {
+    }if ([XIU_Login url4].length < 1 && img4  == nil) {
         XIUHUD(@"请上传工作／工牌证明");
         return;
     }
 
     NSDictionary *dic = [NSDictionary dictionary];
     if ([ui_yhtype isEqualToString:@"1"]) {
-        dic = @{@"ui_id":[XIU_Login userId],@"ui_yhtype":ui_yhtype,@"ui_workname":ui_workname, @"ui_faculty":ui_faculty, @"ui_professional_class":ui_professional_class, @"ui_school_roll":ui_school_roll, @"ui_xzaddress":ui_xzaddress, @"ui_url1":[self imageBase64WithDataURL:img1], @"ui_url2":[self imageBase64WithDataURL:img2],@"ui_url3":[self imageBase64WithDataURL:img3], @"ui_url4":[self imageBase64WithDataURL:img4]};
+        dic = @{@"ui_id":[XIU_Login userId],@"ui_yhtype":ui_yhtype,@"ui_workname":ui_workname, @"ui_faculty":ui_faculty, @"ui_professional_class":ui_professional_class, @"ui_school_roll":ui_school_roll, @"ui_xzaddress":ui_xzaddress, @"ui_url1":[XIU_Login url1].length > 1 ? (img1 == nil ? @"" : [self imageBase64WithDataURL:img1]) : [self imageBase64WithDataURL:img1], @"ui_url2":[XIU_Login url2].length > 1 ? (img2 == nil ? @"" : [self imageBase64WithDataURL:img2]) : [self imageBase64WithDataURL:img2],@"ui_url3":[XIU_Login url3].length > 1 ? (img3 == nil ? @"" : [self imageBase64WithDataURL:img3]) : [self imageBase64WithDataURL:img3], @"ui_url4":[XIU_Login url4].length > 1 ? (img4 == nil ? @"" : [self imageBase64WithDataURL:img4]) : [self imageBase64WithDataURL:img4]};
     }if ([ui_yhtype isEqualToString:@"2"]) {
-      dic = @{@"ui_id":[XIU_Login userId],@"ui_yhtype":ui_yhtype,@"ui_workname":ui_workname,  @"ui_comphone":ui_comphone, @"ui_xzaddress":ui_xzaddress, @"ui_job":ui_job, @"ui_ed":ui_ed,@"ui_url1":[self imageBase64WithDataURL:img1], @"ui_url2":[self imageBase64WithDataURL:img2], @"ui_url3":[self imageBase64WithDataURL:img3], @"ui_url4":[self imageBase64WithDataURL:img4]};
+      dic = @{@"ui_id":[XIU_Login userId],@"ui_yhtype":ui_yhtype,@"ui_workname":ui_workname,  @"ui_comphone":ui_comphone, @"ui_xzaddress":ui_xzaddress, @"ui_job":ui_job, @"ui_ed":ui_ed,@"ui_url1":[XIU_Login url1].length > 1 ? (img1 == nil ? @"" : [self imageBase64WithDataURL:img1]) : [self imageBase64WithDataURL:img1], @"ui_url2":[XIU_Login url2].length > 1 ? (img2 == nil ? @"" : [self imageBase64WithDataURL:img2]) : [self imageBase64WithDataURL:img2],@"ui_url3":[XIU_Login url3].length > 1 ? (img3 == nil ? @"" : [self imageBase64WithDataURL:img3]) : [self imageBase64WithDataURL:img3], @"ui_url4":[XIU_Login url4].length > 1 ? (img4 == nil ? @"" : [self imageBase64WithDataURL:img4]) : [self imageBase64WithDataURL:img4]};
     }
 
     
     [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_doPage2 withParams:dic withMethodType:Post andBlock:^(id data, NSError *error) {
+        
         if ([data[@"status"] isEqualToString:@"error"]) {
             XIUHUD(@"信息提交重复");
             return ;

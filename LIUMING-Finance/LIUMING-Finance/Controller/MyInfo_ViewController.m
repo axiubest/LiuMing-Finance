@@ -200,10 +200,11 @@
     if (ui_address.length < 2) {
         XIUHUD(@"地址不能为空")return;
     }
-    if (imgData.length < 2) {
-        XIUHUD(@"请更换头像后方可上传")return;
+    if ([XIU_Login ui_img].length < 1 && tmpImg  == nil) {
+        XIUHUD(@"请上传头像")return;
     }
-    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_updateUser withParams:@{@"ui_id":[XIU_Login userId], @"ui_name":ui_name, @"ui_sex":[[XIU_Login ui_sex] isEqualToString:@"男"] ? @"1":@"0", @"ui_birthday":[XIU_Login ui_birthday], @"ui_img":[self imageBase64WithDataURL:tmpImg], @"ui_address":ui_address} withMethodType:Post andBlock:^(id data, NSError *error) {
+    
+    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_updateUser withParams:@{@"ui_id":[XIU_Login userId], @"ui_name":ui_name, @"ui_sex":[[XIU_Login ui_sex] isEqualToString:@"男"] ? @"1":@"0", @"ui_birthday":[XIU_Login ui_birthday], @"ui_img":[XIU_Login ui_img].length > 1 ? (tmpImg == nil ? @"" : [self imageBase64WithDataURL:tmpImg]) : [self imageBase64WithDataURL:tmpImg], @"ui_address":ui_address} withMethodType:Post andBlock:^(id data, NSError *error) {
         id requestData = data[@"data"];
         [XIU_Login doLogin:requestData];
         XIUHUD(@"提交成功");
