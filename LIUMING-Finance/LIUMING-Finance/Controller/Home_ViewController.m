@@ -74,7 +74,7 @@
 -(void)setUpBase{
     [self.everyMonth.layer setBorderWidth:1.0];
     [self.everyMonth.layer setBorderColor:CGColorCreate(CGColorSpaceCreateDeviceRGB(), (CGFloat[]){1, 1, 1, 1 })];
-//    self.everyMonth.backgroundColor = [UIColor yellowColor];
+
     self.everyMonth.layer.cornerRadius = 18;
     self.everyMonth.layer.masksToBounds = YES;
     
