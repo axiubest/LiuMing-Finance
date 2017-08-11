@@ -13,8 +13,11 @@
 #import "MyListModel.h"
 #import "MJExtension.h"
 #import "HWPopTool.h"
-
+#import "MJRefresh.h"
 @interface BaseTableViewController ()
+{
+    NSInteger page;
+}
 @property (strong, nonatomic) UIView *contentView;
 
 @end
@@ -31,12 +34,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    page = 1;//load more
     [self.arr removeAllObjects];
     [self setupTableView];
-
-        [self request];
+    [self addRefresh];
+    [self request];
     
 }
+
+- (void)addRefresh {
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self.arr removeAllObjects];
+        page = 1;
+        [self request];
+    }];
+    
+        self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            page+=1;
+            [self request];
+        }];
+}
+
 - (void)setupTableView
 {
     self.tableView.backgroundColor = [UIColor clearColor];
@@ -52,12 +70,12 @@
 
 
 
-- (void)request {
+- (void)request{
     NSDictionary *dict;
     if ([self.title isEqualToString:@"催收订单"]) {
-      dict = @{@"oi_state":[NSString stringWithFormat:@"%ld", _type], @"ui_id":[XIU_Login userId], @"ui_type":@"5"};
+      dict = @{@"oi_state":[NSString stringWithFormat:@"%ld", _type], @"ui_id":[XIU_Login userId], @"ui_type":@"5", @"page_num":[NSNumber numberWithInteger:page]};
     }else {
-        dict = @{@"oi_state":[NSString stringWithFormat:@"%ld", _type], @"ui_id":[XIU_Login userId]};
+        dict = @{@"oi_state":[NSString stringWithFormat:@"%ld", _type], @"ui_id":@"20", @"page_num":[NSNumber numberWithInteger:page]};
     }
     [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_List withParams:dict withMethodType:Post andBlock:^(id data, NSError *error) {
         for (NSDictionary *obj in data[@"data"]) {
@@ -94,7 +112,13 @@
             [self.arr addObject:model];
         }
         [self.tableView reloadData];
+        [self endRefresh];
     }];
+}
+
+-(void)endRefresh{
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
 }
 
 #pragma mark - Table view data source

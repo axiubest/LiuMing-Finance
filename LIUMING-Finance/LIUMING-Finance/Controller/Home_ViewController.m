@@ -190,7 +190,20 @@
 
 - (void)request {
     [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_home withParams:@{@"ui_type":@3, @"ui_id":[XIU_Login userId]} withMethodType:Post andBlock:^(id data, NSError *error) {
+        
         NSNumber *num = data[@"xiaoxi"];
+        
+        
+        NSLog(@"%@", [XIU_Login ui_limit]);
+        
+        if ([[XIU_Login ui_limit] length] > 0) {//有额度
+            _moneyLab.text =[NSString stringWithFormat:@"%ld", [[XIU_Login ui_limit] integerValue] / 2];
+            _moneySlider.maximumValue = [[XIU_Login ui_limit] integerValue];
+            _moneySlider.value = [[XIU_Login ui_limit] floatValue] / 2;
+            [self everyMonthLab];
+        }
+        
+        
         [[NSUserDefaults standardUserDefaults] setObject:num forKey:kXiaoxiState];
         if ([num isEqual:@3]) {
             return ;
@@ -199,14 +212,7 @@
             [self gotoInfo];
             return ;
         }
-        if ([data[@"ui_limit"] length] > 0) {//有额度
-            _moneySlider.enabled = NO;
 
-            _moneyLab.text = data[@"ui_limit"] ;
-            _moneySlider.maximumValue = [data[@"ui_limit"] integerValue];
-            _moneySlider.value = [data[@"ui_limit"] floatValue] / 2;
-            [self everyMonthLab];
-        }
     }];
 }
 

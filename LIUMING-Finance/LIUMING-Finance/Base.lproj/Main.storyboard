@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8v8-bU-NfV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8v8-bU-NfV">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -326,16 +326,6 @@
                             <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="br6-hg-W9c">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" text="意见反馈" translatesAutoresizingMaskIntoConstraints="NO" id="UDe-9o-KCI">
-                                        <rect key="frame" x="20" y="74" width="335" height="200"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="200" id="KvC-En-E9c"/>
-                                        </constraints>
-                                        <color key="textColor" red="0.76862745099999996" green="0.76862745099999996" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kch-80-LaC">
                                         <rect key="frame" x="261" y="289" width="94" height="28"/>
                                         <color key="backgroundColor" red="0.1019607843" green="0.4431372549" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -350,14 +340,23 @@
                                             <action selector="clickCommit:" destination="lGp-OD-cP3" eventType="touchUpInside" id="E5f-oi-uRl"/>
                                         </connections>
                                     </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入意见" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eCm-k3-wji">
+                                        <rect key="frame" x="20" y="74" width="335" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="KeZ-oe-6zq"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="UDe-9o-KCI" firstAttribute="top" secondItem="br6-hg-W9c" secondAttribute="top" constant="74" id="BDH-AS-q6K"/>
-                                    <constraint firstItem="UDe-9o-KCI" firstAttribute="leading" secondItem="br6-hg-W9c" secondAttribute="leading" constant="20" id="HVf-i1-Agf"/>
-                                    <constraint firstAttribute="trailing" secondItem="UDe-9o-KCI" secondAttribute="trailing" constant="20" id="LEL-Ah-jew"/>
-                                    <constraint firstItem="Kch-80-LaC" firstAttribute="top" secondItem="UDe-9o-KCI" secondAttribute="bottom" constant="15" id="PLv-4d-TNp"/>
-                                    <constraint firstItem="Kch-80-LaC" firstAttribute="trailing" secondItem="UDe-9o-KCI" secondAttribute="trailing" id="jrA-gh-f40"/>
+                                    <constraint firstItem="eCm-k3-wji" firstAttribute="top" secondItem="br6-hg-W9c" secondAttribute="top" constant="74" id="D1f-Lq-5v8"/>
+                                    <constraint firstItem="eCm-k3-wji" firstAttribute="leading" secondItem="br6-hg-W9c" secondAttribute="leading" constant="20" id="UhE-Qk-UzZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="eCm-k3-wji" secondAttribute="trailing" constant="20" id="UnJ-7w-wzI"/>
+                                    <constraint firstItem="Kch-80-LaC" firstAttribute="trailing" secondItem="eCm-k3-wji" secondAttribute="trailing" id="XPD-Fz-WdR"/>
+                                    <constraint firstItem="Kch-80-LaC" firstAttribute="top" secondItem="eCm-k3-wji" secondAttribute="bottom" constant="15" id="bVL-Zx-IBV"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -371,12 +370,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="意见反馈" id="xgr-3L-Gd2"/>
                     <connections>
-                        <outlet property="textView" destination="UDe-9o-KCI" id="VSs-uG-TnK"/>
+                        <outlet property="textField" destination="eCm-k3-wji" id="pdG-5N-t5u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J1B-kZ-hDI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1953" y="2519"/>
+            <point key="canvasLocation" x="-1954.4000000000001" y="2518.2908545727137"/>
         </scene>
         <!--我的收益-->
         <scene sceneID="0DE-QT-F1r">
@@ -1281,7 +1280,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wje-qW-kSm" id="mxh-0W-g7e">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1289,7 +1288,7 @@
                                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RC5-rw-vS3" id="Xcj-uU-EWE">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1297,7 +1296,7 @@
                                         <rect key="frame" x="0.0" y="88" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aTe-qj-v4Y" id="Slk-4V-r3K">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>

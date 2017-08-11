@@ -11,7 +11,11 @@
 #import "FinanceModel.h"
 #import "MJExtension.h"
 #import "Login_ViewController.h"
+#import "MJRefresh.h"
 @interface FinancialContribution_ViewController ()<UITableViewDelegate,UITableViewDataSource, UIAlertViewDelegate>
+{
+    NSInteger page;
+}
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic, strong) NSMutableArray *dataSource;
@@ -19,9 +23,23 @@
 
 @implementation FinancialContribution_ViewController
 
+- (void)addRefresh {
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self.dataSource removeAllObjects];
+        page = 1;
+        [self request];
+    }];
+    
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        page+=1;
+        [self request];
+    }];
+}
+
+
+
 - (void)request {
-    [self.dataSource removeAllObjects];
-    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_home withParams:@{@"ui_type":@"2", @"ui_id":[XIU_Login userId]} withMethodType:Post andBlock:^(id data, NSError *error) {
+    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_home withParams:@{@"ui_type":@"2", @"ui_id":[XIU_Login userId],@"page_num":[NSNumber numberWithInteger:page]} withMethodType:Post andBlock:^(id data, NSError *error) {
         
         if ([data[@"status"] isEqualToString:@"sucess"]) {
             for (NSDictionary *obj in data[@"data"]) {
@@ -30,16 +48,24 @@
                 [self.dataSource addObject:mo];
             }
             [self.tableView reloadData];
-
+            [self endRefresh];
         }
     }];
 }
+
+-(void)endRefresh{
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"财务打款";
     [self createNavgationButtonWithImageNmae:@"退出" title:nil target:self action:@selector(clickEdit) type:UINavigationItem_Type_LeftItem];
+    [self.dataSource removeAllObjects];
+    [self addRefresh];
     [self request];
 }
 
