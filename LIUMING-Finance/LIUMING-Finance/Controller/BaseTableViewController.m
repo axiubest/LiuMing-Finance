@@ -177,9 +177,10 @@
     }
     
 
-    MyListModel *model = self.arr[indexPath.row];
-
     
+    
+    /*********************************/
+    MyListModel *model = self.arr[indexPath.row];
     NSDictionary *dic = self.arr[indexPath.row];
     HKMyListCell *cell = [HKMyListCell myListCell];
     cell.dataDic = dic;
@@ -191,11 +192,19 @@
     }else{
          cell.headerSubTitleLabel.textColor = [UIColor colorWithHexString:@"#fe324a"];
     }
-    cell.bodyTitleLabel.text = [NSString stringWithFormat:@"借款%@元, 分%@期 %@-%@", model.oi_jkprice, model.oi_jkloans, model.nowloans, model.oi_jkloans];
-    
+    // 审核中没有期数 还款日期为借款日期
+    if ([self.title isEqualToString:@"进度查询"]) {
+       cell.bodyTitleLabel.text = [NSString stringWithFormat:@"借款%@元, 分%@期", model.oi_jkprice, model.oi_jkloans];
+        cell.footerTitleLabel.text =[NSString stringWithFormat:@"借款日期：%@", model.hktime] ;
+
+    }else {
+       cell.bodyTitleLabel.text = [NSString stringWithFormat:@"借款%@元, 分%@期 %@-%@", model.oi_jkprice, model.oi_jkloans, model.nowloans, model.oi_jkloans];
+        cell.footerTitleLabel.text =[NSString stringWithFormat:@"还款日期：%@", model.hktime] ;
+
+    }
+   
     cell.bodySubTitleLabel.text = model.hkzje;
 
-    cell.footerTitleLabel.text =[NSString stringWithFormat:@"还款日期：%@", model.hktime] ;
     if ([model.oi_state isEqualToString:@"借款中"] || [model.oi_state isEqualToString:@"已逾期"] || [model.oi_state isEqualToString:@"还款中"]) {
             [cell.footerBtn setTitle:@"立即还款" forState:UIControlStateNormal];
         [cell.footerBtn.layer setBorderColor:CGColorCreate(CGColorSpaceCreateDeviceRGB(), (CGFloat[]){26/255.0, 113/255.0, 1, 1 })];

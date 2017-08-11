@@ -318,8 +318,8 @@
     }if (ui_qqwx.length == 0) {
         XIUHUD(@"请输qq或者微信号码");
         return;
-    }if (ui_limit.length == 0) {
-        XIUHUD(@"请输入借款额度");
+    }if (ui_limit.length < 3) {
+        XIUHUD(@"贷款额度最少为百");
         return;
     }if (ui_alipay.length < 5) {
         XIUHUD(@"请输入支付宝号码");

@@ -373,6 +373,46 @@
 }
 
 - (void)reuqest {
+    if ([ui_yhtype isEqualToString:@"1"]) {
+        if (ui_workname.length < 2) {
+            XIUHUD(@"请输入学校名称");
+            return;
+        }
+        if (ui_faculty.length < 2) {
+            XIUHUD(@"请输入就读院系");
+            return;
+        }
+        if (ui_professional_class.length < 2) {
+            XIUHUD(@"请输入就专业班级");
+            return;
+        }
+        if (ui_school_roll.length < 1) {
+            XIUHUD(@"请输入学籍类型") return;
+        }
+        if (ui_xzaddress.length < 1) {
+            XIUHUD(@"请输入寝室地址") return;
+        }
+
+        
+    }
+    if ([ui_yhtype isEqualToString:@"2"]) {
+        if (ui_workname.length < 2) {
+            XIUHUD(@"请输入公司名称")return;
+        }
+        if (ui_xzaddress.length < 2) {
+            XIUHUD(@"请输入公司地址")return;
+        }
+        if (ui_comphone.length < 4) {
+            XIUHUD(@"请输入公司电话")return;
+        }
+        if (ui_job.length < 2) {
+            XIUHUD(@"请输入公司职务")return;
+        }
+        if (ui_ed.length < 1) {
+            XIUHUD(@"请输入入职时间")return;
+        }
+        
+    }
     
     
     if ([XIU_Login url1].length < 1 && img1 == nil) {
@@ -396,31 +436,42 @@
       dic = @{@"ui_id":[XIU_Login userId],@"ui_yhtype":ui_yhtype,@"ui_workname":ui_workname,  @"ui_comphone":ui_comphone, @"ui_xzaddress":ui_xzaddress, @"ui_job":ui_job, @"ui_ed":ui_ed,@"ui_url1":[XIU_Login url1].length > 1 ? (img1 == nil ? @"" : [self imageBase64WithDataURL:img1]) : [self imageBase64WithDataURL:img1], @"ui_url2":[XIU_Login url2].length > 1 ? (img2 == nil ? @"" : [self imageBase64WithDataURL:img2]) : [self imageBase64WithDataURL:img2],@"ui_url3":[XIU_Login url3].length > 1 ? (img3 == nil ? @"" : [self imageBase64WithDataURL:img3]) : [self imageBase64WithDataURL:img3], @"ui_url4":[XIU_Login url4].length > 1 ? (img4 == nil ? @"" : [self imageBase64WithDataURL:img4]) : [self imageBase64WithDataURL:img4]};
     }
 
-    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeIndeterminate;
+
+    hud.removeFromSuperViewOnHide = YES;
+    [hud show:YES];
+
     [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_doPage2 withParams:dic withMethodType:Post andBlock:^(id data, NSError *error) {
-        
+        [hud hide:YES];
         if ([data[@"status"] isEqualToString:@"error"]) {
             XIUHUD(@"信息提交重复");
             return ;
         }if ([data[@"status"] isEqualToString:@"success"]) {
             [XIU_Login doLogin:data[@"data"]];
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
-    hud.mode = MBProgressHUDModeText;
-    hud.labelText = @"提交成功";
-    hud.removeFromSuperViewOnHide = YES;
-            [hud hide:YES afterDelay:2];
+            XIUHUD(@"提交成功");
             
-            MyInfo_ViewController *homeVC = [[MyInfo_ViewController alloc] init];
-            UIViewController *target = nil;
-            for (UIViewController * controller in self.navigationController.viewControllers) { //遍历
-                if ([controller isKindOfClass:[homeVC class]]) {
-                    target = controller;
+            dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0* NSEC_PER_SEC));
+            
+            dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                MyInfo_ViewController *homeVC = [[MyInfo_ViewController alloc] init];
+                UIViewController *target = nil;
+                for (UIViewController * controller in self.navigationController.viewControllers) { //遍历
+                    if ([controller isKindOfClass:[homeVC class]]) {
+                        target = controller;
+                    }
                 }
-            }
-            if (target) {
-                
-                [self.navigationController popToViewController:target animated:YES]; //跳转
-            }        }
+                if (target) {
+                    
+                    [self.navigationController popToViewController:target animated:YES]; //跳转
+                }
+            });
+        
+
+            
+            
+            
+        }
     }];
     
 }

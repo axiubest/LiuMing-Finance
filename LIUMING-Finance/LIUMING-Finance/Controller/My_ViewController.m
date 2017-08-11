@@ -142,7 +142,7 @@
         cell.nameLab.text = [XIU_Login userName];
         cell.tjr_nameLab.text =[NSString stringWithFormat:@"推荐人:%@", [self.dataDic[@"tjr_name"] isKindOfClass:[NSNull class]] ? @" 无推荐人": self.dataDic[@"tjr_name"]] ;
         cell.getMoneyLab.text =self.dataDic[@"profit"];
-        cell.canUseMoneyLab.text = self.dataDic[@"ui_limit"];
+        cell.canUseMoneyLab.text = [XIU_Login ui_limit];
         return cell;
     }else if(indexPath.section==1&&indexPath.row==1){
       My_ToolCell* cell = [My_ToolCell myTableVeiwCell];
@@ -250,9 +250,9 @@
         if (!data[@"data"]) {//baohu
             return;
         }
-        [self.dataDic setObject:[data[@"data"][@"profit"] length] > 0 ? data[@"data"][@"profit"] : @""forKey:@"profit"];
+        [self.dataDic setObject:[data[@"data"][@"profit"] length] > 0 ? data[@"data"][@"profit"] : @"0.00"forKey:@"profit"];
         [self.dataDic setObject:[data[@"data"][@"tjr_name"] length] > 0 ? data[@"data"][@"tjr_name"] : @"" forKey:@"tjr_name"];
-        [self.dataDic setObject:[data[@"data"][@"ui_limit"] length] > 0 ? data[@"data"][@"ui_limit"] : @"" forKey:@"ui_limit"];//额度
+        [self.dataDic setObject:[data[@"data"][@"ui_limit"] length] > 0 ? data[@"data"][@"ui_limit"] : @"0.00" forKey:@"ui_limit"];//额度
         [self.XIUTableView reloadData];
 
     }];

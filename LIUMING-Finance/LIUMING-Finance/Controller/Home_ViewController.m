@@ -136,6 +136,8 @@
             XIUHUD(@"借款成功");
             id requestData = data[@"data"];
             [XIU_Login doLogin:requestData];
+            [self setUpSliderValue];
+
         }
        
     }];
@@ -193,14 +195,8 @@
         
         NSNumber *num = data[@"xiaoxi"];
         
-        
-        NSLog(@"%@", [XIU_Login ui_limit]);
-        
         if ([[XIU_Login ui_limit] length] > 0) {//有额度
-            _moneyLab.text =[NSString stringWithFormat:@"%ld", [[XIU_Login ui_limit] integerValue] / 2];
-            _moneySlider.maximumValue = [[XIU_Login ui_limit] integerValue];
-            _moneySlider.value = [[XIU_Login ui_limit] floatValue] / 2;
-            [self everyMonthLab];
+            [self setUpSliderValue];
         }
         
         
@@ -214,6 +210,13 @@
         }
 
     }];
+}
+
+- (void)setUpSliderValue {
+    _moneyLab.text =[NSString stringWithFormat:@"%ld", [[XIU_Login ui_limit] integerValue] / 2];
+    _moneySlider.maximumValue = [[XIU_Login ui_limit] integerValue];
+    _moneySlider.value = [[XIU_Login ui_limit] floatValue] / 2;
+    [self everyMonthLab];
 }
 
 - (void)didReceiveMemoryWarning {
