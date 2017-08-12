@@ -142,7 +142,7 @@
         cell.nameLab.text = [XIU_Login userName];
         cell.tjr_nameLab.text =[NSString stringWithFormat:@"推荐人:%@", [self.dataDic[@"tjr_name"] isKindOfClass:[NSNull class]] ? @" 无推荐人": self.dataDic[@"tjr_name"]] ;
         cell.getMoneyLab.text =self.dataDic[@"profit"];
-        cell.canUseMoneyLab.text = [XIU_Login ui_limit];
+        cell.canUseMoneyLab.text =[NSString stringWithFormat:@"%@.00", [XIU_Login ui_limit]] ;
         return cell;
     }else if(indexPath.section==1&&indexPath.row==1){
       My_ToolCell* cell = [My_ToolCell myTableVeiwCell];

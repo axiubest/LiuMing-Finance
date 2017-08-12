@@ -4,7 +4,7 @@
 //
 //  Created by A-XIU on 2017/6/19.
 //  Copyright © 2017年 XIU. All rights reserved.
-//
+
 
 #import "Home_ViewController.h"
 #import "IDInfoOne_ViewController.h"
@@ -32,22 +32,30 @@
 
 @implementation Home_ViewController
 
+- (void)setUpSliderValue {
+    NSString *s =[NSString stringWithFormat:@"%ld",[[XIU_Login ui_limit] integerValue]/2];
+    _moneyLab.text = [s stringByReplacingCharactersInRange:NSMakeRange([XIU_Login ui_limit].length - 2, 2) withString:@"00"];//整百，为2/1 [XIU_Login ui_limit]值不为整百做保护
+
+    _moneySlider.maximumValue = [[XIU_Login ui_limit] integerValue];
+    _moneySlider.value = [[XIU_Login ui_limit] floatValue] / 2;
+    [self everyMonthLab];
+    
+}
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self everyMonthLab];
     [self request];
-    _moneySlider.value = _moneySlider.maximumValue/2;
-    _moneyLab.text = [NSString stringWithFormat:@"%.0f",  _moneySlider.value];
     [self setUpBase];
+
     NSLog(@"%@", kPathDocument);
-    
-    NSString *every =[NSString stringWithFormat:@"每月还款%.2f元", [self.moneyLab.text integerValue] / [self.timeLab.text integerValue] +  [self.moneyLab.text integerValue] * 0.02];
-    [_everyMonth setTitle:every forState:UIControlStateNormal];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-
+    [self setUpSliderValue];
 }
 - (IBAction)clickSlider:(HKSlider *)sender {
     if (sender.tag == 111) {//money
@@ -70,15 +78,13 @@
     [_everyMonth setTitle:every forState:UIControlStateNormal];
 }
 
-
 -(void)setUpBase{
     [self.everyMonth.layer setBorderWidth:1.0];
     [self.everyMonth.layer setBorderColor:CGColorCreate(CGColorSpaceCreateDeviceRGB(), (CGFloat[]){1, 1, 1, 1 })];
-
+    
     self.everyMonth.layer.cornerRadius = 18;
     self.everyMonth.layer.masksToBounds = YES;
     
-    //
     [self.giveBtn setTitle:@"我要还款" forState:UIControlStateNormal];
     [self.progressBtn setTitle:@"进度查询" forState:UIControlStateNormal];
     [self.userMoneyBtn setTitle:@"费用说明" forState:UIControlStateNormal];
@@ -110,8 +116,8 @@
     }
     NSString *str = [NSString stringWithFormat:@"确定申请借款：%@元？", _moneyLab.text];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"确认申请" message:str delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-    [alert show];
 
+    [alert show];
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -173,7 +179,6 @@
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
         
-
     }
    }
 
@@ -188,7 +193,6 @@
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
-
 
 - (void)request {
     [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_home withParams:@{@"ui_type":@3, @"ui_id":[XIU_Login userId]} withMethodType:Post andBlock:^(id data, NSError *error) {
@@ -212,16 +216,10 @@
     }];
 }
 
-- (void)setUpSliderValue {
-    _moneyLab.text =[NSString stringWithFormat:@"%ld", [[XIU_Login ui_limit] integerValue] / 2];
-    _moneySlider.maximumValue = [[XIU_Login ui_limit] integerValue];
-    _moneySlider.value = [[XIU_Login ui_limit] floatValue] / 2;
-    [self everyMonthLab];
-}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 

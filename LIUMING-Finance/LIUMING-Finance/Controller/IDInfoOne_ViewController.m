@@ -10,7 +10,7 @@
 #import "IDInfoTwoViewController.h"
 #import "HKDelegateCell.h"
 #import "HKSubmitCell.h"
-
+#import "NSString+Common.h"
 @interface IDInfoOne_ViewController ()<UITableViewDelegate,UITableViewDataSource,HKSubmitCellDelegate,UITextFieldDelegate>
 {
     NSString *ui_name;
@@ -46,7 +46,7 @@
                  @{@"name":@"邀请码",@"place":@"请输入邀请码，若无邀请码可不填",@"isHide":@1},
                  @{@"name":@"身份证号",@"place":@"请输入您本人的身份证号码",@"isHide":@1},
                  @{@"name":@"手机号码",@"place":@"请输入注册手机号服务密码",@"isHide":@1},
-                 @{@"name":@"居住地",@"place":@"请输入您的居住地信息",@"isHide":@0},
+                 @{@"name":@"居住地",@"place":@"请输入您的居住地信息",@"isHide":@1},
                  @{@"name":@"月收入",@"place":@"请输入您的每月收入",@"isHide":@1},
                  @{@"name":@"微信号／QQ",@"place":@"请输入您的微信号或QQ号",@"isHide":@1},
                  @{@"name":@"借贷额度",@"place":@"请输入您的借贷额度",@"isHide":@1},
@@ -318,10 +318,24 @@
     }if (ui_qqwx.length == 0) {
         XIUHUD(@"请输qq或者微信号码");
         return;
-    }if (ui_limit.length < 3) {
-        XIUHUD(@"贷款额度最少为百");
+    }if (ui_limit.length < 4) {
+        XIUHUD(@"借款额度过少,请更改");
         return;
-    }if (ui_alipay.length < 5) {
+    }
+    if (![NSString checkIsNumber:ui_limit]) {
+        XIUHUD(@"借款额度必须为纯数字");
+        return;
+    }
+    NSLog(@"%@", ui_limit);
+    NSString *s =[NSString stringWithFormat:@"%ld",[ui_limit integerValue]];
+    NSString* b= [s substringWithRange:NSMakeRange(s.length - 2,2)];
+
+    if (![b isEqualToString:@"00"]) {
+        XIUHUD(@"借款额度格式错误(例:1000,1800,3300)");
+        return;
+    }
+
+    if (ui_alipay.length < 5) {
         XIUHUD(@"请输入支付宝号码");
         return;
     }if (phoneName1.length < 2) {

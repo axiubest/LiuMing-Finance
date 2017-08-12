@@ -36,5 +36,6 @@
 //判断密码
 +(BOOL)checkPassWord:(NSString *)password;
 
-
+//是否为纯数字
++(BOOL)checkIsNumber:(NSString*)str;
 @end

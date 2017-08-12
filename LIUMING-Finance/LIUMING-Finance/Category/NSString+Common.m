@@ -139,4 +139,15 @@
     return YES;
 }
 
+
++(BOOL)checkIsNumber:(NSString*)str
+{
+    if(str==nil)
+    {
+        return NO;
+    }
+    NSString *regex = @"^(([0-9]+\\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\\.[0-9]+)|([0-9]*[1-9][0-9]*))$";//@"^[0-9]+$";
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@ ", regex];
+    return [predicate evaluateWithObject:str];
+}
 @end

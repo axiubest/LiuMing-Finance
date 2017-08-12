@@ -62,8 +62,8 @@
                  @{@"name":@"学校名称",@"place":@"请输入您的学校名称",@"isHide":@1},
                  @{@"name":@"就读院系",@"place":@"请输入您的院系",@"isHide":@1},
                  @{@"name":@"专业班级",@"place":@"请输入您的班级",@"isHide":@1},
-                 @{@"name":@"学籍类型",@"place":@"请输入您的学籍类型",@"isHide":@0},
-                 @{@"name":@"寝室地址",@"place":@"请输入您的寝室地址信息",@"isHide":@0},
+                 @{@"name":@"学籍类型",@"place":@"请输入您的学籍类型",@"isHide":@1},
+                 @{@"name":@"寝室地址",@"place":@"请输入您的寝室地址信息",@"isHide":@1},
                  @{@"name":@"照片上传",@"place":@[
                            [XIU_Login url1].length > 1 ? (img1 == nil ? [XIU_Login url1] : img1) : (img1 == nil ? image : img1),
                            [XIU_Login url2].length > 1 ? (img2 == nil ? [XIU_Login url2] : img2) : (img2 == nil ? image : img2),
@@ -187,8 +187,8 @@
       @{@"name":@"学校名称",@"place":@"请输入您的学校名称",@"isHide":@1},
       @{@"name":@"就读院系",@"place":@"请输入您的院系",@"isHide":@1},
       @{@"name":@"专业班级",@"place":@"请输入您的班级",@"isHide":@1},
-      @{@"name":@"学籍类型",@"place":@"请输入您的学籍类型",@"isHide":@0},
-      @{@"name":@"寝室地址",@"place":@"请输入您的寝室地址信息",@"isHide":@0},
+      @{@"name":@"学籍类型",@"place":@"请输入您的学籍类型",@"isHide":@1},
+      @{@"name":@"寝室地址",@"place":@"请输入您的寝室地址信息",@"isHide":@1},
       @{@"name":@"照片上传",@"place":@[
                 [XIU_Login url1].length > 1 ? (img1 == nil ? [XIU_Login url1] : img1) : (img1 == nil ? image : img1),
                 [XIU_Login url2].length > 1 ? (img2 == nil ? [XIU_Login url2] : img2) : (img2 == nil ? image : img2),
@@ -218,7 +218,7 @@
                  @{@"name":@"公司地址",@"place":@"请输入您的公司地址",@"isHide":@1},
                  @{@"name":@"公司电话",@"place":@"请输入您的公司电话",@"isHide":@1},
                  @{@"name":@"公司职务",@"place":@"请输入您在公司的职务",@"isHide":@1},
-                 @{@"name":@"入职时间",@"place":@"请输入您的入职时间",@"isHide":@1},
+                 @{@"name":@"入职时间",@"place":@"请输入您的入职时间",@"isHide":@0},
                  @{@"name":@"照片上传",@"place":@[
                            [XIU_Login url1].length > 1 ? (img1 == nil ? [XIU_Login url1] : img1) : (img1 == nil ? image : img1),
                            [XIU_Login url2].length > 1 ? (img2 == nil ? [XIU_Login url2] : img2) : (img2 == nil ? image : img2),
