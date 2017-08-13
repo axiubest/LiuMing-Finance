@@ -204,7 +204,16 @@
             case 6:
                  cell.inputField.text = ui_qqwx;
                 break;
-            case 7:
+            case 7://applying 判断UI-limit额度是否可以更改，
+                if (![[XIU_Login ui_applying] isEqualToString:@"1"]) {
+                    cell.inputField.enabled = NO;
+                    [cell.inputField setUserInteractionEnabled:NO];
+                }else {
+                    cell.inputField.enabled = YES;
+                    [cell.inputField setUserInteractionEnabled:YES];
+
+                }
+
                  cell.inputField.text = ui_limit;
                 break;
             case 8:

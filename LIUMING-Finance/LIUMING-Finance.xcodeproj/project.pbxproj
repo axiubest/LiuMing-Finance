@@ -158,6 +158,9 @@
 		FA2B1C4D1F2CD50E000D889D /* UIViewController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2B1C4C1F2CD50E000D889D /* UIViewController+BackButtonHandler.m */; };
 		FA2B1C541F2F66E1000D889D /* Progress_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2B1C521F2F66E1000D889D /* Progress_ViewController.m */; };
 		FA2B1C551F2F66E1000D889D /* Progress_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA2B1C531F2F66E1000D889D /* Progress_ViewController.xib */; };
+		FA39B8FB1F401D7500BA1D91 /* Contract_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA39B8F91F401D7500BA1D91 /* Contract_ViewController.m */; };
+		FA39B9001F401F2900BA1D91 /* ContractCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA39B8FE1F401F2900BA1D91 /* ContractCell.m */; };
+		FA39B9041F406C8500BA1D91 /* ContractModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FA39B9031F406C8500BA1D91 /* ContractModel.m */; };
 		FA4D867E1EFD844700CC55F7 /* 212121.png in Resources */ = {isa = PBXBuildFile; fileRef = FA4D867D1EFD844700CC55F7 /* 212121.png */; };
 		FA63F6FD1F3704CB007A278B /* TextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA63F6FB1F3704CB007A278B /* TextFieldCell.m */; };
 		FA63F6FE1F3704CB007A278B /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA63F6FC1F3704CB007A278B /* TextFieldCell.xib */; };
@@ -487,6 +490,12 @@
 		FA2B1C511F2F66E1000D889D /* Progress_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Progress_ViewController.h; sourceTree = "<group>"; };
 		FA2B1C521F2F66E1000D889D /* Progress_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Progress_ViewController.m; sourceTree = "<group>"; };
 		FA2B1C531F2F66E1000D889D /* Progress_ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Progress_ViewController.xib; sourceTree = "<group>"; };
+		FA39B8F81F401D7500BA1D91 /* Contract_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contract_ViewController.h; sourceTree = "<group>"; };
+		FA39B8F91F401D7500BA1D91 /* Contract_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contract_ViewController.m; sourceTree = "<group>"; };
+		FA39B8FD1F401F2900BA1D91 /* ContractCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContractCell.h; sourceTree = "<group>"; };
+		FA39B8FE1F401F2900BA1D91 /* ContractCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContractCell.m; sourceTree = "<group>"; };
+		FA39B9021F406C8500BA1D91 /* ContractModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContractModel.h; sourceTree = "<group>"; };
+		FA39B9031F406C8500BA1D91 /* ContractModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContractModel.m; sourceTree = "<group>"; };
 		FA4D867D1EFD844700CC55F7 /* 212121.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 212121.png; sourceTree = "<group>"; };
 		FA63F6FA1F3704CA007A278B /* TextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldCell.h; sourceTree = "<group>"; };
 		FA63F6FB1F3704CB007A278B /* TextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldCell.m; sourceTree = "<group>"; };
@@ -787,6 +796,8 @@
 				043E68EF1F1737370065016B /* RepaymentInfo_ViewController.xib */,
 				043E68F21F1762D30065016B /* MyProfit_ViewController.h */,
 				043E68F31F1762D30065016B /* MyProfit_ViewController.m */,
+				FA39B8F81F401D7500BA1D91 /* Contract_ViewController.h */,
+				FA39B8F91F401D7500BA1D91 /* Contract_ViewController.m */,
 				043E68FC1F1788F70065016B /* FinancialContribution_ViewController.h */,
 				043E68FD1F1788F80065016B /* FinancialContribution_ViewController.m */,
 				043E68FE1F1788F80065016B /* FinancialContribution_ViewController.xib */,
@@ -818,6 +829,8 @@
 				FA25BD6E1EF791BB00D7210C /* XIU_User.m */,
 				04DDC3771F14B50F003D7567 /* HKBaseTableModel.h */,
 				04DDC3781F14B50F003D7567 /* HKBaseTableModel.m */,
+				FA39B9021F406C8500BA1D91 /* ContractModel.h */,
+				FA39B9031F406C8500BA1D91 /* ContractModel.m */,
 				4CB8C76D1F239F20009D090B /* MyListModel.h */,
 				4CB8C76E1F239F20009D090B /* MyListModel.m */,
 				FA2B1C371F264C1A000D889D /* FinanceModel.h */,
@@ -881,6 +894,8 @@
 				FA63F6FA1F3704CA007A278B /* TextFieldCell.h */,
 				FA63F6FB1F3704CB007A278B /* TextFieldCell.m */,
 				FA63F6FC1F3704CB007A278B /* TextFieldCell.xib */,
+				FA39B8FD1F401F2900BA1D91 /* ContractCell.h */,
+				FA39B8FE1F401F2900BA1D91 /* ContractCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1264,6 +1279,7 @@
 				FA25BD481EF791A600D7210C /* MASConstraintMaker.m in Sources */,
 				FA25BD501EF791A600D7210C /* MBProgressHUD.m in Sources */,
 				04DDC36D1F149E7E003D7567 /* My_ToolCell.m in Sources */,
+				FA39B9001F401F2900BA1D91 /* ContractCell.m in Sources */,
 				04DDC3791F14B50F003D7567 /* HKBaseTableModel.m in Sources */,
 				043E690E1F17C1640065016B /* Login_ViewController.m in Sources */,
 				FA25BD441EF791A600D7210C /* UIGestureRecognizer+BlocksKit.m in Sources */,
@@ -1290,6 +1306,7 @@
 				FA25BD621EF791A600D7210C /* SDWebImageManager.m in Sources */,
 				18F973981F3DA4A700E77934 /* UIView+MJExtension.m in Sources */,
 				FAF6A3301F1B00300068C0D5 /* UIViewController+Common.m in Sources */,
+				FA39B8FB1F401D7500BA1D91 /* Contract_ViewController.m in Sources */,
 				FA25BC611EF7790800D7210C /* AppDelegate.m in Sources */,
 				FA63F6FD1F3704CB007A278B /* TextFieldCell.m in Sources */,
 				FAF6A3691F1BB93C0068C0D5 /* NSDate+Helper.m in Sources */,
@@ -1330,6 +1347,7 @@
 				FA0670201F23963200B0BC63 /* ActionSheetCustomPicker.m in Sources */,
 				FA2B1C491F2CC9BC000D889D /* TextViewController.m in Sources */,
 				FA25BD471EF791A600D7210C /* MASConstraint.m in Sources */,
+				FA39B9041F406C8500BA1D91 /* ContractModel.m in Sources */,
 				FA0670211F23963200B0BC63 /* ActionSheetDatePicker.m in Sources */,
 				043E69171F17D8FC0065016B /* HKNavigationController.m in Sources */,
 				18F9738E1F3DA4A700E77934 /* MJRefreshBackNormalFooter.m in Sources */,

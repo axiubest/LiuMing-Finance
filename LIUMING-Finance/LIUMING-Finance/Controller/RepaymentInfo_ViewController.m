@@ -12,8 +12,10 @@
 #import "ActionSheetStringPicker.h"
 #import "HWPopTool.h"
 
-@interface RepaymentInfo_ViewController ()<UITableViewDelegate,UITableViewDataSource,HKSubmitCellDelegate>
-
+@interface RepaymentInfo_ViewController ()<UIAlertViewDelegate,UITableViewDelegate,UITableViewDataSource,HKSubmitCellDelegate>
+{
+    NSString *moneyStr;
+}
 //title
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *everyMontPayIntLabel;
@@ -41,7 +43,7 @@
     
     self.titleLabel.text = [NSString stringWithFormat:@"总借款金额：%@元，分%@期", _mod.oi_jkprice, _mod.oi_jkloans];
 
-    NSString *moneyStr = _mod.myyhprice.length > 1 ? _mod.myyhprice : @"0.00";
+    moneyStr = _mod.myyhprice.length > 1 ? _mod.myyhprice : @"0.00";
     self.everyMontPayIntLabel.text = [NSString stringWithFormat:@"%@.", [moneyStr componentsSeparatedByString:@"."][0]];
     self.everyMonthPayFloatLabel.text =  [moneyStr componentsSeparatedByString:@"."][1];
     self.surplusTimeLabel.text = _mod.hktime;
@@ -137,10 +139,36 @@
         [HWPopTool sharedInstance].closeButtonType = ButtonPositionTypeRight;
         [[HWPopTool sharedInstance] showWithPresentView:_contentView animated:YES];
 
-    }else {
-//        reuquest
     }
-    NSLog(@"我点击啦");
+    UIAlertView *al = [[UIAlertView alloc] initWithTitle:@"确定还款" message:@"" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    [al show];
+    [self request];
 }
 
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        
+    }else {//确认
+        [self request];
+    }
+}
+
+- (void)request {
+    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_repay withParams:@{@"ui_id":[XIU_Login userId], @"pl_price":moneyStr,@"pl_oiid":_mod.oi_id, @"pl_loans":_mod.nowloans} withMethodType:Post andBlock:^(id data, NSError *error) {
+        if([data[@"status"] isEqualToString:@"error"]) {
+        XIUHUD(@"借款失败");
+            return ;
+        }
+        if([data[@"status"] isEqualToString:@"repay"]) {
+            XIUHUD(@"已经还款");
+            return;
+        }
+        if([data[@"status"] isEqualToString:@"sucess"]) {
+            XIUHUD(@"还款成功");
+            return ;
+        }
+
+    }];
+}
 @end

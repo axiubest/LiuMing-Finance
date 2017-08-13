@@ -137,7 +137,9 @@ static XIU_User *curLoginUser;
     return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_ed"];
 
 }
-
++(NSString *)ui_applying {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_applying"];
+}
 +(NSString *)userName {
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_name"] length] < 1) {
         return @"请前往完善姓名";

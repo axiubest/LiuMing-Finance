@@ -74,8 +74,9 @@
     NSDictionary *dict;
     if ([self.title isEqualToString:@"催收订单"]) {
       dict = @{@"oi_state":[NSString stringWithFormat:@"%ld", _type], @"ui_id":[XIU_Login userId], @"ui_type":@"5", @"page_num":[NSNumber numberWithInteger:page]};
-    }else {
-        dict = @{@"oi_state":[NSString stringWithFormat:@"%ld", _type], @"ui_id":@"20", @"page_num":[NSNumber numberWithInteger:page]};
+    }
+    else {
+        dict = @{@"oi_state":[NSString stringWithFormat:@"%ld", _type], @"ui_id":[XIU_Login userId], @"page_num":[NSNumber numberWithInteger:page]};
     }
     [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_List withParams:dict withMethodType:Post andBlock:^(id data, NSError *error) {
         for (NSDictionary *obj in data[@"data"]) {

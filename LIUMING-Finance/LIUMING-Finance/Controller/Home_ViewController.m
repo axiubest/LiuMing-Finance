@@ -34,7 +34,9 @@
 
 - (void)setUpSliderValue {
     NSString *s =[NSString stringWithFormat:@"%ld",[[XIU_Login ui_limit] integerValue]/2];
-    _moneyLab.text = [s stringByReplacingCharactersInRange:NSMakeRange([XIU_Login ui_limit].length - 2, 2) withString:@"00"];//整百，为2/1 [XIU_Login ui_limit]值不为整百做保护
+    
+    _moneyLab.text =[NSString stringWithFormat:@"%ld", [[XIU_Login ui_limit] integerValue] / 2 ] ;
+//    _moneyLab.text = [s stringByReplacingCharactersInRange:NSMakeRange([XIU_Login ui_limit].length - 2, 2) withString:@"00"];//整百，为2/1 [XIU_Login ui_limit]值不为整百做保护
 
     _moneySlider.maximumValue = [[XIU_Login ui_limit] integerValue];
     _moneySlider.value = [[XIU_Login ui_limit] floatValue] / 2;
@@ -46,7 +48,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self request];
     [self setUpBase];
 
     NSLog(@"%@", kPathDocument);
@@ -55,7 +56,9 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self setUpSliderValue];
+    [self request];
+
+//    [self setUpSliderValue];
 }
 - (IBAction)clickSlider:(HKSlider *)sender {
     if (sender.tag == 111) {//money

@@ -311,6 +311,7 @@
             }if ([selectedValue[0] isEqualToString:@"女"]) {
                 num = @0;
             }
+            ui_sex = selectedValue[0];
           NSDictionary *dic = [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict];
             NSMutableDictionary *dics = [NSMutableDictionary dictionaryWithDictionary:dic];
             [dics setValue:num forKey:@"ui_sex"];

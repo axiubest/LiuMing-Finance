@@ -44,6 +44,7 @@
 #define API_Apply @"Index/applyMoney"
 #define API_updateUser @"Index/updateUser"
 #define API_payment @"Index/payment"
+#define API_repay @"Index/repay"
 
 
 #endif /* FileGlobalReference_h */

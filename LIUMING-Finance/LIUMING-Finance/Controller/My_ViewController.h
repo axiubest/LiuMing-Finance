@@ -8,6 +8,6 @@
 
 #import "XIU_ViewController.h"
 
-@interface My_ViewController : XIU_ViewController
+@interface My_ViewController : XIU_HiddenNavViewController
 
 @end
