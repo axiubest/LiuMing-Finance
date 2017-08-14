@@ -39,6 +39,7 @@
     [self setupTableView];
     [self addRefresh];
     [self request];
+    NSLog(@"-----%ld",_type);
     
 }
 
@@ -78,7 +79,9 @@
     else {
         dict = @{@"oi_state":[NSString stringWithFormat:@"%ld", _type], @"ui_id":[XIU_Login userId], @"page_num":[NSNumber numberWithInteger:page]};
     }
+    
     [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_List withParams:dict withMethodType:Post andBlock:^(id data, NSError *error) {
+        
         for (NSDictionary *obj in data[@"data"]) {
             
             MyListModel *model = [[MyListModel alloc] init];

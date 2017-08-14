@@ -52,6 +52,16 @@
 		04ECFC681F15B67100ADF59F /* HKPhotoUploadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04ECFC661F15B67100ADF59F /* HKPhotoUploadCell.xib */; };
 		184BBF411F2ADDB800282CDE /* HWPopTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 184BBF401F2ADDB800282CDE /* HWPopTool.m */; };
 		184BBF431F2AE1D900282CDE /* WechatIMG1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 184BBF421F2AE1D900282CDE /* WechatIMG1.jpeg */; };
+		18A92BB01F416C8200643279 /* XIU_WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A92BAF1F416C8200643279 /* XIU_WebViewController.m */; };
+		18A92BB51F41770900643279 /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A92BB21F41770900643279 /* NJKWebViewProgress.m */; };
+		18A92BB61F41770900643279 /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A92BB41F41770900643279 /* NJKWebViewProgressView.m */; };
+		18A92BB91F417B2700643279 /* AutographView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A92BB81F417B2700643279 /* AutographView.m */; };
+		18A92BBB1F417B3800643279 /* AutographView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A92BBA1F417B3800643279 /* AutographView.xib */; };
+		18A92BBE1F41891C00643279 /* MYDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A92BBD1F41891C00643279 /* MYDrawView.m */; };
+		18A92BC51F41966800643279 /* DWStroke.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A92BC01F41966800643279 /* DWStroke.m */; };
+		18A92BC61F41966800643279 /* DrawTouchPointView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A92BC21F41966800643279 /* DrawTouchPointView.m */; };
+		18A92BC71F41966800643279 /* DrawBackgoupImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A92BC41F41966800643279 /* DrawBackgoupImageView.m */; };
+		18A92BCA1F4198D200643279 /* xxxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A92BC91F4198D200643279 /* xxxViewController.m */; };
 		18B2A11A1F343DBF007C6473 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B2A1181F343DBF007C6473 /* SearchViewController.m */; };
 		18B2A11B1F343DBF007C6473 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18B2A1191F343DBF007C6473 /* SearchViewController.xib */; };
 		18F973851F3DA4A700E77934 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F973591F3DA4A700E77934 /* MJRefreshAutoFooter.m */; };
@@ -272,6 +282,25 @@
 		184BBF3F1F2ADDB800282CDE /* HWPopTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWPopTool.h; sourceTree = "<group>"; };
 		184BBF401F2ADDB800282CDE /* HWPopTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWPopTool.m; sourceTree = "<group>"; };
 		184BBF421F2AE1D900282CDE /* WechatIMG1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WechatIMG1.jpeg; sourceTree = "<group>"; };
+		18A92BAE1F416C8200643279 /* XIU_WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XIU_WebViewController.h; sourceTree = "<group>"; };
+		18A92BAF1F416C8200643279 /* XIU_WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XIU_WebViewController.m; sourceTree = "<group>"; };
+		18A92BB11F41770900643279 /* NJKWebViewProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgress.h; sourceTree = "<group>"; };
+		18A92BB21F41770900643279 /* NJKWebViewProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgress.m; sourceTree = "<group>"; };
+		18A92BB31F41770900643279 /* NJKWebViewProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgressView.h; sourceTree = "<group>"; };
+		18A92BB41F41770900643279 /* NJKWebViewProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgressView.m; sourceTree = "<group>"; };
+		18A92BB71F417B2700643279 /* AutographView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutographView.h; sourceTree = "<group>"; };
+		18A92BB81F417B2700643279 /* AutographView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutographView.m; sourceTree = "<group>"; };
+		18A92BBA1F417B3800643279 /* AutographView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutographView.xib; sourceTree = "<group>"; };
+		18A92BBC1F41891C00643279 /* MYDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDrawView.h; sourceTree = "<group>"; };
+		18A92BBD1F41891C00643279 /* MYDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDrawView.m; sourceTree = "<group>"; };
+		18A92BBF1F41966800643279 /* DWStroke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWStroke.h; sourceTree = "<group>"; };
+		18A92BC01F41966800643279 /* DWStroke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWStroke.m; sourceTree = "<group>"; };
+		18A92BC11F41966800643279 /* DrawTouchPointView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawTouchPointView.h; sourceTree = "<group>"; };
+		18A92BC21F41966800643279 /* DrawTouchPointView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawTouchPointView.m; sourceTree = "<group>"; };
+		18A92BC31F41966800643279 /* DrawBackgoupImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawBackgoupImageView.h; sourceTree = "<group>"; };
+		18A92BC41F41966800643279 /* DrawBackgoupImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawBackgoupImageView.m; sourceTree = "<group>"; };
+		18A92BC81F4198D200643279 /* xxxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xxxViewController.h; sourceTree = "<group>"; };
+		18A92BC91F4198D200643279 /* xxxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = xxxViewController.m; sourceTree = "<group>"; };
 		18B2A1171F343DBF007C6473 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		18B2A1181F343DBF007C6473 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		18B2A1191F343DBF007C6473 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
@@ -798,6 +827,10 @@
 				043E68F31F1762D30065016B /* MyProfit_ViewController.m */,
 				FA39B8F81F401D7500BA1D91 /* Contract_ViewController.h */,
 				FA39B8F91F401D7500BA1D91 /* Contract_ViewController.m */,
+				18A92BAE1F416C8200643279 /* XIU_WebViewController.h */,
+				18A92BAF1F416C8200643279 /* XIU_WebViewController.m */,
+				18A92BC81F4198D200643279 /* xxxViewController.h */,
+				18A92BC91F4198D200643279 /* xxxViewController.m */,
 				043E68FC1F1788F70065016B /* FinancialContribution_ViewController.h */,
 				043E68FD1F1788F80065016B /* FinancialContribution_ViewController.m */,
 				043E68FE1F1788F80065016B /* FinancialContribution_ViewController.xib */,
@@ -842,6 +875,10 @@
 		FA25BC921EF78F9900D7210C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				18A92BB11F41770900643279 /* NJKWebViewProgress.h */,
+				18A92BB21F41770900643279 /* NJKWebViewProgress.m */,
+				18A92BB31F41770900643279 /* NJKWebViewProgressView.h */,
+				18A92BB41F41770900643279 /* NJKWebViewProgressView.m */,
 				04A45B671F13C51600FC8FD9 /* HKSlider.h */,
 				04A45B681F13C51600FC8FD9 /* HKSlider.m */,
 				04A45B6D1F13D6CD00FC8FD9 /* HKButton.h */,
@@ -896,6 +933,17 @@
 				FA63F6FC1F3704CB007A278B /* TextFieldCell.xib */,
 				FA39B8FD1F401F2900BA1D91 /* ContractCell.h */,
 				FA39B8FE1F401F2900BA1D91 /* ContractCell.m */,
+				18A92BB71F417B2700643279 /* AutographView.h */,
+				18A92BB81F417B2700643279 /* AutographView.m */,
+				18A92BBA1F417B3800643279 /* AutographView.xib */,
+				18A92BBC1F41891C00643279 /* MYDrawView.h */,
+				18A92BBD1F41891C00643279 /* MYDrawView.m */,
+				18A92BBF1F41966800643279 /* DWStroke.h */,
+				18A92BC01F41966800643279 /* DWStroke.m */,
+				18A92BC11F41966800643279 /* DrawTouchPointView.h */,
+				18A92BC21F41966800643279 /* DrawTouchPointView.m */,
+				18A92BC31F41966800643279 /* DrawBackgoupImageView.h */,
+				18A92BC41F41966800643279 /* DrawBackgoupImageView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1225,6 +1273,7 @@
 				04DDC37E1F14C05A003D7567 /* HKNameRowCell.xib in Resources */,
 				043E68EC1F16A5E70065016B /* HKMyListCell.xib in Resources */,
 				184BBF431F2AE1D900282CDE /* WechatIMG1.jpeg in Resources */,
+				18A92BBB1F417B3800643279 /* AutographView.xib in Resources */,
 				FA25BC671EF7790900D7210C /* Main.storyboard in Resources */,
 				18F973931F3DA4A700E77934 /* MJRefresh.bundle in Resources */,
 				FA2B1C551F2F66E1000D889D /* Progress_ViewController.xib in Resources */,
@@ -1278,6 +1327,7 @@
 				04D82E531F16276B00FDCF34 /* BaseTableViewController.m in Sources */,
 				FA25BD481EF791A600D7210C /* MASConstraintMaker.m in Sources */,
 				FA25BD501EF791A600D7210C /* MBProgressHUD.m in Sources */,
+				18A92BBE1F41891C00643279 /* MYDrawView.m in Sources */,
 				04DDC36D1F149E7E003D7567 /* My_ToolCell.m in Sources */,
 				FA39B9001F401F2900BA1D91 /* ContractCell.m in Sources */,
 				04DDC3791F14B50F003D7567 /* HKBaseTableModel.m in Sources */,
@@ -1319,15 +1369,18 @@
 				FA25BD691EF791A600D7210C /* UIImageView+WebCache.m in Sources */,
 				FA25BCD11EF7918100D7210C /* NSString+Common.m in Sources */,
 				FA25BD451EF791A600D7210C /* UIView+BlocksKit.m in Sources */,
+				18A92BB61F41770900643279 /* NJKWebViewProgressView.m in Sources */,
 				FA25BD531EF791A600D7210C /* MJProperty.m in Sources */,
 				FA25BD701EF791BB00D7210C /* XIU_User.m in Sources */,
 				FAF6A33E1F1BA21D0068C0D5 /* IDInfoOne_ViewController.m in Sources */,
 				043E68FF1F1788F80065016B /* FinancialContribution_ViewController.m in Sources */,
+				18A92BC71F41966800643279 /* DrawBackgoupImageView.m in Sources */,
 				FA241BB61F20DE1D003899CE /* NullSafe.m in Sources */,
 				04D82E501F161B5600FDCF34 /* HKTitleBtn.m in Sources */,
 				043E68F51F1762D30065016B /* MyProfit_ViewController.m in Sources */,
 				04DDC3751F14ACEC003D7567 /* HKBaseTableViewCell.m in Sources */,
 				FA25BD511EF791A600D7210C /* MJExtensionConst.m in Sources */,
+				18A92BB01F416C8200643279 /* XIU_WebViewController.m in Sources */,
 				FA25BD5F1EF791A600D7210C /* SDWebImageDecoder.m in Sources */,
 				18F973861F3DA4A700E77934 /* MJRefreshBackFooter.m in Sources */,
 				FA25BD541EF791A600D7210C /* MJPropertyKey.m in Sources */,
@@ -1336,7 +1389,9 @@
 				04D82E421F15F99600FDCF34 /* HKMyInfoCell.m in Sources */,
 				FA0670251F23963200B0BC63 /* DistancePickerView.m in Sources */,
 				FA25BCBD1EF790B300D7210C /* More_ViewController.m in Sources */,
+				18A92BB91F417B2700643279 /* AutographView.m in Sources */,
 				FAF6A3481F1BA2980068C0D5 /* HKDelegateCell.m in Sources */,
+				18A92BC61F41966800643279 /* DrawTouchPointView.m in Sources */,
 				FA25BCD41EF7918100D7210C /* UIView+Common.m in Sources */,
 				FA25BD5E1EF791A600D7210C /* SDWebImageCompat.m in Sources */,
 				04DDC3821F14CB31003D7567 /* Delegate_ViewController.m in Sources */,
@@ -1351,6 +1406,7 @@
 				FA0670211F23963200B0BC63 /* ActionSheetDatePicker.m in Sources */,
 				043E69171F17D8FC0065016B /* HKNavigationController.m in Sources */,
 				18F9738E1F3DA4A700E77934 /* MJRefreshBackNormalFooter.m in Sources */,
+				18A92BCA1F4198D200643279 /* xxxViewController.m in Sources */,
 				04DDC38C1F14D618003D7567 /* HKSubmitCell.m in Sources */,
 				FAF6A3391F1B32C40068C0D5 /* MyInfo_ViewController.m in Sources */,
 				18F9738C1F3DA4A700E77934 /* MJRefreshAutoStateFooter.m in Sources */,
@@ -1374,6 +1430,7 @@
 				18F9738A1F3DA4A700E77934 /* MJRefreshAutoGifFooter.m in Sources */,
 				FAF6A3341F1B31560068C0D5 /* MyList_ViewController.m in Sources */,
 				18F973971F3DA4A700E77934 /* UIScrollView+MJRefresh.m in Sources */,
+				18A92BC51F41966800643279 /* DWStroke.m in Sources */,
 				18F973901F3DA4A700E77934 /* MJRefreshGifHeader.m in Sources */,
 				FA25BCD21EF7918100D7210C /* UIColor+Hex.m in Sources */,
 				FA25BD5C1EF791A600D7210C /* NSData+ImageContentType.m in Sources */,
@@ -1382,6 +1439,7 @@
 				18F9738B1F3DA4A700E77934 /* MJRefreshAutoNormalFooter.m in Sources */,
 				FA25BD4C1EF791A600D7210C /* NSArray+MASAdditions.m in Sources */,
 				FA25BD4D1EF791A600D7210C /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				18A92BB51F41770900643279 /* NJKWebViewProgress.m in Sources */,
 				FA25BD561EF791A600D7210C /* NSObject+MJClass.m in Sources */,
 				FA25BCD31EF7918100D7210C /* UINavigationBar+Awesome.m in Sources */,
 				FA0670231F23963200B0BC63 /* ActionSheetLocalePicker.m in Sources */,

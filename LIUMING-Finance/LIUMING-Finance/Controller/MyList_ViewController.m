@@ -18,7 +18,6 @@
 @property (weak, nonatomic) HKTitleBtn *selectedButton;
 @property (strong, nonatomic) MASConstraint *sliderViewCenterX;
 
-@property (nonatomic,strong) NSArray *buttons;
 @end
 
 @implementation MyList_ViewController
@@ -79,8 +78,8 @@
 {
     [self setupOneChildViewController:HKListTypeAll];
     [self setupOneChildViewController:HKListTypeBorrowMoney];
-    [self setupOneChildViewController:HKListTypeOverMoney];
     [self setupOneChildViewController:HKListTypeOverdue];
+    [self setupOneChildViewController:HKListTypeYuQi];
     [self setupOneChildViewController:HKListTypeSettle];
 }
 - (void)setupOneChildViewController:(HKListType)type
@@ -123,7 +122,6 @@
     HKTitleBtn *button3 = [self setupTitleButton:@"已逾期"];
     HKTitleBtn *button4 = [self setupTitleButton:@"已结清"];
     NSArray *a = @[button,button1,button2,button3,button4];
-    self.buttons = a;
     
     [self.contentView layoutIfNeeded];
     
@@ -149,9 +147,6 @@
     
 }
 
-//-(void)viewWillAppear:(BOOL)animated{
-//    [self titleClick:self.buttons[self.myType]];
-//}
 
 - (HKTitleBtn *)setupTitleButton:(NSString *)title
 {

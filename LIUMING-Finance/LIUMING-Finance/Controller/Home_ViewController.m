@@ -49,6 +49,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpBase];
+    [self request];
 
     NSLog(@"%@", kPathDocument);
 
@@ -56,7 +57,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self request];
 
 //    [self setUpSliderValue];
 }

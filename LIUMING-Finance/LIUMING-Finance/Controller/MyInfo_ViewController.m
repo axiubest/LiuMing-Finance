@@ -65,16 +65,17 @@
     [super viewWillAppear:animated];
     
     //要刷新
-
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"%@", kPathDocument);
     self.title = @"我的信息";
     ui_name = [XIU_Login ui_name];
     ui_sex = [XIU_Login ui_sex];
     ui_birthday = [XIU_Login ui_birthday];
     ui_address = [XIU_Login ui_address];
+
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -203,8 +204,7 @@
     if ([XIU_Login ui_img].length < 1 && tmpImg  == nil) {
         XIUHUD(@"请上传头像")return;
     }
-    
-    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_updateUser withParams:@{@"ui_id":[XIU_Login userId], @"ui_name":ui_name, @"ui_sex":[[XIU_Login ui_sex] isEqualToString:@"男"] ? @"1":@"0", @"ui_birthday":[XIU_Login ui_birthday], @"ui_img":[XIU_Login ui_img].length > 1 ? (tmpImg == nil ? @"" : [self imageBase64WithDataURL:tmpImg]) : [self imageBase64WithDataURL:tmpImg], @"ui_address":ui_address} withMethodType:Post andBlock:^(id data, NSError *error) {
+    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_updateUser withParams:@{@"ui_id":[XIU_Login userId], @"ui_name":ui_name, @"ui_sex":[ui_sex isEqualToString:@"男"] ? @"1":@"0", @"ui_birthday":[XIU_Login ui_birthday], @"ui_img":[XIU_Login ui_img].length > 1 ? (tmpImg == nil ? @"" : [self imageBase64WithDataURL:tmpImg]) : [self imageBase64WithDataURL:tmpImg], @"ui_address":ui_address} withMethodType:Post andBlock:^(id data, NSError *error) {
         if ([data[@"status"] isEqualToString:@"error"]) {
             XIUHUD(@"信息提交重复");
             return ;
@@ -305,17 +305,18 @@
     
     if (indexPath.section == 1 && indexPath.row == 2) {
         [ActionSheetStringPicker showPickerWithTitle:nil rows:@[@[@"男", @"女"]] initialSelection:@[@"男"] doneBlock:^(ActionSheetStringPicker *picker, NSArray * selectedIndex, NSArray *selectedValue) {
-            NSNumber *num = @1;
+            NSString *num = @"1";
             if ([selectedValue[0] isEqualToString:@"男"]) {
-                num = @1;
+                num = @"1";
             }if ([selectedValue[0] isEqualToString:@"女"]) {
-                num = @0;
+                num = @"0";
             }
+            
             ui_sex = selectedValue[0];
-          NSDictionary *dic = [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict];
+            
+            NSDictionary *dic = [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict];
             NSMutableDictionary *dics = [NSMutableDictionary dictionaryWithDictionary:dic];
             [dics setValue:num forKey:@"ui_sex"];
-
             [[NSUserDefaults standardUserDefaults]setObject:dics forKey:kLoginUserDict] ;
             [weakself.tableView reloadData];
             

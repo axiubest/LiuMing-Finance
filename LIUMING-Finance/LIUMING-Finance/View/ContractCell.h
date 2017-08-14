@@ -8,8 +8,25 @@
 
 #import <UIKit/UIKit.h>
 #import "ContractModel.h"
+
+@protocol ContractCellDelegate <NSObject>
+
+
+//居间协议
+- (void)clickJuJianBtnWithOi_pdf:(NSString *)pdf Oi_htid:(NSString *)oi_htid;
+
+
+//收据合同
+- (void)clickShouJuBtnWithOi_pdf:(NSString *)pdf Oi_htid:(NSString *)oi_htid;
+
+//借款合同
+- (void)clickJieKuanBtnWithOi_pdf:(NSString *)pdf Oi_htid:(NSString *)oi_htid;
+@end
+
 @interface ContractCell : UITableViewCell
 
+
+@property (assign, nonatomic) id<ContractCellDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UILabel *headerTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *bodyTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *bodySubTitleLabel;

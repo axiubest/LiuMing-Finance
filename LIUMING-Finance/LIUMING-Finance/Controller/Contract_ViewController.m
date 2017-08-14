@@ -10,7 +10,8 @@
 #import "MJRefresh.h"
 #import "ContractModel.h"
 #import "MJExtension.h"
-@interface Contract_ViewController ()
+#import "XIU_WebViewController.h"
+@interface Contract_ViewController ()<ContractCellDelegate>
 {
     NSInteger page;
 }
@@ -36,7 +37,7 @@
 - (void)request {
     //static NSString *const KBASEURL = @"http://xiaoming.liumingdai.com/index.php/home/";
     
-    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:@"Agreement/agreement_lists" withParams:@{@"ui_id":@"29",@"page_num":[NSNumber numberWithInteger:page]} withMethodType:Post andBlock:^(id data, NSError *error) {
+    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:@"Agreement/agreement_lists" withParams:@{@"ui_id":@"26",@"page_num":[NSNumber numberWithInteger:page]} withMethodType:Post andBlock:^(id data, NSError *error) {
         NSLog(@"%@", data);
         for (NSDictionary *obj in data[@"data"]) {
             ContractModel *mod  =[[ContractModel alloc] init];
@@ -44,7 +45,13 @@
             [self.dataSource addObject:mod];
         }
         [self.XIUTableView reloadData];
+        [self endRefresh];
     }];
+}
+
+-(void)endRefresh{
+    [self.XIUTableView.mj_header endRefreshing];
+    [self.XIUTableView.mj_footer endRefreshing];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -61,9 +68,35 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ContractCell *cell = [tableView dequeueReusableCellWithIdentifier:[ContractCell XIU_ClassIdentifier]];
     [cell setDta:self.dataSource[indexPath.section]];
-    [cell.JuJianBtn addTarget:self action:@selector(cickJuJianBtn) forControlEvents:UIControlEventTouchUpInside];
+    cell.delegate = self;
     return cell;
     
+}
+
+
+
+//居间协议1
+- (void)clickJuJianBtnWithOi_pdf:(NSString *)pdf Oi_htid:(NSString *)oi_htid{
+    [self pushWebViewWithPdf:pdf];
+}
+
+//借款合同2
+- (void)clickJieKuanBtnWithOi_pdf:(NSString *)pdf Oi_htid:(NSString *)oi_htid {
+    [self pushWebViewWithPdf:pdf];
+
+}
+//收据合同3
+- (void)clickShouJuBtnWithOi_pdf:(NSString *)pdf Oi_htid:(NSString *)oi_htid{
+    [self pushWebViewWithPdf:pdf];
+
+}
+
+
+- (void)pushWebViewWithPdf:(NSString *)pdf {
+    XIU_WebViewController *vc = [[XIU_WebViewController alloc] init];
+    vc.pdf_url = pdf;
+    [self presentViewController:vc animated:YES completion:nil];
+//    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

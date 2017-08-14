@@ -179,10 +179,12 @@ static XIU_User *curLoginUser;
 +(NSString *)ui_sex {
 
     
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_sex"]  isEqual: @0]) {
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_sex"]  isEqualToString: @"0"]) {
         return @"女";
-    }
+    }if ([[[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_sex"]  isEqualToString: @"1"]) {
         return @"男";
+    }
+        return @"未知";
 }
 
 + (BOOL)isVerification {

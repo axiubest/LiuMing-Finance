@@ -116,9 +116,7 @@
 }
 
 
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self setEditing:NO];
-}
+
 
 -(void)dealloc {
     [[NSNotificationCenter defaultCenter]removeObserver:self];
