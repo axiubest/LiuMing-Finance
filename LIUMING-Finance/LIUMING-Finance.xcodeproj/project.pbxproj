@@ -58,10 +58,6 @@
 		18A92BB91F417B2700643279 /* AutographView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A92BB81F417B2700643279 /* AutographView.m */; };
 		18A92BBB1F417B3800643279 /* AutographView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A92BBA1F417B3800643279 /* AutographView.xib */; };
 		18A92BBE1F41891C00643279 /* MYDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A92BBD1F41891C00643279 /* MYDrawView.m */; };
-		18A92BC51F41966800643279 /* DWStroke.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A92BC01F41966800643279 /* DWStroke.m */; };
-		18A92BC61F41966800643279 /* DrawTouchPointView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A92BC21F41966800643279 /* DrawTouchPointView.m */; };
-		18A92BC71F41966800643279 /* DrawBackgoupImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A92BC41F41966800643279 /* DrawBackgoupImageView.m */; };
-		18A92BCA1F4198D200643279 /* xxxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A92BC91F4198D200643279 /* xxxViewController.m */; };
 		18B2A11A1F343DBF007C6473 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B2A1181F343DBF007C6473 /* SearchViewController.m */; };
 		18B2A11B1F343DBF007C6473 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18B2A1191F343DBF007C6473 /* SearchViewController.xib */; };
 		18F973851F3DA4A700E77934 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F973591F3DA4A700E77934 /* MJRefreshAutoFooter.m */; };
@@ -293,14 +289,6 @@
 		18A92BBA1F417B3800643279 /* AutographView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutographView.xib; sourceTree = "<group>"; };
 		18A92BBC1F41891C00643279 /* MYDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDrawView.h; sourceTree = "<group>"; };
 		18A92BBD1F41891C00643279 /* MYDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDrawView.m; sourceTree = "<group>"; };
-		18A92BBF1F41966800643279 /* DWStroke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWStroke.h; sourceTree = "<group>"; };
-		18A92BC01F41966800643279 /* DWStroke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWStroke.m; sourceTree = "<group>"; };
-		18A92BC11F41966800643279 /* DrawTouchPointView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawTouchPointView.h; sourceTree = "<group>"; };
-		18A92BC21F41966800643279 /* DrawTouchPointView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawTouchPointView.m; sourceTree = "<group>"; };
-		18A92BC31F41966800643279 /* DrawBackgoupImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawBackgoupImageView.h; sourceTree = "<group>"; };
-		18A92BC41F41966800643279 /* DrawBackgoupImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawBackgoupImageView.m; sourceTree = "<group>"; };
-		18A92BC81F4198D200643279 /* xxxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xxxViewController.h; sourceTree = "<group>"; };
-		18A92BC91F4198D200643279 /* xxxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = xxxViewController.m; sourceTree = "<group>"; };
 		18B2A1171F343DBF007C6473 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		18B2A1181F343DBF007C6473 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		18B2A1191F343DBF007C6473 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
@@ -829,8 +817,6 @@
 				FA39B8F91F401D7500BA1D91 /* Contract_ViewController.m */,
 				18A92BAE1F416C8200643279 /* XIU_WebViewController.h */,
 				18A92BAF1F416C8200643279 /* XIU_WebViewController.m */,
-				18A92BC81F4198D200643279 /* xxxViewController.h */,
-				18A92BC91F4198D200643279 /* xxxViewController.m */,
 				043E68FC1F1788F70065016B /* FinancialContribution_ViewController.h */,
 				043E68FD1F1788F80065016B /* FinancialContribution_ViewController.m */,
 				043E68FE1F1788F80065016B /* FinancialContribution_ViewController.xib */,
@@ -938,12 +924,6 @@
 				18A92BBA1F417B3800643279 /* AutographView.xib */,
 				18A92BBC1F41891C00643279 /* MYDrawView.h */,
 				18A92BBD1F41891C00643279 /* MYDrawView.m */,
-				18A92BBF1F41966800643279 /* DWStroke.h */,
-				18A92BC01F41966800643279 /* DWStroke.m */,
-				18A92BC11F41966800643279 /* DrawTouchPointView.h */,
-				18A92BC21F41966800643279 /* DrawTouchPointView.m */,
-				18A92BC31F41966800643279 /* DrawBackgoupImageView.h */,
-				18A92BC41F41966800643279 /* DrawBackgoupImageView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1374,7 +1354,6 @@
 				FA25BD701EF791BB00D7210C /* XIU_User.m in Sources */,
 				FAF6A33E1F1BA21D0068C0D5 /* IDInfoOne_ViewController.m in Sources */,
 				043E68FF1F1788F80065016B /* FinancialContribution_ViewController.m in Sources */,
-				18A92BC71F41966800643279 /* DrawBackgoupImageView.m in Sources */,
 				FA241BB61F20DE1D003899CE /* NullSafe.m in Sources */,
 				04D82E501F161B5600FDCF34 /* HKTitleBtn.m in Sources */,
 				043E68F51F1762D30065016B /* MyProfit_ViewController.m in Sources */,
@@ -1391,7 +1370,6 @@
 				FA25BCBD1EF790B300D7210C /* More_ViewController.m in Sources */,
 				18A92BB91F417B2700643279 /* AutographView.m in Sources */,
 				FAF6A3481F1BA2980068C0D5 /* HKDelegateCell.m in Sources */,
-				18A92BC61F41966800643279 /* DrawTouchPointView.m in Sources */,
 				FA25BCD41EF7918100D7210C /* UIView+Common.m in Sources */,
 				FA25BD5E1EF791A600D7210C /* SDWebImageCompat.m in Sources */,
 				04DDC3821F14CB31003D7567 /* Delegate_ViewController.m in Sources */,
@@ -1406,7 +1384,6 @@
 				FA0670211F23963200B0BC63 /* ActionSheetDatePicker.m in Sources */,
 				043E69171F17D8FC0065016B /* HKNavigationController.m in Sources */,
 				18F9738E1F3DA4A700E77934 /* MJRefreshBackNormalFooter.m in Sources */,
-				18A92BCA1F4198D200643279 /* xxxViewController.m in Sources */,
 				04DDC38C1F14D618003D7567 /* HKSubmitCell.m in Sources */,
 				FAF6A3391F1B32C40068C0D5 /* MyInfo_ViewController.m in Sources */,
 				18F9738C1F3DA4A700E77934 /* MJRefreshAutoStateFooter.m in Sources */,
@@ -1430,7 +1407,6 @@
 				18F9738A1F3DA4A700E77934 /* MJRefreshAutoGifFooter.m in Sources */,
 				FAF6A3341F1B31560068C0D5 /* MyList_ViewController.m in Sources */,
 				18F973971F3DA4A700E77934 /* UIScrollView+MJRefresh.m in Sources */,
-				18A92BC51F41966800643279 /* DWStroke.m in Sources */,
 				18F973901F3DA4A700E77934 /* MJRefreshGifHeader.m in Sources */,
 				FA25BCD21EF7918100D7210C /* UIColor+Hex.m in Sources */,
 				FA25BD5C1EF791A600D7210C /* NSData+ImageContentType.m in Sources */,

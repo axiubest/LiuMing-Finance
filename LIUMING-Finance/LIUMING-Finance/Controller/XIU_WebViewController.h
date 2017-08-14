@@ -11,5 +11,7 @@
 @interface XIU_WebViewController : XIU_ViewController
 
 @property (nonatomic, copy) NSString *pdf_url;
+@property (nonatomic, copy) NSString *oi_id;
+@property (nonatomic, copy) NSString *hetong;
 
 @end

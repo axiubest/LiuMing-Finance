@@ -76,25 +76,27 @@
 
 
 //居间协议1
-- (void)clickJuJianBtnWithOi_pdf:(NSString *)pdf Oi_htid:(NSString *)oi_htid{
-    [self pushWebViewWithPdf:pdf];
+- (void)clickJuJianBtnWithOi_pdf:(NSString *)pdf Oi_htid:(NSString *)oi_htid Type:(NSString *)type{
+    [self pushWebViewWithPdf:pdf Oi_id:oi_htid  Type:type];
 }
 
 //借款合同2
-- (void)clickJieKuanBtnWithOi_pdf:(NSString *)pdf Oi_htid:(NSString *)oi_htid {
-    [self pushWebViewWithPdf:pdf];
+- (void)clickJieKuanBtnWithOi_pdf:(NSString *)pdf Oi_htid:(NSString *)oi_htid Type:(NSString *)type{
+    [self pushWebViewWithPdf:pdf Oi_id:oi_htid  Type:type];
 
 }
 //收据合同3
-- (void)clickShouJuBtnWithOi_pdf:(NSString *)pdf Oi_htid:(NSString *)oi_htid{
-    [self pushWebViewWithPdf:pdf];
+- (void)clickShouJuBtnWithOi_pdf:(NSString *)pdf Oi_htid:(NSString *)oi_htid Type:(NSString *)type{
+    [self pushWebViewWithPdf:pdf Oi_id:oi_htid Type:type];
 
 }
 
 
-- (void)pushWebViewWithPdf:(NSString *)pdf {
+- (void)pushWebViewWithPdf:(NSString *)pdf Oi_id:(NSString *)oi_id  Type:(NSString *)type{
     XIU_WebViewController *vc = [[XIU_WebViewController alloc] init];
     vc.pdf_url = pdf;
+    vc.hetong = type;
+    vc.oi_id = oi_id;
     [self presentViewController:vc animated:YES completion:nil];
 //    [self.navigationController pushViewController:vc animated:YES];
 }

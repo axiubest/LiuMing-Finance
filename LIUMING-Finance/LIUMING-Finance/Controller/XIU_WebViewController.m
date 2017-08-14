@@ -12,8 +12,7 @@
 #import "NJKWebViewProgressView.h"
 #import "AutographView.h"
 
-#import "xxxViewController.h"
-@interface XIU_WebViewController ()<UIWebViewDelegate, NJKWebViewProgressDelegate>
+@interface XIU_WebViewController ()<UIWebViewDelegate, NJKWebViewProgressDelegate,UIAlertViewDelegate>
 {
     UIWebView *_webView;
     NJKWebViewProgressView *_progressView;
@@ -42,9 +41,21 @@
 
 #pragma mark 确定
 - (void)clickSureWriteBtn {
-    
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"确定提交" message:@"签名将显示到合同中，确定即为生效" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    alert.delegate = self;
+    [alert show];
+}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        [self request];
+    }
 }
 
+- (void)request {
+    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:@"Agreement/to_sign" withParams:@{@"oi_id":_oi_id, @"hetong":_hetong} withMethodType:Post andBlock:^(id data, NSError *error) {
+        
+    }];
+}
 
 - (UIView *)headerView {
     if (!_headerView) {

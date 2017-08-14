@@ -52,7 +52,7 @@ hud.removeFromSuperViewOnHide = YES;
 [hud hide:YES afterDelay:1.5];
         return;
     }
-    [_delegate clickJuJianBtnWithOi_pdf:tmpModel.oi_pdf1 Oi_htid:tmpModel.oi_htid1];
+    [_delegate clickJuJianBtnWithOi_pdf:tmpModel.oi_pdf1 Oi_htid:tmpModel.oi_htid1 Type:@"1"];
 }
 - (IBAction)clickJieKuan:(id)sender {
     if (!(tmpModel.oi_htid2.length > 0)) {
@@ -63,7 +63,7 @@ hud.removeFromSuperViewOnHide = YES;
         [hud hide:YES afterDelay:1.5];
         return;
     }
-    [_delegate clickJieKuanBtnWithOi_pdf:tmpModel.oi_pdf2 Oi_htid:tmpModel.oi_htid2];
+    [_delegate clickJieKuanBtnWithOi_pdf:tmpModel.oi_pdf2 Oi_htid:tmpModel.oi_htid2 Type:@"2"];
 }
 - (IBAction)clickShouJu:(id)sender {
     if (!(tmpModel.oi_htid3.length > 0)) {
@@ -74,7 +74,7 @@ hud.removeFromSuperViewOnHide = YES;
         [hud hide:YES afterDelay:1.5];
         return;
     }
-    [_delegate clickShouJuBtnWithOi_pdf:tmpModel.oi_pdf3 Oi_htid:tmpModel.oi_htid3];
+    [_delegate clickShouJuBtnWithOi_pdf:tmpModel.oi_pdf3 Oi_htid:tmpModel.oi_htid3 Type:@"3"];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

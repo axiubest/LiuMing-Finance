@@ -155,7 +155,7 @@
 }
 
 - (void)request {
-    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_repay withParams:@{@"ui_id":[XIU_Login userId], @"pl_price":moneyStr,@"pl_oiid":_mod.oi_id, @"pl_loans":_mod.nowloans} withMethodType:Post andBlock:^(id data, NSError *error) {
+    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_repay withParams:@{@"ui_id":[XIU_Login userId], @"pl_price":moneyStr,@"pl_oiid":_mod.oi_id, @"pl_loans":_mod.nowloans, @"pl_hktype":[_moneyType isEqualToString:@"线上"] ? @"2" :@"1"} withMethodType:Post andBlock:^(id data, NSError *error) {
         if([data[@"status"] isEqualToString:@"error"]) {
         XIUHUD(@"借款失败");
             return ;
