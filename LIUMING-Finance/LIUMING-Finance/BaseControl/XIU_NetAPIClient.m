@@ -62,7 +62,7 @@ static dispatch_once_t onceToken;
                      withParams:(NSDictionary*)params
                  withMethodType:(NetworkMethod)method
                        andBlock:(void (^)(id data, NSError *error))block{
-    
+    NSLog(@"-----%@", params);
     NSString *path = [NSString stringWithFormat:@"%@%@",KBASEURL,aPath];
     [self requestJsonDataWithPath:path withParams:params withMethodType:method autoShowError:YES andBlock:block];
     

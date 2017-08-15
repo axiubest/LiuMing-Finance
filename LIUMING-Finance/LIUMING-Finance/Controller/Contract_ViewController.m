@@ -37,8 +37,8 @@
 - (void)request {
     //static NSString *const KBASEURL = @"http://xiaoming.liumingdai.com/index.php/home/";
     
-    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:@"Agreement/agreement_lists" withParams:@{@"ui_id":@"26",@"page_num":[NSNumber numberWithInteger:page]} withMethodType:Post andBlock:^(id data, NSError *error) {
-        NSLog(@"%@", data);
+    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:@"Agreement/agreement_lists" withParams:@{@"ui_id":[XIU_Login userId],@"page_num":[NSNumber numberWithInteger:page]} withMethodType:Post andBlock:^(id data, NSError *error) {
+
         for (NSDictionary *obj in data[@"data"]) {
             ContractModel *mod  =[[ContractModel alloc] init];
             mod = [ContractModel mj_objectWithKeyValues:obj];
