@@ -24,13 +24,6 @@
 
 @implementation BaseTableViewController
 
--(NSMutableArray *)arr{
-    if (!_arr) {
-
-         _arr = [NSMutableArray array];
-    }
-    return _arr;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -275,6 +268,13 @@
     }
 }
 
+-(NSMutableArray *)arr{
+    if (!_arr) {
+        
+        _arr = [NSMutableArray array];
+    }
+    return _arr;
+}
 
 
 @end

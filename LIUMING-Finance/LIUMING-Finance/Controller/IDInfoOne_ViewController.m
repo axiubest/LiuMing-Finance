@@ -339,10 +339,10 @@
     NSString *s =[NSString stringWithFormat:@"%ld",[ui_limit integerValue]];
     NSString* b= [s substringWithRange:NSMakeRange(s.length - 2,2)];
 
-    if (![b isEqualToString:@"00"]) {
-        XIUHUD(@"借款额度格式错误(例:1000,1800,3300)");
-        return;
-    }
+//    if (![b isEqualToString:@"00"]) {
+//        XIUHUD(@"借款额度格式错误(例:1000,1800,3300)");
+//        return;
+//    }
 
     if (ui_alipay.length < 5) {
         XIUHUD(@"请输入支付宝号码");

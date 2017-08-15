@@ -128,18 +128,7 @@
 }
 
 -(void)submitCellBtnClick:(HKSubmitCell *)cell{
-    if ([_moneyType isEqualToString:@"线上"]) {
-        _contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 300)];
-        _contentView.backgroundColor = [UIColor clearColor];
-        UIImageView *imageV = [[UIImageView alloc]initWithFrame:_contentView.bounds];
-        imageV.image = [UIImage imageNamed:@"WechatIMG1.jpeg"];
-        [_contentView addSubview:imageV];
-        
-        [HWPopTool sharedInstance].shadeBackgroundType = ShadeBackgroundTypeSolid;
-        [HWPopTool sharedInstance].closeButtonType = ButtonPositionTypeRight;
-        [[HWPopTool sharedInstance] showWithPresentView:_contentView animated:YES];
 
-    }
     UIAlertView *al = [[UIAlertView alloc] initWithTitle:@"确定还款" message:@"" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
     [al show];
     [self request];
@@ -150,14 +139,29 @@
     if (buttonIndex == 0) {
         
     }else {//确认
+        if ([_moneyType isEqualToString:@"线上"]) {
+            _contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 300)];
+            _contentView.backgroundColor = [UIColor clearColor];
+            UIImageView *imageV = [[UIImageView alloc]initWithFrame:_contentView.bounds];
+            imageV.image = [UIImage imageNamed:@"WechatIMG1.jpeg"];
+            [_contentView addSubview:imageV];
+            
+            [HWPopTool sharedInstance].shadeBackgroundType = ShadeBackgroundTypeSolid;
+            [HWPopTool sharedInstance].closeButtonType = ButtonPositionTypeRight;
+            [[HWPopTool sharedInstance] showWithPresentView:_contentView animated:YES];
+            
+        }
+        
         [self request];
     }
 }
 
 - (void)request {
-    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_repay withParams:@{@"ui_id":[XIU_Login userId], @"pl_price":moneyStr,@"pl_oiid":_mod.oi_id, @"pl_loans":_mod.nowloans, @"pl_hktype":[_moneyType isEqualToString:@"线上"] ? @"2" :@"1"} withMethodType:Post andBlock:^(id data, NSError *error) {
+    //保护
+    NSString *nowLoans = _mod.nowloans.length > 0 ?  _mod.nowloans : @"1";
+    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_repay withParams:@{@"ui_id":[XIU_Login userId], @"pl_price":moneyStr,@"pl_oiid":_mod.oi_id, @"pl_loans":nowLoans, @"pl_hktype":[_moneyType isEqualToString:@"线上"] ? @"2" :@"1"} withMethodType:Post andBlock:^(id data, NSError *error) {
         if([data[@"status"] isEqualToString:@"error"]) {
-        XIUHUD(@"借款失败");
+        XIUHUD(@"还款失败");
             return ;
         }
         if([data[@"status"] isEqualToString:@"repay"]) {

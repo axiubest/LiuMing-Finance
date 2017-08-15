@@ -49,7 +49,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpBase];
-    [self request];
+//    [self request];
 
     NSLog(@"%@", kPathDocument);
 
@@ -57,6 +57,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self request];
 
 //    [self setUpSliderValue];
 }
@@ -98,7 +99,8 @@
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:kXiaoxiState] isEqual:@3]) {
         HKPerfectInfoView *infoView = [HKPerfectInfoView perfectInfoView];
         infoView.destribtionList.text = @"正在审核中";
-        [infoView.btn setTitle:@"查看进度" forState:UIControlStateNormal];
+
+        infoView.btn.hidden = YES;
         infoView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
         infoView.myDelegate = self;
         [infoView show];
@@ -212,7 +214,7 @@
             return ;
         }
         if ([num isEqual:@2]) {//不完善
-            [self gotoInfo];
+//            [self gotoInfo];
             return ;
         }
 
