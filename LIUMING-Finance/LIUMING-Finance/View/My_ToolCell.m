@@ -36,7 +36,7 @@
         [_delegate clickMy_ToolCellWithTag:HKListTypeOverdue];
     }];
     [_overView bk_whenTapped:^{
-        [_delegate clickMy_ToolCellWithTag:HKListTypeSettle];
+        [_delegate clickMy_ToolCellWithTag:4];
     }];
 }
 

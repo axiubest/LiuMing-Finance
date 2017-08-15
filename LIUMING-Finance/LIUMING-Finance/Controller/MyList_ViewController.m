@@ -125,6 +125,8 @@
     
     [self.contentView layoutIfNeeded];
     
+    
+    
     [self titleClick:a[self.myType]];
     
     
