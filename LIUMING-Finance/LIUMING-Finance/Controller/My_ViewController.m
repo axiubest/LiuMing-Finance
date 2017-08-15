@@ -251,6 +251,7 @@
         if (!data[@"data"]) {//baohu
             return;
         }
+        [self.dataDic setObject:[data[@"data"][@"jl_name"] length] > 0 ? data[@"data"][@"jl_name"] : @"--"forKey:@"jl_name"];
         [self.dataDic setObject:[data[@"data"][@"profit"] length] > 0 ? data[@"data"][@"profit"] : @"0.00"forKey:@"profit"];
         [self.dataDic setObject:[data[@"data"][@"tjr_name"] length] > 0 ? data[@"data"][@"tjr_name"] : @"" forKey:@"tjr_name"];
         [self.dataDic setObject:[data[@"data"][@"ui_limit"] length] > 0 ? data[@"data"][@"ui_limit"] : @"0.00" forKey:@"ui_limit"];//额度

@@ -19,7 +19,7 @@
 
 - (void)setDta:(ContractModel *)model {
     tmpModel = model;
-    _headerTitleLabel.text =[NSString stringWithFormat:@"订单编号：%@",model.oi_id];
+    _headerTitleLabel.text =[NSString stringWithFormat:@"订单编号：%@",model.oi_num];
     _bodyTitleLabel.text = [NSString stringWithFormat:@"借款%@元，分%@期",model.oi_jkprice, model.oi_jkloans];
     _footerTitleLabel.text = [NSString stringWithFormat:@"借款日期：%@", model.hktime];
     
