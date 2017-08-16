@@ -49,7 +49,8 @@
     HKMyListCell *cell = [HKMyListCell myListCell];
     cell.dataDic = dic;
     cell.headerImg.image = [UIImage imageNamed:@"已出账单"];
-    cell.headerTitleLabel.text = @"已出账单";
+    
+    cell.headerTitleLabel.text =[NSString stringWithFormat:@"已出账单:%@", model.oi_num];
     cell.headerSubTitleLabel.text = model.oi_state;
     if ([model.oi_state isEqualToString:@"已还款"]) {
         cell.headerSubTitleLabel.textColor = [UIColor colorWithHexString:@"#1a7aff"];
@@ -66,7 +67,9 @@
         cell.bodyFineLabel.hidden = YES;
     }
 
-    if ([model.oi_state isEqualToString:@"已逾期"]) {
+    if ([model.oi_state isEqualToString:@"已逾期"] || [model.oi_state isEqualToString:@"待催收"]) {
+        cell.footerBtn.hidden = NO;
+
         [cell.footerBtn setTitle:@"立即催收" forState:UIControlStateNormal];
         [cell.footerBtn.layer setBorderColor:CGColorCreate(CGColorSpaceCreateDeviceRGB(), (CGFloat[]){26/255.0, 113/255.0, 1, 1 })];
         [cell.footerBtn setTitleColor:[UIColor colorWithHexString:@"#1a7aff"] forState:UIControlStateNormal];

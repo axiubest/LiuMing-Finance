@@ -73,7 +73,7 @@
         dict = @{@"oi_state":[NSString stringWithFormat:@"%ld", _type], @"ui_id":[XIU_Login userId], @"page_num":[NSNumber numberWithInteger:page]};
     }
     
-    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_List withParams:dict withMethodType:Post andBlock:^(id data, NSError *error) {
+    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:[self.title isEqualToString:@"催收订单"] ? API_home : API_List withParams:dict withMethodType:Post andBlock:^(id data, NSError *error) {
         
         for (NSDictionary *obj in data[@"data"]) {
             
@@ -140,7 +140,7 @@
         HKMyListCell *cell = [HKMyListCell myListCell];
         cell.dataDic = dic;
         cell.headerImg.image = [UIImage imageNamed:@"已出账单"];
-        cell.headerTitleLabel.text = @"已出账单";
+        cell.headerTitleLabel.text =[NSString stringWithFormat:@"已出账单:%@", model.oi_num];
         cell.headerSubTitleLabel.text = model.oi_state;
         if ([model.oi_state isEqualToString:@"已还款"]) {
             cell.headerSubTitleLabel.textColor = [UIColor colorWithHexString:@"#1a7aff"];
@@ -157,7 +157,7 @@
                 cell.bodyFineLabel.hidden = YES;
             }
         cell.footerTitleLabel.text =[NSString stringWithFormat:@"还款日期：%@",model.hktime] ;
-        if ([model.oi_state isEqualToString:@"已逾期"]) {
+        if ([model.oi_state isEqualToString:@"已逾期"] || [model.oi_state isEqualToString:@"待催收"]) {
             [cell.footerBtn setTitle:@"立即催收" forState:UIControlStateNormal];
             
             [cell.footerBtn.layer setBorderColor:CGColorCreate(CGColorSpaceCreateDeviceRGB(), (CGFloat[]){26/255.0, 113/255.0, 1, 1 })];
@@ -246,7 +246,10 @@
 
     }
     if ([self.title isEqualToString:@"催收订单"]) {
-       NSMutableString *str=[[NSMutableString alloc] initWithFormat:@"tel:%@",@"186xxxx6979"];
+        HKMyListCell *cell = (HKMyListCell *)[[[sender superview] superview] superview];
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        
+        NSMutableString *str=[[NSMutableString alloc] initWithFormat:@"tel:%@",[self.arr[indexPath.row] ui_phone]];
         
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
         

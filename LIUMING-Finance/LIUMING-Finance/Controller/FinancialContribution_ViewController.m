@@ -111,7 +111,7 @@
     [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_payment withParams:@{@"oi_id":[self.dataSource[indexPath.row] oi_id]} withMethodType:Post andBlock:^(id data, NSError *error) {
         if ([data[@"status"] isEqualToString:@"sucess"]) {
             XIUHUD(@"提交成功");
-            
+            [self.dataSource removeAllObjects];
             [self request];
         }if ([data[@"status"] isEqualToString:@"error"]) {
             XIUHUD(@"提交失败");
@@ -125,7 +125,7 @@
     [cell.footerZFBBtn addTarget:self action:@selector(clickAliPayIdCopy:) forControlEvents:UIControlEventTouchUpInside];
     [cell.footerBtn addTarget:self action:@selector(clickFooterBtn:) forControlEvents:UIControlEventTouchUpInside];
     cell.headerImg.image = [UIImage imageNamed:@"已出账单"];
-    cell.headerTitleLabel.text = [NSString stringWithFormat:@"订单编号：%@", [self.dataSource[indexPath.row] oi_id]];
+    cell.headerTitleLabel.text = [NSString stringWithFormat:@"订单编号：%@", [self.dataSource[indexPath.row] oi_num]];
     
     NSString *type = [[self.dataSource[indexPath.row] oi_state] isEqualToString:@"1"] ? @"未打款" : @"已打款";
     cell.headerSubTitleLabel.text = type;
