@@ -91,10 +91,10 @@
             if ([model.oi_state isEqualToString:@"3"]) {
                 model.oi_state = @"已还款";
             }
-            if ([model.oi_state isEqualToString:@"5"]) {
+            if ([model.oi_state isEqualToString:@"4"]) {
                 model.oi_state = @"已逾期";
             }
-            if ([model.oi_state isEqualToString:@"4"]) {
+            if ([model.oi_state isEqualToString:@"5"]) {
                 model.oi_state = @"已结清";
             }
             if ([model.oi_state isEqualToString:@"6"]) {
