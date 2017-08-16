@@ -60,7 +60,7 @@
     cell.bodySubTitleLabel.text = model.myyhprice;
     cell.footerTitleLabel.text =[NSString stringWithFormat:@"还款日期：%@",model.hktime] ;
     if ([model.fxprice integerValue] > 0) {
-        cell.bodyFineLabel.text = [NSString stringWithFormat:@"(含罚息：%ld元)", [model.fxprice integerValue]];
+        cell.bodyFineLabel.text = [NSString stringWithFormat:@"(含罚息：%@元)",model.fxprice];
         cell.bodyFineLabel.hidden = NO;
     }else{
         cell.bodyFineLabel.hidden = YES;
@@ -133,7 +133,7 @@
     }
 
     
-    [[XIU_NetAPIClient sharedJsonClient] requestJsonDataWithPath:API_home withParams:@{@"ui_type":@5, @"oi_state":@"", @"oi_num":searchText, @"ui_id":@"1"} withMethodType:Post andBlock:^(id data, NSError *error) {
+    [[XIU_NetAPIClient sharedJsonClient] requestJsonDataWithPath:API_home withParams:@{@"ui_type":@5, @"oi_state":@"", @"oi_num":searchText, @"ui_id":[XIU_Login userId]} withMethodType:Post andBlock:^(id data, NSError *error) {
         
         [self.dataSource removeAllObjects];
         for (NSDictionary *obj in data[@"data"]) {
@@ -152,10 +152,10 @@
             if ([model.oi_state isEqualToString:@"3"]) {
                 model.oi_state = @"已还款";
             }
-            if ([model.oi_state isEqualToString:@"5"]) {
+            if ([model.oi_state isEqualToString:@"4"]) {
                 model.oi_state = @"已逾期";
             }
-            if ([model.oi_state isEqualToString:@"4"]) {
+            if ([model.oi_state isEqualToString:@"5"]) {
                 model.oi_state = @"已结清";
             }
             if ([model.oi_state isEqualToString:@"6"]) {

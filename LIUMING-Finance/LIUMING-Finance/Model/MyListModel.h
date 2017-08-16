@@ -10,8 +10,8 @@
 
 @interface MyListModel : NSObject
 
-@property (nonatomic, strong) NSString *oi_id, *oi_num, *oi_uid, *oi_addtime, *oi_jkprice, *oi_jkloans, *oi_state, *oi_kfjlid, *oi_reason, *oi_mark, *oi_dkaddtime, *nowloans, *hktime, *myyhprice, *name, *ui_phone, *ui_alipay, *hkzje;
+@property (nonatomic, strong) NSString *oi_id, *oi_num, *oi_uid, *oi_addtime, *oi_jkprice, *oi_jkloans, *oi_state, *oi_kfjlid, *oi_reason, *oi_mark, *oi_dkaddtime, *nowloans, *hktime, *myyhprice, *name, *ui_phone, *ui_alipay, *hkzje,*fxprice;
 
-@property (nonatomic, strong) NSNumber *tian, *wyprice, *fxprice;
+@property (nonatomic, strong) NSNumber *tian, *wyprice;
 
 @end

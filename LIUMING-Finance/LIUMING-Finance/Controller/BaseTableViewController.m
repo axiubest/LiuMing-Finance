@@ -150,8 +150,8 @@
         cell.bodyTitleLabel.text = [NSString stringWithFormat:@"借款%@元, 分%@期 %@-%@", model.oi_jkprice, model.oi_jkloans, model.nowloans, model.oi_jkloans];
 
         cell.bodySubTitleLabel.text = model.hkzje;
-            if ([model.fxprice integerValue] > 0) {
-                cell.bodyFineLabel.text = [NSString stringWithFormat:@"(含罚息：%ld元)", [model.fxprice integerValue]];
+            if (model.fxprice.length> 0) {
+                cell.bodyFineLabel.text = [NSString stringWithFormat:@"(含罚息：%@元)", model.fxprice];
                 cell.bodyFineLabel.hidden = NO;
             }else{
                 cell.bodyFineLabel.hidden = YES;
@@ -201,6 +201,12 @@
     }
    
     cell.bodySubTitleLabel.text = model.hkzje;
+    if (model.fxprice.length> 0 && ![model.fxprice isEqualToString:@"0.00"]) {
+        cell.bodyFineLabel.text = [NSString stringWithFormat:@"(含罚息：%@元)", model.fxprice];
+        cell.bodyFineLabel.hidden = NO;
+    }else{
+        cell.bodyFineLabel.hidden = YES;
+    }
 
     if ([model.oi_state isEqualToString:@"借款中"] || [model.oi_state isEqualToString:@"已逾期"] || [model.oi_state isEqualToString:@"还款中"]) {
             [cell.footerBtn setTitle:@"立即还款" forState:UIControlStateNormal];

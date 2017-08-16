@@ -57,7 +57,7 @@
                  @{@"iconImage":@"还款方式",@"title":@"罚息",@"subtitle":subtitle},
                   @{@"iconImage":@"还款方式",@"title":@"还款方式",@"subtitle":_moneyType},
                   @{@"iconImage":@"还款状态",@"title":@"还款状态",@"subtitle":_mod.oi_state},
-                  @{@"iconImage":@"还款总额",@"title":@"还款总额",@"subtitle":moneyStr}
+                  @{@"iconImage":@"还款总额",@"title":@"还款总额",@"subtitle":_mod.hkzje}
                  ];
     
 }
