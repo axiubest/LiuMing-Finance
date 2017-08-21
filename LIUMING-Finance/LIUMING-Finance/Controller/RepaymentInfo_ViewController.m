@@ -143,6 +143,7 @@
             _contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 300)];
             _contentView.backgroundColor = [UIColor clearColor];
             PopView *pop = [[NSBundle mainBundle]loadNibNamed:[PopView XIU_ClassIdentifier] owner:self options:nil].lastObject;
+            pop.payNum.text = _mod.com_mobile;
             [pop.bottomBtn addTarget:self action:@selector(clickCopyAliPay) forControlEvents:UIControlEventTouchUpInside];
             pop.frame = _contentView.bounds;
             
@@ -160,12 +161,12 @@
     }
 }
 
-
 #pragma mark 复制支付宝账号按钮
+
 - (void)clickCopyAliPay {
     [[HWPopTool sharedInstance] closeWithBlcok:nil];
     UIPasteboard*pasteboard = [UIPasteboard generalPasteboard];
-    pasteboard.string=@"15555555555";
+    pasteboard.string=_mod.com_mobile;
     dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0/*延迟执行时间*/ * NSEC_PER_SEC));
     
     dispatch_after(delayTime, dispatch_get_main_queue(), ^{
@@ -173,6 +174,7 @@
     });
     
 }
+
 - (void)request {
     //保护
     NSString *nowLoans = _mod.nowloans.length > 0 ?  _mod.nowloans : @"1";

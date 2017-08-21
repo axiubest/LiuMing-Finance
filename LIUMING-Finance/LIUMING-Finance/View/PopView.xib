@@ -53,6 +53,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="bottomBtn" destination="xZG-gw-kkb" id="N9Y-Q3-1ma"/>
+                <outlet property="payNum" destination="fGe-iS-2Pk" id="vtz-F9-bwK"/>
             </connections>
             <point key="canvasLocation" x="-4.5" y="-104.5"/>
         </view>

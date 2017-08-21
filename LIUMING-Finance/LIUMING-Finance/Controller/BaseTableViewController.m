@@ -18,6 +18,7 @@
 @interface BaseTableViewController ()
 {
     NSInteger page;
+    NSString *tmpAliPayNum;
 }
 @property (strong, nonatomic) UIView *contentView;
 
@@ -33,7 +34,6 @@
     [self setupTableView];
     [self addRefresh];
     [self request];
-    NSLog(@"-----%ld",_type);
     
 }
 
@@ -223,13 +223,18 @@
 #pragma mark 按钮点击
 - (void)clickBtn:(UIButton *)sender {
     
+    
+    
     if ([self.title isEqualToString:@"我的清单"])  {
-        
+        HKMyListCell *cell = (HKMyListCell *)[[[sender superview] superview] superview];
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
         _contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 300)];
         _contentView.backgroundColor = [UIColor clearColor];
 //        UIImageView *imageV = [[UIImageView alloc]initWithFrame:_contentView.bounds];
         
         PopView *pop = [[NSBundle mainBundle]loadNibNamed:[PopView XIU_ClassIdentifier] owner:self options:nil].lastObject;
+        pop.payNum.text = [self.arr[indexPath.row] com_mobile];
+        tmpAliPayNum = pop.payNum.text;
         [pop.bottomBtn addTarget:self action:@selector(clickCopyAliPay) forControlEvents:UIControlEventTouchUpInside];
         pop.frame = _contentView.bounds;
         
@@ -258,7 +263,7 @@
 - (void)clickCopyAliPay {
     [[HWPopTool sharedInstance] closeWithBlcok:nil];
     UIPasteboard*pasteboard = [UIPasteboard generalPasteboard];
-    pasteboard.string=@"15555555555";
+    pasteboard.string=tmpAliPayNum;
     dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0/*延迟执行时间*/ * NSEC_PER_SEC));
     
     dispatch_after(delayTime, dispatch_get_main_queue(), ^{

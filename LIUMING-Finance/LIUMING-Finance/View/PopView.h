@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *bottomBtn;
 
 
+@property (weak, nonatomic) IBOutlet UILabel *payNum;
 
 @end
