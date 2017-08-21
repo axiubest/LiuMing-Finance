@@ -31,7 +31,9 @@ typedef NS_ENUM(NSUInteger, HKListType) {
 #define kXiaoxiState @"kXiaoxiState"
 
 
-#define ManagerType @"10"
+#define ManagerType @"6"
+#define ThirdType @"9"//第三方人员
+
 static NSInteger HUDProgress_Time = 1;
 
 #define NB_FONT(r) [UIFont fontWithName:@"PingFang-SC-Regular" size:r]

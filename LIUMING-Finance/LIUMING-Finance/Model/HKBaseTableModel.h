@@ -12,4 +12,11 @@
 @property (nonatomic,copy) NSString *iconImg;
 @property (nonatomic,copy) NSString *iconTitle;
 @property (nonatomic,copy) NSString *subTitle;
+
+
+
+@property (nonatomic, copy) NSString *ui_name;
+@property (nonatomic, copy) NSString *ui_phone;
+@property (nonatomic, copy) NSString *ui_qqwx;
+
 @end

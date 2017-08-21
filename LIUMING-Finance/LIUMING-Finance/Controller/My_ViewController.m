@@ -51,6 +51,10 @@
         model.iconTitle = @"客户经理";
         model.subTitle = [self.dataDic[@"tjr_name"] length] > 0 ?  self.dataDic[@"tjr_name"] : @"--";
 
+        HKBaseTableModel *model4 = [[HKBaseTableModel alloc] init];
+        model4.iconImg = @"客户经理";
+        model4.iconTitle = @"推荐码";
+
 
         HKBaseTableModel *model1 = [[HKBaseTableModel alloc] init];
         model1.iconImg = @"申请代理";
@@ -61,7 +65,7 @@
         HKBaseTableModel *model3 = [[HKBaseTableModel alloc] init];
         model3.iconImg = @"关于我们";
         model3.iconTitle = @"关于我们";
-        _arr = @[@0,@0,@[model],@[model1,model2],@[model3]];
+        _arr = @[@0,@0,@[model],@[model1,model2,model4],@[model3]];
     }
     return _arr;
 }
@@ -104,7 +108,7 @@
     }else if(section == 2){
         return 1;
     }else if(section == 3){
-        return 2;
+        return 3;
     }else{
         return 1;
     }
@@ -151,10 +155,14 @@
         cell.model = arr[indexPath.row];
         if (indexPath.section == 2) {
             cell.subLabel.text = [self.dataDic[@"jl_name"] isKindOfClass:[NSNull class]] ? @"--": self.dataDic[@"jl_name"];
+        }if (indexPath.section == 3 && indexPath.row == 2) {//推荐码
+            cell.subLabel.text =[NSString stringWithFormat:@"%@(点击复制)",self.dataDic[@"me_ui_code"]];
         }
+
         return cell;
         
-    }if (indexPath.section == 5) {
+    }
+    if (indexPath.section == 5) {
         EditCell *cell = [tableView dequeueReusableCellWithIdentifier:[EditCell XIU_ClassIdentifier]];
         [cell.editBtn addTarget:self action:@selector(clickEditBtn) forControlEvents:UIControlEventTouchUpInside];
         return cell;
@@ -226,9 +234,7 @@
 }
 -(void)nameTableProfitViewClick:(HKNameTableViewCell *)view{
     [self performSegueWithIdentifier:@"MyProfit" sender:self];
-//    MyProfit_ViewController *vc = [[MyProfit_ViewController alloc] init];
-//    vc.allGetStr = self.dataDic[@"profit"];
-//    [self.navigationController  pushViewController:vc animated:YES];
+
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -246,6 +252,7 @@
         if (!data[@"data"]) {//baohu
             return;
         }
+       [self.dataDic setObject:[data[@"data"][@"me_ui_code"] length] > 0 ? data[@"data"][@"me_ui_code"] : @"--"forKey:@"me_ui_code"];
         [self.dataDic setObject:[data[@"data"][@"jl_name"] length] > 0 ? data[@"data"][@"jl_name"] : @"--"forKey:@"jl_name"];
         [self.dataDic setObject:[data[@"data"][@"profit"] length] > 0 ? data[@"data"][@"profit"] : @"0.00"forKey:@"profit"];
         [self.dataDic setObject:[data[@"data"][@"tjr_name"] length] > 0 ? data[@"data"][@"tjr_name"] : @"" forKey:@"tjr_name"];

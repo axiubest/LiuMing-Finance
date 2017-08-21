@@ -13,6 +13,7 @@
 #import "HKNavigationController.h"
 #import "MyList_ViewController.h"
 #import "Manager_ViewController.h"
+#import "Contract_ViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -26,9 +27,11 @@
     
 //    [self normal];
     Manager_ViewController *v = [[Manager_ViewController alloc] init];
-    v.title = @"客户经理";
+    v.title = @"合同列表";
     HKNavigationController *nav = [[HKNavigationController alloc] initWithRootViewController:v];
     self.window.rootViewController = nav;
+
+
     
     [self.window makeKeyAndVisible];
     return YES;
@@ -42,8 +45,8 @@
         
         self.window.rootViewController = [Login_ViewController loadViewControllerFromMainStoryBoard];
     }else{
-        //3终端 2财务 5催收
-        if ([[XIU_Login type] isEqualToString:@"3"] ||[[XIU_Login type] isEqualToString:@"6"] || [[XIU_Login type] isEqualToString:@"7"]) {
+        //3终端 2财务 5催收 6客户经理
+        if ([[XIU_Login type] isEqualToString:@"3"] || [[XIU_Login type] isEqualToString:@"7"]) {
             self.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
             
         }if ([[XIU_Login type] isEqualToString:@"2"]) {
@@ -61,6 +64,12 @@
         if ([[XIU_Login type] isEqualToString:ManagerType]) {//经理
             Manager_ViewController *v = [[Manager_ViewController alloc] init];
             v.title = @"客户经理";
+            HKNavigationController *nav = [[HKNavigationController alloc] initWithRootViewController:v];
+            self.window.rootViewController = nav;
+         
+        }if ([[XIU_Login type] isEqualToString:ThirdType]) {//第三方人员显示合同列表
+            Contract_ViewController *v = [[Contract_ViewController alloc] init];
+            v.title = @"合同列表";
             HKNavigationController *nav = [[HKNavigationController alloc] initWithRootViewController:v];
             self.window.rootViewController = nav;
             

@@ -13,6 +13,7 @@
 #import "FinancialContribution_ViewController.h"
 #import "MyList_ViewController.h"
 #import "Manager_ViewController.h"
+#import "Contract_ViewController.h"
 @interface Login_ViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
 
@@ -86,7 +87,7 @@
     hud.labelText = @"正在登录";
     hud.removeFromSuperViewOnHide = YES;
 
-        if ([[XIU_Login type] isEqualToString:@"3"]||[[XIU_Login type] isEqualToString:@"6"] || [[XIU_Login type] isEqualToString:@"7"]) {
+        if ([[XIU_Login type] isEqualToString:@"3"] || [[XIU_Login type] isEqualToString:@"7"]) {
             [hud hide:YES];
             [UIApplication sharedApplication].keyWindow.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
             
@@ -111,7 +112,13 @@
             v.title = @"客户经理";
             HKNavigationController *nav = [[HKNavigationController alloc] initWithRootViewController:v];
             [UIApplication sharedApplication].keyWindow.rootViewController = nav;
+        }if ([[XIU_Login type] isEqualToString:ThirdType]) {//第三方人员显示合同列表
+            Contract_ViewController *v = [[Contract_ViewController alloc] init];
+            v.title = @"合同列表";
+            HKNavigationController *nav = [[HKNavigationController alloc] initWithRootViewController:v];
+              [UIApplication sharedApplication].keyWindow.rootViewController = nav;
         }
+
     }];
     
  
