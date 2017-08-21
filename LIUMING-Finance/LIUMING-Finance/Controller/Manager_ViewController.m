@@ -101,8 +101,9 @@
 - (void)clickCallBtn:(UIButton *)sender {
     ManagerCell *cell = (ManagerCell *)[[[sender superview] superview] superview];
     NSIndexPath *indexP = [self.XIUTableView indexPathForCell:cell];
-    
-    
+    NSMutableString *str=[[NSMutableString alloc] initWithFormat:@"tel:%@",[self.dataSource[indexP.section] ui_phone]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+
 }
 - (void)request {
     [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:@"Index/index"withParams:@{@"ui_id":@"28",@"page_num":@"1", @"ui_type":@"6"} withMethodType:Post andBlock:^(id data, NSError *error) {
