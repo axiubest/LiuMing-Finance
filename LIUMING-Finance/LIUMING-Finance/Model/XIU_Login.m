@@ -99,6 +99,35 @@ static XIU_User *curLoginUser;
     return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_phone2"];
 }
 
++(NSString *)ui_name3 {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_name3"];
+}
++(NSString *)ui_phone3 {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_phone3"];
+}
+
++(NSString *)ui_name4 {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_name4"];
+}
++(NSString *)ui_phone4 {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_phone4"];
+}
+
++(NSString *)ui_name5 {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_name5"];
+}
++(NSString *)ui_phone5 {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_phone5"];
+}
+
++(NSString *)ui_name6 {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_name6"];
+}
++(NSString *)ui_phone6 {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_phone6"];
+}
+
+
 +(NSString *)ui_workname {
     return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_workname"];
 

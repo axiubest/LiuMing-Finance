@@ -60,6 +60,12 @@
 		18A92BBE1F41891C00643279 /* MYDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A92BBD1F41891C00643279 /* MYDrawView.m */; };
 		18B2A11A1F343DBF007C6473 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B2A1181F343DBF007C6473 /* SearchViewController.m */; };
 		18B2A11B1F343DBF007C6473 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18B2A1191F343DBF007C6473 /* SearchViewController.xib */; };
+		18ED3BA01F4A886C002E9AA6 /* PopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18ED3B9F1F4A886C002E9AA6 /* PopView.m */; };
+		18ED3BA21F4A8878002E9AA6 /* PopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18ED3BA11F4A8878002E9AA6 /* PopView.xib */; };
+		18ED3BA61F4AA6E3002E9AA6 /* ManagerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18ED3BA41F4AA6E3002E9AA6 /* ManagerCell.m */; };
+		18ED3BA71F4AA6E3002E9AA6 /* ManagerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18ED3BA51F4AA6E3002E9AA6 /* ManagerCell.xib */; };
+		18ED3BAB1F4AA9A4002E9AA6 /* Manager_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18ED3BA91F4AA9A4002E9AA6 /* Manager_ViewController.m */; };
+		18ED3BAC1F4AA9A4002E9AA6 /* Manager_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18ED3BAA1F4AA9A4002E9AA6 /* Manager_ViewController.xib */; };
 		18F973851F3DA4A700E77934 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F973591F3DA4A700E77934 /* MJRefreshAutoFooter.m */; };
 		18F973861F3DA4A700E77934 /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F9735B1F3DA4A700E77934 /* MJRefreshBackFooter.m */; };
 		18F973871F3DA4A700E77934 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F9735D1F3DA4A700E77934 /* MJRefreshComponent.m */; };
@@ -292,6 +298,15 @@
 		18B2A1171F343DBF007C6473 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		18B2A1181F343DBF007C6473 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		18B2A1191F343DBF007C6473 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		18ED3B9E1F4A886C002E9AA6 /* PopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopView.h; sourceTree = "<group>"; };
+		18ED3B9F1F4A886C002E9AA6 /* PopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopView.m; sourceTree = "<group>"; };
+		18ED3BA11F4A8878002E9AA6 /* PopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopView.xib; sourceTree = "<group>"; };
+		18ED3BA31F4AA6E3002E9AA6 /* ManagerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerCell.h; sourceTree = "<group>"; };
+		18ED3BA41F4AA6E3002E9AA6 /* ManagerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerCell.m; sourceTree = "<group>"; };
+		18ED3BA51F4AA6E3002E9AA6 /* ManagerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManagerCell.xib; sourceTree = "<group>"; };
+		18ED3BA81F4AA9A4002E9AA6 /* Manager_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Manager_ViewController.h; sourceTree = "<group>"; };
+		18ED3BA91F4AA9A4002E9AA6 /* Manager_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Manager_ViewController.m; sourceTree = "<group>"; };
+		18ED3BAA1F4AA9A4002E9AA6 /* Manager_ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Manager_ViewController.xib; sourceTree = "<group>"; };
 		18F973581F3DA4A700E77934 /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoFooter.h; sourceTree = "<group>"; };
 		18F973591F3DA4A700E77934 /* MJRefreshAutoFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshAutoFooter.m; sourceTree = "<group>"; };
 		18F9735A1F3DA4A700E77934 /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackFooter.h; sourceTree = "<group>"; };
@@ -835,6 +850,9 @@
 				18B2A1171F343DBF007C6473 /* SearchViewController.h */,
 				18B2A1181F343DBF007C6473 /* SearchViewController.m */,
 				18B2A1191F343DBF007C6473 /* SearchViewController.xib */,
+				18ED3BA81F4AA9A4002E9AA6 /* Manager_ViewController.h */,
+				18ED3BA91F4AA9A4002E9AA6 /* Manager_ViewController.m */,
+				18ED3BAA1F4AA9A4002E9AA6 /* Manager_ViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -924,6 +942,12 @@
 				18A92BBA1F417B3800643279 /* AutographView.xib */,
 				18A92BBC1F41891C00643279 /* MYDrawView.h */,
 				18A92BBD1F41891C00643279 /* MYDrawView.m */,
+				18ED3B9E1F4A886C002E9AA6 /* PopView.h */,
+				18ED3B9F1F4A886C002E9AA6 /* PopView.m */,
+				18ED3BA11F4A8878002E9AA6 /* PopView.xib */,
+				18ED3BA31F4AA6E3002E9AA6 /* ManagerCell.h */,
+				18ED3BA41F4AA6E3002E9AA6 /* ManagerCell.m */,
+				18ED3BA51F4AA6E3002E9AA6 /* ManagerCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1191,8 +1215,8 @@
 				TargetAttributes = {
 					FA25BC581EF7790400D7210C = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = QHG97UKQQ6;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = 7VVA2HVT66;
+						ProvisioningStyle = Automatic;
 					};
 					FA25BC711EF7790C00D7210C = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1241,6 +1265,7 @@
 				18B2A11B1F343DBF007C6473 /* SearchViewController.xib in Resources */,
 				FAF6A33A1F1B32C40068C0D5 /* MyInfo_ViewController.xib in Resources */,
 				04DDC3691F149574003D7567 /* HKNameTableViewCell.xib in Resources */,
+				18ED3BA21F4A8878002E9AA6 /* PopView.xib in Resources */,
 				FA2B1C4A1F2CC9BC000D889D /* TextViewController.xib in Resources */,
 				FA06700C1F23540000B0BC63 /* EditCell.xib in Resources */,
 				04DDC36E1F149E7E003D7567 /* My_ToolCell.xib in Resources */,
@@ -1255,10 +1280,12 @@
 				04DDC37E1F14C05A003D7567 /* HKNameRowCell.xib in Resources */,
 				043E68EC1F16A5E70065016B /* HKMyListCell.xib in Resources */,
 				184BBF431F2AE1D900282CDE /* WechatIMG1.jpeg in Resources */,
+				18ED3BAC1F4AA9A4002E9AA6 /* Manager_ViewController.xib in Resources */,
 				18A92BBB1F417B3800643279 /* AutographView.xib in Resources */,
 				FA25BC671EF7790900D7210C /* Main.storyboard in Resources */,
 				18F973931F3DA4A700E77934 /* MJRefresh.bundle in Resources */,
 				FA2B1C551F2F66E1000D889D /* Progress_ViewController.xib in Resources */,
+				18ED3BA71F4AA6E3002E9AA6 /* ManagerCell.xib in Resources */,
 				043E69001F1788F90065016B /* FinancialContribution_ViewController.xib in Resources */,
 				043E68F11F1737370065016B /* RepaymentInfo_ViewController.xib in Resources */,
 				FAF6A3441F1BA23B0068C0D5 /* IDInfoTwoViewController.xib in Resources */,
@@ -1298,6 +1325,7 @@
 				18F973851F3DA4A700E77934 /* MJRefreshAutoFooter.m in Sources */,
 				18F973941F3DA4A700E77934 /* MJRefreshConst.m in Sources */,
 				FAF6A3431F1BA23B0068C0D5 /* IDInfoTwoViewController.m in Sources */,
+				18ED3BA61F4AA6E3002E9AA6 /* ManagerCell.m in Sources */,
 				FA06700B1F23540000B0BC63 /* EditCell.m in Sources */,
 				FA25BCB81EF790A400D7210C /* My_ViewController.m in Sources */,
 				043E68FA1F1766D70065016B /* HKProfitCell.m in Sources */,
@@ -1389,6 +1417,7 @@
 				04DDC38C1F14D618003D7567 /* HKSubmitCell.m in Sources */,
 				FAF6A3391F1B32C40068C0D5 /* MyInfo_ViewController.m in Sources */,
 				18F9738C1F3DA4A700E77934 /* MJRefreshAutoStateFooter.m in Sources */,
+				18ED3BAB1F4AA9A4002E9AA6 /* Manager_ViewController.m in Sources */,
 				FA0670241F23963200B0BC63 /* ActionSheetStringPicker.m in Sources */,
 				FA25BCD01EF7918100D7210C /* NSDictionary+Common.m in Sources */,
 				04DDC37D1F14C05A003D7567 /* HKNameRowCell.m in Sources */,
@@ -1431,6 +1460,7 @@
 				FA0670221F23963200B0BC63 /* ActionSheetDistancePicker.m in Sources */,
 				FA2B1C541F2F66E1000D889D /* Progress_ViewController.m in Sources */,
 				04DDC3711F14A236003D7567 /* HKTableButton.m in Sources */,
+				18ED3BA01F4A886C002E9AA6 /* PopView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1583,16 +1613,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = QHG97UKQQ6;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 7VVA2HVT66;
 				GCC_PREFIX_HEADER = "LIUMING-Finance/BaseControl/PrefixHeader.pch";
 				INFOPLIST_FILE = "LIUMING-Finance/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoming.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "843287f7-f0cb-4881-b776-fe376f9ece04";
-				PROVISIONING_PROFILE_SPECIFIER = XiaoMing;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -1600,16 +1630,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = QHG97UKQQ6;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 7VVA2HVT66;
 				GCC_PREFIX_HEADER = "LIUMING-Finance/BaseControl/PrefixHeader.pch";
 				INFOPLIST_FILE = "LIUMING-Finance/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoming.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "843287f7-f0cb-4881-b776-fe376f9ece04";
-				PROVISIONING_PROFILE_SPECIFIER = XiaoMing;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

@@ -91,7 +91,7 @@
     
     [self.giveBtn setTitle:@"我要还款" forState:UIControlStateNormal];
     [self.progressBtn setTitle:@"进度查询" forState:UIControlStateNormal];
-    [self.userMoneyBtn setTitle:@"费用说明" forState:UIControlStateNormal];
+    [self.userMoneyBtn setTitle:@"合同签署" forState:UIControlStateNormal];
 }
 
 #pragma mark 借款申请按钮
@@ -185,7 +185,10 @@
         [self.navigationController pushViewController:vc animated:YES];
         
     }
-   }
+//    if (sender.tag == 100) {
+//            [self performSegueWithIdentifier:@"Contract" sender:self];
+//        }
+    }
 
 
 -(void)perfectInfoViewBtnClick:(HKPerfectInfoView *)view{

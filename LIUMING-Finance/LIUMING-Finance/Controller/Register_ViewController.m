@@ -11,6 +11,7 @@
 #import "HKNavigationController.h"
 #import "FinancialContribution_ViewController.h"
 #import "MyList_ViewController.h"
+#import "Manager_ViewController.h"
 @interface Register_ViewController ()
 {
     NSInteger _count;
@@ -23,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *getCodeBtn;
 @property (weak, nonatomic) IBOutlet UIButton *nextBtn;
 
+@property (weak, nonatomic) IBOutlet UITextField *recommendTextField;
 @end
 
 @implementation Register_ViewController
@@ -87,7 +89,7 @@
 
 - (void)request {
   
-    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_doRegister withParams:@{@"ui_phone":_phoneTextField.text, @"ui_pwd":_pswTextField.text, @"again_ui_pwd":_surePswTextField.text, @"cd_code":_codeTextField.text} withMethodType:Post andBlock:^(id data, NSError *error) {
+    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_doRegister withParams:@{@"ui_phone":_phoneTextField.text, @"ui_pwd":_pswTextField.text, @"again_ui_pwd":_surePswTextField.text, @"cd_code":_codeTextField.text, @"recommend_code":_recommendTextField.text > 0 ? _recommendTextField.text : @""} withMethodType:Post andBlock:^(id data, NSError *error) {
         if ([data[@"status"] isEqualToString:@"user is exists"]) {
             XIUHUD(@"您已注册过账号");
             return ;
@@ -124,6 +126,12 @@
             HKNavigationController *nav = [[HKNavigationController alloc] initWithRootViewController:v];
             [UIApplication sharedApplication].keyWindow.rootViewController = nav;
             
+        } if ([[XIU_Login type] isEqualToString:ManagerType]) {
+            
+            Manager_ViewController *v = [[Manager_ViewController alloc] init];
+            v.title = @"客户经理";
+            HKNavigationController *nav = [[HKNavigationController alloc] initWithRootViewController:v];
+            [UIApplication sharedApplication].keyWindow.rootViewController = nav;
         }
     }];
 }

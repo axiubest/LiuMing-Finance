@@ -25,6 +25,14 @@
     NSString *phoneName1;
     NSString *phone2;
     NSString *phoneName2;
+    NSString *phone3;
+    NSString *phoneName3;
+    NSString *phone4;
+    NSString *phoneName4;
+    NSString *phone5;
+    NSString *phoneName5;
+    NSString *phone6;
+    NSString *phoneName6;
     NSString *ui_alipay;
     
 
@@ -46,15 +54,19 @@
                  @{@"name":@"邀请码",@"place":@"请输入邀请码，若无邀请码可不填",@"isHide":@1},
                  @{@"name":@"身份证号",@"place":@"请输入您本人的身份证号码",@"isHide":@1},
                  @{@"name":@"手机号码",@"place":@"请输入注册手机号服务密码",@"isHide":@1},
-                 @{@"name":@"居住地",@"place":@"请输入您的居住地信息",@"isHide":@1},
+                 @{@"name":@"现居地址",@"place":@"请输入您的现居住地信息",@"isHide":@1},
                  @{@"name":@"月收入",@"place":@"请输入您的每月收入",@"isHide":@1},
-                 @{@"name":@"微信号／QQ",@"place":@"请输入您的微信号或QQ号",@"isHide":@1},
+                 @{@"name":@"微信号",@"place":@"请输入您的微信号",@"isHide":@1},
                  @{@"name":@"借贷额度",@"place":@"请输入您的借贷额度",@"isHide":@1},
                   @{@"name":@"支付宝",@"place":@"请输入您的支付宝账号",@"isHide":@1},
                  @{@"name":@"第一位亲属紧急联系人",@"place":@"请输入您的紧急联系人姓名，如：父亲姓名",@"isHide":@1},
                  @{@"name":@"第一位亲属紧急联系人电话",@"place":@"请输入您的紧急联系人电话号码",@"isHide":@1},
                  @{@"name":@"第二位亲属紧急联系人",@"place":@"请输入您的紧急联系人姓名，如：母亲姓名",@"isHide":@1},
-                 @{@"name":@"第二位亲属紧急联系人电话",@"place":@"请输入您的紧急联系人电话号码",@"isHide":@1}
+                 @{@"name":@"第二位亲属紧急联系人电话",@"place":@"请输入您的紧急联系人电话号码",@"isHide":@1},@{@"name":@"第三位亲属紧急联系人",@"place":@"请输入您的紧急联系人姓名，如：母亲姓名",@"isHide":@1},
+                 @{@"name":@"第三位亲属紧急联系人电话",@"place":@"请输入您的紧急联系人电话号码",@"isHide":@1},@{@"name":@"第四位亲属紧急联系人",@"place":@"请输入您的紧急联系人姓名，如：母亲姓名",@"isHide":@1},
+                 @{@"name":@"第四位亲属紧急联系人电话",@"place":@"请输入您的紧急联系人电话号码",@"isHide":@1},@{@"name":@"第五位亲属紧急联系人",@"place":@"请输入您的紧急联系人姓名，如：母亲姓名",@"isHide":@1},
+                 @{@"name":@"第五位亲属紧急联系人电话",@"place":@"请输入您的紧急联系人电话号码",@"isHide":@1},@{@"name":@"第六位亲属紧急联系人",@"place":@"请输入您的紧急联系人姓名，如：母亲姓名",@"isHide":@1},
+                 @{@"name":@"第六位亲属紧急联系人电话",@"place":@"请输入您的紧急联系人电话号码",@"isHide":@1}
                  ];
     }
     return _arr;
@@ -62,7 +74,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setValues];
-
+    self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"身份信息";
   
     
@@ -89,7 +101,7 @@
 - (void)keyboardWillShow:(NSNotification *)notification {
     CGRect keyboardFrame  =[notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
     CGFloat height = keyboardFrame.origin.y;
-    CGFloat textField_maxY = (textF.tag + 1) * 95;
+    CGFloat textField_maxY = (textF.tag + 1) * 90;
     CGFloat space = -self.tableVlew.contentOffset.y + textField_maxY;
     CGFloat transformY = height - space;
     if (transformY < 0) {
@@ -137,6 +149,21 @@
     phoneName2 = [XIU_Login ui_name2];
 
     phone2 = [XIU_Login ui_phone2];
+    
+    phoneName3 = [XIU_Login ui_name3];
+    
+    phone3 = [XIU_Login ui_phone3];
+    
+    phoneName4 = [XIU_Login ui_name4];
+    
+    phone4 = [XIU_Login ui_phone4];
+    phoneName5 = [XIU_Login ui_name5];
+    
+    phone5 = [XIU_Login ui_phone5];
+    
+    phoneName6 = [XIU_Login ui_name6];
+    
+    phone6 = [XIU_Login ui_phone6];
 
 }
 
@@ -167,7 +194,7 @@
     if (indexPath.section==0) {
         return 56+11+11;
     }else{
-        return 278*0.5;
+        return 250*0.5;
     }
     
 }
@@ -232,6 +259,31 @@
             case 12:
                 cell.inputField.text = phone2;
                 break;
+            case 13:
+                cell.inputField.text =phoneName3;
+                break;
+            case 14:
+                cell.inputField.text = phone3;
+                break;
+            case 15:
+                cell.inputField.text = phoneName4;
+                break;
+            case 16:
+                cell.inputField.text = phone4;
+                break;
+            case 17:
+                cell.inputField.text =phoneName5;
+                break;
+            case 18:
+                cell.inputField.text = phone5;
+                break;
+            case 19:
+                cell.inputField.text = phoneName6;
+                break;
+            case 20:
+                cell.inputField.text = phone6;
+                break;
+                
 
             default:
                 break;
@@ -300,6 +352,36 @@
             break;
         case 12:
             phone2 = textField.text;
+        case 13:
+            phoneName3 = textField.text;
+            
+            break;
+        case 14:
+            phone3 = textField.text;
+            
+            break;
+        case 15:
+            phoneName4 = textField.text;
+            
+            break;
+        case 16:
+            phone4 = textField.text;
+            
+            break;
+        case 17:
+            phoneName5 = textField.text;
+            
+            break;
+        case 18:
+            phone5 = textField.text;
+            
+            break;
+        case 19:
+            phoneName6 = textField.text;
+            
+            break;
+        case 20:
+            phone6 = textField.text;
             
             break;
         default:
@@ -325,7 +407,7 @@
         XIUHUD(@"请输入月收入");
         return;
     }if (ui_qqwx.length == 0) {
-        XIUHUD(@"请输qq或者微信号码");
+        XIUHUD(@"请输微信号码");
         return;
     }if (ui_limit.length < 4) {
         XIUHUD(@"借款额度过少,请更改");
@@ -359,7 +441,31 @@
     }if (phone2.length != 11) {
         XIUHUD(@"请输入第二位紧急联系人电话");
         return;
+    }if (phoneName3.length < 2) {
+        XIUHUD(@"请输入第三位紧急联系人");
+        return;
+    }if (phone3.length != 11) {
+        XIUHUD(@"请输入第三位紧急联系人电话");
+        return;
+    }if (phoneName4.length < 2) {
+        XIUHUD(@"请输入第四位紧急联系人");
+        return;
+    }if (phone4.length != 11) {
+        XIUHUD(@"请输入第四位紧急联系人电话");
+        return;
     }
+    //可不填
+    if (phoneName5.length < 1) {
+        phoneName5 = @"";
+    }if (phone5.length <1) {
+       phone5 = @"";
+    }if (phoneName6.length < 1) {
+       phoneName6 = @"";
+    }if (phone6.length < 1) {
+        phone6 = @"";
+    }
+    
+
     [self request];
     
     
@@ -371,7 +477,7 @@
 
 
 - (void)request {
-    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_doPage1 withParams:@{@"ui_id":[XIU_Login userId], @"ui_code":ui_code.length > 0 ? ui_code : @"",@"ui_cardid":ui_cardid, @"ui_address":ui_address,@"ui_income":ui_income,@"ui_qqwx":ui_qqwx, @"ui_name1":phoneName1,@"ui_phone1":phone1, @"ui_name2":phoneName2, @"ui_phone2":phone2, @"ui_alipay":ui_alipay, @"ui_limit":ui_limit,@"ui_name":ui_name} withMethodType:Post andBlock:^(id data, NSError *error) {
+    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_doPage1 withParams:@{@"ui_id":[XIU_Login userId], @"ui_code":ui_code.length > 0 ? ui_code : @"",@"ui_cardid":ui_cardid, @"ui_address":ui_address,@"ui_income":ui_income,@"ui_qqwx":ui_qqwx, @"ui_name1":phoneName1,@"ui_phone1":phone1, @"ui_name2":phoneName2, @"ui_phone2":phone2,@"ui_name3":phoneName3,@"ui_phone3":phone3, @"ui_name4":phoneName4, @"ui_phone4":phone4,@"ui_name5":phoneName5,@"ui_phone5":phone5, @"ui_name6":phoneName6, @"ui_phone6":phone6, @"ui_alipay":ui_alipay, @"ui_limit":ui_limit,@"ui_name":ui_name} withMethodType:Post andBlock:^(id data, NSError *error) {
         
         if ([data[@"status"] isEqualToString:@"error"]) {
             XIUHUD(@"数据未更新");

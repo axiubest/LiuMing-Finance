@@ -46,6 +46,15 @@
 +(NSString *)ui_phone1;
 +(NSString *)ui_name2;
 +(NSString *)ui_phone2;
++(NSString *)ui_name3;
++(NSString *)ui_phone3;
++(NSString *)ui_name4;
++(NSString *)ui_phone4;
++(NSString *)ui_name5;
++(NSString *)ui_phone5;
++(NSString *)ui_name6;
++(NSString *)ui_phone6;
+
 +(NSString *)ui_applying;
 
 +(NSString *)url1;

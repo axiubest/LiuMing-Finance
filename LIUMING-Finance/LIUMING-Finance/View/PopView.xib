@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PopView">
+            <rect key="frame" x="0.0" y="0.0" width="299" height="351"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZG-gw-kkb">
+                    <rect key="frame" x="20" y="296" width="259" height="40"/>
+                    <color key="backgroundColor" red="0.1960784314" green="0.54901960780000003" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="ylA-x8-M7D"/>
+                    </constraints>
+                    <state key="normal" title="复制支付宝账号">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支付宝账号：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h70-N0-gLr">
+                    <rect key="frame" x="103.5" y="125" width="92" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13555555555" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGe-iS-2Pk">
+                    <rect key="frame" x="10" y="163.5" width="279" height="24"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                    <color key="textColor" red="0.1960784314" green="0.54901960780000003" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fGe-iS-2Pk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="963-8m-CCR"/>
+                <constraint firstItem="xZG-gw-kkb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="Ghb-0S-gjW"/>
+                <constraint firstAttribute="bottom" secondItem="xZG-gw-kkb" secondAttribute="bottom" constant="15" id="Ijg-nV-mr9"/>
+                <constraint firstItem="h70-N0-gLr" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ObJ-HQ-ggs"/>
+                <constraint firstItem="fGe-iS-2Pk" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ayX-Rf-t2j"/>
+                <constraint firstAttribute="trailing" secondItem="fGe-iS-2Pk" secondAttribute="trailing" constant="10" id="bTp-zt-wrP"/>
+                <constraint firstAttribute="trailing" secondItem="xZG-gw-kkb" secondAttribute="trailing" constant="20" id="vjS-Bd-oUq"/>
+                <constraint firstItem="fGe-iS-2Pk" firstAttribute="top" secondItem="h70-N0-gLr" secondAttribute="bottom" constant="20.5" id="wmv-qz-tCg"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="bottomBtn" destination="xZG-gw-kkb" id="N9Y-Q3-1ma"/>
+            </connections>
+            <point key="canvasLocation" x="-4.5" y="-104.5"/>
+        </view>
+    </objects>
+</document>

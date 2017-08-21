@@ -14,6 +14,7 @@
 #import "MJExtension.h"
 #import "HWPopTool.h"
 #import "MJRefresh.h"
+#import "PopView.h"
 @interface BaseTableViewController ()
 {
     NSInteger page;
@@ -134,20 +135,18 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([self.title isEqualToString:@"催收订单"]) {
         MyListModel *model = self.arr[indexPath.row];
-        
-        
         NSDictionary *dic = self.arr[indexPath.row];
         HKMyListCell *cell = [HKMyListCell myListCell];
         cell.dataDic = dic;
         cell.headerImg.image = [UIImage imageNamed:@"已出账单"];
-        cell.headerTitleLabel.text =[NSString stringWithFormat:@"已出账单:%@", model.oi_num];
+        cell.headerTitleLabel.text =[NSString stringWithFormat:@"账单号:%@", model.oi_num];
         cell.headerSubTitleLabel.text = model.oi_state;
         if ([model.oi_state isEqualToString:@"已还款"]) {
             cell.headerSubTitleLabel.textColor = [UIColor colorWithHexString:@"#1a7aff"];
         }else{
             cell.headerSubTitleLabel.textColor = [UIColor colorWithHexString:@"#fe324a"];
         }
-        cell.bodyTitleLabel.text = [NSString stringWithFormat:@"借款%@元, 分%@期 %@-%@", model.oi_jkprice, model.oi_jkloans, model.nowloans, model.oi_jkloans];
+        cell.bodyTitleLabel.text = [NSString stringWithFormat:@"借款%@元, 分%@期 %@-%@【姓名:%@】", model.oi_jkprice, model.oi_jkloans, model.nowloans, model.oi_jkloans, model.name];
 
         cell.bodySubTitleLabel.text = model.hkzje;
             if (model.fxprice.length> 0) {
@@ -216,15 +215,7 @@
         cell.footerBtn.hidden = YES;
     }
     [cell.footerBtn addTarget:self action:@selector(clickBtn:) forControlEvents:UIControlEventTouchUpInside];
- //    [cell.footerBtn setTitle:dic[@"footerSubTitle"] forState:UIControlStateNormal];
-//    if ([dic[@"footerSubTitle"] isEqualToString:@"立即还款"]) {
-//        [cell.footerBtn.layer setBorderColor:CGColorCreate(CGColorSpaceCreateDeviceRGB(), (CGFloat[]){26/255.0, 113/255.0, 1, 1 })];
-//        [cell.footerBtn setTitleColor:[UIColor colorWithHexString:@"#1a7aff"] forState:UIControlStateNormal];
-//    }else{
-//        [cell.footerBtn.layer setBorderColor:CGColorCreate(CGColorSpaceCreateDeviceRGB(), (CGFloat[]){101/255.0, 101/255.0, 101/255.0, 1 })];
-//        [cell.footerBtn setTitleColor:[UIColor colorWithHexString:@"#656565"] forState:UIControlStateNormal];
-//    }
-    
+
     return cell;
 }
 
@@ -236,14 +227,19 @@
         
         _contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 300)];
         _contentView.backgroundColor = [UIColor clearColor];
-        UIImageView *imageV = [[UIImageView alloc]initWithFrame:_contentView.bounds];
-        imageV.image = [UIImage imageNamed:@"WechatIMG1.jpeg"];
-        [_contentView addSubview:imageV];
+//        UIImageView *imageV = [[UIImageView alloc]initWithFrame:_contentView.bounds];
+        
+        PopView *pop = [[NSBundle mainBundle]loadNibNamed:[PopView XIU_ClassIdentifier] owner:self options:nil].lastObject;
+        [pop.bottomBtn addTarget:self action:@selector(clickCopyAliPay) forControlEvents:UIControlEventTouchUpInside];
+        pop.frame = _contentView.bounds;
+        
+//        imageV.image = [UIImage imageNamed:@"WechatIMG1.jpeg"];
+        [_contentView addSubview:pop];
         
         [HWPopTool sharedInstance].shadeBackgroundType = ShadeBackgroundTypeSolid;
         [HWPopTool sharedInstance].closeButtonType = ButtonPositionTypeRight;
         [[HWPopTool sharedInstance] showWithPresentView:_contentView animated:YES];
-
+        
     }
     if ([self.title isEqualToString:@"催收订单"]) {
         HKMyListCell *cell = (HKMyListCell *)[[[sender superview] superview] superview];
@@ -255,6 +251,20 @@
         
 
     }
+}
+
+
+#pragma mark 复制支付宝账号按钮
+- (void)clickCopyAliPay {
+    [[HWPopTool sharedInstance] closeWithBlcok:nil];
+    UIPasteboard*pasteboard = [UIPasteboard generalPasteboard];
+    pasteboard.string=@"15555555555";
+    dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0/*延迟执行时间*/ * NSEC_PER_SEC));
+    
+    dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+        XIUHUD(@"复制支付宝成功，现在您可以去粘贴");
+    });
+
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

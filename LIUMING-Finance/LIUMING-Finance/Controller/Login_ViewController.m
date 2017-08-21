@@ -12,6 +12,7 @@
 #import "HKNavigationController.h"
 #import "FinancialContribution_ViewController.h"
 #import "MyList_ViewController.h"
+#import "Manager_ViewController.h"
 @interface Login_ViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
 
@@ -96,6 +97,7 @@
             HKNavigationController *nav = [[HKNavigationController alloc] initWithRootViewController:v];
            [UIApplication sharedApplication].keyWindow.rootViewController = nav;
             
+            
         }if ([[XIU_Login type] isEqualToString:@"5"]) {
             [hud hide:YES];
             MyList_ViewController *v = [[MyList_ViewController alloc] init];
@@ -103,6 +105,12 @@
             HKNavigationController *nav = [[HKNavigationController alloc] initWithRootViewController:v];
              [UIApplication sharedApplication].keyWindow.rootViewController = nav;
             
+        }if ([[XIU_Login type] isEqualToString:ManagerType]) {
+            [hud hide:YES];
+            Manager_ViewController *v = [[Manager_ViewController alloc] init];
+            v.title = @"客户经理";
+            HKNavigationController *nav = [[HKNavigationController alloc] initWithRootViewController:v];
+            [UIApplication sharedApplication].keyWindow.rootViewController = nav;
         }
     }];
     

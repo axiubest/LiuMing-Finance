@@ -12,7 +12,7 @@
 #import "BaseTableViewController.h"
 #import "HKNavigationController.h"
 #import "MyList_ViewController.h"
-
+#import "Manager_ViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -24,7 +24,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    [self normal];
+//    [self normal];
+    Manager_ViewController *v = [[Manager_ViewController alloc] init];
+    v.title = @"客户经理";
+    HKNavigationController *nav = [[HKNavigationController alloc] initWithRootViewController:v];
+    self.window.rootViewController = nav;
     
     [self.window makeKeyAndVisible];
     return YES;
@@ -50,6 +54,13 @@
         }if ([[XIU_Login type] isEqualToString:@"5"]) {
             MyList_ViewController *v = [[MyList_ViewController alloc] init];
             v.title = @"催收订单";
+            HKNavigationController *nav = [[HKNavigationController alloc] initWithRootViewController:v];
+            self.window.rootViewController = nav;
+            
+        }
+        if ([[XIU_Login type] isEqualToString:ManagerType]) {//经理
+            Manager_ViewController *v = [[Manager_ViewController alloc] init];
+            v.title = @"客户经理";
             HKNavigationController *nav = [[HKNavigationController alloc] initWithRootViewController:v];
             self.window.rootViewController = nav;
             

@@ -50,10 +50,7 @@
         model.iconImg = @"客户经理";
         model.iconTitle = @"客户经理";
         model.subTitle = [self.dataDic[@"tjr_name"] length] > 0 ?  self.dataDic[@"tjr_name"] : @"--";
-        
-        HKBaseTableModel *model4 = [[HKBaseTableModel alloc] init];
-        model4.iconImg = @"申请代理";
-        model4.iconTitle = @"我的合同";
+
 
         HKBaseTableModel *model1 = [[HKBaseTableModel alloc] init];
         model1.iconImg = @"申请代理";
@@ -64,7 +61,7 @@
         HKBaseTableModel *model3 = [[HKBaseTableModel alloc] init];
         model3.iconImg = @"关于我们";
         model3.iconTitle = @"关于我们";
-        _arr = @[@0,@0,@[model],@[model1,model2,model4,],@[model3]];
+        _arr = @[@0,@0,@[model],@[model1,model2],@[model3]];
     }
     return _arr;
 }
@@ -107,7 +104,7 @@
     }else if(section == 2){
         return 1;
     }else if(section == 3){
-        return 3;
+        return 2;
     }else{
         return 1;
     }
@@ -200,8 +197,6 @@
         [self.navigationController pushViewController:vc animated:YES];
     }if (indexPath.section==3&&indexPath.row==1){
        [self performSegueWithIdentifier:@"Feedback" sender:self];
-    }if (indexPath.section==3&&indexPath.row==2){
-        [self performSegueWithIdentifier:@"Contract" sender:self];
     }
     else if(indexPath.section==4){
         [self performSegueWithIdentifier:@"aboutUs" sender:self];
