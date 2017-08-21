@@ -12,6 +12,7 @@
 #import "BaseTableViewController.h"
 #import "HKNavigationController.h"
 #import "MyList_ViewController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -19,19 +20,28 @@
 @implementation AppDelegate
 
 
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    //判断用户是否登陆
+    [self normal];
     
-    if (![XIU_Login isLogin]) {
+    [self.window makeKeyAndVisible];
+    return YES;
+}
 
+
+
+- (void)normal {
+    //判断用户是否登陆
+    if (![XIU_Login isLogin]) {
+        
         self.window.rootViewController = [Login_ViewController loadViewControllerFromMainStoryBoard];
     }else{
         //3终端 2财务 5催收
         if ([[XIU_Login type] isEqualToString:@"3"] ||[[XIU_Login type] isEqualToString:@"6"] || [[XIU_Login type] isEqualToString:@"7"]) {
             self.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
-  
+            
         }if ([[XIU_Login type] isEqualToString:@"2"]) {
             FinancialContribution_ViewController *v = [[FinancialContribution_ViewController alloc] init];
             HKNavigationController *nav = [[HKNavigationController alloc] initWithRootViewController:v];
@@ -45,13 +55,9 @@
             
         }
         
-         }
+    }
     
-    
-     [self.window makeKeyAndVisible];
-    return YES;
 }
-
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

@@ -106,8 +106,6 @@
     
     NSIndexPath *indexPath = [_tableView indexPathForCell:cell];
     
-    NSLog(@"indexPath is = %ld",indexPath.row);
-    
     [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_payment withParams:@{@"oi_id":[self.dataSource[indexPath.row] oi_id]} withMethodType:Post andBlock:^(id data, NSError *error) {
         if ([data[@"status"] isEqualToString:@"sucess"]) {
             XIUHUD(@"提交成功");
@@ -142,7 +140,7 @@
     cell.bodyTitleLabel.text =[NSString stringWithFormat:@"客户【%@】借款%@，分%@期",[self.dataSource[indexPath.row] ui_name],[self.dataSource[indexPath.row] oi_jkprice], [self.dataSource[indexPath.row] oi_jkloans]];
     cell.bodySubTitleLabel.text = [self.dataSource[indexPath.row] oi_jkprice];
     if ([self.dataSource[indexPath.row] ui_alipay]) {
-        cell.bodyFineLabel.text =[self.dataSource[indexPath.row] ui_alipay];
+        cell.bodyFineLabel.text =[NSString stringWithFormat:@"支付宝(%@)", [self.dataSource[indexPath.row] ui_alipay]] ;
         cell.bodyFineLabel.hidden = NO;
     }else{
         cell.bodyFineLabel.hidden = YES;
