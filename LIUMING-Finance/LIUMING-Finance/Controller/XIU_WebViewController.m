@@ -100,12 +100,13 @@
     
     //第三方人员没有签名
     if ([[XIU_Login type] isEqualToString:ThirdType]) {
+        self.navRightBtn.hidden = YES;
         self.drawView.hidden = YES;
         hidLayer.hidden = YES;
     }
 
     
-    UIWebView *web = [[UIWebView alloc] initWithFrame:CGRectMake(0, 64, KWIDTH, self.view.height)];
+    UIWebView *web = [[UIWebView alloc] initWithFrame:CGRectMake(0, 70, KWIDTH, self.view.height- 64)];
     web.delegate = self;
     web.backgroundColor = [UIColor clearColor];
     _webView = web;
@@ -116,11 +117,11 @@
     _progressProxy.webViewProxyDelegate = self;
     _progressProxy.progressDelegate = self;
     
-    CGFloat progressBarHeight = 2.f;
+    CGFloat progressBarHeight = 3.f;
     CGRect barFrame = CGRectMake(0, 64, KWIDTH ,progressBarHeight);
     _progressView = [[NJKWebViewProgressView alloc] initWithFrame:barFrame];
     _progressView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
-    
+    [self.view addSubview:_progressView];
     [self load];
 
 

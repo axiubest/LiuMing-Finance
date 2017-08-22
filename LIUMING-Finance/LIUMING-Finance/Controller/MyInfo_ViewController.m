@@ -69,7 +69,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"%@", kPathDocument);
+
     self.title = @"我的信息";
     ui_name = [XIU_Login ui_name];
     ui_sex = [XIU_Login ui_sex];
