@@ -11,7 +11,6 @@
 #import "NJKWebViewProgress.h"
 #import "NJKWebViewProgressView.h"
 #import "AutographView.h"
-
 @interface XIU_WebViewController ()<UIWebViewDelegate, NJKWebViewProgressDelegate,UIAlertViewDelegate>
 {
     UIWebView *_webView;
@@ -49,9 +48,9 @@
     }
     
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"确定提交" message:@"签名将显示到合同中，确定即为生效" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-    alert.delegate = self;
     [alert show];
 }
+
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 1) {
         [self request];
@@ -65,8 +64,17 @@
     [hud show:YES];
     
     UIImage *image = [self imageWithUIView:self.drawView.autographView];
-    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:@"Agreement/to_sign" withParams:@{@"oi_id":_oi_id, @"hetong":_hetong, @"ui_eqb_img":[self imageBase64WithDataURL:image], @"ui_type":[XIU_Login type], @"ui_id":[XIU_Login userId]} withMethodType:Post andBlock:^(id data, NSError *error) {
+    NSDictionary *dic;
+    if ([[XIU_Login type] isEqualToString:ThirdType]) {
+        dic = @{@"oi_id":_oi_id, @"hetong":_hetong,  @"ui_type":[XIU_Login type], @"ui_id":[XIU_Login userId]};
+    }else {
+        dic = @{@"oi_id":_oi_id, @"hetong":_hetong, @"ui_eqb_img":[self imageBase64WithDataURL:image]};
+    }
+    
+    
+    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:@"Agreement/to_sign" withParams:dic withMethodType:Post andBlock:^(id data, NSError *error) {
         [hud hide:YES];
+        
         if([data[@"status"] isEqualToString:@"false"]) {
             XIUHUD(@"签名失败");
         }else {
@@ -79,19 +87,23 @@
 }
 
 
+
 - (void)clickBack {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    
+
     [self.navRightBtn setTitle:@"签名" forState:UIControlStateNormal];
     
     
-    //改版签名取消,点击签名按钮直弹出
-    self.drawView.hidden = YES;
-    hidLayer.hidden = YES;
+    //第三方人员没有签名
+    if ([[XIU_Login type] isEqualToString:ThirdType]) {
+        self.drawView.hidden = YES;
+        hidLayer.hidden = YES;
+    }
+
     
     UIWebView *web = [[UIWebView alloc] initWithFrame:CGRectMake(0, 64, KWIDTH, self.view.height)];
     web.delegate = self;
@@ -121,20 +133,25 @@
     [_webView loadRequest:req];
 }
 - (void)click {
-      UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"确定提交？" message:@"签名将显示到合同中，确定即为生效" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-    alert.delegate = self;
-    [alert show];
+    if ([[XIU_Login type] isEqualToString:ThirdType]) {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"确定提交？" message:@"" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        alert.delegate = self;
+        [alert show];
+    }else {
+        if (self.navRightBtn.selected == YES) {
+            [self.navRightBtn setTitle:@"签名" forState:UIControlStateNormal];
+            self.drawView.hidden = YES;
+            hidLayer.hidden = self.drawView.hidden;
+        }else {
+            [self.navRightBtn setTitle:@"取消" forState:UIControlStateNormal];
+            self.drawView.hidden = NO;
+            hidLayer.hidden = self.drawView.hidden;
+        }
+        _navRightBtn.selected = !_navRightBtn.selected;
+ 
+    }
+
     
-//    if (self.navRightBtn.selected == YES) {
-//    [self.navRightBtn setTitle:@"签名" forState:UIControlStateNormal];
-//        self.drawView.hidden = YES;
-//        hidLayer.hidden = self.drawView.hidden;
-//    }else {
-//           [self.navRightBtn setTitle:@"取消" forState:UIControlStateNormal];
-//        self.drawView.hidden = NO;
-//        hidLayer.hidden = self.drawView.hidden;
-//    }
-//    _navRightBtn.selected = !_navRightBtn.selected;
 
 }
 #pragma mark - NJKWebViewProgressDelegate

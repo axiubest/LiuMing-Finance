@@ -12,9 +12,9 @@
 @implementation UIViewController (Common)
 
 
+
 +(UIViewController *)loadViewControllerFromMainStoryBoard {
   return  [[UIStoryboard storyboardWithName: @"Main"bundle:nil] instantiateViewControllerWithIdentifier:[self XIU_ClassIdentifier]];
-    
 }
 
 #pragma mark DefaultNib

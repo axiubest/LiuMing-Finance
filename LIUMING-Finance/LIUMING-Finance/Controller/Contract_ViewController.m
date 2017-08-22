@@ -11,7 +11,9 @@
 #import "ContractModel.h"
 #import "MJExtension.h"
 #import "XIU_WebViewController.h"
-@interface Contract_ViewController ()<ContractCellDelegate>
+#import "Login_ViewController.h"
+
+@interface Contract_ViewController ()<ContractCellDelegate, UITableViewDelegate, UITableViewDataSource>
 {
     NSInteger page;
 }
@@ -35,15 +37,23 @@
     }];
 }
 - (void)request {
-    //static NSString *const KBASEURL = @"http://xiaoming.liumingdai.com/index.php/home/";
-    
-    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:@"Agreement/agreement_lists" withParams:@{@"ui_id":[XIU_Login userId],@"page_num":[NSNumber numberWithInteger:page]} withMethodType:Post andBlock:^(id data, NSError *error) {
+
+    NSDictionary *dic;
+    if ([[XIU_Login type] isEqualToString:ThirdType]) {
+        dic = @{@"ui_id":[XIU_Login userId],@"page_num":[NSNumber numberWithInteger:page], @"ui_type":ThirdType};
+    }else {
+        dic = @{@"ui_id":[XIU_Login userId],@"page_num":[NSNumber numberWithInteger:page]};
+    }
+    //第三方接口-API_home  用户接口-Agreement/agreement_lists
+    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath: [[XIU_Login type] isEqualToString:ThirdType] ? API_home : @"Agreement/agreement_lists" withParams:dic withMethodType:Post andBlock:^(id data, NSError *error) {
 
         for (NSDictionary *obj in data[@"data"]) {
+
             ContractModel *mod  =[[ContractModel alloc] init];
             mod = [ContractModel mj_objectWithKeyValues:obj];
             [self.dataSource addObject:mod];
         }
+
         [self.XIUTableView reloadData];
         [self endRefresh];
     }];
@@ -98,7 +108,6 @@
     vc.hetong = type;
     vc.oi_id = oi_id;
     [self presentViewController:vc animated:YES completion:nil];
-//    [self.navigationController pushViewController:vc animated:YES];
 }
 
 
@@ -106,8 +115,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     page = 1;
+    if ([[XIU_Login type] isEqualToString:ThirdType]) {
+        [self createNavgationButtonWithImageNmae:@"退出" title:nil target:self action:@selector(clickEdit) type:UINavigationItem_Type_LeftItem];
+            self.title = @"合同列表";
+
+    }
     [self request];
     [self addRefresh];
+}
+
+- (void)clickEdit {
+    UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"确定退出？" message:nil delegate:self cancelButtonTitle:@"取消"otherButtonTitles:@"确定", nil];
+    
+    alert.tag = 100;
+    [alert show];
+}
+
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+        [XIU_Login doLogOut];
+        UIWindow *window = [UIApplication sharedApplication].delegate.window;
+        
+        window.rootViewController = [Login_ViewController loadViewControllerFromMainStoryBoard];
+
 }
 
 - (void)didReceiveMemoryWarning {

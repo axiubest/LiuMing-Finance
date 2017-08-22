@@ -113,10 +113,9 @@
             HKNavigationController *nav = [[HKNavigationController alloc] initWithRootViewController:v];
             [UIApplication sharedApplication].keyWindow.rootViewController = nav;
         }if ([[XIU_Login type] isEqualToString:ThirdType]) {//第三方人员显示合同列表
-            Contract_ViewController *v = [[Contract_ViewController alloc] init];
-            v.title = @"合同列表";
-            HKNavigationController *nav = [[HKNavigationController alloc] initWithRootViewController:v];
-              [UIApplication sharedApplication].keyWindow.rootViewController = nav;
+            Contract_ViewController *contract =  [Contract_ViewController loadViewControllerFromMainStoryBoard];
+            HKNavigationController *nav = [[HKNavigationController alloc] initWithRootViewController:contract];
+               [UIApplication sharedApplication].keyWindow.rootViewController = nav;
         }
 
     }];

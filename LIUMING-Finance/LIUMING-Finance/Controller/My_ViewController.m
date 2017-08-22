@@ -157,6 +157,9 @@
             cell.subLabel.text = [self.dataDic[@"jl_name"] isKindOfClass:[NSNull class]] ? @"--": self.dataDic[@"jl_name"];
         }if (indexPath.section == 3 && indexPath.row == 2) {//推荐码
             cell.subLabel.text =[NSString stringWithFormat:@"%@(点击复制)",self.dataDic[@"me_ui_code"]];
+            cell.subLabel.textColor = [UIColor darkGrayColor];
+            cell.subLabel.hidden = NO;
+            cell.rowImage.hidden = YES;
         }
 
         return cell;
@@ -205,7 +208,12 @@
         [self.navigationController pushViewController:vc animated:YES];
     }if (indexPath.section==3&&indexPath.row==1){
        [self performSegueWithIdentifier:@"Feedback" sender:self];
+    }if (indexPath.section == 3 && indexPath.row == 2) {//推荐码复制
+        UIPasteboard*pasteboard = [UIPasteboard generalPasteboard];
+    pasteboard.string=self.dataDic[@"me_ui_code"];
+        XIUHUD(@"复制成功，现在您可以去粘贴");
     }
+    
     else if(indexPath.section==4){
         [self performSegueWithIdentifier:@"aboutUs" sender:self];
 

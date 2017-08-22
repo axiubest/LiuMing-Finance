@@ -320,7 +320,7 @@
         <!--我的合同-->
         <scene sceneID="HXL-0P-IJd">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="y60-zj-Uwy" customClass="Contract_ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Contract_ViewController" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="y60-zj-Uwy" customClass="Contract_ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xLo-OV-A2E"/>
                         <viewControllerLayoutGuide type="bottom" id="Ajf-13-lhy"/>

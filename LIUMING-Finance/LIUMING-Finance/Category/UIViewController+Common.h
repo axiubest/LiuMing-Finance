@@ -17,4 +17,5 @@
 +(NSString *)XIU_ClassIdentifier;
 
 +(UIViewController *)loadViewControllerFromMainStoryBoard;
+
 @end
