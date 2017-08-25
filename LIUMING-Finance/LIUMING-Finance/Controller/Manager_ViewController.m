@@ -106,7 +106,7 @@
 
 }
 - (void)request {
-    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:@"Index/index"withParams:@{@"ui_id":@"28",@"page_num":@"1", @"ui_type":@"6"} withMethodType:Post andBlock:^(id data, NSError *error) {
+    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:@"Index/index"withParams:@{@"ui_id":[XIU_Login userId],@"page_num":[NSNumber numberWithInteger:page], @"ui_type":@"6"} withMethodType:Post andBlock:^(id data, NSError *error) {
         
         for (NSDictionary *obj in data[@"data"]) {
             

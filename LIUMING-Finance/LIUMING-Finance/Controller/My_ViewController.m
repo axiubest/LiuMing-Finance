@@ -72,14 +72,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self XIUTableView];
-    [self request];
     [_XIUTableView registerNib:[EditCell XIU_ClassNib] forCellReuseIdentifier:[EditCell XIU_ClassIdentifier]];
 
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.XIUTableView reloadData];
+    [self request];
+//    [self.XIUTableView reloadData];
 }
 
 

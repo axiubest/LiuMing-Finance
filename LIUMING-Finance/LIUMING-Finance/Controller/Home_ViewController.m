@@ -27,7 +27,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *moneyLab;
 @property (weak, nonatomic) IBOutlet UILabel *timeLab;
-
+ 
 @end
 
 @implementation Home_ViewController
@@ -59,7 +59,6 @@
     [super viewWillAppear:animated];
     [self request];
 
-//    [self setUpSliderValue];
 }
 - (IBAction)clickSlider:(HKSlider *)sender {
     if (sender.tag == 111) {//money

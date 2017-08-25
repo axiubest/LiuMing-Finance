@@ -68,7 +68,7 @@
     if ([[XIU_Login type] isEqualToString:ThirdType]) {
         dic = @{@"oi_id":_oi_id, @"hetong":_hetong,  @"ui_type":[XIU_Login type], @"ui_id":[XIU_Login userId]};
     }else {
-        dic = @{@"oi_id":_oi_id, @"hetong":_hetong, @"ui_eqb_img":[self imageBase64WithDataURL:image]};
+        dic = @{@"oi_id":_oi_id, @"hetong":_hetong,@"ui_id":[XIU_Login userId], @"ui_eqb_img":[self imageBase64WithDataURL:image],@"ui_type":[XIU_Login type]};
     }
     
     
@@ -97,14 +97,16 @@
 
     [self.navRightBtn setTitle:@"签名" forState:UIControlStateNormal];
     
-    
-    //第三方人员没有签名
+     //第三方人员借款收据没有签名
+    self.navRightBtn.hidden = [_hetong isEqualToString:@"3"] && [[XIU_Login type] isEqualToString:ThirdType] ? YES : NO;
+
+   
     if ([[XIU_Login type] isEqualToString:ThirdType]) {
-        self.navRightBtn.hidden = YES;
         self.drawView.hidden = YES;
         hidLayer.hidden = YES;
     }
 
+    
     
     UIWebView *web = [[UIWebView alloc] initWithFrame:CGRectMake(0, 70, KWIDTH, self.view.height- 64)];
     web.delegate = self;
