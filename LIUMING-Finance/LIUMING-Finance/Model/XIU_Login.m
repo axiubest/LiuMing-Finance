@@ -176,6 +176,17 @@ static XIU_User *curLoginUser;
     return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_name"];
 }
 
++(NSString *)province {
+     return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_province"];
+}
++(NSString *)city {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_city"];
+}
++(NSString *)area {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_area"];
+}
+
+
 +(NSString *)type {
     //3终端 2财务 5催收
 

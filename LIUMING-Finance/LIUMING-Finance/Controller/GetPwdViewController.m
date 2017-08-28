@@ -29,6 +29,11 @@
 
 @implementation GetPwdViewController
 
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.view endEditing:YES];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
 }
@@ -91,6 +96,10 @@
 - (void)request {
     
     [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_forgotpwd withParams:@{@"ui_phone":_phoneTextField.text, @"ui_pwd":_pswTextField.text, @"again_ui_pwd":_surePswTextField.text, @"cd_code":_codeTextField.text} withMethodType:Post andBlock:^(id data, NSError *error) {
+        if ([data[@"status"] isEqualToString:@"error"]) {
+            XIUHUD(@"密码和原密码相同");
+            return ;
+        }
         if ([data[@"status"] isEqualToString:@"nouser"]) {
             XIUHUD(@"手机号不存在");
             return ;

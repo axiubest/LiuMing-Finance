@@ -73,7 +73,9 @@
 +(NSString *)ui_ed;
 
 
-
++(NSString *)province;
++(NSString *)city;
++(NSString *)area;
 
 
 

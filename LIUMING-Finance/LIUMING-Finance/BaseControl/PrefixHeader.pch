@@ -23,6 +23,7 @@ typedef NS_ENUM(NSUInteger, HKListType) {
     HKListTypeOverdue = 3, // 已还款
     HKListTypeYuQi = 4,//逾期
     HKListTypeSettle = 5, // 已结清
+    HKListTypeProsecution = 7,//已起诉
     HKListTypeProgress = 9 // 进度查询
 };
 

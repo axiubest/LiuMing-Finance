@@ -35,6 +35,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     _moneyType = @"线上";//还款初始值为线上
     self.title = @"还款详情";
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -47,7 +48,7 @@
     self.everyMontPayIntLabel.text = [NSString stringWithFormat:@"%@.", [moneyStr componentsSeparatedByString:@"."][0]];
     self.everyMonthPayFloatLabel.text =  [moneyStr componentsSeparatedByString:@"."][1];
     self.surplusTimeLabel.text = _mod.hktime;
-    self.surplusMonthLabel.text =[NSString stringWithFormat:@"%@", _mod.nowloans];
+    self.surplusMonthLabel.text =[NSString stringWithFormat:@"%@／%@", _mod.nowloans, _mod.oi_jkloans];
 //    if (self.dic[@"bodyFine"]) {
 //        NSString *str = [self.dic[@"bodyFine"] stringByReplacingOccurrencesOfString:@"(含罚息¥" withString:@""];
 //        fine = [str  stringByReplacingOccurrencesOfString:@")" withString:@"元"];
@@ -109,19 +110,19 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    XIU_WeakSelf(self)
-    if (indexPath.row == 1) {
-        [ActionSheetStringPicker showPickerWithTitle:nil rows:@[@[@"线上", @"线下"]] initialSelection:@[@"线上"] doneBlock:^(ActionSheetStringPicker *picker, NSArray * selectedIndex, NSArray *selectedValue) {
-
-            _moneyType = selectedValue[0];
-            
-            
-            [weakself.tableView reloadData];
-            
-        } cancelBlock:nil origin:self.view];
-        
-
-    }
+//    XIU_WeakSelf(self)
+//    if (indexPath.row == 1) {
+//        [ActionSheetStringPicker showPickerWithTitle:nil rows:@[@[@"线上", @"线下"]] initialSelection:@[@"线上"] doneBlock:^(ActionSheetStringPicker *picker, NSArray * selectedIndex, NSArray *selectedValue) {
+//
+//            _moneyType = selectedValue[0];
+//            
+//            
+//            [weakself.tableView reloadData];
+//            
+//        } cancelBlock:nil origin:self.view];
+//        
+//
+//    }
 }
 - (IBAction)clickBack:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];

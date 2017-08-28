@@ -108,8 +108,8 @@
     self.tableView.dataSource = self;
     self.tableView.separatorStyle =  UITableViewCellSeparatorStyleNone;
     [self studentBtnClick:self.studentBtn];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     ui_yhtype = [XIU_Login ui_yhtype];
     if ([ui_yhtype isEqualToString:@"1"]) {
         [self studentBtnClick:_studentBtn];
@@ -120,26 +120,26 @@
     }
 }
 
--(void)keyBoardWillHide:(NSNotification *)note{
-    CGFloat duration = [note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-    [UIView animateWithDuration:duration animations:^{
-        self.view.y = 0;
-    }];
-    
-}
-
--(void)keyBoardWillShow:(NSNotification *)note{
-    CGRect frame = [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    CGFloat y = frame.origin.y;
-    CGFloat cellY = CGRectGetMaxY(self.currentCell.frame)+109-self.tableView.contentOffset.y;
-    if (cellY>y){
-        CGFloat duration = [note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-        
-        [UIView animateWithDuration:duration animations:^{
-            self.view.y = -cellY + y;
-        }];
-    }
-}
+//-(void)keyBoardWillHide:(NSNotification *)note{
+//    CGFloat duration = [note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+//    [UIView animateWithDuration:duration animations:^{
+//        self.view.y = 0;
+//    }];
+//    
+//}
+//
+//-(void)keyBoardWillShow:(NSNotification *)note{
+//    CGRect frame = [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+//    CGFloat y = frame.origin.y;
+//    CGFloat cellY = CGRectGetMaxY(self.currentCell.frame)+109-self.tableView.contentOffset.y;
+//    if (cellY>y){
+//        CGFloat duration = [note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+//        
+//        [UIView animateWithDuration:duration animations:^{
+//            self.view.y = -cellY + y;
+//        }];
+//    }
+//}
 
 
 - (NSString *)imageBase64WithDataURL:(UIImage *)image
@@ -164,9 +164,9 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
--(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    [self.view endEditing:YES];
-}
+//-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+//    [self.view endEditing:YES];
+//}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -443,35 +443,30 @@
     [hud show:YES];
 
     [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_doPage2 withParams:dic withMethodType:Post andBlock:^(id data, NSError *error) {
-        [hud hide:YES];
+        [hud hide:YES];//error 提交重复， success提交成功
         if ([data[@"status"] isEqualToString:@"error"]) {
-            XIUHUD(@"信息提交重复");
-            return ;
+            XIUHUD(@"信息已提交");
+            
         }if ([data[@"status"] isEqualToString:@"success"]) {
             [XIU_Login doLogin:data[@"data"]];
             XIUHUD(@"提交成功");
-            
-            dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0* NSEC_PER_SEC));
-            
-            dispatch_after(delayTime, dispatch_get_main_queue(), ^{
-                MyInfo_ViewController *homeVC = [[MyInfo_ViewController alloc] init];
-                UIViewController *target = nil;
-                for (UIViewController * controller in self.navigationController.viewControllers) { //遍历
-                    if ([controller isKindOfClass:[homeVC class]]) {
-                        target = controller;
-                    }
-                }
-                if (target) {
-                    
-                    [self.navigationController popToViewController:target animated:YES]; //跳转
-                }
-            });
-        
-
-            
-            
-            
         }
+        
+        dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0* NSEC_PER_SEC));
+        
+        dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+            MyInfo_ViewController *homeVC = [[MyInfo_ViewController alloc] init];
+            UIViewController *target = nil;
+            for (UIViewController * controller in self.navigationController.viewControllers) { //遍历
+                if ([controller isKindOfClass:[homeVC class]]) {
+                    target = controller;
+                }
+            }
+            if (target) {
+                
+                [self.navigationController popToViewController:target animated:YES]; //跳转
+            }
+        });
     }];
     
 }
@@ -500,6 +495,7 @@
         } cancelBlock:^(ActionSheetDatePicker *picker) {
             
         } origin:self.view];
+        
         picker.minimumDate = [[NSDate date] offsetYear:-120];
         picker.maximumDate = [NSDate date];
         [picker showActionSheetPicker];

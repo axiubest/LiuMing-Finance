@@ -71,6 +71,7 @@
       dict = @{@"oi_state":[NSString stringWithFormat:@"%ld", _type], @"ui_id":[XIU_Login userId], @"ui_type":@"5", @"page_num":[NSNumber numberWithInteger:page]};
     }
     else {
+        
         dict = @{@"oi_state":[NSString stringWithFormat:@"%ld", _type], @"ui_id":[XIU_Login userId], @"page_num":[NSNumber numberWithInteger:page]};
     }
     
@@ -146,7 +147,7 @@
         }else{
             cell.headerSubTitleLabel.textColor = [UIColor colorWithHexString:@"#fe324a"];
         }
-        cell.bodyTitleLabel.text = [NSString stringWithFormat:@"借款%@元, 分%@期 %@-%@【姓名:%@】", model.oi_jkprice, model.oi_jkloans, model.nowloans, model.oi_jkloans, model.name];
+        cell.bodyTitleLabel.text = [NSString stringWithFormat:@"借款%@元, 分%@期 %@／%@【姓名:%@】", model.oi_jkprice, model.oi_jkloans, model.nowloans, model.oi_jkloans, model.name];
 
         cell.bodySubTitleLabel.text = model.hkzje;
             if (model.fxprice.length> 0) {
@@ -194,7 +195,7 @@
         cell.footerTitleLabel.text =[NSString stringWithFormat:@"借款日期：%@", model.hktime] ;
 
     }else {
-       cell.bodyTitleLabel.text = [NSString stringWithFormat:@"借款%@元, 分%@期 %@-%@", model.oi_jkprice, model.oi_jkloans, model.nowloans, model.oi_jkloans];
+       cell.bodyTitleLabel.text = [NSString stringWithFormat:@"借款%@元, 分%@期 %@／%@", model.oi_jkprice, model.oi_jkloans, model.nowloans, model.oi_jkloans];
         cell.footerTitleLabel.text =[NSString stringWithFormat:@"还款日期：%@", model.hktime] ;
 
     }

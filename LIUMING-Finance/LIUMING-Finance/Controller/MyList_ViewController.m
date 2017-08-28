@@ -78,9 +78,10 @@
 {
     [self setupOneChildViewController:HKListTypeAll];
     [self setupOneChildViewController:HKListTypeBorrowMoney];
-    [self setupOneChildViewController:HKListTypeOverdue];
+    [self setupOneChildViewController:HKListTypeSettle];//已结清
     [self setupOneChildViewController:HKListTypeYuQi];
-    [self setupOneChildViewController:HKListTypeSettle];
+    [self setupOneChildViewController:HKListTypeProsecution];//已起诉
+    
 }
 - (void)setupOneChildViewController:(HKListType)type
 {
@@ -118,9 +119,9 @@
     // 5个按钮
     HKTitleBtn *button = [self setupTitleButton:@"全部"];
     HKTitleBtn *button1 = [self setupTitleButton:@"借款中"];
-    HKTitleBtn *button2 = [self setupTitleButton:@"已还款"];
+    HKTitleBtn *button2 = [self setupTitleButton:@"已结清"];
     HKTitleBtn *button3 = [self setupTitleButton:@"已逾期"];
-    HKTitleBtn *button4 = [self setupTitleButton:@"已结清"];
+    HKTitleBtn *button4 = [self setupTitleButton:@"已起诉"];
     NSArray *a = @[button,button1,button2,button3,button4];
     
     [self.contentView layoutIfNeeded];

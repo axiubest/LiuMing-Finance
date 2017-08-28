@@ -30,6 +30,16 @@
 
 @implementation Register_ViewController
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+//    [self.view endEditing:YES];
+    [_pswTextField resignFirstResponder];
+    [_pswTextField resignFirstResponder];
+    [_surePswTextField resignFirstResponder];
+    [_codeTextField resignFirstResponder];
+
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 }
