@@ -113,7 +113,7 @@ CG_INLINE BOOL isIPhone4()
 
         UIBarButtonItem *sysDoneButton = [self createButtonWithType:UIBarButtonSystemItemDone target:self
                                                              action:@selector(actionPickerDone:)];
-
+        
         UIBarButtonItem *sysCancelButton = [self createButtonWithType:UIBarButtonSystemItemCancel target:self
                                                                action:@selector(actionPickerCancel:)];
 
@@ -269,10 +269,14 @@ CG_INLINE BOOL isIPhone4()
     {
         UIButton *uiButton = (UIButton *) button.customView;
         [uiButton addTarget:self action:@selector(actionPickerCancel:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [uiButton setTitle:@"取消" forState:UIControlStateNormal];
+
     }
     else
     {
         [button setTarget:self];
+        [button setTitle:@"取消"];
         [button setAction:@selector(actionPickerCancel:)];
     }
     self.cancelBarButtonItem = button;
@@ -284,11 +288,13 @@ CG_INLINE BOOL isIPhone4()
     if ( [button.customView isKindOfClass:[UIButton class]] )
     {
         UIButton *uiButton = (UIButton *) button.customView;
+        [uiButton setTitle:@"确定" forState:UIControlStateNormal];
         [button setAction:@selector(actionPickerDone:)];
         [uiButton addTarget:self action:@selector(actionPickerDone:) forControlEvents:UIControlEventTouchUpInside];
     }
     else
-    {
+    {        [button setTitle:@"确定"];
+
         [button setTarget:self];
         [button setAction:@selector(actionPickerDone:)];
     }
@@ -416,6 +422,8 @@ CG_INLINE BOOL isIPhone4()
     UIBarButtonItem *barButton;
     barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:type target:target
                                                               action:buttonAction];
+    
+    
     [barButton setTitleTextAttributes:@{
                                         NSFontAttributeName: [UIFont boldSystemFontOfSize:17],
                                         NSForegroundColorAttributeName: [UIColor blackColor],

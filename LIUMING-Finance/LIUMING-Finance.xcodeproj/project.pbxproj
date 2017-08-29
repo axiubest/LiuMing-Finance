@@ -73,6 +73,8 @@
 		18B06E971F53ACBD009420DB /* IQToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B06E861F53ACBD009420DB /* IQToolbar.m */; };
 		18B06E981F53ACBD009420DB /* IQUIView+IQKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B06E881F53ACBD009420DB /* IQUIView+IQKeyboardToolbar.m */; };
 		18B06E991F53ACBD009420DB /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 18B06E8A1F53ACBD009420DB /* IQKeyboardManager.bundle */; };
+		18B06E9C1F53F4CD009420DB /* OrderDetail_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B06E9B1F53F4CD009420DB /* OrderDetail_ViewController.m */; };
+		18B06E9F1F53F5CD009420DB /* OrderDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B06E9E1F53F5CD009420DB /* OrderDetailCell.m */; };
 		18B2A11A1F343DBF007C6473 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B2A1181F343DBF007C6473 /* SearchViewController.m */; };
 		18B2A11B1F343DBF007C6473 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18B2A1191F343DBF007C6473 /* SearchViewController.xib */; };
 		18ED3BA01F4A886C002E9AA6 /* PopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18ED3B9F1F4A886C002E9AA6 /* PopView.m */; };
@@ -183,8 +185,6 @@
 		FA2B1C491F2CC9BC000D889D /* TextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2B1C471F2CC9BC000D889D /* TextViewController.m */; };
 		FA2B1C4A1F2CC9BC000D889D /* TextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA2B1C481F2CC9BC000D889D /* TextViewController.xib */; };
 		FA2B1C4D1F2CD50E000D889D /* UIViewController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2B1C4C1F2CD50E000D889D /* UIViewController+BackButtonHandler.m */; };
-		FA2B1C541F2F66E1000D889D /* Progress_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2B1C521F2F66E1000D889D /* Progress_ViewController.m */; };
-		FA2B1C551F2F66E1000D889D /* Progress_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA2B1C531F2F66E1000D889D /* Progress_ViewController.xib */; };
 		FA39B8FB1F401D7500BA1D91 /* Contract_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA39B8F91F401D7500BA1D91 /* Contract_ViewController.m */; };
 		FA39B9001F401F2900BA1D91 /* ContractCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA39B8FE1F401F2900BA1D91 /* ContractCell.m */; };
 		FA39B9041F406C8500BA1D91 /* ContractModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FA39B9031F406C8500BA1D91 /* ContractModel.m */; };
@@ -341,6 +341,10 @@
 		18B06E871F53ACBD009420DB /* IQUIView+IQKeyboardToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUIView+IQKeyboardToolbar.h"; sourceTree = "<group>"; };
 		18B06E881F53ACBD009420DB /* IQUIView+IQKeyboardToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQUIView+IQKeyboardToolbar.m"; sourceTree = "<group>"; };
 		18B06E8A1F53ACBD009420DB /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
+		18B06E9A1F53F4CD009420DB /* OrderDetail_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetail_ViewController.h; sourceTree = "<group>"; };
+		18B06E9B1F53F4CD009420DB /* OrderDetail_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetail_ViewController.m; sourceTree = "<group>"; };
+		18B06E9D1F53F5CD009420DB /* OrderDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailCell.h; sourceTree = "<group>"; };
+		18B06E9E1F53F5CD009420DB /* OrderDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailCell.m; sourceTree = "<group>"; };
 		18B2A1171F343DBF007C6473 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		18B2A1181F343DBF007C6473 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		18B2A1191F343DBF007C6473 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
@@ -565,9 +569,6 @@
 		FA2B1C481F2CC9BC000D889D /* TextViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextViewController.xib; sourceTree = "<group>"; };
 		FA2B1C4B1F2CD50E000D889D /* UIViewController+BackButtonHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BackButtonHandler.h"; sourceTree = "<group>"; };
 		FA2B1C4C1F2CD50E000D889D /* UIViewController+BackButtonHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BackButtonHandler.m"; sourceTree = "<group>"; };
-		FA2B1C511F2F66E1000D889D /* Progress_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Progress_ViewController.h; sourceTree = "<group>"; };
-		FA2B1C521F2F66E1000D889D /* Progress_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Progress_ViewController.m; sourceTree = "<group>"; };
-		FA2B1C531F2F66E1000D889D /* Progress_ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Progress_ViewController.xib; sourceTree = "<group>"; };
 		FA39B8F81F401D7500BA1D91 /* Contract_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contract_ViewController.h; sourceTree = "<group>"; };
 		FA39B8F91F401D7500BA1D91 /* Contract_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contract_ViewController.m; sourceTree = "<group>"; };
 		FA39B8FD1F401F2900BA1D91 /* ContractCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContractCell.h; sourceTree = "<group>"; };
@@ -968,15 +969,14 @@
 				FA2B1C461F2CC9BC000D889D /* TextViewController.h */,
 				FA2B1C471F2CC9BC000D889D /* TextViewController.m */,
 				FA2B1C481F2CC9BC000D889D /* TextViewController.xib */,
-				FA2B1C511F2F66E1000D889D /* Progress_ViewController.h */,
-				FA2B1C521F2F66E1000D889D /* Progress_ViewController.m */,
-				FA2B1C531F2F66E1000D889D /* Progress_ViewController.xib */,
 				18B2A1171F343DBF007C6473 /* SearchViewController.h */,
 				18B2A1181F343DBF007C6473 /* SearchViewController.m */,
 				18B2A1191F343DBF007C6473 /* SearchViewController.xib */,
 				18ED3BA81F4AA9A4002E9AA6 /* Manager_ViewController.h */,
 				18ED3BA91F4AA9A4002E9AA6 /* Manager_ViewController.m */,
 				18ED3BAA1F4AA9A4002E9AA6 /* Manager_ViewController.xib */,
+				18B06E9A1F53F4CD009420DB /* OrderDetail_ViewController.h */,
+				18B06E9B1F53F4CD009420DB /* OrderDetail_ViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1072,6 +1072,8 @@
 				18ED3BA31F4AA6E3002E9AA6 /* ManagerCell.h */,
 				18ED3BA41F4AA6E3002E9AA6 /* ManagerCell.m */,
 				18ED3BA51F4AA6E3002E9AA6 /* ManagerCell.xib */,
+				18B06E9D1F53F5CD009420DB /* OrderDetailCell.h */,
+				18B06E9E1F53F5CD009420DB /* OrderDetailCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1409,7 +1411,6 @@
 				18A92BBB1F417B3800643279 /* AutographView.xib in Resources */,
 				FA25BC671EF7790900D7210C /* Main.storyboard in Resources */,
 				18F973931F3DA4A700E77934 /* MJRefresh.bundle in Resources */,
-				FA2B1C551F2F66E1000D889D /* Progress_ViewController.xib in Resources */,
 				18ED3BA71F4AA6E3002E9AA6 /* ManagerCell.xib in Resources */,
 				043E69001F1788F90065016B /* FinancialContribution_ViewController.xib in Resources */,
 				043E68F11F1737370065016B /* RepaymentInfo_ViewController.xib in Resources */,
@@ -1497,6 +1498,7 @@
 				043E691A1F17D9CB0065016B /* UIBarButtonItem+XMGExtension.m in Sources */,
 				FA25BD621EF791A600D7210C /* SDWebImageManager.m in Sources */,
 				18F973981F3DA4A700E77934 /* UIView+MJExtension.m in Sources */,
+				18B06E9F1F53F5CD009420DB /* OrderDetailCell.m in Sources */,
 				FAF6A3301F1B00300068C0D5 /* UIViewController+Common.m in Sources */,
 				FA39B8FB1F401D7500BA1D91 /* Contract_ViewController.m in Sources */,
 				FA25BC611EF7790800D7210C /* AppDelegate.m in Sources */,
@@ -1517,6 +1519,7 @@
 				FAF6A33E1F1BA21D0068C0D5 /* IDInfoOne_ViewController.m in Sources */,
 				043E68FF1F1788F80065016B /* FinancialContribution_ViewController.m in Sources */,
 				FA241BB61F20DE1D003899CE /* NullSafe.m in Sources */,
+				18B06E9C1F53F4CD009420DB /* OrderDetail_ViewController.m in Sources */,
 				04D82E501F161B5600FDCF34 /* HKTitleBtn.m in Sources */,
 				18B06E901F53ACBD009420DB /* IQUIWindow+Hierarchy.m in Sources */,
 				043E68F51F1762D30065016B /* MyProfit_ViewController.m in Sources */,
@@ -1597,7 +1600,6 @@
 				18B06E8D1F53ACBD009420DB /* IQUITextFieldView+Additions.m in Sources */,
 				18F9738F1F3DA4A700E77934 /* MJRefreshBackStateFooter.m in Sources */,
 				FA0670221F23963200B0BC63 /* ActionSheetDistancePicker.m in Sources */,
-				FA2B1C541F2F66E1000D889D /* Progress_ViewController.m in Sources */,
 				18B06E941F53ACBD009420DB /* IQBarButtonItem.m in Sources */,
 				04DDC3711F14A236003D7567 /* HKTableButton.m in Sources */,
 				18ED3BA01F4A886C002E9AA6 /* PopView.m in Sources */,

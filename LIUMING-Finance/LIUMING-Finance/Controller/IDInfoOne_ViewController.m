@@ -12,6 +12,7 @@
 #import "HKSubmitCell.h"
 #import "NSString+Common.h"
 #import <ContactsUI/ContactsUI.h>
+#import "ActionSheetStringPicker.h"
 #define Is_up_Ios_9             ([[UIDevice currentDevice].systemVersion floatValue] >= 9.0
 
 @interface IDInfoOne_ViewController ()<UITableViewDelegate,UITableViewDataSource,HKSubmitCellDelegate,UITextFieldDelegate,CNContactPickerDelegate>
@@ -40,6 +41,7 @@
     NSString *province;
     NSString *city;
     NSString *area;
+    NSString *ui_sex;
     
 
     UITextField *textF;
@@ -68,6 +70,7 @@
                  @{@"name":@"微信号",@"place":@"请输入您的微信号",@"isHide":@1},
                  @{@"name":@"借贷额度",@"place":@"请输入您的借贷额度",@"isHide":@1},
                   @{@"name":@"支付宝",@"place":@"请输入您的支付宝账号",@"isHide":@1},
+                 @{@"name":@"性别",@"place":@"请输入您的性别",@"isHide":@0},
                  @{@"name":@"第一位亲属紧急联系人",@"place":@"请输入您的紧急联系人姓名，如：父亲姓名",@"isHide":@1},
                  @{@"name":@"第一位亲属紧急联系人电话",@"place":@"请输入您的紧急联系人电话号码",@"isHide":@0},
                  @{@"name":@"第二位亲属紧急联系人",@"place":@"请输入您的紧急联系人姓名，如：母亲姓名",@"isHide":@1},
@@ -102,29 +105,8 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-//    
-//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardHideShow:) name:UIKeyboardWillHideNotification object:nil];
-}
 
-//- (void)keyboardWillShow:(NSNotification *)notification {
-//    CGRect keyboardFrame  =[notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
-//    CGFloat height = keyboardFrame.origin.y;
-//    CGFloat textField_maxY = (textF.tag + 1) * 90;
-//    CGFloat space = -self.tableVlew.contentOffset.y + textField_maxY;
-//    CGFloat transformY = height - space;
-//    if (transformY < 0) {
-//        CGRect frame = self.view.frame;
-//        frame.origin.y = transformY;
-//        self.view.frame = frame;
-//    }
-//}
-//
-//- (void)keyboardHideShow:(NSNotification *)notification {
-//    CGRect frame = self.view.frame;
-//    frame.origin.y = 0;
-//    self.view.frame = frame;
-//}
+}
 
 
 
@@ -173,7 +155,7 @@
     phoneName6 = [XIU_Login ui_name6];
     
     phone6 = [XIU_Login ui_phone6];
-
+    ui_sex = [XIU_Login ui_sex];
     
     province = [XIU_Login province];
     city = [XIU_Login city];
@@ -266,11 +248,15 @@
             case 11:
                 cell.inputField.text = ui_alipay;
                 break;
-
-            case 12:
+            case 12://性别选择器
+                cell.inputField.text = ui_sex;
+                cell.inputField.enabled = NO;
+                [cell.inputField setUserInteractionEnabled:NO];
+                break;
+            case 13:
                 cell.inputField.text =phoneName1;
                 break;
-            case 13: {
+            case 14: {
                 cell.inputField.text = phone1;
                 cell.downImg.image = [UIImage imageNamed:@"通讯录"];
                 cell.downImg.userInteractionEnabled = YES;
@@ -280,10 +266,10 @@
                 }];
             }
                 break;
-            case 14:
+            case 15:
                 cell.inputField.text = phoneName2;
                 break;
-            case 15: {
+            case 16: {
                 cell.inputField.text = phone2;
                 cell.downImg.image = [UIImage imageNamed:@"通讯录"];
                 cell.downImg.userInteractionEnabled = YES;
@@ -293,10 +279,10 @@
                 }];
             }
                 break;
-            case 16:
+            case 17:
                 cell.inputField.text =phoneName3;
                 break;
-            case 17:{
+            case 18:{
                 cell.inputField.text = phone3;
                 cell.downImg.image = [UIImage imageNamed:@"通讯录"];
                 cell.downImg.userInteractionEnabled = YES;
@@ -306,10 +292,10 @@
                 }];
             }
                 break;
-            case 18:
+            case 19:
                 cell.inputField.text = phoneName4;
                 break;
-            case 19:{
+            case 20:{
                 cell.inputField.text = phone4;
                 cell.downImg.image = [UIImage imageNamed:@"通讯录"];
                 cell.downImg.userInteractionEnabled = YES;
@@ -319,10 +305,10 @@
                 }];
             }
                 break;
-            case 20:
+            case 21:
                 cell.inputField.text =phoneName5;
                 break;
-            case 21:{
+            case 22:{
                 cell.inputField.text = phone5;
                 cell.downImg.image = [UIImage imageNamed:@"通讯录"];
                 cell.downImg.userInteractionEnabled = YES;
@@ -332,10 +318,10 @@
                 }];
             }
                 break;
-            case 22:
+            case 23:
                 cell.inputField.text = phoneName6;
                 break;
-            case 23:{
+            case 24:{
                 cell.inputField.text = phone6;
                 cell.downImg.image = [UIImage imageNamed:@"通讯录"];
                 cell.downImg.userInteractionEnabled = YES;
@@ -411,48 +397,52 @@
             
             break;
         case 12:
+            ui_sex = textField.text;
+            break;
+
+        case 13:
             phoneName1 = textField.text;
             
             break;
-        case 13:
+        case 14:
             phone1 = textField.text;
             
             break;
-        case 14:
+        case 15:
             phoneName2 = textField.text;
             
             break;
-        case 15:
-            phone2 = textField.text;
         case 16:
+            phone2 = textField.text;
+        case 17:
             phoneName3 = textField.text;
             
             break;
-        case 17:
+        case 18:
             phone3 = textField.text;
             
             break;
-        case 18:
+        case 19:
             phoneName4 = textField.text;
             
             break;
-        case 19:
+        case 20:
             phone4 = textField.text;
             
             break;
-        case 20:
+        case 21:
             phoneName5 = textField.text;
             
             break;
-        case 21:
+        case 22:
             phone5 = textField.text;
             
             break;
-        case 22:
+        case 23:
             phoneName6 = textField.text;
             
             break;
-        case 23:
+        case 24:
             phone6 = textField.text;
             
             break;
@@ -461,6 +451,26 @@
     }
 
     
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 12) {//性别
+        XIU_WeakSelf(self);
+
+        [ActionSheetStringPicker showPickerWithTitle:nil rows:@[@[@"男", @"女"]] initialSelection:@[@"男"] doneBlock:^(ActionSheetStringPicker *picker, NSArray * selectedIndex, NSArray *selectedValue) {
+            NSString *num = @"1";
+            if ([selectedValue[0] isEqualToString:@"男"]) {
+                num = @"1";
+            }if ([selectedValue[0] isEqualToString:@"女"]) {
+                num = @"0";
+            }
+            
+            ui_sex = selectedValue[0];
+            
+            [weakself.tableVlew reloadData];
+            
+        } cancelBlock:nil origin:self.view];
+    }
 }
 
 -(void)submitCellBtnClick:(HKSubmitCell *)cell{
@@ -511,7 +521,11 @@
     if (ui_alipay.length < 5) {
         XIUHUD(@"请输入支付宝号码");
         return;
-    }if (phoneName1.length < 2) {
+    }if (ui_sex.length == 0) {
+        XIUHUD(@"请选择性别");
+        return;
+    }
+    if (phoneName1.length < 2) {
         XIUHUD(@"请输入第一位紧急联系人");
         return;
     }if (phone1.length != 11) {
@@ -550,16 +564,12 @@
 
     [self request];
     
-    
-    
-    //text
-//    IDInfoTwoViewController *vc = [[IDInfoTwoViewController alloc] init];
-//    [self.navigationController pushViewController:vc animated:YES];
+
   }
 
 
 - (void)request {
-    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_doPage1 withParams:@{@"ui_id":[XIU_Login userId], @"ui_code":ui_code.length > 0 ? ui_code : @"",@"ui_cardid":ui_cardid,@"ui_province":province,@"ui_city":city,@"ui_area":area, @"ui_address":ui_address,@"ui_income":ui_income,@"ui_qqwx":ui_qqwx, @"ui_name1":phoneName1,@"ui_phone1":phone1, @"ui_name2":phoneName2, @"ui_phone2":phone2,@"ui_name3":phoneName3,@"ui_phone3":phone3, @"ui_name4":phoneName4, @"ui_phone4":phone4,@"ui_name5":phoneName5,@"ui_phone5":phone5, @"ui_name6":phoneName6, @"ui_phone6":phone6, @"ui_alipay":ui_alipay, @"ui_limit":ui_limit,@"ui_name":ui_name} withMethodType:Post andBlock:^(id data, NSError *error) {
+    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_doPage1 withParams:@{@"ui_id":[XIU_Login userId], @"ui_code":ui_code.length > 0 ? ui_code : @"",@"ui_cardid":ui_cardid,@"ui_province":province,@"ui_city":city,@"ui_area":area, @"ui_address":ui_address,@"ui_income":ui_income,@"ui_qqwx":ui_qqwx, @"ui_name1":phoneName1,@"ui_phone1":phone1, @"ui_name2":phoneName2, @"ui_phone2":phone2,@"ui_name3":phoneName3,@"ui_phone3":phone3, @"ui_name4":phoneName4, @"ui_phone4":phone4,@"ui_name5":phoneName5,@"ui_phone5":phone5, @"ui_name6":phoneName6, @"ui_phone6":phone6, @"ui_alipay":ui_alipay, @"ui_limit":ui_limit,@"ui_name":ui_name, @"ui_sex":[ui_sex isEqualToString:@"男"] ? @"1" : @"0"} withMethodType:Post andBlock:^(id data, NSError *error) {
         
         if ([data[@"status"] isEqualToString:@"error"]) {
             XIUHUD(@"信息已提交");
@@ -638,22 +648,22 @@
         /// 电话
         NSString *text2 = phoneNumber.stringValue;
         switch (textF.tag) {
-            case 13:
+            case 14:
                 phone1 = text2;
                 break;
-            case 15:
+            case 16:
                 phone2 = text2;
                 break;
-            case 17:
+            case 18:
                 phone3 = text2;
                 break;
-            case 19:
+            case 20:
                 phone4 = text2;
                 break;
-            case 21:
+            case 22:
                 phone5 = text2;
                 break;
-            case 23:
+            case 24:
                 phone6 = text2;
                 break;
             default:

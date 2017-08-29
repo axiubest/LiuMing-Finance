@@ -27,13 +27,13 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     [_borrowView bk_whenTapped:^{
-        [_delegate clickMy_ToolCellWithTag:HKListTypeBorrowMoney];
+        [_delegate clickMy_ToolCellWithTag:1];
     }];
     [_giveBackView bk_whenTapped:^{
-        [_delegate clickMy_ToolCellWithTag:HKListTypeOverMoney];
+        [_delegate clickMy_ToolCellWithTag:2];
     }];
     [_overdueView bk_whenTapped:^{
-        [_delegate clickMy_ToolCellWithTag:HKListTypeOverdue];
+        [_delegate clickMy_ToolCellWithTag:3];
     }];
     [_overView bk_whenTapped:^{
         [_delegate clickMy_ToolCellWithTag:4];

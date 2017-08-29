@@ -65,9 +65,16 @@
 - (IBAction)clickSlider:(HKSlider *)sender {
     if (sender.tag == 111) {//money
         NSString *num =[NSString stringWithFormat:@"%.0f",sender.value];
-        
-       NSString *tmp = [num substringToIndex:num.length - 2];
-        self.moneyLab.text = [NSString stringWithFormat:@"%@00", tmp];;
+        NSString *tmp;
+        if (num.length > 3) {
+          tmp = [num substringToIndex:num.length - 2];
+            self.moneyLab.text = [NSString stringWithFormat:@"%@00", tmp];
+        }else {
+            tmp = num;
+            self.moneyLab.text = [NSString stringWithFormat:@"%@", tmp];
+        }
+
+
         
     }else if (sender.tag == 222) {//time
         self.timeLab.text = [NSString stringWithFormat:@"%.0f", sender.value];

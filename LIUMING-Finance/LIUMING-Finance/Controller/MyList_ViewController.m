@@ -74,11 +74,13 @@
 }
 
 
+
+#pragma mark 控制状态status
 - (void)setupChildViewControllers
 {
     [self setupOneChildViewController:HKListTypeAll];
     [self setupOneChildViewController:HKListTypeBorrowMoney];
-    [self setupOneChildViewController:HKListTypeSettle];//已结清
+    [self setupOneChildViewController:HKListTypeOverdue];//已结清状态用3（已还款状态）
     [self setupOneChildViewController:HKListTypeYuQi];
     [self setupOneChildViewController:HKListTypeProsecution];//已起诉
     

@@ -10,6 +10,7 @@
 #import "HKBaseTableViewCell.h"
 #import "HKSubmitCell.h"
 #import "ActionSheetStringPicker.h"
+#import "OrderDetail_ViewController.h"
 #import "HWPopTool.h"
 #import "PopView.h"
 @interface RepaymentInfo_ViewController ()<UIAlertViewDelegate,UITableViewDelegate,UITableViewDataSource,HKSubmitCellDelegate>
@@ -110,6 +111,12 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    OrderDetail_ViewController *vc = [OrderDetail_ViewController loadViewControllerFromMainStoryBoard];
+    vc.oi_id = _mod.oi_id;
+    [self showViewController:vc sender:nil];
+//    [self.navigationController pushViewController:vc animated:YES];
+    
 //    XIU_WeakSelf(self)
 //    if (indexPath.row == 1) {
 //        [ActionSheetStringPicker showPickerWithTitle:nil rows:@[@[@"线上", @"线下"]] initialSelection:@[@"线上"] doneBlock:^(ActionSheetStringPicker *picker, NSArray * selectedIndex, NSArray *selectedValue) {
@@ -120,7 +127,6 @@
 //            [weakself.tableView reloadData];
 //            
 //        } cancelBlock:nil origin:self.view];
-//        
 //
 //    }
 }

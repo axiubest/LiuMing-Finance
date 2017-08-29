@@ -97,9 +97,6 @@
     return tempArr.count;
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    [self.view endEditing:YES];
-}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -304,7 +301,7 @@
     }
     
     if (indexPath.section == 1 && indexPath.row == 2) {
-        [ActionSheetStringPicker showPickerWithTitle:nil rows:@[@[@"男", @"女"]] initialSelection:@[@"男"] doneBlock:^(ActionSheetStringPicker *picker, NSArray * selectedIndex, NSArray *selectedValue) {
+     [ActionSheetStringPicker showPickerWithTitle:nil rows:@[@[@"男", @"女"]] initialSelection:@[@"男"] doneBlock:^(ActionSheetStringPicker *picker, NSArray * selectedIndex, NSArray *selectedValue) {
             NSString *num = @"1";
             if ([selectedValue[0] isEqualToString:@"男"]) {
                 num = @"1";
@@ -343,18 +340,19 @@
         } cancelBlock:^(ActionSheetDatePicker *picker) {
             
         } origin:self.view];
+//         [picker setDoneButton:[self createWithTitle:@"确定"]];
+//        [picker setCancelButton: [self createWithTitle:@"取消"]];
         picker.minimumDate = [[NSDate date] offsetYear:-120];
         picker.maximumDate = [NSDate date];
         [picker showActionSheetPicker];
         
 
-    }if (indexPath.section == 2) {
-//        TextViewController *vc  =[[TextViewController alloc] init];
-//        vc.type = @"地址";
-//        vc.hidesBottomBarWhenPushed = YES;
-//        vc.textField.text = [XIU_Login ui_address];
-//        [self.navigationController pushViewController:vc animated:YES];
     }
+}
+
+- (UIBarButtonItem *)createWithTitle:(NSString *)title {
+    return  [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStyleDone target:self action:nil];
+
 }
 
 - (void)onClickImage {

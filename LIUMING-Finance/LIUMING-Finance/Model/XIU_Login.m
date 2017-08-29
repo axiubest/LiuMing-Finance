@@ -85,6 +85,7 @@ static XIU_User *curLoginUser;
 }
 +(NSString *)ui_limit {
     return [NSString stringWithFormat:@"%.0f", [[[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_limit"] floatValue]];
+    
 }
 +(NSString *)ui_name1 {
     return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_name1"];
