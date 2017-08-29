@@ -123,7 +123,7 @@
                                 </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K0C-Bp-Gou" customClass="HKButton">
-                                <rect key="frame" x="151.5" y="400" width="72" height="72"/>
+                                <rect key="frame" x="151.5" y="410" width="72" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="72" id="pMb-gV-Qtx"/>
                                 </constraints>
@@ -136,7 +136,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i2m-w5-W6b" customClass="HKButton">
-                                <rect key="frame" x="35.5" y="400" width="72" height="72"/>
+                                <rect key="frame" x="35.5" y="410" width="72" height="72"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <inset key="titleEdgeInsets" minX="0.0" minY="90" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="进度查询" image="进度查询">
@@ -147,7 +147,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l6E-se-4uk" customClass="HKButton">
-                                <rect key="frame" x="267.5" y="400" width="72" height="72"/>
+                                <rect key="frame" x="267.5" y="410" width="72" height="72"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="合同签署" image="费用说明">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -191,7 +191,7 @@
                             <constraint firstItem="Wi1-On-9py" firstAttribute="top" secondItem="tVm-vg-1mt" secondAttribute="bottom" constant="10" id="8Ml-Oi-5UL"/>
                             <constraint firstItem="xAC-Y0-Vkq" firstAttribute="top" secondItem="dgT-fH-6vB" secondAttribute="bottom" constant="30" id="8dq-TM-0ae"/>
                             <constraint firstItem="K0C-Bp-Gou" firstAttribute="centerX" secondItem="o01-N0-H2N" secondAttribute="centerX" id="At6-3E-ftI"/>
-                            <constraint firstItem="dgT-fH-6vB" firstAttribute="top" secondItem="K0C-Bp-Gou" secondAttribute="bottom" constant="70" id="Gby-5A-5yZ"/>
+                            <constraint firstItem="dgT-fH-6vB" firstAttribute="top" secondItem="K0C-Bp-Gou" secondAttribute="bottom" constant="60" id="Gby-5A-5yZ"/>
                             <constraint firstAttribute="trailing" secondItem="NJ7-Hz-SUa" secondAttribute="trailing" id="IqW-Kz-0zL"/>
                             <constraint firstItem="tVm-vg-1mt" firstAttribute="leading" secondItem="o01-N0-H2N" secondAttribute="leading" constant="25" id="JyQ-ct-6Bm"/>
                             <constraint firstItem="b9K-fd-qjP" firstAttribute="top" secondItem="Wi1-On-9py" secondAttribute="bottom" constant="10" id="OG7-eJ-F9i"/>
@@ -222,6 +222,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="11" id="UjO-Zp-Luv"/>
                     <connections>
+                        <outlet property="disLab" destination="kEr-yN-lQe" id="Fh0-Pc-sDq"/>
                         <outlet property="everyMonth" destination="SmB-Nz-49l" id="39k-hl-WJY"/>
                         <outlet property="giveBtn" destination="i2m-w5-W6b" id="NYw-hj-QHA"/>
                         <outlet property="moneyLab" destination="NqT-nm-HQC" id="Z46-3m-RIl"/>

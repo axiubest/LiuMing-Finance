@@ -15,6 +15,7 @@
 #import "BaseTableViewController.h"
 @interface Home_ViewController ()<HKPerfectInfoViewDelegate, UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *moneyLabel;
+@property (weak, nonatomic) IBOutlet UILabel *disLab;//.00
 
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *everyMonth;
@@ -47,6 +48,16 @@
 
 
 - (void)viewDidLoad {
+    
+    
+    //首页适配
+    
+    if (KWIDTH == 320) {
+        _moneyLab.font = [UIFont systemFontOfSize:35];
+        _timeLab.font = [UIFont systemFontOfSize:35];
+        _disLab.font = [UIFont systemFontOfSize:20];
+    }
+    
     [super viewDidLoad];
     [self setUpBase];
 //    [self request];
