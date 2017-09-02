@@ -25,7 +25,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    [self normal];
+//    [self normal];
+#warning 
+    Manager_ViewController *v = [[Manager_ViewController alloc] init];
+    v.title = @"客户经理";
+    HKNavigationController *nav = [[HKNavigationController alloc] initWithRootViewController:v];
+    self.window.rootViewController = nav;
 
     [self.window makeKeyAndVisible];
     return YES;

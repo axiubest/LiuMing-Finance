@@ -32,7 +32,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-//    [self.view endEditing:YES];
+    [self.view endEditing:YES];
     [_pswTextField resignFirstResponder];
     [_pswTextField resignFirstResponder];
     [_surePswTextField resignFirstResponder];
@@ -100,6 +100,7 @@
 
 - (void)request {
   
+
     [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_doRegister withParams:@{@"ui_phone":_phoneTextField.text, @"ui_pwd":_pswTextField.text, @"again_ui_pwd":_surePswTextField.text, @"cd_code":_codeTextField.text, @"recommend_code":_recommendTextField.text > 0 ? _recommendTextField.text : @""} withMethodType:Post andBlock:^(id data, NSError *error) {
         if ([data[@"status"] isEqualToString:@"user is exists"]) {
             XIUHUD(@"您已注册过账号");

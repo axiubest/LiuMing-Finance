@@ -81,8 +81,8 @@
 		18ED3BA21F4A8878002E9AA6 /* PopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18ED3BA11F4A8878002E9AA6 /* PopView.xib */; };
 		18ED3BA61F4AA6E3002E9AA6 /* ManagerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18ED3BA41F4AA6E3002E9AA6 /* ManagerCell.m */; };
 		18ED3BA71F4AA6E3002E9AA6 /* ManagerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18ED3BA51F4AA6E3002E9AA6 /* ManagerCell.xib */; };
-		18ED3BAB1F4AA9A4002E9AA6 /* Manager_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18ED3BA91F4AA9A4002E9AA6 /* Manager_ViewController.m */; };
-		18ED3BAC1F4AA9A4002E9AA6 /* Manager_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18ED3BAA1F4AA9A4002E9AA6 /* Manager_ViewController.xib */; };
+		18ED3BAB1F4AA9A4002E9AA6 /* Manager_MyDelegate_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18ED3BA91F4AA9A4002E9AA6 /* Manager_MyDelegate_ViewController.m */; };
+		18ED3BAC1F4AA9A4002E9AA6 /* Manager_MyDelegate_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18ED3BAA1F4AA9A4002E9AA6 /* Manager_MyDelegate_ViewController.xib */; };
 		18F973851F3DA4A700E77934 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F973591F3DA4A700E77934 /* MJRefreshAutoFooter.m */; };
 		18F973861F3DA4A700E77934 /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F9735B1F3DA4A700E77934 /* MJRefreshBackFooter.m */; };
 		18F973871F3DA4A700E77934 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F9735D1F3DA4A700E77934 /* MJRefreshComponent.m */; };
@@ -191,6 +191,14 @@
 		FA4D867E1EFD844700CC55F7 /* 212121.png in Resources */ = {isa = PBXBuildFile; fileRef = FA4D867D1EFD844700CC55F7 /* 212121.png */; };
 		FA63F6FD1F3704CB007A278B /* TextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA63F6FB1F3704CB007A278B /* TextFieldCell.m */; };
 		FA63F6FE1F3704CB007A278B /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA63F6FC1F3704CB007A278B /* TextFieldCell.xib */; };
+		FA70170E1F5965DD003E7BAD /* Manager_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA70170C1F5965DD003E7BAD /* Manager_ViewController.m */; };
+		FA70170F1F5965DD003E7BAD /* Manager_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA70170D1F5965DD003E7BAD /* Manager_ViewController.xib */; };
+		FA7017131F5968BD003E7BAD /* ManagerInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7017111F5968BD003E7BAD /* ManagerInfoCell.m */; };
+		FA7017141F5968BD003E7BAD /* ManagerInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA7017121F5968BD003E7BAD /* ManagerInfoCell.xib */; };
+		FA7017181F599DE0003E7BAD /* ManagerStatus_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7017161F599DE0003E7BAD /* ManagerStatus_ViewController.m */; };
+		FA7017191F599DE0003E7BAD /* ManagerStatus_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA7017171F599DE0003E7BAD /* ManagerStatus_ViewController.xib */; };
+		FA70171D1F59A9F6003E7BAD /* MyManagerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA70171B1F59A9F6003E7BAD /* MyManagerCell.m */; };
+		FA70171E1F59A9F6003E7BAD /* MyManagerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA70171C1F59A9F6003E7BAD /* MyManagerCell.xib */; };
 		FA86F23A1F19AAC300CBAC4B /* XIU_NetAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FA86F2391F19AAC300CBAC4B /* XIU_NetAPIClient.m */; };
 		FAF6A3301F1B00300068C0D5 /* UIViewController+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF6A32F1F1B00300068C0D5 /* UIViewController+Common.m */; };
 		FAF6A3341F1B31560068C0D5 /* MyList_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF6A3321F1B31560068C0D5 /* MyList_ViewController.m */; };
@@ -354,9 +362,9 @@
 		18ED3BA31F4AA6E3002E9AA6 /* ManagerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerCell.h; sourceTree = "<group>"; };
 		18ED3BA41F4AA6E3002E9AA6 /* ManagerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerCell.m; sourceTree = "<group>"; };
 		18ED3BA51F4AA6E3002E9AA6 /* ManagerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManagerCell.xib; sourceTree = "<group>"; };
-		18ED3BA81F4AA9A4002E9AA6 /* Manager_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Manager_ViewController.h; sourceTree = "<group>"; };
-		18ED3BA91F4AA9A4002E9AA6 /* Manager_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Manager_ViewController.m; sourceTree = "<group>"; };
-		18ED3BAA1F4AA9A4002E9AA6 /* Manager_ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Manager_ViewController.xib; sourceTree = "<group>"; };
+		18ED3BA81F4AA9A4002E9AA6 /* Manager_MyDelegate_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Manager_MyDelegate_ViewController.h; sourceTree = "<group>"; };
+		18ED3BA91F4AA9A4002E9AA6 /* Manager_MyDelegate_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Manager_MyDelegate_ViewController.m; sourceTree = "<group>"; };
+		18ED3BAA1F4AA9A4002E9AA6 /* Manager_MyDelegate_ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Manager_MyDelegate_ViewController.xib; sourceTree = "<group>"; };
 		18F973581F3DA4A700E77934 /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoFooter.h; sourceTree = "<group>"; };
 		18F973591F3DA4A700E77934 /* MJRefreshAutoFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshAutoFooter.m; sourceTree = "<group>"; };
 		18F9735A1F3DA4A700E77934 /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackFooter.h; sourceTree = "<group>"; };
@@ -579,6 +587,18 @@
 		FA63F6FA1F3704CA007A278B /* TextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldCell.h; sourceTree = "<group>"; };
 		FA63F6FB1F3704CB007A278B /* TextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldCell.m; sourceTree = "<group>"; };
 		FA63F6FC1F3704CB007A278B /* TextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldCell.xib; sourceTree = "<group>"; };
+		FA70170B1F5965DD003E7BAD /* Manager_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Manager_ViewController.h; sourceTree = "<group>"; };
+		FA70170C1F5965DD003E7BAD /* Manager_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Manager_ViewController.m; sourceTree = "<group>"; };
+		FA70170D1F5965DD003E7BAD /* Manager_ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Manager_ViewController.xib; sourceTree = "<group>"; };
+		FA7017101F5968BD003E7BAD /* ManagerInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerInfoCell.h; sourceTree = "<group>"; };
+		FA7017111F5968BD003E7BAD /* ManagerInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerInfoCell.m; sourceTree = "<group>"; };
+		FA7017121F5968BD003E7BAD /* ManagerInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManagerInfoCell.xib; sourceTree = "<group>"; };
+		FA7017151F599DE0003E7BAD /* ManagerStatus_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerStatus_ViewController.h; sourceTree = "<group>"; };
+		FA7017161F599DE0003E7BAD /* ManagerStatus_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerStatus_ViewController.m; sourceTree = "<group>"; };
+		FA7017171F599DE0003E7BAD /* ManagerStatus_ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManagerStatus_ViewController.xib; sourceTree = "<group>"; };
+		FA70171A1F59A9F6003E7BAD /* MyManagerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyManagerCell.h; sourceTree = "<group>"; };
+		FA70171B1F59A9F6003E7BAD /* MyManagerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyManagerCell.m; sourceTree = "<group>"; };
+		FA70171C1F59A9F6003E7BAD /* MyManagerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyManagerCell.xib; sourceTree = "<group>"; };
 		FA86F2381F19AAC300CBAC4B /* XIU_NetAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XIU_NetAPIClient.h; sourceTree = "<group>"; };
 		FA86F2391F19AAC300CBAC4B /* XIU_NetAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XIU_NetAPIClient.m; sourceTree = "<group>"; };
 		FAF6A32E1F1B00300068C0D5 /* UIViewController+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Common.h"; sourceTree = "<group>"; };
@@ -972,11 +992,17 @@
 				18B2A1171F343DBF007C6473 /* SearchViewController.h */,
 				18B2A1181F343DBF007C6473 /* SearchViewController.m */,
 				18B2A1191F343DBF007C6473 /* SearchViewController.xib */,
-				18ED3BA81F4AA9A4002E9AA6 /* Manager_ViewController.h */,
-				18ED3BA91F4AA9A4002E9AA6 /* Manager_ViewController.m */,
-				18ED3BAA1F4AA9A4002E9AA6 /* Manager_ViewController.xib */,
+				18ED3BA81F4AA9A4002E9AA6 /* Manager_MyDelegate_ViewController.h */,
+				18ED3BA91F4AA9A4002E9AA6 /* Manager_MyDelegate_ViewController.m */,
+				18ED3BAA1F4AA9A4002E9AA6 /* Manager_MyDelegate_ViewController.xib */,
 				18B06E9A1F53F4CD009420DB /* OrderDetail_ViewController.h */,
 				18B06E9B1F53F4CD009420DB /* OrderDetail_ViewController.m */,
+				FA7017151F599DE0003E7BAD /* ManagerStatus_ViewController.h */,
+				FA7017161F599DE0003E7BAD /* ManagerStatus_ViewController.m */,
+				FA7017171F599DE0003E7BAD /* ManagerStatus_ViewController.xib */,
+				FA70170B1F5965DD003E7BAD /* Manager_ViewController.h */,
+				FA70170C1F5965DD003E7BAD /* Manager_ViewController.m */,
+				FA70170D1F5965DD003E7BAD /* Manager_ViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1074,6 +1100,12 @@
 				18ED3BA51F4AA6E3002E9AA6 /* ManagerCell.xib */,
 				18B06E9D1F53F5CD009420DB /* OrderDetailCell.h */,
 				18B06E9E1F53F5CD009420DB /* OrderDetailCell.m */,
+				FA70171A1F59A9F6003E7BAD /* MyManagerCell.h */,
+				FA70171B1F59A9F6003E7BAD /* MyManagerCell.m */,
+				FA70171C1F59A9F6003E7BAD /* MyManagerCell.xib */,
+				FA7017101F5968BD003E7BAD /* ManagerInfoCell.h */,
+				FA7017111F5968BD003E7BAD /* ManagerInfoCell.m */,
+				FA7017121F5968BD003E7BAD /* ManagerInfoCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1388,6 +1420,7 @@
 				04DDC3831F14CB31003D7567 /* Delegate_ViewController.xib in Resources */,
 				043E690A1F17B7460065016B /* HKFinancialContributionCell.xib in Resources */,
 				04D82E481F160B2900FDCF34 /* HKPerfectInfoCell.xib in Resources */,
+				FA70170F1F5965DD003E7BAD /* Manager_ViewController.xib in Resources */,
 				FA4D867E1EFD844700CC55F7 /* 212121.png in Resources */,
 				18B2A11B1F343DBF007C6473 /* SearchViewController.xib in Resources */,
 				FAF6A33A1F1B32C40068C0D5 /* MyInfo_ViewController.xib in Resources */,
@@ -1396,8 +1429,10 @@
 				FA2B1C4A1F2CC9BC000D889D /* TextViewController.xib in Resources */,
 				FA06700C1F23540000B0BC63 /* EditCell.xib in Resources */,
 				04DDC36E1F149E7E003D7567 /* My_ToolCell.xib in Resources */,
+				FA7017141F5968BD003E7BAD /* ManagerInfoCell.xib in Resources */,
 				FA25BC6C1EF7790900D7210C /* LaunchScreen.storyboard in Resources */,
 				04ECFC591F151A3800ADF59F /* HKPerfectInfoView.xib in Resources */,
+				FA70171E1F59A9F6003E7BAD /* MyManagerCell.xib in Resources */,
 				FAF6A33F1F1BA21D0068C0D5 /* IDInfoOne_ViewController.xib in Resources */,
 				04ECFC681F15B67100ADF59F /* HKPhotoUploadCell.xib in Resources */,
 				04D82E431F15F99600FDCF34 /* HKMyInfoCell.xib in Resources */,
@@ -1406,8 +1441,9 @@
 				04DDC38D1F14D618003D7567 /* HKSubmitCell.xib in Resources */,
 				04DDC37E1F14C05A003D7567 /* HKNameRowCell.xib in Resources */,
 				043E68EC1F16A5E70065016B /* HKMyListCell.xib in Resources */,
+				FA7017191F599DE0003E7BAD /* ManagerStatus_ViewController.xib in Resources */,
 				184BBF431F2AE1D900282CDE /* WechatIMG1.jpeg in Resources */,
-				18ED3BAC1F4AA9A4002E9AA6 /* Manager_ViewController.xib in Resources */,
+				18ED3BAC1F4AA9A4002E9AA6 /* Manager_MyDelegate_ViewController.xib in Resources */,
 				18A92BBB1F417B3800643279 /* AutographView.xib in Resources */,
 				FA25BC671EF7790900D7210C /* Main.storyboard in Resources */,
 				18F973931F3DA4A700E77934 /* MJRefresh.bundle in Resources */,
@@ -1484,6 +1520,7 @@
 				FA2B1C451F28D4A0000D889D /* GetPwdViewController.m in Sources */,
 				18B06E8E1F53ACBD009420DB /* IQUIView+Hierarchy.m in Sources */,
 				FA25BD401EF791A600D7210C /* AFSecurityPolicy.m in Sources */,
+				FA7017131F5968BD003E7BAD /* ManagerInfoCell.m in Sources */,
 				FA25BD5B1EF791A600D7210C /* MKAnnotationView+WebCache.m in Sources */,
 				04A45B691F13C51600FC8FD9 /* HKSlider.m in Sources */,
 				18F973871F3DA4A700E77934 /* MJRefreshComponent.m in Sources */,
@@ -1513,6 +1550,7 @@
 				FA25BD691EF791A600D7210C /* UIImageView+WebCache.m in Sources */,
 				FA25BCD11EF7918100D7210C /* NSString+Common.m in Sources */,
 				FA25BD451EF791A600D7210C /* UIView+BlocksKit.m in Sources */,
+				FA7017181F599DE0003E7BAD /* ManagerStatus_ViewController.m in Sources */,
 				18A92BB61F41770900643279 /* NJKWebViewProgressView.m in Sources */,
 				FA25BD531EF791A600D7210C /* MJProperty.m in Sources */,
 				FA25BD701EF791BB00D7210C /* XIU_User.m in Sources */,
@@ -1555,7 +1593,7 @@
 				FAF6A3391F1B32C40068C0D5 /* MyInfo_ViewController.m in Sources */,
 				18F9738C1F3DA4A700E77934 /* MJRefreshAutoStateFooter.m in Sources */,
 				18B06E8C1F53ACBD009420DB /* IQUIScrollView+Additions.m in Sources */,
-				18ED3BAB1F4AA9A4002E9AA6 /* Manager_ViewController.m in Sources */,
+				18ED3BAB1F4AA9A4002E9AA6 /* Manager_MyDelegate_ViewController.m in Sources */,
 				FA0670241F23963200B0BC63 /* ActionSheetStringPicker.m in Sources */,
 				FA25BCD01EF7918100D7210C /* NSDictionary+Common.m in Sources */,
 				04DDC37D1F14C05A003D7567 /* HKNameRowCell.m in Sources */,
@@ -1566,6 +1604,7 @@
 				18B06E961F53ACBD009420DB /* IQTitleBarButtonItem.m in Sources */,
 				FA25BD4B1EF791A600D7210C /* MASViewConstraint.m in Sources */,
 				043E68F01F1737370065016B /* RepaymentInfo_ViewController.m in Sources */,
+				FA70171D1F59A9F6003E7BAD /* MyManagerCell.m in Sources */,
 				FA25BD431EF791A600D7210C /* AFURLSessionManager.m in Sources */,
 				FA25BD601EF791A600D7210C /* SDWebImageDownloader.m in Sources */,
 				FA25BD671EF791A600D7210C /* UIImage+WebP.m in Sources */,
@@ -1588,6 +1627,7 @@
 				FA25BD4D1EF791A600D7210C /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				18A92BB51F41770900643279 /* NJKWebViewProgress.m in Sources */,
 				FA25BD561EF791A600D7210C /* NSObject+MJClass.m in Sources */,
+				FA70170E1F5965DD003E7BAD /* Manager_ViewController.m in Sources */,
 				FA25BCD31EF7918100D7210C /* UINavigationBar+Awesome.m in Sources */,
 				FA0670231F23963200B0BC63 /* ActionSheetLocalePicker.m in Sources */,
 				FAF6A3661F1BB9140068C0D5 /* NSDate+convenience.m in Sources */,
@@ -1763,8 +1803,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoming.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "843287f7-f0cb-4881-b776-fe376f9ece04";
-				PROVISIONING_PROFILE_SPECIFIER = XiaoMing;
+				PROVISIONING_PROFILE = "400f9548-3104-4567-8e22-2fd5c25c0907";
+				PROVISIONING_PROFILE_SPECIFIER = xiu_xiaoming;
 			};
 			name = Debug;
 		};
@@ -1780,8 +1820,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoming.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "843287f7-f0cb-4881-b776-fe376f9ece04";
-				PROVISIONING_PROFILE_SPECIFIER = XiaoMing;
+				PROVISIONING_PROFILE = "400f9548-3104-4567-8e22-2fd5c25c0907";
+				PROVISIONING_PROFILE_SPECIFIER = xiu_xiaoming;
 			};
 			name = Release;
 		};

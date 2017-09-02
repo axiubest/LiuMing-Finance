@@ -54,39 +54,8 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardHideShow:) name:UIKeyboardWillHideNotification object:nil];
 }
 
-- (void)keyboardWillShow:(NSNotification *)notification {
-    CGRect keyboardFrame  =[notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    CGFloat height = keyboardFrame.origin.y;
-    CGFloat textField_maxY = (textF.tag + 1) * 95;
-    CGFloat space = -self.myTableView.contentOffset.y + textField_maxY;
-    CGFloat transformY = height - space;
-    if (transformY < 0) {
-        CGRect frame = self.view.frame;
-        frame.origin.y = transformY;
-        self.view.frame = frame;
-    }
-}
-
-- (void)keyboardHideShow:(NSNotification *)notification {
-    CGRect frame = self.view.frame;
-    frame.origin.y = 0;
-    self.view.frame = frame;
-}
-
-
-//- (void)viewDidDisappear:(BOOL)animated {
-//    [self viewDidDisappear:animated];
-//    [self.view endEditing:YES];
-//    [[NSNotificationCenter defaultCenter] removeObserver:self];
-//}
-- (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (section==0) {

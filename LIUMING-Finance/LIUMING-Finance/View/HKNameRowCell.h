@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface HKNameRowCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *title;
+@property (weak, nonatomic) IBOutlet UILabel *disLab;
+@property (weak, nonatomic) IBOutlet UIImageView *imgLab;
 +(HKNameRowCell *)nameRowCell;
 @end

@@ -108,9 +108,8 @@
     self.tableView.dataSource = self;
     self.tableView.separatorStyle =  UITableViewCellSeparatorStyleNone;
     [self studentBtnClick:self.studentBtn];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-    ui_yhtype = [XIU_Login ui_yhtype];
+
+    ui_yhtype = [[XIU_Login ui_yhtype] length] > 0 ? [XIU_Login ui_yhtype] : @"1";
     if ([ui_yhtype isEqualToString:@"1"]) {
         [self studentBtnClick:_studentBtn];
 
