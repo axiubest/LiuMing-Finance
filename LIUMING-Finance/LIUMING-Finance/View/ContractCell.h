@@ -13,14 +13,14 @@
 
 
 //居间协议
-- (void)clickJuJianBtnWithOi_pdf:(NSString *)pdf Oi_htid:(NSString *)oi_htid Type:(NSString *)type;
+- (void)clickJuJianBtnWithOi_pdf:(NSString *)pdf Oi_htid:(NSString *)oi_htid Type:(NSString *)type Oi_sign:(NSString *)oi_sign;
 
 
 //收据合同
-- (void)clickShouJuBtnWithOi_pdf:(NSString *)pdf Oi_htid:(NSString *)oi_htid Type:(NSString *)type;
+- (void)clickShouJuBtnWithOi_pdf:(NSString *)pdf Oi_htid:(NSString *)oi_htid Type:(NSString *)type Oi_sign:(NSString *)oi_sign;
 
 //借款合同
-- (void)clickJieKuanBtnWithOi_pdf:(NSString *)pdf Oi_htid:(NSString *)oi_htid Type:(NSString *)type;
+- (void)clickJieKuanBtnWithOi_pdf:(NSString *)pdf Oi_htid:(NSString *)oi_htid Type:(NSString *)type Oi_sign:(NSString *)oi_sign;
 @end
 
 @interface ContractCell : UITableViewCell

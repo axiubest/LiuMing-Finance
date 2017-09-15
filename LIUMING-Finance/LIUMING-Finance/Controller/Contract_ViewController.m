@@ -86,27 +86,32 @@
 
 
 //居间协议1
-- (void)clickJuJianBtnWithOi_pdf:(NSString *)pdf Oi_htid:(NSString *)oi_htid Type:(NSString *)type{
-    [self pushWebViewWithPdf:pdf Oi_id:oi_htid  Type:type];
+- (void)clickJuJianBtnWithOi_pdf:(NSString *)pdf Oi_htid:(NSString *)oi_htid Type:(NSString *)type Oi_sign:(NSString *)oi_sign{
+    [self pushWebViewWithPdf:pdf Oi_id:oi_htid  Type:type Oi_Sign:oi_sign];
 }
 
 //借款合同2
-- (void)clickJieKuanBtnWithOi_pdf:(NSString *)pdf Oi_htid:(NSString *)oi_htid Type:(NSString *)type{
-    [self pushWebViewWithPdf:pdf Oi_id:oi_htid  Type:type];
+- (void)clickJieKuanBtnWithOi_pdf:(NSString *)pdf Oi_htid:(NSString *)oi_htid Type:(NSString *)type Oi_sign:(NSString *)oi_sign{
+    [self pushWebViewWithPdf:pdf Oi_id:oi_htid  Type:type Oi_Sign:oi_sign];
 
 }
 //收据合同3
-- (void)clickShouJuBtnWithOi_pdf:(NSString *)pdf Oi_htid:(NSString *)oi_htid Type:(NSString *)type{
-    [self pushWebViewWithPdf:pdf Oi_id:oi_htid Type:type];
-
+- (void)clickShouJuBtnWithOi_pdf:(NSString *)pdf Oi_htid:(NSString *)oi_htid Type:(NSString *)type Oi_sign:(NSString *)oi_sign{
+    
+    if ([[XIU_Login type] isEqualToString:ThirdType]) {
+        [self pushWebViewWithPdf:pdf Oi_id:oi_htid Type:type Oi_Sign:@""];
+    }else {
+        [self pushWebViewWithPdf:pdf Oi_id:oi_htid Type:type Oi_Sign:oi_sign];
+    }
 }
 
 
-- (void)pushWebViewWithPdf:(NSString *)pdf Oi_id:(NSString *)oi_id  Type:(NSString *)type{
+- (void)pushWebViewWithPdf:(NSString *)pdf Oi_id:(NSString *)oi_id  Type:(NSString *)type Oi_Sign:(NSString *)oi_sign{
     XIU_WebViewController *vc = [[XIU_WebViewController alloc] init];
     vc.pdf_url = pdf;
     vc.hetong = type;
     vc.oi_id = oi_id;
+    vc.oi_sign = oi_sign;
     [self presentViewController:vc animated:YES completion:nil];
 }
 

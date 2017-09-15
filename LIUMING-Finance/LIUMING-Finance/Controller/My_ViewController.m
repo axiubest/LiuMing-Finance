@@ -45,6 +45,9 @@
 }
 
 -(NSArray *)arr{
+    
+    
+    
     if (!_arr) {
         HKBaseTableModel *model = [[HKBaseTableModel alloc] init];
         model.iconImg = @"客户经理";
@@ -58,7 +61,7 @@
 
         HKBaseTableModel *model1 = [[HKBaseTableModel alloc] init];
         model1.iconImg = @"申请代理";
-        model1.iconTitle = @"申请代理";
+        model1.iconTitle = [[XIU_Login type] isEqualToString:@"7"] ? @"一级代理" : @"申请代理";
         HKBaseTableModel *model2 = [[HKBaseTableModel alloc] init];
         model2.iconImg = @"意见反馈";
         model2.iconTitle = @"意见反馈";
@@ -202,7 +205,8 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section==3&&indexPath.row==0) {
+    if (indexPath.section==3&&indexPath.row==0 && ![[XIU_Login type] isEqualToString:@"7"]) {
+        //如果ui_type为3 不跳转到申请代理页面
         Delegate_ViewController *vc = [[Delegate_ViewController alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];

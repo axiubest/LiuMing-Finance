@@ -102,8 +102,21 @@
   
 
     [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_doRegister withParams:@{@"ui_phone":_phoneTextField.text, @"ui_pwd":_pswTextField.text, @"again_ui_pwd":_surePswTextField.text, @"cd_code":_codeTextField.text, @"recommend_code":_recommendTextField.text > 0 ? _recommendTextField.text : @""} withMethodType:Post andBlock:^(id data, NSError *error) {
+        
+        if ([data[@"status"] isEqualToString:@"code_false"]) {
+            XIUHUD(@"验证码错误");
+            return ;
+        }
+        if ([data[@"status"] isEqualToString:@"overdue"]) {
+            XIUHUD(@"验证码过期");
+            return ;
+        }
         if ([data[@"status"] isEqualToString:@"user is exists"]) {
             XIUHUD(@"您已注册过账号");
+            return ;
+        }
+        if ([data[@"status"] isEqualToString:@"nocode"]) {
+            XIUHUD(@"推荐码不存在");
             return ;
         }
         if ([data[@"status"] isEqualToString:@"success"]) {

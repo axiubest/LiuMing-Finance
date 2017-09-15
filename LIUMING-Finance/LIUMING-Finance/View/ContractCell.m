@@ -23,6 +23,33 @@
     _bodyTitleLabel.text = [NSString stringWithFormat:@"借款%@元，分%@期",model.oi_jkprice, model.oi_jkloans];
     _footerTitleLabel.text = [NSString stringWithFormat:@"借款日期：%@", model.hktime];
     
+    if ([model.oi_sign4 isEqualToString:@"1"]) {
+        //居间合同已经签署
+        [_JuJianBtn setTitle:@"居间已签署" forState:UIControlStateNormal];
+    }if ([model.oi_sign5 isEqualToString:@"1"]) {
+        //借款合同已经签署
+        [_borrowBtn setTitle:@"借款已签署" forState:UIControlStateNormal];
+    }if ([model.oi_sign3 isEqualToString:@"1"]) {
+        //借款合同已经签署
+        [_ShouJuBtn setTitle:@"收据已签署" forState:UIControlStateNormal];
+    }
+    
+    
+    
+    
+    //第三方合同处理
+    if ([[XIU_Login type] isEqualToString:ThirdType]) {
+        if ([model.oi_sign1 isEqualToString:@"1"]) {
+            //居间合同已经签署
+            [_JuJianBtn setTitle:@"居间已签署" forState:UIControlStateNormal];
+        }if ([model.oi_sign2 isEqualToString:@"1"]) {
+            //借款合同已经签署
+            [_borrowBtn setTitle:@"借款已签署" forState:UIControlStateNormal];
+        }
+    }
+
+
+    
 }
 
 - (void)awakeFromNib {
@@ -52,7 +79,8 @@
         [hud hide:YES afterDelay:1.5];
         return;
     }
-    [_delegate clickJuJianBtnWithOi_pdf:tmpModel.oi_pdf1 Oi_htid:tmpModel.oi_id Type:@"1"];
+    //居间
+    [_delegate clickJuJianBtnWithOi_pdf:tmpModel.oi_pdf1 Oi_htid:tmpModel.oi_id Type:@"1" Oi_sign:tmpModel.oi_sign1];
 }
 - (IBAction)clickJieKuan:(id)sender {
     if (!(tmpModel.oi_htid2.length > 0)) {
@@ -63,7 +91,9 @@
         [hud hide:YES afterDelay:1.5];
         return;
     }
-    [_delegate clickJieKuanBtnWithOi_pdf:tmpModel.oi_pdf2 Oi_htid:tmpModel.oi_id Type:@"2"];
+    
+    //借款
+    [_delegate clickJieKuanBtnWithOi_pdf:tmpModel.oi_pdf2 Oi_htid:tmpModel.oi_id Type:@"2" Oi_sign:tmpModel.oi_sign2];
 }
 - (IBAction)clickShouJu:(id)sender {
     if (!(tmpModel.oi_htid3.length > 0)) {
@@ -74,7 +104,7 @@
         [hud hide:YES afterDelay:1.5];
         return;
     }
-    [_delegate clickShouJuBtnWithOi_pdf:tmpModel.oi_pdf3 Oi_htid:tmpModel.oi_id Type:@"3"];
+    [_delegate clickShouJuBtnWithOi_pdf:tmpModel.oi_pdf3 Oi_htid:tmpModel.oi_id Type:@"3" Oi_sign:tmpModel.oi_sign3];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -13,5 +13,6 @@
 @property (nonatomic, copy) NSString *pdf_url;
 @property (nonatomic, copy) NSString *oi_id;
 @property (nonatomic, copy) NSString *hetong;
+@property (nonatomic, copy) NSString *oi_sign;
 
 @end

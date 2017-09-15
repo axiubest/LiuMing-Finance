@@ -7,16 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class ManagerModel;
 @interface MyManagerCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *nameLab;
-@property (weak, nonatomic) IBOutlet UILabel *timeOrStatusLab;
-
-@property (weak, nonatomic) IBOutlet UILabel *timeLab;
 @property (weak, nonatomic) IBOutlet UILabel *describtionLab;
-@property (weak, nonatomic) IBOutlet UILabel *moneyLab;
+@property (weak, nonatomic) IBOutlet UILabel *timeOrStatusLab;
+@property (weak, nonatomic) IBOutlet UILabel *timeLab;
 @property (weak, nonatomic) IBOutlet UIView *phoneView;
 @property (weak, nonatomic) IBOutlet UIView *weChatView;
-@property (weak, nonatomic) IBOutlet UILabel *phoneNumLab;
-@property (weak, nonatomic) IBOutlet UILabel *weChatlab;
+
+- (void)setValueWithModel:(ManagerModel *)mod;
 @end

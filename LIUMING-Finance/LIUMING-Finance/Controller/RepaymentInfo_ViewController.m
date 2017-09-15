@@ -59,32 +59,26 @@
                  @{@"iconImage":@"还款方式",@"title":@"罚息",@"subtitle":subtitle},
                   @{@"iconImage":@"还款方式",@"title":@"还款方式",@"subtitle":_moneyType},
                   @{@"iconImage":@"还款状态",@"title":@"还款状态",@"subtitle":_mod.oi_state},
-                  @{@"iconImage":@"还款总额",@"title":@"还款总额",@"subtitle":_mod.hkzje}
+                  @{@"iconImage":@"还款总额",@"title":@"还款总额",@"subtitle":_mod.hkzje},
+                 @{@"iconImage":@"还款状态",@"title":@"还款计划",@"subtitle":@""}
                  ];
     
 }
 
-//@"headerImg":@"已出账单",
-//@"headerTitle":@"已出账单",
-//@"headerSubTitle":@"已逾期",
-//@"bodyTitle":@"借款8000元，分2期  2-3",
-//@"bodySubTitle":@"¥3096.67",
-//@"bodyFine":@"(含罚息¥200.00)",
-//@"footerTitle":@"还款日期：06/19",
-//@"footerSubTitle":@"立即还款"
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row==4) {
+    if (indexPath.row==5) {
         return 278*0.5;
     }
     return 45;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.arr.count+1;
+    return self.arr.count + 1;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if (indexPath.row==4) {
+    if (indexPath.row==5) {
         HKSubmitCell *cell = [HKSubmitCell submitCell];
         cell.btnStr = @"提交";
         cell.doBtn.hidden = [[_mod oi_state] isEqualToString:@"已结清"] ? YES : [[_mod oi_state] isEqualToString:@"已还款"] ? YES : [[_mod oi_state] isEqualToString:@"不通过"] ? YES : [[_mod oi_state] isEqualToString:@"审核中"] ? YES : NO;
@@ -112,9 +106,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    OrderDetail_ViewController *vc = [OrderDetail_ViewController loadViewControllerFromMainStoryBoard];
-    vc.oi_id = _mod.oi_id;
-    [self showViewController:vc sender:nil];
+    if (indexPath.row == 4) {
+        OrderDetail_ViewController *vc = [OrderDetail_ViewController loadViewControllerFromMainStoryBoard];
+        vc.oi_id = _mod.oi_id;
+        [self showViewController:vc sender:nil];
+    }
+
 //    [self.navigationController pushViewController:vc animated:YES];
     
 //    XIU_WeakSelf(self)
@@ -138,7 +135,6 @@
 
     UIAlertView *al = [[UIAlertView alloc] initWithTitle:@"确定还款" message:@"" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
     [al show];
-    [self request];
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -146,6 +142,7 @@
     if (buttonIndex == 0) {
         
     }else {//确认
+        [self request];
         if ([_moneyType isEqualToString:@"线上"]) {
             _contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 300)];
             _contentView.backgroundColor = [UIColor clearColor];

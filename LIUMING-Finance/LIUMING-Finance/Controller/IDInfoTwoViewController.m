@@ -119,26 +119,7 @@
     }
 }
 
-//-(void)keyBoardWillHide:(NSNotification *)note{
-//    CGFloat duration = [note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-//    [UIView animateWithDuration:duration animations:^{
-//        self.view.y = 0;
-//    }];
-//    
-//}
-//
-//-(void)keyBoardWillShow:(NSNotification *)note{
-//    CGRect frame = [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
-//    CGFloat y = frame.origin.y;
-//    CGFloat cellY = CGRectGetMaxY(self.currentCell.frame)+109-self.tableView.contentOffset.y;
-//    if (cellY>y){
-//        CGFloat duration = [note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-//        
-//        [UIView animateWithDuration:duration animations:^{
-//            self.view.y = -cellY + y;
-//        }];
-//    }
-//}
+
 
 
 - (NSString *)imageBase64WithDataURL:(UIImage *)image

@@ -12,7 +12,7 @@
 #import "Login_ViewController.h"
 #import "HKBaseTableModel.h"
 #import "MJExtension.h"
-@interface Manager_MyDelegate_ViewController ()<UITableViewDelegate, UITableViewDataSource,UIAlertViewDelegate>
+@interface Manager_MyDelegate_ViewController ()<UITableViewDelegate, UITableViewDataSource>
 {
     NSInteger page;
 }
@@ -26,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     page = 1;
-    [self createNavgationButtonWithImageNmae:@"退出" title:nil target:self action:@selector(clickEdit) type:UINavigationItem_Type_LeftItem];
+
     [self.dataSource removeAllObjects];
     [_XIUTableView registerNib:[ManagerCell XIU_ClassNib] forCellReuseIdentifier:[ManagerCell XIU_ClassIdentifier]];
     [self addRefresh];
@@ -36,19 +36,7 @@
 }
 
 
-- (void)clickEdit {
-    UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"确定退出？" message:nil delegate:self cancelButtonTitle:@"取消"otherButtonTitles:@"确定", nil];
-    [alert show];
-}
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 1) {
-        [XIU_Login doLogOut];
-        UIWindow *window = [UIApplication sharedApplication].delegate.window;
-        
-        window.rootViewController = [Login_ViewController loadViewControllerFromMainStoryBoard];
-    }
-}
 - (void)addRefresh {
     self.XIUTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.dataSource removeAllObjects];
@@ -106,7 +94,7 @@
 
 }
 - (void)request {
-    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:@"Index/index"withParams:@{@"ui_id":[XIU_Login userId],@"page_num":[NSNumber numberWithInteger:page], @"ui_type":@"6"} withMethodType:Post andBlock:^(id data, NSError *error) {
+    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:@"Index/my_apply"withParams:@{@"ui_id":[XIU_Login userId],@"page_num":[NSNumber numberWithInteger:page]} withMethodType:Post andBlock:^(id data, NSError *error) {
         
         for (NSDictionary *obj in data[@"data"]) {
             
@@ -118,6 +106,9 @@
         [self endRefresh];
     }];
 }
+
+
+
 
 -(NSMutableArray *)dataSource {
     if (!_dataSource) {

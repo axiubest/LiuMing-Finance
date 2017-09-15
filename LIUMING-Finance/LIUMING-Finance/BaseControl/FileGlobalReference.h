@@ -46,6 +46,7 @@
 #define API_payment @"Index/payment"
 #define API_repay @"Index/repay"
 #define API_plan @"Index/plan"
+#define API_my_customer @"Index/my_customer"
 
 
 #endif /* FileGlobalReference_h */

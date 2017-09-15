@@ -74,8 +74,8 @@
     }else{
         return 278*0.5;
     }
-    
 }
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section==0) {
         HKDelegateCell *cell ;
@@ -111,10 +111,6 @@
 
 
 
--(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    [self.view endEditing:YES];
-}
-
 - (void)click:(UITextField *)textField {
     
     switch (textField.tag) {
@@ -149,6 +145,8 @@
 
 
 - (void)submitCellBtnClick:(HKSubmitCell *)cell {
+    
+    [self.view endEditing:YES];
     [self request];
 }
 

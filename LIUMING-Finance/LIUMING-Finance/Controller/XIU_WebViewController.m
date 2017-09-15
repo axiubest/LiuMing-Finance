@@ -96,12 +96,13 @@
 
 
     [self.navRightBtn setTitle:@"签名" forState:UIControlStateNormal];
+   self.navRightBtn.hidden  = [_oi_sign isEqualToString:@"1"] ? YES : NO;
+    
     
      //第三方人员借款收据没有签名
-    self.navRightBtn.hidden = [_hetong isEqualToString:@"3"] && [[XIU_Login type] isEqualToString:ThirdType] ? YES : NO;
-
-   
     if ([[XIU_Login type] isEqualToString:ThirdType]) {
+        self.navRightBtn.hidden  = [_oi_sign isEqualToString:@"1"] ? YES : NO;
+    self.navRightBtn.hidden = [_hetong isEqualToString:@"3"] ? YES : NO;
         self.drawView.hidden = YES;
         hidLayer.hidden = YES;
     }

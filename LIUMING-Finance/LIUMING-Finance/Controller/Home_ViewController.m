@@ -28,7 +28,16 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *moneyLab;
 @property (weak, nonatomic) IBOutlet UILabel *timeLab;
- 
+
+
+
+//constaint
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *toolButtonConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *borrow_topConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *money_topConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *date_bottomConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *sureBtn_topConstraint;
+
 @end
 
 @implementation Home_ViewController
@@ -52,17 +61,39 @@
     
     //首页适配
     
-    if (KWIDTH == 320) {
+    if (KWIDTH < 375) {
         _moneyLab.font = [UIFont systemFontOfSize:35];
         _timeLab.font = [UIFont systemFontOfSize:35];
         _disLab.font = [UIFont systemFontOfSize:20];
+//        _toolButtonConstraint.constant = 40;
+        _borrow_topConstraint.constant = 10;
+        _money_topConstraint.constant = 0;
+        _date_bottomConstraint.constant = 10;
+        _sureBtn_topConstraint.constant = 10;
     }
     
     [super viewDidLoad];
     [self setUpBase];
-//    [self request];
 
+    
+    //根据ui_applying判断弹出审核未通过-3
+    [self checkPass];
+    
+ 
     NSLog(@"%@", kPathDocument);
+
+}
+
+- (void)checkPass {
+    if ([[XIU_Login ui_applying] isEqualToString:@"3"]) {
+        HKPerfectInfoView *infoView = [HKPerfectInfoView perfectInfoView];
+        infoView.destribtionList.text = @"审核未通过";
+        
+        infoView.btn.hidden = YES;
+        infoView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
+        infoView.myDelegate = self;
+        [infoView show];
+    }
 
 }
 

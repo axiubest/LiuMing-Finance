@@ -25,13 +25,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-//    [self normal];
-#warning 
-    Manager_ViewController *v = [[Manager_ViewController alloc] init];
-    v.title = @"客户经理";
-    HKNavigationController *nav = [[HKNavigationController alloc] initWithRootViewController:v];
-    self.window.rootViewController = nav;
-
+    [self normal];
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -68,7 +62,7 @@
          
         }if ([[XIU_Login type] isEqualToString:ThirdType]) {//第三方人员显示合同列表
             
-            Contract_ViewController *contract =  [Contract_ViewController loadViewControllerFromMainStoryBoard];
+            Contract_ViewController *contract =  (Contract_ViewController *)[Contract_ViewController loadViewControllerFromMainStoryBoard];
              HKNavigationController *nav = [[HKNavigationController alloc] initWithRootViewController:contract];
             self.window.rootViewController = nav;
 

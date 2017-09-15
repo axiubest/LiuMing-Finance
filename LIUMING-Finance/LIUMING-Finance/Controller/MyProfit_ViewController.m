@@ -9,7 +9,11 @@
 #import "MyProfit_ViewController.h"
 #import "HKProfitCell.h"
 #import "MyList_ViewController.h"
+#import "MJRefresh.h"
 @interface MyProfit_ViewController ()<UITableViewDelegate,UITableViewDataSource>
+{
+    NSInteger page;
+}
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *allMoneyLab;
 @property (nonatomic,strong) NSMutableArray *arr;
@@ -27,13 +31,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self request];
+    page = 1;
+    [self addRefresh];
     _allMoneyLab.text = _allGetStr;
     self.title = @"我的收益";
-//    self.tableView.dataSource = self;
-//    self.tableView.delegate = self;
-//    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = [UIColor colorWithHexString:@"#f4f4f4"];
 }
+
+- (void)addRefresh {
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self.arr removeAllObjects];
+        page = 1;
+        [self request];
+    }];
+    
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        page+=1;
+        [self request];
+    }];
+}
+
+
+
+
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 10;
 }
@@ -52,10 +72,13 @@
     cell.subTitle2Label.text = dic[@"pl_price"];
     return cell;
 }
-
+-(void)endRefresh{
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
+}
 
 - (void)request {
-    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_profit withParams:@{@"ui_id":[XIU_Login userId]} withMethodType:Post andBlock:^(id data, NSError *error) {
+    [[XIU_NetAPIClient sharedJsonClient]requestJsonDataWithPath:API_profit withParams:@{@"ui_id":[XIU_Login userId], @"page_num":[NSNumber numberWithInteger:page]} withMethodType:Post andBlock:^(id data, NSError *error) {
         
 
             for (NSDictionary *dic in data[@"data"]) {
@@ -68,7 +91,10 @@
                 [self.arr addObject:d];
         }
         [self.tableView reloadData];
+        [self endRefresh];
     }];
 }
+
+
 
 @end

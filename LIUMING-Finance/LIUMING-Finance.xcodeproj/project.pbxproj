@@ -199,6 +199,7 @@
 		FA7017191F599DE0003E7BAD /* ManagerStatus_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA7017171F599DE0003E7BAD /* ManagerStatus_ViewController.xib */; };
 		FA70171D1F59A9F6003E7BAD /* MyManagerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA70171B1F59A9F6003E7BAD /* MyManagerCell.m */; };
 		FA70171E1F59A9F6003E7BAD /* MyManagerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA70171C1F59A9F6003E7BAD /* MyManagerCell.xib */; };
+		FA7018871F5A8957003E7BAD /* ManagerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7018861F5A8957003E7BAD /* ManagerModel.m */; };
 		FA86F23A1F19AAC300CBAC4B /* XIU_NetAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FA86F2391F19AAC300CBAC4B /* XIU_NetAPIClient.m */; };
 		FAF6A3301F1B00300068C0D5 /* UIViewController+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF6A32F1F1B00300068C0D5 /* UIViewController+Common.m */; };
 		FAF6A3341F1B31560068C0D5 /* MyList_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF6A3321F1B31560068C0D5 /* MyList_ViewController.m */; };
@@ -599,6 +600,8 @@
 		FA70171A1F59A9F6003E7BAD /* MyManagerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyManagerCell.h; sourceTree = "<group>"; };
 		FA70171B1F59A9F6003E7BAD /* MyManagerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyManagerCell.m; sourceTree = "<group>"; };
 		FA70171C1F59A9F6003E7BAD /* MyManagerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyManagerCell.xib; sourceTree = "<group>"; };
+		FA7018851F5A8957003E7BAD /* ManagerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerModel.h; sourceTree = "<group>"; };
+		FA7018861F5A8957003E7BAD /* ManagerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerModel.m; sourceTree = "<group>"; };
 		FA86F2381F19AAC300CBAC4B /* XIU_NetAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XIU_NetAPIClient.h; sourceTree = "<group>"; };
 		FA86F2391F19AAC300CBAC4B /* XIU_NetAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XIU_NetAPIClient.m; sourceTree = "<group>"; };
 		FAF6A32E1F1B00300068C0D5 /* UIViewController+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Common.h"; sourceTree = "<group>"; };
@@ -1022,6 +1025,8 @@
 				4CB8C76E1F239F20009D090B /* MyListModel.m */,
 				FA2B1C371F264C1A000D889D /* FinanceModel.h */,
 				FA2B1C381F264C1A000D889D /* FinanceModel.m */,
+				FA7018851F5A8957003E7BAD /* ManagerModel.h */,
+				FA7018861F5A8957003E7BAD /* ManagerModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1588,6 +1593,7 @@
 				FA39B9041F406C8500BA1D91 /* ContractModel.m in Sources */,
 				FA0670211F23963200B0BC63 /* ActionSheetDatePicker.m in Sources */,
 				043E69171F17D8FC0065016B /* HKNavigationController.m in Sources */,
+				FA7018871F5A8957003E7BAD /* ManagerModel.m in Sources */,
 				18F9738E1F3DA4A700E77934 /* MJRefreshBackNormalFooter.m in Sources */,
 				04DDC38C1F14D618003D7567 /* HKSubmitCell.m in Sources */,
 				FAF6A3391F1B32C40068C0D5 /* MyInfo_ViewController.m in Sources */,
@@ -1799,7 +1805,7 @@
 				DEVELOPMENT_TEAM = QHG97UKQQ6;
 				GCC_PREFIX_HEADER = "LIUMING-Finance/BaseControl/PrefixHeader.pch";
 				INFOPLIST_FILE = "LIUMING-Finance/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoming.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1816,7 +1822,7 @@
 				DEVELOPMENT_TEAM = QHG97UKQQ6;
 				GCC_PREFIX_HEADER = "LIUMING-Finance/BaseControl/PrefixHeader.pch";
 				INFOPLIST_FILE = "LIUMING-Finance/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoming.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";

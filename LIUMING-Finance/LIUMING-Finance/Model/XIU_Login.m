@@ -190,8 +190,8 @@ static XIU_User *curLoginUser;
 
 +(NSString *)type {
     //3终端 2财务 5催收
-
-//    return @"2";
+    
+//    return @"7";
     return [NSString stringWithFormat:@"%@", [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_type"]] ;
 }
 
@@ -212,7 +212,7 @@ static XIU_User *curLoginUser;
 
 +(NSString *)ui_qqwx {
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_qqwx"] length] < 4) {
-        return @"请前往完善微信号";
+        return @"";
     }
     return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginUserDict][@"ui_qqwx"];
 

@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -27,7 +26,6 @@
                     <connections>
                         <segue destination="I2G-AQ-Ngg" kind="relationship" relationship="viewControllers" id="osJ-57-9dy"/>
                         <segue destination="emm-hv-Mjk" kind="relationship" relationship="viewControllers" id="iED-bY-3Kf"/>
-                        <segue destination="rwg-hJ-Yw6" kind="relationship" relationship="viewControllers" id="uLR-pW-d4x"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b4W-PL-a6D" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -222,16 +220,21 @@
                     </view>
                     <navigationItem key="navigationItem" title="11" id="UjO-Zp-Luv"/>
                     <connections>
+                        <outlet property="borrow_topConstraint" destination="4IQ-he-dBz" id="aSF-df-FlE"/>
+                        <outlet property="date_bottomConstraint" destination="cml-ov-VOp" id="aGo-zd-gsd"/>
                         <outlet property="disLab" destination="kEr-yN-lQe" id="Fh0-Pc-sDq"/>
                         <outlet property="everyMonth" destination="SmB-Nz-49l" id="39k-hl-WJY"/>
                         <outlet property="giveBtn" destination="i2m-w5-W6b" id="NYw-hj-QHA"/>
                         <outlet property="moneyLab" destination="NqT-nm-HQC" id="Z46-3m-RIl"/>
                         <outlet property="moneyLabel" destination="5yg-Th-SB6" id="H8U-6y-TFc"/>
                         <outlet property="moneySlider" destination="tVm-vg-1mt" id="jcH-Ie-fdi"/>
+                        <outlet property="money_topConstraint" destination="idN-5w-oiO" id="Tz5-8P-fdX"/>
                         <outlet property="progressBtn" destination="K0C-Bp-Gou" id="L1c-H7-vkZ"/>
+                        <outlet property="sureBtn_topConstraint" destination="Gby-5A-5yZ" id="1bt-sY-zIR"/>
                         <outlet property="timeLab" destination="b9K-fd-qjP" id="4SW-nx-f47"/>
                         <outlet property="timeLabel" destination="Wi1-On-9py" id="cRp-WZ-ypA"/>
                         <outlet property="timeSlider" destination="6TC-Cn-EaJ" id="DXY-Nl-k74"/>
+                        <outlet property="toolButtonConstraint" destination="pMb-gV-Qtx" id="Tp7-8M-Zag"/>
                         <outlet property="userMoneyBtn" destination="l6E-se-4uk" id="ooq-Fn-kZW"/>
                     </connections>
                 </viewController>
@@ -277,7 +280,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="328-NZ-vpB">
-                                        <rect key="frame" x="27" y="280" width="321" height="200.5"/>
+                                        <rect key="frame" x="27" y="280" width="321" height="201"/>
                                         <string key="text"> 小茗钱包
 
  方便 灵活 安心 
@@ -288,7 +291,7 @@
 客服电话：0571-86704220
 商务合作：0571-86718330
 
-
+官方唯一公众号：柳茗金融
 官方网址：http://www.liumingdai.com</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.30196078430000001" green="0.30196078430000001" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -692,19 +695,19 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥2800.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQ7-Ba-K22">
-                                                    <rect key="frame" x="18" y="32.5" width="110" height="29"/>
+                                                    <rect key="frame" x="18" y="33" width="110" height="29"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Llu-tG-jHC">
-                                                    <rect key="frame" x="324.5" y="11.5" width="37.5" height="18"/>
+                                                    <rect key="frame" x="324" y="12" width="38" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3b-Ae-vkr">
-                                                    <rect key="frame" x="324" y="38" width="37.5" height="18"/>
+                                                    <rect key="frame" x="324" y="39" width="38" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -1765,8 +1768,8 @@
                                     <constraint firstAttribute="width" constant="150" id="mxF-RL-CAT"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="更多内容敬请期待" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00e-T5-YkE">
-                                <rect key="frame" x="118" y="324" width="139" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00e-T5-YkE">
+                                <rect key="frame" x="187.5" y="324" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
