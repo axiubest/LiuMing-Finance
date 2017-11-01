@@ -78,6 +78,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ContractCell *cell = [tableView dequeueReusableCellWithIdentifier:[ContractCell XIU_ClassIdentifier]];
     [cell setDta:self.dataSource[indexPath.section]];
+    
+    
+    //第三方人员显示借款人信息
+    cell.ui_nameLab.text = [[XIU_Login type] isEqualToString:ThirdType] ? [self.dataSource[indexPath.section] ui_name] : @"";
     cell.delegate = self;
     return cell;
     

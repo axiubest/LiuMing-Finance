@@ -80,7 +80,7 @@
         return;
     }
     //居间
-    [_delegate clickJuJianBtnWithOi_pdf:tmpModel.oi_pdf1 Oi_htid:tmpModel.oi_id Type:@"1" Oi_sign:tmpModel.oi_sign1];
+    [_delegate clickJuJianBtnWithOi_pdf:tmpModel.oi_pdf1 Oi_htid:tmpModel.oi_id Type:@"1" Oi_sign:tmpModel.oi_sign4];
 }
 - (IBAction)clickJieKuan:(id)sender {
     if (!(tmpModel.oi_htid2.length > 0)) {
@@ -93,7 +93,7 @@
     }
     
     //借款
-    [_delegate clickJieKuanBtnWithOi_pdf:tmpModel.oi_pdf2 Oi_htid:tmpModel.oi_id Type:@"2" Oi_sign:tmpModel.oi_sign2];
+    [_delegate clickJieKuanBtnWithOi_pdf:tmpModel.oi_pdf2 Oi_htid:tmpModel.oi_id Type:@"2" Oi_sign:tmpModel.oi_sign5];
 }
 - (IBAction)clickShouJu:(id)sender {
     if (!(tmpModel.oi_htid3.length > 0)) {

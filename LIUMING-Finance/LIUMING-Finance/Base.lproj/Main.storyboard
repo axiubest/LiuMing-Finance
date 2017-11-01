@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8v8-bU-NfV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8v8-bU-NfV">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -342,7 +342,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="168"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2BR-JS-Jyk" id="Weh-p4-6iV">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="167"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="168"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VZf-1B-Po0">
@@ -364,6 +364,12 @@
                                                                 <constraint firstAttribute="height" constant="1" id="T6d-T3-swb"/>
                                                             </constraints>
                                                         </view>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="84O-f7-bX7">
+                                                            <rect key="frame" x="360" y="19.5" width="0.0" height="0.0"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -371,6 +377,8 @@
                                                         <constraint firstItem="fi4-ab-lSa" firstAttribute="centerY" secondItem="VZf-1B-Po0" secondAttribute="centerY" id="3It-lY-Bmj"/>
                                                         <constraint firstItem="tqL-o3-JyI" firstAttribute="leading" secondItem="VZf-1B-Po0" secondAttribute="leading" constant="14" id="7wa-gf-IrD"/>
                                                         <constraint firstAttribute="trailing" secondItem="5li-kf-Mha" secondAttribute="trailing" id="Epu-3m-ffV"/>
+                                                        <constraint firstAttribute="trailing" secondItem="84O-f7-bX7" secondAttribute="trailing" constant="15" id="bc0-Sl-eo7"/>
+                                                        <constraint firstItem="84O-f7-bX7" firstAttribute="centerY" secondItem="VZf-1B-Po0" secondAttribute="centerY" id="fna-h6-NPF"/>
                                                         <constraint firstItem="tqL-o3-JyI" firstAttribute="centerY" secondItem="VZf-1B-Po0" secondAttribute="centerY" id="hio-cT-ndo"/>
                                                         <constraint firstAttribute="height" constant="39" id="kWz-CA-l0o"/>
                                                         <constraint firstAttribute="bottom" secondItem="5li-kf-Mha" secondAttribute="bottom" id="rgO-DM-MSe"/>
@@ -494,6 +502,7 @@
                                             <outlet property="borrowBtn" destination="9Ot-Wf-hKN" id="1Fu-Z4-3yw"/>
                                             <outlet property="footerTitleLabel" destination="Cfn-WD-M6O" id="WNp-bk-X2x"/>
                                             <outlet property="headerTitleLabel" destination="fi4-ab-lSa" id="Asc-m6-5rK"/>
+                                            <outlet property="ui_nameLab" destination="84O-f7-bX7" id="Vmz-E9-agm"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -695,19 +704,19 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥2800.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQ7-Ba-K22">
-                                                    <rect key="frame" x="18" y="33" width="110" height="29"/>
+                                                    <rect key="frame" x="18" y="32.5" width="110" height="29"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Llu-tG-jHC">
-                                                    <rect key="frame" x="324" y="12" width="38" height="18"/>
+                                                    <rect key="frame" x="324" y="11" width="38" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3b-Ae-vkr">
-                                                    <rect key="frame" x="324" y="39" width="38" height="18"/>
+                                                    <rect key="frame" x="324" y="38.5" width="38" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>

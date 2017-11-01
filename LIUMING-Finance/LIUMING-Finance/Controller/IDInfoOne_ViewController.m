@@ -509,9 +509,9 @@
         XIUHUD(@"借款额度必须为纯数字");
         return;
     }
-    NSLog(@"%@", ui_limit);
-    NSString *s =[NSString stringWithFormat:@"%ld",[ui_limit integerValue]];
-    NSString* b= [s substringWithRange:NSMakeRange(s.length - 2,2)];
+    
+//    NSString *s =[NSString stringWithFormat:@"%ld",[ui_limit integerValue]];
+//    NSString* b= [s substringWithRange:NSMakeRange(s.length - 2,2)];
 
 //    if (![b isEqualToString:@"00"]) {
 //        XIUHUD(@"借款额度格式错误(例:1000,1800,3300)");
@@ -528,25 +528,25 @@
     if (phoneName1.length < 2) {
         XIUHUD(@"请输入第一位紧急联系人");
         return;
-    }if (phone1.length != 11) {
+    }if (phone1.length < 11) {
         XIUHUD(@"请输入第一位紧急联系人电话");
         return;
     }if (phoneName2.length < 2) {
         XIUHUD(@"请输入第二位紧急联系人");
         return;
-    }if (phone2.length != 11) {
+    }if (phone2.length < 11) {
         XIUHUD(@"请输入第二位紧急联系人电话");
         return;
     }if (phoneName3.length < 2) {
         XIUHUD(@"请输入第三位紧急联系人");
         return;
-    }if (phone3.length != 11) {
+    }if (phone3.length < 11) {
         XIUHUD(@"请输入第三位紧急联系人电话");
         return;
     }if (phoneName4.length < 2) {
         XIUHUD(@"请输入第四位紧急联系人");
         return;
-    }if (phone4.length != 11) {
+    }if (phone4.length < 11) {
         XIUHUD(@"请输入第四位紧急联系人电话");
         return;
     }

@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *XIUTableView;
 
 @property (nonatomic, strong) NSMutableDictionary *dic;
+
 @end
 
 @implementation Manager_ViewController

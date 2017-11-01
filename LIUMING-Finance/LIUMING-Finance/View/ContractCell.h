@@ -27,6 +27,10 @@
 
 
 @property (assign, nonatomic) id<ContractCellDelegate> delegate;
+
+//借款人显示
+@property (weak, nonatomic) IBOutlet UILabel *ui_nameLab;
+
 @property (weak, nonatomic) IBOutlet UILabel *headerTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *bodyTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *bodySubTitleLabel;

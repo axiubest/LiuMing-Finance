@@ -37,9 +37,7 @@
     
 
 }
-@property (weak, nonatomic) IBOutlet UIButton *studentBtn;
-@property (weak, nonatomic) IBOutlet UIButton *workBtn;
-@property (weak, nonatomic) IBOutlet UIView *btnContentView;
+
 @property (nonatomic,weak) UIView *lineView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, assign) NSInteger sourecType;
@@ -53,17 +51,17 @@
 @implementation IDInfoTwoViewController
 -(NSArray *)arr{
     if (!_arr) {
-        //学生
+        
         NSMutableArray *aa = [NSMutableArray array];
         UIImage *image = [UIImage imageNamed:@"添加照片"];
 
 
         NSArray *a = @[
-                 @{@"name":@"学校名称",@"place":@"请输入您的学校名称",@"isHide":@1},
-                 @{@"name":@"就读院系",@"place":@"请输入您的院系",@"isHide":@1},
-                 @{@"name":@"专业班级",@"place":@"请输入您的班级",@"isHide":@1},
-                 @{@"name":@"学籍类型",@"place":@"请输入您的学籍类型",@"isHide":@1},
-                 @{@"name":@"寝室地址",@"place":@"请输入您的寝室地址信息",@"isHide":@1},
+                       @{@"name":@"公司名称",@"place":@"请输入您的公司名称",@"isHide":@1},
+                       @{@"name":@"公司地址",@"place":@"请输入您的公司地址",@"isHide":@1},
+                       @{@"name":@"学历",@"place":@"请输入您的学历",@"isHide":@1},
+                       @{@"name":@"公司职务",@"place":@"请输入您在公司的职务",@"isHide":@1},
+                       @{@"name":@"入职时间",@"place":@"请输入您的入职时间",@"isHide":@1},
                  @{@"name":@"照片上传",@"place":@[
                            [XIU_Login url1].length > 1 ? (img1 == nil ? [XIU_Login url1] : img1) : (img1 == nil ? image : img1),
                            [XIU_Login url2].length > 1 ? (img2 == nil ? [XIU_Login url2] : img2) : (img2 == nil ? image : img2),
@@ -78,15 +76,6 @@
     return _arr;
 }
 
--(UIView *)lineView{
-    if (!_lineView) {
-        UIView *v = [[UIView alloc] init];
-        v.backgroundColor = [UIColor colorWithHexString:@"#328cfe"];
-        [self.btnContentView addSubview:v];
-        _lineView = v;
-    }
-    return _lineView;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -107,16 +96,8 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.separatorStyle =  UITableViewCellSeparatorStyleNone;
-    [self studentBtnClick:self.studentBtn];
 
-    ui_yhtype = [[XIU_Login ui_yhtype] length] > 0 ? [XIU_Login ui_yhtype] : @"1";
-    if ([ui_yhtype isEqualToString:@"1"]) {
-        [self studentBtnClick:_studentBtn];
 
-    }if ([ui_yhtype isEqualToString:@"2"]) {
-
-        [self workBtnClcik:_workBtn];
-    }
 }
 
 
@@ -150,77 +131,11 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-- (IBAction)studentBtnClick:(UIButton *)btn {
-    if (btn.selected) return;
-    btn.selected = YES;
-    self.workBtn.selected = NO;
-    [self drawLine:btn];
-
-    ui_yhtype = @"1";
-    self.arr = [NSMutableArray array];
-    UIImage *image = [UIImage imageNamed:@"添加照片"];
-    
-    
-//    look there
-//    [XIU_Login url1].length > 1 ? (img1 == nil ? [XIU_Login url1] : img1) : (img1 == nil ? image : img1);
-    NSArray *a = @[
-      @{@"name":@"学校名称",@"place":@"请输入您的学校名称",@"isHide":@1},
-      @{@"name":@"就读院系",@"place":@"请输入您的院系",@"isHide":@1},
-      @{@"name":@"专业班级",@"place":@"请输入您的班级",@"isHide":@1},
-      @{@"name":@"学籍类型",@"place":@"请输入您的学籍类型",@"isHide":@1},
-      @{@"name":@"寝室地址",@"place":@"请输入您的寝室地址信息",@"isHide":@1},
-      @{@"name":@"照片上传",@"place":@[
-                [XIU_Login url1].length > 1 ? (img1 == nil ? [XIU_Login url1] : img1) : (img1 == nil ? image : img1),
-                [XIU_Login url2].length > 1 ? (img2 == nil ? [XIU_Login url2] : img2) : (img2 == nil ? image : img2),
-                [XIU_Login url3].length > 1 ? (img3 == nil ? [XIU_Login url3] : img3) : (img3 == nil ? image : img3),
-                 [XIU_Login url4].length > 1 ? (img4 == nil ? [XIU_Login url4] : img4) : (img4 == nil ? image : img4)],
-        @"isHide":@1}
-      ];
-    
-    [self.arr addObjectsFromArray:a];
-    
-    [self.tableView reloadData];
-    
-}
-- (IBAction)workBtnClcik:(UIButton *)btn {
-
-    if (btn.selected) return;
-    
-    btn.selected = YES;
-    self.studentBtn.selected = NO;
-    [self drawLine:btn];
-    ui_yhtype = @"2";
-    UIImage *image = [UIImage imageNamed:@"添加照片"];
-
-    self.arr = [NSMutableArray array];
-    NSArray *a = @[
-                 @{@"name":@"公司名称",@"place":@"请输入您的公司名称",@"isHide":@1},
-                 @{@"name":@"公司地址",@"place":@"请输入您的公司地址",@"isHide":@1},
-                 @{@"name":@"公司电话",@"place":@"请输入您的公司电话",@"isHide":@1},
-                 @{@"name":@"公司职务",@"place":@"请输入您在公司的职务",@"isHide":@1},
-                 @{@"name":@"入职时间",@"place":@"请输入您的入职时间",@"isHide":@0},
-                 @{@"name":@"照片上传",@"place":@[
-                           [XIU_Login url1].length > 1 ? (img1 == nil ? [XIU_Login url1] : img1) : (img1 == nil ? image : img1),
-                           [XIU_Login url2].length > 1 ? (img2 == nil ? [XIU_Login url2] : img2) : (img2 == nil ? image : img2),
-                           [XIU_Login url3].length > 1 ? (img3 == nil ? [XIU_Login url3] : img3) : (img3 == nil ? image : img3),
-                           [XIU_Login url4].length > 1 ? (img4 == nil ? [XIU_Login url4] : img4) : (img4 == nil ? image : img4)],@"isHide":@1}
-                 ];
-    [self.arr addObjectsFromArray:a];
-    [self.tableView reloadData];
-}
 
 
 
 
-//画线
--(void)drawLine:(UIButton *)btn{
-    //下划线
-    CGSize size = [btn.currentTitle sizeWithFont:NB_FONT(15)];
-    CGFloat x = (KWIDTH*0.5-size.width)*0.5+btn.x;
-    CGFloat h = 2;
-    CGFloat y = self.btnContentView.height - h;
-    self.lineView.frame = CGRectMake(x, y, size.width, h);
-}
+
 
 
 
@@ -312,32 +227,24 @@
             break;
         case 1:
             
-            if ([ui_yhtype isEqualToString:@"1"]) {
-                ui_faculty = textField.text;
-            }else {
+          
                 ui_xzaddress = textField.text;
-            }
+            
             break;
         case 2:
-            if ([ui_yhtype isEqualToString:@"1"]) {
-                ui_professional_class = textField.text;
-            }else {
+          
                 ui_comphone = textField.text;
-            }
+            
             break;
         case 3:
-            if ([ui_yhtype isEqualToString:@"1"]) {
-                ui_school_roll = textField.text;
-            }else {
+       
                 ui_job = textField.text;
-            }
+            
             break;
         case 4:
-            if ([ui_yhtype isEqualToString:@"1"]) {
-                ui_xzaddress = textField.text;
-            }else {
+          
                 ui_ed = textField.text;
-            }
+            
             break;
         default:
             break;
@@ -353,37 +260,15 @@
 }
 
 - (void)reuqest {
-    if ([ui_yhtype isEqualToString:@"1"]) {
-        if (ui_workname.length < 2) {
-            XIUHUD(@"请输入学校名称");
-            return;
-        }
-        if (ui_faculty.length < 2) {
-            XIUHUD(@"请输入就读院系");
-            return;
-        }
-        if (ui_professional_class.length < 2) {
-            XIUHUD(@"请输入就专业班级");
-            return;
-        }
-        if (ui_school_roll.length < 1) {
-            XIUHUD(@"请输入学籍类型") return;
-        }
-        if (ui_xzaddress.length < 1) {
-            XIUHUD(@"请输入寝室地址") return;
-        }
 
-        
-    }
-    if ([ui_yhtype isEqualToString:@"2"]) {
         if (ui_workname.length < 2) {
             XIUHUD(@"请输入公司名称")return;
         }
         if (ui_xzaddress.length < 2) {
             XIUHUD(@"请输入公司地址")return;
         }
-        if (ui_comphone.length < 4) {
-            XIUHUD(@"请输入公司电话")return;
+        if (ui_comphone.length < 2) {
+            XIUHUD(@"请输入您的学历")return;
         }
         if (ui_job.length < 2) {
             XIUHUD(@"请输入公司职务")return;
@@ -392,7 +277,7 @@
             XIUHUD(@"请输入入职时间")return;
         }
         
-    }
+    
     
     
     if ([XIU_Login url1].length < 1 && img1 == nil) {
@@ -410,11 +295,8 @@
     }
 
     NSDictionary *dic = [NSDictionary dictionary];
-    if ([ui_yhtype isEqualToString:@"1"]) {
-        dic = @{@"ui_id":[XIU_Login userId],@"ui_yhtype":ui_yhtype,@"ui_workname":ui_workname, @"ui_faculty":ui_faculty, @"ui_professional_class":ui_professional_class, @"ui_school_roll":ui_school_roll, @"ui_xzaddress":ui_xzaddress, @"ui_url1":[XIU_Login url1].length > 1 ? (img1 == nil ? @"" : [self imageBase64WithDataURL:img1]) : [self imageBase64WithDataURL:img1], @"ui_url2":[XIU_Login url2].length > 1 ? (img2 == nil ? @"" : [self imageBase64WithDataURL:img2]) : [self imageBase64WithDataURL:img2],@"ui_url3":[XIU_Login url3].length > 1 ? (img3 == nil ? @"" : [self imageBase64WithDataURL:img3]) : [self imageBase64WithDataURL:img3], @"ui_url4":[XIU_Login url4].length > 1 ? (img4 == nil ? @"" : [self imageBase64WithDataURL:img4]) : [self imageBase64WithDataURL:img4]};
-    }if ([ui_yhtype isEqualToString:@"2"]) {
-      dic = @{@"ui_id":[XIU_Login userId],@"ui_yhtype":ui_yhtype,@"ui_workname":ui_workname,  @"ui_comphone":ui_comphone, @"ui_xzaddress":ui_xzaddress, @"ui_job":ui_job, @"ui_ed":ui_ed,@"ui_url1":[XIU_Login url1].length > 1 ? (img1 == nil ? @"" : [self imageBase64WithDataURL:img1]) : [self imageBase64WithDataURL:img1], @"ui_url2":[XIU_Login url2].length > 1 ? (img2 == nil ? @"" : [self imageBase64WithDataURL:img2]) : [self imageBase64WithDataURL:img2],@"ui_url3":[XIU_Login url3].length > 1 ? (img3 == nil ? @"" : [self imageBase64WithDataURL:img3]) : [self imageBase64WithDataURL:img3], @"ui_url4":[XIU_Login url4].length > 1 ? (img4 == nil ? @"" : [self imageBase64WithDataURL:img4]) : [self imageBase64WithDataURL:img4]};
-    }
+      dic = @{@"ui_id":[XIU_Login userId],@"ui_yhtype":@"2",@"ui_workname":ui_workname,  @"ui_comphone":ui_comphone, @"ui_xzaddress":ui_xzaddress, @"ui_job":ui_job, @"ui_ed":ui_ed,@"ui_url1":[XIU_Login url1].length > 1 ? (img1 == nil ? @"" : [self imageBase64WithDataURL:img1]) : [self imageBase64WithDataURL:img1], @"ui_url2":[XIU_Login url2].length > 1 ? (img2 == nil ? @"" : [self imageBase64WithDataURL:img2]) : [self imageBase64WithDataURL:img2],@"ui_url3":[XIU_Login url3].length > 1 ? (img3 == nil ? @"" : [self imageBase64WithDataURL:img3]) : [self imageBase64WithDataURL:img3], @"ui_url4":[XIU_Login url4].length > 1 ? (img4 == nil ? @"" : [self imageBase64WithDataURL:img4]) : [self imageBase64WithDataURL:img4]};
+    
 
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDModeIndeterminate;
